@@ -6,8 +6,18 @@
     <%= f.input :description %>
     <%= f.association :category %>
     <%= f.association :sub_category %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
+    <%= f.input :latitude, :as => :hidden %>
+    <%= f.input :longitude, :as => :hidden %>
+    
+    <div id="map_canvas" style="width: 640px; height: 480px;"></div>
+    <script>
+    var map = initializeGMap();
+    <% if @venue.new_record? %>
+      setCurrentUserLocationMarker(map, "<%= current_user.location %>");
+    <% else %>
+      setPointOfInterestLocationMarker(map, "<%= @venue.latitude %>", "<%= @venue.longitude %>");
+    <% end %>
+    </script>
   </div>
 
   <div class="actions">
