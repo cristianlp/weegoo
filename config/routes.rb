@@ -1,4 +1,8 @@
 Weegoo::Application.routes.draw do
+  resources :events
+
+  resources :venues
+
   root :to => "main#index"
 
   devise_for :users

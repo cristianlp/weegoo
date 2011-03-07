@@ -9,6 +9,8 @@ gem 'mysql2'
 
 gem 'devise'
 
+gem 'simple_form'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
