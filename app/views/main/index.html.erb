@@ -1,4 +1,22 @@
-<h1>Got a good reason for taking the easy way out.</h1>
-<p>
-<%= image_tag "logo.png", :style => "width: 70px;" %> it's a location aware social network, where you can find friends and share venues and events with them.
-</p>
+<h1 id="slogan">Got a good reason for taking the easy way out.</h1>
+
+<div id="main_images">
+  <div id="left">
+    <%= image_tag "blank_image.png" %>
+    
+    <h2>Find friends</h2>
+  </div>
+
+  <div id="right">
+    <%= image_tag "blank_image.png" %>
+    
+    <h2>Share venues and events</h2>
+  </div>
+  
+  <div id="spacer"></div>
+</div>
+
+<div id="sign_up">
+  <h2>You can start finding friends and share venues and events!</h2>
+  <%= link_to "Sign up", new_user_registration_path %> now, it's free!
+</div>

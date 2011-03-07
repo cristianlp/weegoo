@@ -2,7 +2,6 @@ body
 {
   margin: 0;
   margin-top: -13px;
-  background-color: #f3f3f3 !important;
 }
 
 .narrow
@@ -13,7 +12,6 @@ body
 
 #header
 {
-  background-color: #fff;
   border-bottom: 1px solid #dbdbdb;
 }
 
@@ -45,4 +43,30 @@ body
 
 #content
 {
+}
+
+#content h1#slogan
+{
+  text-align: center;
+  margin: 50px 0;
+}
+
+#content #main_images
+{
+  margin: 50px 0;
+}
+
+#content #main_images #left
+{
+  float: left;
+}
+
+#content #main_images #right
+{
+  float: right;
+}
+
+#content #main_images #spacer
+{
+  clear: both;
 }
