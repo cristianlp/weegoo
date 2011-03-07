@@ -61,3 +61,15 @@ end
 ["Bar", "Cervecería", "Discoteca", "Karaoke", "Pub", "Strip Club"].each do |name|
   nightlife.sub_categories.create!(:name => name)
 end
+
+User.create!(:first_name => "Patricio", :last_name => "Mac Adden", :email => "patriciomacadden@gmail.com", :username => "patriciomacadden", :password => "patriciomacadden")
+User.create!(:first_name => "Bárbara", :last_name => "Nounou", :email => "barbaranounou@gmail.com", :username => "barbaranounou", :password => "barbaranounou")
+User.create!(:first_name => "Nicolás", :last_name => "Espina", :email => "nicolasespina@gmail.com", :username => "nicolasespina", :password => "nicolasespina")
+User.create!(:first_name => "Álvaro", :last_name => "Lara", :email => "alvarola@gmail.com", :username => "alvarola", :password => "alvarola")
+User.create!(:first_name => "Marcelo", :last_name => "Mac Adden", :email => "macadden@gmail.com", :username => "marcelomacadden", :password => "macerlomacadden")
+User.create!(:first_name => "María Inés", :last_name => "Lascano", :email => "m.ineslascano@gmail.com", :username => "m.ineslascano", :password => "m.ineslascano")
+User.create!(:first_name => "Juan Esteban", :last_name => "Mac Adden", :email => "juanestebanmacadden@gmail.com", :username => "juanestebanmacadden", :password => "juanestebanmacadden")
+User.create!(:first_name => "Julia", :last_name => "Mac Adden", :email => "juliamacadden@gmail.com", :username => "juliamacadden", :password => "juliamacadden")
+User.create!(:first_name => "Gonzalo", :last_name => "Ramírez Abella", :email => "gonzaloramirezabella@gmail.com", :username => "gonzaloramirezabella", :password => "gonzaloramirezabella")
+User.create!(:first_name => "Matías", :last_name => "Torres", :email => "torresmat@gmail.com", :username => "torresmat", :password => "torresmat")
+User.create!(:first_name => "Matías", :last_name => "Brown", :email => "matiasbrown@gmail.com", :username => "matiasbrown", :password => "matiasbrown")
