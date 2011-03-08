@@ -26,21 +26,23 @@ function setCurrentUserLocationMarker(map, address)
   });
 }
 
-function setPointOfInterestLocationMarker(map, lat, lng)
+function setPointOfInterestLocationMarker(map, lat, lng, draggable)
 {
   var latlng = new google.maps.LatLng(lat, lng);
   
-  setMarker(map, latlng);
+  setMarker(map, latlng, draggable);
 }
 
-function setMarker(map, latlng)
+function setMarker(map, latlng, draggable)
 {
+  draggable = (draggable == undefined) ? true : draggable;
+  
   map.setCenter(latlng);
   var marker = new google.maps.Marker(
   {
     map: map,
     position: latlng,
-    draggable: true,
+    draggable: draggable,
     animation: google.maps.Animation.DROP
   });
   

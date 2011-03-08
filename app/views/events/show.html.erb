@@ -1,45 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @event.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
+<div class="description"><%= @event.description %></div>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+<div class="category">
+  <strong>Category:</strong> <em><%= @event.category.name %></em>
+</div>
 
-<p>
-  <b>Category:</b>
-  <%= @event.category %>
-</p>
+<div class="sub_category">
+  <strong>Sub category:</strong> <em><%= @event.sub_category.name %></em>
+</div>
 
-<p>
-  <b>Sub category:</b>
-  <%= @event.sub_category %>
-</p>
+<div class="date">
+  <strong>Date:</strong> <em><%= @event.date %></em>
+</div>
 
-<p>
-  <b>Latitude:</b>
-  <%= @event.latitude %>
-</p>
+<div class="sub_category">
+  <strong>Time:</strong> <em><%= @event.time %></em>
+</div>
 
-<p>
-  <b>Longitude:</b>
-  <%= @event.longitude %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @event.date %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @event.time %>
-</p>
-
+<div id="map_canvas" style="width: 640px; height: 480px;"></div>
+<script>
+var map = initializeGMap();
+setPointOfInterestLocationMarker(map, "<%= @event.latitude %>", "<%= @event.longitude %>", false);
+</script>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -8,6 +8,9 @@ Weegoo::Application.routes.draw do
   root :to => "main#index"
 
   devise_for :users
+  
+  get "users/:id", :to => "users#show"
+  get "users", :to => "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
