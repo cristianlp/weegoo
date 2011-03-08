@@ -1,2 +1,67 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<div id="left_column">
+
+  <div id="user_information">
+    <div id="avatar">
+      <%= image_tag "blank_avatar.png" %>
+    </div>
+    <div id="information">
+      <h1><%= current_user.full_name %></h1>
+      <h2><%= current_user.location %></h2>
+    
+      <div id="separator"></div>
+    
+      <ul id="stats">
+        <li>
+          Friends<strong class="notranslate" style="left:7px">87</strong>
+        </li>
+        <li>
+          Visited places<strong class="notranslate">300</strong>
+        </li>
+        <li style="border-right:none">
+          Want to go to<strong class="notranslate">1000</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</div>
+
+<div id="right_column">
+  
+  <div class="box">
+    <div class="header">
+      Friends (87)
+      <span class="show_all">
+        <%= link_to "Show all", root_url %>
+      </span>
+    </div>
+    <div class="content">
+      border: 1px solid #cccccc;
+    </div>
+  </div>
+  
+  <div class="box">
+    <div class="header">
+      Friends (87)
+      <span class="show_all">
+        <%= link_to "Show all", root_url %>
+      </span>
+    </div>
+    <div class="content">
+      border: 1px solid #cccccc;
+    </div>
+  </div>
+  
+  <div class="box">
+    <div class="header">
+      Friends (87)
+      <span class="show_all">
+        <%= link_to "Show all", root_url %>
+      </span>
+    </div>
+    <div class="content">
+      border: 1px solid #cccccc;
+    </div>
+  </div>
+  
+</div>

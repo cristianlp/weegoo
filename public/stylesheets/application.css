@@ -43,6 +43,7 @@ body
 
 #content
 {
+  margin-top: 20px;
 }
 
 #content h1#slogan
@@ -85,4 +86,137 @@ body
 #content #empty_search_results
 {
   margin-top: 10px;
+}
+
+#content #left_column,
+#content #right_column
+{
+  float: left;
+}
+
+#content #left_column
+{
+  width: 580px;
+  margin-right: 10px;
+}
+
+#content #right_column
+{
+  width: 350px;
+  margin-left: 10px;
+}
+
+#user_information
+{
+  background-color: #f9f9f9;
+  border: 1px solid #cccccc;
+  margin-bottom: 13px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#user_information #avatar
+{
+  float: left;
+  margin-right: 10px;
+}
+
+#user_information #avatar img
+{
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  padding: 5px;
+}
+
+#user_information #information
+{
+  background-color: #E6E6E6;
+  float: left;
+  padding: 10px;
+  width: 388px;
+  height: 120px;
+}
+
+#user_information #information h1
+{
+  color: #444444;
+  font-size: 20px;
+  margin: 0;
+}
+
+#user_information #information h2
+{
+  color: #666666;
+  font-size: 13px;
+  margin: 3px 0 0 0;
+  font-weight: normal;
+}
+
+#user_information #information #separator
+{
+  border-bottom: 1px solid #CCCCCC;
+  clear: both;
+  float: left;
+  margin-top: 8px;
+  width: 388px;
+  height: 1px;
+}
+
+#user_information #information ul
+{
+  border-top: 1px solid #FFFFFF;
+  float: left;
+  width: 388px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#user_information #information ul li
+{
+  border-right: 1px dotted #CCCCCC;
+  float: left;
+  font-size: 8.5px;
+  margin: 10px 0 0;
+  padding: 0 0 0 10px;
+  position: relative;
+  width: 116px;
+  text-transform: uppercase;
+  height: 60px;
+}
+
+#user_information #information ul li strong
+{
+  color: #444444;
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: 12px;
+  line-height: 38px;
+  left: 10px;
+}
+
+.box
+{
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+}
+
+.box .header
+{
+  font-weight: bold;
+  padding: 8px 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.box .header .show_all
+{
+  float: right;
+  font-size: 10px;
+}
+
+.box .content
+{
+  padding: 8px 10px;
 }
