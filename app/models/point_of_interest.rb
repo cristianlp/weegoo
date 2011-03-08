@@ -9,4 +9,12 @@ class PointOfInterest < ActiveRecord::Base
   validates :sub_category, :presence => true
   validates :latitude, :presence => true
   validates :longitude, :presence => true
+  
+  def self.search(search)
+    if search
+      where("name LIKE ? or description LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end

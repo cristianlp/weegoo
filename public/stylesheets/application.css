@@ -70,3 +70,19 @@ body
 {
   clear: both;
 }
+
+#content ul#search_results
+{
+  list-style: none;
+  padding: 0;
+}
+
+#content ul#search_results li
+{
+  margin: 10px 0;
+}
+
+#content #empty_search_results
+{
+  margin-top: 10px;
+}

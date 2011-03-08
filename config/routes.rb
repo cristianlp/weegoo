@@ -1,4 +1,6 @@
 Weegoo::Application.routes.draw do
+  get "points_of_interest", :to => "points_of_interest#index"
+
   resources :events
 
   resources :venues
