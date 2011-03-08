@@ -1,4 +1,8 @@
 Weegoo::Application.routes.draw do
+  get "dashboard", :to => "dashboard#index"
+
+  get "add_as_friend/:id", :to => "users#add_as_friend", :as => "add_as_friend"
+  
   get "points_of_interest", :to => "points_of_interest#index"
 
   resources :events

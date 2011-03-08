@@ -10,11 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307194631) do
+ActiveRecord::Schema.define(:version => 20110308155907) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "friendships", :id => false, :force => true do |t|
+    t.integer  "user_a_id"
+    t.integer  "user_b_id"
+    t.boolean  "are_friends", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

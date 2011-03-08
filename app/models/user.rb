@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :email, :location, :username, :password, :password_confirmation, :remember_me
   
+  # Associations
+  has_many :friendships, :foreign_key => :user_a_id
+  has_many :users, :through => :friendships, :source => :user
+  
   # Validations
   validates :username, :presence => true, :uniqueness => true
   validates :first_name, :presence => true
@@ -23,5 +27,13 @@ class User < ActiveRecord::Base
     else
       scoped
     end
+  end
+  
+  def is_friend?(user)
+    users.exists?(user.id)
+  end
+  
+  def waiting_for_confirmation?(user)
+    friendships.exists?(:user_b_id => user.id, :are_friends => false)
   end
 end

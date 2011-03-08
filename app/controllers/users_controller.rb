@@ -21,4 +21,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_as_friend
+    @user = User.find(params[:id])
+    
+    current_user.friendships.create!(:user_b_id => @user.id)
+  end
 end
