@@ -194,7 +194,7 @@ body
   position: absolute;
   top: 12px;
   line-height: 38px;
-  left: 10px;
+  left: 8px;
 }
 
 .box
@@ -219,4 +219,42 @@ body
 .box .content
 {
   padding: 8px 10px;
+}
+
+.box .content ul#friendship_requests
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.box .content ul#friendship_requests li .actions
+{
+  float: right;
+  margin-bottom: 0;
+}
+
+#flash
+{
+  margin: 8px 0;
+}
+
+.alert,
+.notice
+{
+  clear: both;
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+.alert
+{
+  background-color: #fcc;
+  border: solid 1px #c66;
+}
+
+.notice
+{
+  background-color: #cfc;
+  border: solid 1px #6c6;
 }

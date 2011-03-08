@@ -26,4 +26,18 @@ class UsersController < ApplicationController
     
     current_user.friendships.create!(:user_b_id => @user.id)
   end
+  
+  def accept_friendship
+    @friendship = Friendship.find(params[:id])
+    @friendship.accept
+    
+    redirect_to(dashboard_url, :notice => "You and #{@friendship.user_a.full_name} are now friends.")
+  end
+  
+  def decline_friendship
+    @friendship = Friendship.find(params[:id])
+    @friendship.delete
+    
+    redirect_to(dashboard_url, :notice => "You and #{@friendship.user_a.full_name} are not friends.")
+  end
 end

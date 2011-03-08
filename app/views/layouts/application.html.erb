@@ -30,6 +30,13 @@
 
     <div id="content">
       <div class="narrow">
+        
+        <div id="flash">
+          <% flash.each do |name, message| %>
+            <div class="<%= name %>"><%= message %></div>
+          <% end %>
+        </div>
+        
         <%= yield %>
       </div>
     </div>

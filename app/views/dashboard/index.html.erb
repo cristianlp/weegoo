@@ -12,13 +12,13 @@
     
       <ul id="stats">
         <li>
-          Friends<strong class="notranslate" style="left:7px">87</strong>
+          Friends<strong>87</strong>
         </li>
         <li>
-          Visited places<strong class="notranslate">300</strong>
+          Visited places<strong>300</strong>
         </li>
         <li style="border-right:none">
-          Want to go to<strong class="notranslate">1000</strong>
+          Want to go to<strong>1000</strong>
         </li>
       </ul>
     </div>
@@ -28,17 +28,30 @@
 
 <div id="right_column">
   
-  <div class="box">
-    <div class="header">
-      Friends (87)
-      <span class="show_all">
-        <%= link_to "Show all", root_url %>
-      </span>
+  <% if not @friendship_requests.empty? %>
+    <div class="box">
+      <div class="header">
+        Friendship requests (<%= @friendship_requests.size %>)
+        <span class="show_all">
+          <%= link_to "Show all", root_url %>
+        </span>
+      </div>
+      <div class="content">
+        <ul id="friendship_requests">
+          <% @friendship_requests.each do |friendship| %>
+            <li>
+              <%= friendship.user_a.full_name %>
+              
+              <div class="actions">
+                <%= link_to "Accept", accept_friendship_path(friendship) %> | 
+                <%= link_to "Decline", decline_friendship_path(friendship) %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="content">
-      border: 1px solid #cccccc;
-    </div>
-  </div>
+  <% end %>
   
   <div class="box">
     <div class="header">

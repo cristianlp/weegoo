@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   # Associations
   has_many :friendships, :foreign_key => :user_a_id
-  has_many :users, :through => :friendships, :source => :user
+  has_many :users, :through => :friendships, :source => :user_a
   
   # Validations
   validates :username, :presence => true, :uniqueness => true
@@ -35,5 +35,9 @@ class User < ActiveRecord::Base
   
   def waiting_for_confirmation?(user)
     friendships.exists?(:user_b_id => user.id, :are_friends => false)
+  end
+  
+  def pending_friendships
+    Friendship.where(:user_b_id => id, :are_friends => false)
   end
 end

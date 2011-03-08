@@ -1,6 +1,6 @@
 class CreateFriendships < ActiveRecord::Migration
   def self.up
-    create_table :friendships, :id => false do |t|
+    create_table :friendships do |t|
       t.references :user_a
       t.references :user_b
       t.boolean :are_friends, :default => false
