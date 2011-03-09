@@ -12,7 +12,7 @@
     
       <ul id="stats">
         <li>
-          Friends<strong>87</strong>
+          Friends<strong><%= current_user.accepted_friendships.size %></strong>
         </li>
         <li>
           Visited places<strong>300</strong>
@@ -27,54 +27,9 @@
 </div>
 
 <div id="right_column">
+
+  <%= render "pending_friendships" %>
   
-  <% if not @friendship_requests.empty? %>
-    <div class="box">
-      <div class="header">
-        Friendship requests (<%= @friendship_requests.size %>)
-        <span class="show_all">
-          <%= link_to "Show all", root_url %>
-        </span>
-      </div>
-      <div class="content">
-        <ul id="friendship_requests">
-          <% @friendship_requests.each do |friendship| %>
-            <li>
-              <%= friendship.user_a.full_name %>
-              
-              <div class="actions">
-                <%= link_to "Accept", accept_friendship_path(friendship) %> | 
-                <%= link_to "Decline", decline_friendship_path(friendship) %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-  
-  <div class="box">
-    <div class="header">
-      Friends (87)
-      <span class="show_all">
-        <%= link_to "Show all", root_url %>
-      </span>
-    </div>
-    <div class="content">
-      border: 1px solid #cccccc;
-    </div>
-  </div>
-  
-  <div class="box">
-    <div class="header">
-      Friends (87)
-      <span class="show_all">
-        <%= link_to "Show all", root_url %>
-      </span>
-    </div>
-    <div class="content">
-      border: 1px solid #cccccc;
-    </div>
-  </div>
+  <%= render "friends" %>
   
 </div>

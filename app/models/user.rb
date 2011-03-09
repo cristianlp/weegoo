@@ -40,4 +40,16 @@ class User < ActiveRecord::Base
   def pending_friendships
     Friendship.where(:user_b_id => id, :are_friends => false)
   end
+  
+  def firsts_pending_friendships
+    Friendship.where(:user_b_id => id, :are_friends => false).limit(5)
+  end
+  
+  def accepted_friendships
+    Friendship.where("(user_a_id = ? OR user_b_id = ?) AND are_friends = ?", id, id, true)
+  end
+  
+  def lasts_friendships
+    accepted_friendships.order("id DESC").limit(5)
+  end
 end

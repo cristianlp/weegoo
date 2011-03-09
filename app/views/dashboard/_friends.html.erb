@@ -1,0 +1,21 @@
+<div class="box">
+    <div class="header">
+      Friends (<%= current_user.accepted_friendships.size %>)
+      <span class="show_all">
+        <%= link_to "Show all", root_url %>
+      </span>
+    </div>
+    <div class="content">
+      <% if current_user.accepted_friendships.empty? %>
+        You might want to <%= link_to "search people", users_path %> and request their friendship.
+      <% else %>
+        <ul id="friends">
+          <% current_user.lasts_friendships.each do |friendship| %>
+            <li>
+              <%= render :partial => "user_desc", :locals => { :user => friendship.friend(current_user) } %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
