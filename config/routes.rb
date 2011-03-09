@@ -1,5 +1,6 @@
 Weegoo::Application.routes.draw do
-  get "dashboard", :to => "dashboard#index"
+  get "friendship_requests", :to => "main#friendship_requests"
+  get "friends", :to => "main#friends"
   
   get "accept_friendship/:id", :to => "users#accept_friendship", :as => "accept_friendship"
   get "decline_friendship/:id", :to => "users#decline_friendship", :as => "decline_friendship"

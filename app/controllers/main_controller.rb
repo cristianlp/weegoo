@@ -4,5 +4,10 @@ class MainController < ApplicationController
       render "dashboard"
     end
   end
-
+  
+  def friendship_requests
+  end
+  
+  def friends
+  end
 end
