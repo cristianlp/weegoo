@@ -1,0 +1,17 @@
+<div id="left_column">
+  
+  <%= render :partial => "user_information", :locals => { :user => @user } %>
+  
+  <h1>Friends</h1>
+  
+</div>
+
+<div id="right_column">
+  
+  <% if @user == current_user %>
+    <%= render :partial => "pending_friendships", :locals => { :user => @user } %>
+  <% end %>
+  
+  <%= render :partial => "friends", :locals => { :user => @user } %>
+  
+</div>

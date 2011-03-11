@@ -44,4 +44,12 @@ class UsersController < ApplicationController
     
     redirect_to(@user, :notice => "You and #{@friendship.user_a.full_name} are not friends.")
   end
+  
+  def friendship_requests
+    @user = User.find(params[:id])
+  end
+  
+  def friends
+    @user = User.find(params[:id])
+  end
 end
