@@ -1,12 +1,4 @@
 Weegoo::Application.routes.draw do
-  get "friendship_requests", :to => "main#friendship_requests"
-  get "friends", :to => "main#friends"
-  
-  get "accept_friendship/:id", :to => "users#accept_friendship", :as => "accept_friendship"
-  get "decline_friendship/:id", :to => "users#decline_friendship", :as => "decline_friendship"
-
-  get "add_as_friend/:id", :to => "users#add_as_friend", :as => "add_as_friend"
-  
   get "points_of_interest", :to => "points_of_interest#index"
 
   resources :events
@@ -17,8 +9,15 @@ Weegoo::Application.routes.draw do
 
   devise_for :users
   
-  get "users/:id", :to => "users#show"
   get "users", :to => "users#index"
+  get "users/:id", :to => "users#show", :as => "user"
+  
+  get "users/:id/add_as_friend/:another_user_id", :to => "users#add_as_friend", :as => "add_as_friend"
+  get "users/:id/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
+  get "users/:id/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
+  
+  get "users/:id/friendship_requests", :to => "main#friendship_requests", :as => "friendship_requests"
+  get "users/:id/friends", :to => "main#friends", :as => "friends"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

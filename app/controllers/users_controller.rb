@@ -28,16 +28,20 @@ class UsersController < ApplicationController
   end
   
   def accept_friendship
-    @friendship = Friendship.find(params[:id])
+    @user = User.find(params[:id])
+    
+    @friendship = Friendship.find(params[:friendship_id])
     @friendship.accept
     
-    redirect_to(root_url, :notice => "You and #{@friendship.user_a.full_name} are now friends.")
+    redirect_to(@user, :notice => "You and #{@friendship.user_a.full_name} are now friends.")
   end
   
   def decline_friendship
-    @friendship = Friendship.find(params[:id])
+    @user = User.find(params[:id])
+    
+    @friendship = Friendship.find(params[:friendship_id])
     @friendship.delete
     
-    redirect_to(root_url, :notice => "You and #{@friendship.user_a.full_name} are not friends.")
+    redirect_to(@user, :notice => "You and #{@friendship.user_a.full_name} are not friends.")
   end
 end

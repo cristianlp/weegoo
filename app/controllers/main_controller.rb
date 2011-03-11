@@ -1,13 +1,7 @@
 class MainController < ApplicationController
   def index
     if user_signed_in?
-      render "dashboard"
+      redirect_to current_user
     end
-  end
-  
-  def friendship_requests
-  end
-  
-  def friends
   end
 end

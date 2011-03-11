@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <% if not current_user.is_friend?(user) or not current_user.waiting_for_confirmation?(user) %>
       <div class="actions" style="float: right">
-        <%= link_to "Add as friend", add_as_friend_path(user) %>
+        <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id) %>
       </div>
     <% end %>
   <% end %>

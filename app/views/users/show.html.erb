@@ -1,2 +1,15 @@
-<h1><%= @user.full_name %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div id="left_column">
+  
+  <%= render :partial => "user_information", :locals => { :user => @user } %>
+  
+</div>
+
+<div id="right_column">
+
+  <% if @user == current_user %>
+    <%= render :partial => "pending_friendships", :locals => { :user => @user } %>
+  <% end %>
+  
+  <%= render :partial => "friends", :locals => { :user => @user } %>
+  
+</div>

@@ -108,9 +108,7 @@ body
 
 #user_information
 {
-  background-color: #f9f9f9;
   border: 1px solid #cccccc;
-  margin-bottom: 13px;
   overflow: hidden;
   padding: 10px;
 }
@@ -124,8 +122,6 @@ body
 #user_information #avatar img
 {
   background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  padding: 5px;
 }
 
 #user_information #information
@@ -134,14 +130,17 @@ body
   float: left;
   padding: 10px;
   width: 388px;
-  height: 120px;
+  height: 108px;
 }
 
 #user_information #information h1
 {
-  color: #444444;
-  font-size: 20px;
   margin: 0;
+}
+
+#user_information #information h1 a
+{
+  font-size: 20px;
 }
 
 #user_information #information h2
@@ -152,19 +151,8 @@ body
   font-weight: normal;
 }
 
-#user_information #information #separator
-{
-  border-bottom: 1px solid #CCCCCC;
-  clear: both;
-  float: left;
-  margin-top: 8px;
-  width: 388px;
-  height: 1px;
-}
-
 #user_information #information ul
 {
-  border-top: 1px solid #FFFFFF;
   float: left;
   width: 388px;
   margin: 0;
@@ -174,27 +162,21 @@ body
 
 #user_information #information ul li
 {
-  border-right: 1px dotted #CCCCCC;
+  border-right: 1px solid #dedede;
   float: left;
   font-size: 8.5px;
-  margin: 10px 0 0;
-  padding: 0 0 0 10px;
+  margin: 10px 0 0 0;
+  padding: 0 20px 0 10px;
   position: relative;
-  width: 116px;
-  text-transform: uppercase;
   height: 60px;
 }
 
-#user_information #information ul li strong
+#user_information #information ul li span
 {
-  color: #444444;
+  color: #39B2E5;
   display: block;
-  font-size: 40px;
+  font-size: 18px;
   font-weight: bold;
-  position: absolute;
-  top: 12px;
-  line-height: 38px;
-  left: 8px;
 }
 
 .box
