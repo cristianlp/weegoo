@@ -4,6 +4,14 @@
   
   <h1>Friends</h1>
   
+  <ul id="users">
+    <% @user.accepted_friendships.each do |friendship| %>
+      <li class="user">
+        <%= render :partial => "user_desc_full", :locals => { :user => friendship.friend(@user) } %>
+      </li>
+    <% end %>
+  </ul>
+  
 </div>
 
 <div id="right_column">

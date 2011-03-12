@@ -12,7 +12,7 @@
         <ul id="friends">
           <% user.lasts_friendships.each do |friendship| %>
             <li>
-              <%= render :partial => "user_desc", :locals => { :user => friendship.friend(user) } %>
+              <%= render :partial => "user_desc_small", :locals => { :user => friendship.friend(user) } %>
             </li>
           <% end %>
         </ul>

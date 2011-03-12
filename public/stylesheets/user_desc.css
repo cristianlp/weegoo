@@ -1,0 +1,66 @@
+#users
+{
+  list-style: none;
+  padding: 0;
+}
+
+#users .user
+{
+  border: 1px solid #cccccc;
+  overflow: hidden;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#users .user .avatar
+{
+  float: left;
+  margin-right: 10px;
+}
+
+#users .user .avatar img
+{
+  background-color: #FFFFFF;
+}
+
+#users .user .information
+{
+  background-color: #E6E6E6;
+  float: left;
+  padding: 10px;
+  width: 480px;
+  height: 80px;
+}
+
+#users .user .information ul
+{
+  float: left;
+  width: 388px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#users .user .information ul li
+{
+  border-right: 1px solid #dedede;
+  float: left;
+  font-size: 8.5px;
+  margin: 10px 10px 0 0;
+  padding: 0 20px 0 0;
+  position: relative;
+  height: 60px;
+}
+
+#users .user .information ul li span
+{
+  color: #39B2E5;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#users .user .actions
+{
+  float: right;
+}

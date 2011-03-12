@@ -10,7 +10,7 @@
       <ul id="friendship_requests">
         <% user.firsts_pending_friendships.each do |friendship| %>
           <li>
-            <%= render :partial => "user_desc", :locals => { :user => friendship.user_a } %>
+            <%= render :partial => "user_desc_small", :locals => { :user => friendship.user_a } %>
             
             <div class="actions">
               <%= link_to "Accept", accept_friendship_path(:id => user.id, :friendship_id => friendship.id) %> | 

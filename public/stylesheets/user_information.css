@@ -1,0 +1,72 @@
+#user_information
+{
+  border: 1px solid #cccccc;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#user_information #avatar
+{
+  float: left;
+  margin-right: 10px;
+}
+
+#user_information #avatar img
+{
+  background-color: #FFFFFF;
+}
+
+#user_information #information
+{
+  background-color: #E6E6E6;
+  float: left;
+  padding: 10px;
+  width: 400px;
+  height: 108px;
+}
+
+#user_information #information h1
+{
+  margin: 0;
+}
+
+#user_information #information h1 a
+{
+  font-size: 20px;
+}
+
+#user_information #information h2
+{
+  color: #666666;
+  font-size: 13px;
+  margin: 3px 0 0 0;
+  font-weight: normal;
+}
+
+#user_information #information ul
+{
+  float: left;
+  width: 388px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#user_information #information ul li
+{
+  border-right: 1px solid #dedede;
+  float: left;
+  font-size: 8.5px;
+  margin: 10px 10px 0 0;
+  padding: 0 20px 0 0;
+  position: relative;
+  height: 60px;
+}
+
+#user_information #information ul li span
+{
+  color: #39B2E5;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}

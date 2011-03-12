@@ -1,17 +1,7 @@
 <li class="user">
-  <% if user_signed_in? %>
-    <% if not current_user.is_friend?(user) or not current_user.waiting_for_confirmation?(user) %>
-      <div class="actions" style="float: right">
-        <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id) %>
-      </div>
-    <% end %>
-  <% end %>
-  <div class="full_name"><%= link_to user.full_name, :controller => "users", :action => "show", :id => user.id %></div>
-  <div class="meta">
-    <% if user_signed_in? %>
-      4 mutual friends<br/>
-    <% end %>
-    Visited 30 places<br/>
-    Wants to go to 400 places
+  <%= render :partial => "user_desc_full", :locals => { :user => user } %>
+  
+  <div class="actions">
+    <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id) %>
   </div>
 </li>
