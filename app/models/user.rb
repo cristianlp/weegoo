@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where("first_name LIKE ? or last_name LIKE ?", "%#{search}%", "%#{search}%")
+      where("first_name LIKE ? OR last_name LIKE ?", "%#{search}%", "%#{search}%")
     else
       scoped
     end
@@ -50,6 +50,6 @@ class User < ActiveRecord::Base
   end
   
   def lasts_friendships
-    accepted_friendships.order("id DESC").limit(5)
+    accepted_friendships.order("created_at DESC").limit(5)
   end
 end
