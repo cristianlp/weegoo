@@ -1,13 +1,13 @@
-<h1 id="slogan">Got a good reason for taking the easy way out.</h1>
+<h1 class="title">Got a good reason for taking the easy way out</h1>
 
-<div id="main_images">
-  <div id="left">
+<div id="features">
+  <div id="find_friends">
     <%= image_tag "blank_image.png" %>
     
     <h2>Find friends</h2>
   </div>
 
-  <div id="right">
+  <div id="share_venues_and_events">
     <%= image_tag "blank_image.png" %>
     
     <h2>Share venues and events</h2>
@@ -16,7 +16,8 @@
   <div id="spacer"></div>
 </div>
 
+<h1 class="title">Start finding friends and sharing venues and events!</h1>
+
 <div id="sign_up">
-  <h2>You can start finding friends and share venues and events!</h2>
-  <%= link_to "Sign up", new_user_registration_path %> now, it's free!
+    <%= link_to "Sign up now!", new_user_registration_path %> or sign in with <%= link_to image_tag("facebook_64.png"), "http://facebook.com" %> or <%= link_to image_tag("twitter_64.png"), "http://twitter.com" %>
 </div>

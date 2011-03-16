@@ -1,22 +1,46 @@
-<h1>Search people</h1>
-
-<div id="search">
-  <%= form_tag users_path, :method => "get" do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+<div id="left_column">
+  
+  <h1>Search people</h1>
+  
+  <div id="search">
+    <%= form_tag users_path, :method => "get" do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </div>
+  
+  <% if not @users.empty? %>
+    
+    <ul id="users">
+      
+      <% @users.each do |user| %>
+        <li class="user">
+          
+          <%= render :partial => "user_desc_large", :locals => { :user => user } %>
+          
+          <% if user_signed_in? %>
+            <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id), :class => "add_user" %>
+          <% end %>
+          
+        </li>
+      <% end %>
+      
+    </ul>
+  
+  <% elsif params[:search] %>
+    
+    <div id="empty_search_results">
+      No results found
+    </div>
+    
   <% end %>
+  
 </div>
 
-<% if not @users.empty? %>
+<div id="right_column">
   
-  <ul id="users">
-    
-    <%= render @users %>
-        
-  </ul>
+  <% if user_signed_in? %>
+    <%= render :partial => "user_information", :locals => { :user => current_user } %>
+  <% end %>
   
-<% elsif params[:search] %>
-  <div id="empty_search_results">
-    No results found
-  </div>
-<% end %>
+</div>

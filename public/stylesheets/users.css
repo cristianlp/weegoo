@@ -1,0 +1,138 @@
+/************************
+ * stuff on left column *
+ ************************/
+
+#content #left_column
+{
+  float: left;
+  width: 550px;
+}
+
+#content #left_column h1
+{
+  margin: 0;
+}
+
+ul#users
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#users li.user
+{
+  position: relative;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+ul#users li.user .avatar
+{
+  float: left;
+}
+
+ul#users li.user .information
+{
+  margin-left: 74px;
+}
+
+ul#users li.user .information .user_full_name
+{
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+}
+
+ul#users li.user .information .user_location
+{
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+ul#users li.user .information ul.stats
+{
+  padding: 0;
+  list-style: none;
+}
+
+ul#users li.user .information ul.stats li
+{
+  display: inline;
+  float: left;
+  font-size: 10px;
+  margin-right: 20px;
+}
+
+ul#users li.user .information ul.stats li span
+{
+}
+
+ul#users li.user a.add_user
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/*************************
+ * stuff on right column *
+ *************************/
+
+#content #right_column
+{
+  float: right;
+  width: 350px;
+}
+
+#user_information
+{
+  overflow: hidden;
+}
+
+#user_information #avatar
+{
+  float: left;
+  margin: 0 5px;
+}
+
+#user_information #information
+{
+}
+
+#user_information #information h1
+{
+  font-size: 18px;
+  margin: 0;
+}
+
+#user_information #information h2
+{
+  font-size: 14px;
+  margin-top: 3px;
+  font-weight: normal;
+}
+
+#user_information #information ul#stats
+{
+  margin: 20px 0 0 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#user_information #information ul#stats li
+{
+  display: inline;
+  float: left;
+  font-size: 10px;
+  padding-right: 20px;
+  border-right: 1px solid black;
+  margin-right: 10px;
+  min-width: 40px;
+}
+
+#user_information #information ul#stats li span
+{
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}

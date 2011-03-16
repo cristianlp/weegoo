@@ -1,0 +1,39 @@
+#sign_in_form,
+#sign_up_form
+{
+  width: 460px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+#sign_in_form h1,
+#sign_up_form h1
+{
+  margin: 0 0 30px 0;
+}
+
+#sign_in_form .inputs label,
+#sign_up_form .inputs label
+{
+  font-size: 14px;
+}
+
+#sign_in_form .actions,
+#sign_up_form .actions,
+#sign_in_form input[type=submit],
+#sign_up_form input[type=submit]
+{
+  text-align: center;
+  margin-left: 0 !important;
+}
+
+#sign_in_form input[type='text'],
+#sign_up_form input[type='text'],
+#sign_in_form input[type='password'],
+#sign_up_form input[type='password'],
+#sign_in_form input[type='email'],
+#sign_up_form input[type='email']
+{
+  width: 350px;
+}

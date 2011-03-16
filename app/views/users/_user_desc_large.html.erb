@@ -1,0 +1,21 @@
+<div class="avatar">
+  <%= image_tag gravatar_url(user.email, 64) %>
+</div>
+
+<div class="information">
+  
+  <div class="user_full_name">
+    <%= link_to user.full_name, user %>
+  </div>
+  
+  <div class="user_location">
+    <%= user.location %>
+  </div>
+
+  <ul class="stats">
+    <li><%= user.accepted_friendships.size %> Friends</li>
+    <li>300 Visited places</li>
+    <li>1000 Places to go</li>
+  </ul>
+  
+</div>

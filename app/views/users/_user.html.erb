@@ -1,9 +1,0 @@
-<li class="user">
-  <%= render :partial => "user_desc_full", :locals => { :user => user } %>
-  
-  <% if user_signed_in? %>
-    <div class="actions">
-      <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id) %>
-    </div>
-  <% end %>
-</li>

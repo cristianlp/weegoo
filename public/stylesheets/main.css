@@ -1,0 +1,30 @@
+#content h1.title
+{
+  text-align: center;
+  margin: 50px 0;
+}
+
+#content #features
+{
+  margin: 50px 0;
+}
+
+#content #features #find_friends
+{
+  float: left;
+}
+
+#content #features #share_venues_and_events
+{
+  float: right;
+}
+
+#content #features #spacer
+{
+  clear: both;
+}
+
+#content #sign_up
+{
+  font-size: 20px;
+}
