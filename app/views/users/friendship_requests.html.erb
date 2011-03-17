@@ -1,13 +1,11 @@
 <div id="left_column">
   
-  <%= render :partial => "user_information", :locals => { :user => @user } %>
-  
   <h1>Friendship requests</h1>
   
   <ul id="users">
     <% @user.pending_friendships.each do |friendship| %>
       <li class="user">
-        <%= render :partial => "user_desc_full", :locals => { :user => friendship.friend(@user) } %>
+        <%= render :partial => "user_desc_large", :locals => { :user => friendship.friend(@user) } %>
         
         <div class="actions">
           <%= link_to "Accept", accept_friendship_path(:id => @user.id, :friendship_id => friendship.id) %> | 
@@ -21,10 +19,6 @@
 
 <div id="right_column">
   
-  <% if @user == current_user %>
-    <%= render :partial => "pending_friendships", :locals => { :user => @user } %>
-  <% end %>
-  
-  <%= render :partial => "friends", :locals => { :user => @user } %>
+  <%= render :partial => "user_information", :locals => { :user => @user } %>
   
 </div>
