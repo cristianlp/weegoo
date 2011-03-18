@@ -14,13 +14,15 @@
     <ul id="users">
       
       <% @users.each do |user| %>
-        <li class="user">
+        <li class="user" id="user_<%= user.id %>">
           
           <%= render :partial => "user_desc_large", :locals => { :user => user } %>
           
           <% if user_signed_in? %>
             <div class="actions">
-              <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id) %>
+              <% if current_user != user and not current_user.is_friend?(user) and not current_user.waiting_for_confirmation?(user) %>
+                <%= link_to "Add as friend", add_as_friend_path(:id => current_user.id, :another_user_id => user.id), :remote => true %>
+              <% end %>
             </div>
           <% end %>
           

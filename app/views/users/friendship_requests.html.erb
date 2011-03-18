@@ -4,12 +4,12 @@
   
   <ul id="users">
     <% @user.pending_friendships.each do |friendship| %>
-      <li class="user">
+      <li class="user" id="friendship_<%= friendship.id %>">
         <%= render :partial => "user_desc_large", :locals => { :user => friendship.friend(@user) } %>
         
         <div class="actions">
-          <%= link_to "Accept", accept_friendship_path(:id => @user.id, :friendship_id => friendship.id) %> | 
-          <%= link_to "Decline", decline_friendship_path(:id => @user.id, :friendship_id => friendship.id) %>
+          <%= link_to "Accept", accept_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true %> | 
+          <%= link_to "Decline", decline_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true %>
         </div>
       </li>
     <% end %>

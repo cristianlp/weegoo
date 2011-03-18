@@ -23,8 +23,16 @@ class UsersController < ApplicationController
 
   def add_as_friend
     @user = User.find(params[:id])
+    @another_user = User.find(params[:another_user_id])
     
-    current_user.friendships.create!(:user_b_id => @user.id)
+    current_user.friendships.create!(:user_b_id => @another_user.id)
+    
+    respond_to do |format|
+      format.js do
+        # flash[:notice] is not used because it persists between requests
+        @message = "Friendship requested to #{@another_user.full_name} successfully."
+      end
+    end
   end
   
   def accept_friendship
@@ -33,7 +41,13 @@ class UsersController < ApplicationController
     @friendship = Friendship.find(params[:friendship_id])
     @friendship.accept
     
-    redirect_to(@user, :notice => "You and #{@friendship.user_a.full_name} are now friends.")
+    respond_to do |format|
+      format.js do
+        # flash[:notice] is not used because it persists between requests
+        @message = "You and #{@friendship.user_a.full_name} are now friends."
+        render "friendship_response"
+      end
+    end
   end
   
   def decline_friendship
@@ -42,7 +56,13 @@ class UsersController < ApplicationController
     @friendship = Friendship.find(params[:friendship_id])
     @friendship.delete
     
-    redirect_to(@user, :notice => "You and #{@friendship.user_a.full_name} are not friends.")
+    respond_to do |format|
+      format.js do
+        # flash[:notice] is not used because it persists between requests
+        @message = "You and #{@friendship.user_a.full_name} are not friends."
+        render "friendship_response"
+      end
+    end
   end
   
   def friendship_requests

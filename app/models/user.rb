@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   
   # Associations
   has_many :friendships, :foreign_key => :user_a_id
-  has_many :users, :through => :friendships, :source => :user_a
   
   # Validations
   validates :username, :presence => true, :uniqueness => true
@@ -29,12 +28,12 @@ class User < ActiveRecord::Base
     end
   end
   
-  def is_friend?(user)
-    users.exists?(user.id)
+  def is_friend?(another_user)
+    accepted_friendships.exists?(["user_a_id = ? OR user_b_id = ?", another_user.id, another_user.id])
   end
   
-  def waiting_for_confirmation?(user)
-    friendships.exists?(:user_b_id => user.id, :are_friends => false)
+  def waiting_for_confirmation?(another_user)
+    friendships.exists?(:user_b_id => another_user.id, :are_friends => false)
   end
   
   def pending_friendships
@@ -51,5 +50,23 @@ class User < ActiveRecord::Base
   
   def lasts_friendships
     accepted_friendships.order("created_at DESC").limit(5)
+  end
+  
+  def mutual_friends(another_user)
+    accepted_friendships_ids = []
+    
+    accepted_friendships.each do |friendship|
+      accepted_friendships_ids << friendship.friend(self).id
+    end
+    
+    another_user_accepted_friendships_ids = []
+    
+    another_user.accepted_friendships.each do |friendship|
+      another_user_accepted_friendships_ids << friendship.friend(another_user).id
+    end
+    
+    mutual_ids = accepted_friendships_ids & another_user_accepted_friendships_ids
+    
+    User.find(mutual_ids)
   end
 end
