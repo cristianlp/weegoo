@@ -2,17 +2,6 @@
  * stuff on left column *
  ************************/
 
-#content #left_column
-{
-  float: left;
-  width: 550px;
-}
-
-#content #left_column h1
-{
-  margin: 0;
-}
-
 ul#users
 {
   list-style: none;
@@ -77,12 +66,6 @@ ul#users li.user .actions
 /*************************
  * stuff on right column *
  *************************/
-
-#content #right_column
-{
-  float: right;
-  width: 350px;
-}
 
 #user_information
 {
