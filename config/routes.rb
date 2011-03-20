@@ -1,4 +1,6 @@
 Weegoo::Application.routes.draw do
+  get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
+  
   get "points_of_interest", :to => "points_of_interest#index"
 
   resources :events

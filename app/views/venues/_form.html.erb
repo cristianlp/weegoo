@@ -9,7 +9,7 @@
     <%= f.input :latitude, :as => :hidden %>
     <%= f.input :longitude, :as => :hidden %>
     
-    <div id="map_canvas" style="width: 640px; height: 480px;"></div>
+    <div id="map_canvas" style="margin-left: 100px; width: 640px; height: 480px;"></div>
     <script>
     var map = initializeGMap();
     <% if @venue.new_record? %>
