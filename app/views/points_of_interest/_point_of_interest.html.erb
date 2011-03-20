@@ -10,7 +10,7 @@
     </div>
     
     <div class="description">
-      <%= link_to point_of_interest.description %>
+      <%= point_of_interest.description %>
     </div>
 
     <% if user_signed_in? %>
@@ -21,6 +21,11 @@
         <li>3 friends want to be here</li>
       </ul>
     <% end %>
+    
+    <div class="actions">
+      <%= link_to "Been here", root_path %> | 
+      <%= link_to "Want to go", root_path %>
+    </div>
   
   </div>
 </li>

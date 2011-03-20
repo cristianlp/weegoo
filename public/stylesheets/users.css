@@ -58,9 +58,10 @@ ul#users li.user .information ul.stats li span
 
 ul#users li.user .actions
 {
+  font-size: 10px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
 }
 
 /*************************
