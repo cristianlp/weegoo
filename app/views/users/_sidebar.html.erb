@@ -1,5 +1,5 @@
-<%= render :partial => "user_information", :locals => { :user => user } %>
+<%= render :partial => "users/user_information", :locals => { :user => user } %>
 
 <% if user == current_user %>
-  <%= render :partial => "pending_friendships", :locals => { :user => user } %>
+  <%= render :partial => "users/pending_friendships", :locals => { :user => user } %>
 <% end %>

@@ -1,27 +1,35 @@
-<h1>Search venues and events</h1>
-
-<div id="search">
-  <%= form_tag points_of_interest_path, :method => "get" do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+<div id="left_column">
+  
+  <h1>Search venues and events</h1>
+  
+  <div id="search">
+    <%= form_tag points_of_interest_path, :method => "get" do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </div>
+  
+  <% if not @points_of_interest.empty? %>
+    
+    <h2>Search results</h2>
+    
+    <ul id="points_of_interest">
+      
+      <%= render :partial => "point_of_interest", :collection => @points_of_interest %>
+      
+    </ul>
+  <% elsif params[:search] %>
+    <div id="empty_search_results">
+      No results found
+    </div>
   <% end %>
+  
 </div>
 
-<% if not @points_of_interest.empty? %>
+<div id="right_column">
   
-  <ul id="search_results">
-    
-    <% @points_of_interest.each do |point_of_interest| %>
-      <li class="point_of_interest">
-        <div class="name"><%= link_to point_of_interest.name, { :controller => "#{point_of_interest.type.underscore}s", :action => "show", :id => point_of_interest.id } %></div>
-        <div class="description"><%= point_of_interest.description %></div>
-        <div class="meta">FIXXXXXX</div>
-      </li>
-    <% end %>
-    
-  </ul>
-<% elsif params[:search] %>
-  <div id="empty_search_results">
-    No results found
-  </div>
-<% end %>
+  <% if user_signed_in? %>
+    <%= render :partial => "users/sidebar", :locals => { :user => current_user } %>
+  <% end %>
+  
+</div>

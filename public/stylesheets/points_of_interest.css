@@ -1,0 +1,60 @@
+ul#points_of_interest
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#points_of_interest li.point_of_interest
+{
+  position: relative;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+ul#points_of_interest li.point_of_interest .avatar
+{
+  float: left;
+}
+
+ul#points_of_interest li.point_of_interest .information
+{
+  margin-left: 74px;
+}
+
+ul#points_of_interest li.point_of_interest .information .name
+{
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+}
+
+ul#points_of_interest li.point_of_interest .information .description
+{
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+ul#points_of_interest li.point_of_interest .information ul.stats
+{
+  padding: 0;
+  list-style: none;
+}
+
+ul#points_of_interest li.point_of_interest .information ul.stats li
+{
+  display: inline;
+  float: left;
+  font-size: 10px;
+  margin-right: 20px;
+}
+
+ul#points_of_interest li.point_of_interest .information ul.stats li span
+{
+}
+
+ul#points_of_interest li.point_of_interest .actions
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

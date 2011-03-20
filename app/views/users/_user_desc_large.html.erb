@@ -14,7 +14,7 @@
 
   <ul class="stats">
     <li><%= user.accepted_friendships.size %> Friends</li>
-    <% if user_signed_in? %>
+    <% if user_signed_in? and not current_user == user %>
       <li><%= current_user.mutual_friends(user).size %> Mutual friends</li>
     <% end %>
     <li>300 Visited places</li>
