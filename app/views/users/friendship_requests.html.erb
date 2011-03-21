@@ -8,8 +8,8 @@
         <%= render :partial => "user_desc_large", :locals => { :user => friendship.friend(@user) } %>
         
         <div class="actions">
-          <%= link_to "Accept", accept_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true %> | 
-          <%= link_to "Decline", decline_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true %>
+          <%= link_to "Accept", accept_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true, :class => "g-button" %>
+          <%= link_to "Decline", decline_friendship_path(:id => @user.id, :friendship_id => friendship.id), :remote => true, :class => "g-button" %>
         </div>
       </li>
     <% end %>

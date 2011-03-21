@@ -11,9 +11,9 @@
     <ul id="stats">
       <li><%= link_to raw("<span>#{user.accepted_friendships.size}</span> friends"), friends_path(user) %></li>
       
-      <li><span>300</span> Visited places</li>
+      <li><%= link_to raw("<span>#{user.been_points_of_interest.size}</span> visited places"), root_path %></li>
       
-      <li style="border-right:none"><span>1000</span> Places to go</li>
+      <li style="border-right: none;"><%= link_to raw("<span>#{user.want_to_go_points_of_interest.size}</span> places to go"), root_path %></li>
     </ul>
   </div>
   

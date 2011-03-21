@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
   # Associations
   has_many :friendships, :foreign_key => :user_a_id
   
+  has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
+  #has_many :points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest
+  
+  # these are scopes. don't use them for .create!()
+  has_many :been_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.been" => true }
+  has_many :want_to_go_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.want_to_go" => true }
+  
   # Validations
   validates :username, :presence => true, :uniqueness => true
   validates :first_name, :presence => true
@@ -68,5 +75,13 @@ class User < ActiveRecord::Base
     mutual_ids = accepted_friendships_ids & another_user_accepted_friendships_ids
     
     User.find(mutual_ids)
+  end
+  
+  def been_at(point_of_interest)
+    been_points_of_interest.include?(point_of_interest)
+  end
+  
+  def want_to_go_to(point_of_interest)
+    want_to_go_points_of_interest.include?(point_of_interest)
   end
 end

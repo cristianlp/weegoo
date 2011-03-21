@@ -1,4 +1,4 @@
-<li class="point_of_interest">
+<li class="point_of_interest" id="point_of_interest_<%= point_of_interest.id %>">
   <div class="avatar">
     <%= image_tag "blank_avatar.png" %>
   </div>
@@ -22,10 +22,17 @@
       </ul>
     <% end %>
     
-    <div class="actions">
-      <%= link_to "Been here", root_path %> | 
-      <%= link_to "Want to go", root_path %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="actions">
+        <% if not current_user.been_at(point_of_interest) %>
+          <%= link_to "Been here", been_path(point_of_interest), :remote => true, :class => "g-button" %>
+          
+          <% if not current_user.want_to_go_to(point_of_interest) %>
+            <%= link_to "Want to go", want_to_go_path(point_of_interest), :remote => true, :class => "g-button" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   
   </div>
 </li>
