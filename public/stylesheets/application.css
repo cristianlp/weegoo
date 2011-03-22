@@ -46,6 +46,10 @@ body
   margin-top: 20px;
 }
 
+/************************
+ * stuff on left column *
+ ************************/
+
 #content #left_column
 {
   float: left;
@@ -56,6 +60,21 @@ body
 {
   margin-top: 0;
 }
+
+#content #left_column #search input#search
+{
+  font-size: 18px;
+  width: 400px;
+}
+
+#content #left_column #search input[type=submit]
+{
+  font-size: 18px;
+}
+
+/*************************
+ * stuff on right column *
+ *************************/
 
 #content #right_column
 {
