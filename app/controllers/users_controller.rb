@@ -72,4 +72,12 @@ class UsersController < ApplicationController
   def friends
     @user = User.find(params[:id])
   end
+  
+  def visited_places
+    @user = User.find(params[:id])
+  end
+  
+  def places_to_go
+    @user = User.find(params[:id])
+  end
 end

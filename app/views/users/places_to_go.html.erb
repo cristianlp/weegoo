@@ -1,0 +1,19 @@
+<% title "#{@user.full_name}'s places to go" %>
+
+<div id="left_column">
+  
+  <h1>Places to go</h1>
+  
+  <ul id="points_of_interest">
+    
+    <%= render :partial => "points_of_interest/point_of_interest", :collection => @user.want_to_go_points_of_interest %>
+    
+  </ul>
+  
+</div>
+
+<div id="right_column">
+  
+  <%= render :partial => "sidebar", :locals => { :user => @user } %>
+  
+</div>

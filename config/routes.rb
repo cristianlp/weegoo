@@ -22,6 +22,9 @@ Weegoo::Application.routes.draw do
   
   get "users/:id/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
   get "users/:id/friends", :to => "users#friends", :as => "friends"
+  
+  get "users/:id/visited_places", :to => "users#visited_places", :as => "visited_places"
+  get "users/:id/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
