@@ -6,9 +6,11 @@
   
   <ul id="points_of_interest">
     
-    <%= render :partial => "points_of_interest/point_of_interest", :collection => @user.want_to_go_points_of_interest %>
+    <%= render :partial => "points_of_interest/point_of_interest", :collection => @want_to_go_points_of_interest %>
     
   </ul>
+  
+  <%= paginate @want_to_go_points_of_interest %>
   
 </div>
 

@@ -20,6 +20,9 @@
       <%= render :partial => "point_of_interest", :collection => @points_of_interest %>
       
     </ul>
+    
+    <%= paginate @points_of_interest %>
+    
   <% elsif params[:search] %>
     <div id="empty_search_results">
       No results found

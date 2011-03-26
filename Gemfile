@@ -13,6 +13,8 @@ gem 'simple_form'
 
 gem 'jquery-rails'
 
+gem 'kaminari'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

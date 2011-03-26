@@ -34,7 +34,9 @@
       <% end %>
       
     </ul>
-  
+    
+    <%= paginate @users %>
+    
   <% elsif params[:search] %>
     
     <div id="empty_search_results">

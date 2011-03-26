@@ -5,12 +5,14 @@
   <h1>Friends</h1>
   
   <ul id="users">
-    <% @user.accepted_friendships.each do |friendship| %>
+    <% @accepted_friendships.each do |friendship| %>
       <li class="user">
         <%= render :partial => "user_desc_large", :locals => { :user => friendship.friend(@user) } %>
       </li>
     <% end %>
   </ul>
+  
+  <%= paginate @accepted_friendships %>
   
 </div>
 

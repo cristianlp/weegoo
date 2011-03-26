@@ -3,9 +3,17 @@ class PointsOfInterestController < ApplicationController
   
   def index
     if params[:search]
-      @points_of_interest = PointOfInterest.search(params[:search])
+      @points_of_interest = PointOfInterest.search(params[:search]).page(params[:page]).per(5)
     else
       @points_of_interest = []
+    end
+    
+    # without this, kaminari won't work (with this specific model):
+    @points_of_interest.each { |p| }
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @points_of_interest }
     end
   end
   

@@ -1,3 +1,8 @@
+$("#flash *").each(function()
+{
+  $(this).detach();
+});
+
 $("#flash").append("<div class=\"notice\"><%= @message %></div>");
 
 $("#friendship_<%= @friendship.id %>").detach();
