@@ -1,28 +1,44 @@
-<h1><%= @event.name %></h1>
+<% title @event.name %>
 
-<div class="description"><%= @event.description %></div>
-
-<div class="category">
-  <strong>Category:</strong> <em><%= @event.category.name %></em>
+<div id="left_column">
+  
+  <h1><%= @event.name %></h1>
+  
+  <div class="description"><%= @event.description %></div>
+  
+  <div class="category">
+    <strong>Category:</strong> <em><%= @event.category.name %></em>
+  </div>
+  
+  <div class="sub_category">
+    <strong>Sub category:</strong> <em><%= @event.sub_category.name %></em>
+  </div>
+  
+  <div class="date">
+    <strong>Date:</strong> <em><%= @event.date %></em>
+  </div>
+  
+  <div class="sub_category">
+    <strong>Time:</strong> <em><%= @event.time %></em>
+  </div>
+  
+  <div id="map_canvas" style="width: 640px; height: 480px;"></div>
+  <script>
+    var map = initializeGMap();
+    setPointOfInterestLocationMarker(map, "<%= @event.latitude %>", "<%= @event.longitude %>", false);
+  </script>
+  
+  <%= render :partial => "points_of_interest/users_information", :locals => { :point_of_interest => @event } %>
+  
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+  
 </div>
 
-<div class="sub_category">
-  <strong>Sub category:</strong> <em><%= @event.sub_category.name %></em>
+<div id="right_column">
+  
+  <% if user_signed_in? %>
+    <%= render :partial => "users/sidebar", :locals => { :user => current_user } %>
+  <% end %>
+  
 </div>
-
-<div class="date">
-  <strong>Date:</strong> <em><%= @event.date %></em>
-</div>
-
-<div class="sub_category">
-  <strong>Time:</strong> <em><%= @event.time %></em>
-</div>
-
-<div id="map_canvas" style="width: 640px; height: 480px;"></div>
-<script>
-var map = initializeGMap();
-setPointOfInterestLocationMarker(map, "<%= @event.latitude %>", "<%= @event.longitude %>", false);
-</script>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

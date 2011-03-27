@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :want_to_go_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.want_to_go" => true }
   
   # Validations
-  validates :username, :presence => true, :uniqueness => true
+  validates :username, :presence => true, :uniqueness => true, :format => /^[A-Za-z\d_]+$/
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :location, :presence => true

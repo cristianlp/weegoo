@@ -1,0 +1,11 @@
+<div>
+  
+  <% users.each do |user| %>
+    <div class="user">
+      <%= render :partial => "users/user_desc_small", :locals => { :user => user } %>
+    </div>
+  <% end %>
+  
+  <div style="clear:both"></div>
+  
+</div>

@@ -149,12 +149,20 @@ ul#users li.user .actions
   margin: 20px 0;
 }
 
-#friendship_requests ul li.friendship_request .avatar
+div.user
+{
+  margin: 0 20px 20px 0;
+  float: left;
+}
+
+#friendship_requests ul li.friendship_request .avatar,
+div.user .avatar
 {
   float: left;
 }
 
-#friendship_requests ul li.friendship_request .user_full_name
+#friendship_requests ul li.friendship_request .user_full_name,
+div.user .user_full_name
 {
   margin-left: 37px;
 }

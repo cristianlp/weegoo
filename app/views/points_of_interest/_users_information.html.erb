@@ -1,0 +1,35 @@
+<% if point_of_interest.been_users.size > 0 %>
+  
+  <h2>People that been here</h2>
+  
+  <%= render :partial => "points_of_interest/users_list", :locals => { :users => point_of_interest.been_users } %>
+  
+<% end %>
+
+<% if point_of_interest.want_to_go_users.size > 0 %>
+  
+  <h2>People that want to be here</h2>
+  
+  <%= render :partial => "points_of_interest/users_list", :locals => { :users => point_of_interest.want_to_go_users } %>
+  
+<% end %>
+
+<% if user_signed_in? %>
+  
+  <% if point_of_interest.been_friends(current_user).size > 0 %>
+    
+    <h2>Friends that been here</h2>
+    
+    <%= render :partial => "points_of_interest/users_list", :locals => { :users => point_of_interest.been_friends(current_user) } %>
+    
+  <% end %>
+  
+  <% if point_of_interest.want_to_go_friends(current_user).size > 0 %>
+    
+    <h2>Friends that want to be here</h2>
+    
+    <%= render :partial => "points_of_interest/users_list", :locals => { :users => point_of_interest.want_to_go_friends(current_user) } %>
+    
+  <% end %>
+  
+<% end %>

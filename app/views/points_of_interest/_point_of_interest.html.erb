@@ -15,8 +15,8 @@
 
     <% if user_signed_in? %>
       <ul class="stats">
-        <li>3 friends been here</li>
-        <li>3 friends want to be here</li>
+        <li><%= point_of_interest.been_friends(current_user).size %> friends been here</li>
+        <li><%= point_of_interest.want_to_go_friends(current_user).size %> friends want to be here</li>
       </ul>
     <% end %>
     
