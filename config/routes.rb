@@ -14,17 +14,17 @@ Weegoo::Application.routes.draw do
   devise_for :users
   
   get "users", :to => "users#index"
-  get "users/:id", :to => "users#show", :as => "user"
+  get "users/:username", :to => "users#show", :as => "user"
   
-  get "users/:id/add_as_friend/:another_user_id", :to => "users#add_as_friend", :as => "add_as_friend"
-  get "users/:id/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
-  get "users/:id/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
+  get "users/:username/add_as_friend/:another_user_username", :to => "users#add_as_friend", :as => "add_as_friend"
+  get "users/:username/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
+  get "users/:username/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
   
-  get "users/:id/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
-  get "users/:id/friends", :to => "users#friends", :as => "friends"
+  get "users/:username/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
+  get "users/:username/friends", :to => "users#friends", :as => "friends"
   
-  get "users/:id/visited_places", :to => "users#visited_places", :as => "visited_places"
-  get "users/:id/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
+  get "users/:username/visited_places", :to => "users#visited_places", :as => "visited_places"
+  get "users/:username/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   end
 
   def add_as_friend
-    @user = User.find(params[:id])
-    @another_user = User.find(params[:another_user_id])
+    @user = User.find_by_username(params[:username])
+    @another_user = User.find_by_username(params[:another_user_username])
     
     current_user.friendships.create!(:user_b_id => @another_user.id)
     
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
   
   def accept_friendship
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
     @friendship = Friendship.find(params[:friendship_id])
     @friendship.accept
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
   
   def decline_friendship
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
     @friendship = Friendship.find(params[:friendship_id])
     @friendship.delete
@@ -69,25 +69,25 @@ class UsersController < ApplicationController
   end
   
   def friendship_requests
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
-    @friendship_requests = @user.pending_friendships.page(params[:page]).per(5)
+    @pending_friendships = @user.pending_friendships.page(params[:page]).per(5)
   end
   
   def friends
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
     @accepted_friendships = @user.accepted_friendships.page(params[:page]).per(5)
   end
   
   def visited_places
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
     @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(5)
   end
   
   def places_to_go
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:username])
     
     @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(5)
   end
