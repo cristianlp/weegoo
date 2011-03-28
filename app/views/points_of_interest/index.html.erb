@@ -7,7 +7,11 @@
   <div id="search">
     <%= form_tag points_of_interest_path, :method => "get" do %>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil, :class => "g-button" %>
+      <%= submit_tag "Search", :name => nil, :class => "g-button" %><br/>
+      <%= label_tag "Search" %>:
+      <%= radio_button_tag :type, "Venue", params[:type] == "Venue" %><%= label_tag :type_Venue, "Venues" %>
+      <%= radio_button_tag :type, "Event", params[:type] == "Event" %><%= label_tag :type_Event, "Events" %>
+      <%= radio_button_tag :type, "All", params[:type] == "All" %><%= label_tag :type_All, "All" %>
     <% end %>
   </div>
   

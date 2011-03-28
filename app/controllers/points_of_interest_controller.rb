@@ -3,7 +3,7 @@ class PointsOfInterestController < ApplicationController
   
   def index
     if params[:search]
-      @points_of_interest = PointOfInterest.search(params[:search]).page(params[:page]).per(5)
+      @points_of_interest = PointOfInterest.search(params[:search], params[:type]).page(params[:page]).per(5)
     else
       @points_of_interest = []
     end

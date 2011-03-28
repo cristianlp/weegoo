@@ -26,9 +26,13 @@ class PointOfInterest < ActiveRecord::Base
     permalink
   end
   
-  def self.search(search)
+  def self.search(search, type)
     if search
-      where("name LIKE ? or description LIKE ?", "%#{search}%", "%#{search}%")
+      if type != "All"
+        where("(name LIKE ? OR description LIKE ?) AND type = ?", "%#{search}%", "%#{search}%", type)
+      else
+        where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")
+      end
     else
       scoped
     end
