@@ -18,7 +18,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def been
-    @point_of_interest = PointOfInterest.find(params[:id])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
     point_of_interest_user.update_attributes(:been => true, :want_to_go => false)
@@ -33,7 +33,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def want_to_go
-    @point_of_interest = PointOfInterest.find(params[:id])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     current_user.points_of_interest_users.create!(:point_of_interest_id => @point_of_interest.id, :want_to_go => true)
     

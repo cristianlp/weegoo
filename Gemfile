@@ -15,6 +15,8 @@ gem 'jquery-rails'
 
 gem 'kaminari'
 
+gem 'permalink_fu'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

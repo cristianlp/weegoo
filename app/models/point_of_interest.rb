@@ -17,6 +17,15 @@ class PointOfInterest < ActiveRecord::Base
   validates :latitude, :presence => true
   validates :longitude, :presence => true
   
+  has_permalink :name, :update => true
+  
+  # because permalink_fu does not escape the name automatically:
+  before_save :handle_permalink
+  
+  def to_param
+    permalink
+  end
+  
   def self.search(search)
     if search
       where("name LIKE ? or description LIKE ?", "%#{search}%", "%#{search}%")
@@ -59,5 +68,11 @@ class PointOfInterest < ActiveRecord::Base
     want_to_go_friends_ids = user_accepted_friendships_ids & want_to_go_users_ids
     
     User.find(want_to_go_friends_ids)
+  end
+  
+  protected
+    
+  def handle_permalink
+    self.permalink = PermalinkFu.escape self.name
   end
 end

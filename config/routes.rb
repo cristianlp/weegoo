@@ -2,15 +2,15 @@ Weegoo::Application.routes.draw do
   get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
   
   get "points_of_interest", :to => "points_of_interest#index"
-  get "points_of_interest/:id/been", :to => "points_of_interest#been", :as => "been"
-  get "points_of_interest/:id/want_to_go", :to => "points_of_interest#want_to_go", :as => "want_to_go"
-
+  get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "been"
+  get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "want_to_go"
+  
   resources :events
-
+  
   resources :venues
-
+  
   root :to => "main#index"
-
+  
   devise_for :users
   
   get "users", :to => "users#index"
@@ -25,7 +25,7 @@ Weegoo::Application.routes.draw do
   
   get "users/:username/visited_places", :to => "users#visited_places", :as => "visited_places"
   get "users/:username/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

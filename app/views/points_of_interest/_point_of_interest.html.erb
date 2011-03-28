@@ -6,7 +6,7 @@
   <div class="information">
   
     <div class="name">
-      <%= link_to point_of_interest.name, { :controller => "#{point_of_interest.type.underscore}s", :action => "show", :id => point_of_interest.id } %>
+      <%= link_to point_of_interest.name, { :controller => "#{point_of_interest.type.underscore}s", :action => "show", :id => point_of_interest.permalink } %>
     </div>
     
     <div class="description">

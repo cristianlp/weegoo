@@ -49,6 +49,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
+    permalink_fu (1.0.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -85,5 +86,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2
+  permalink_fu
   rails (= 3.0.5)
   simple_form

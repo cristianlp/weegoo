@@ -22,7 +22,7 @@
     <strong>Time:</strong> <em><%= @event.time %></em>
   </div>
   
-  <div id="map_canvas" style="width: 640px; height: 480px;"></div>
+  <div id="map_canvas" style="width: 500px; height: 375px;"></div>
   <script>
     var map = initializeGMap();
     setPointOfInterestLocationMarker(map, "<%= @event.latitude %>", "<%= @event.longitude %>", false);
