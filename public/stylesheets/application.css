@@ -1,13 +1,12 @@
 body
 {
   margin: 0;
-  margin-top: -13px;
 }
 
 .narrow
 {
   width: 950px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 #header
@@ -15,35 +14,88 @@ body
   border-bottom: 1px solid #dbdbdb;
 }
 
-#header #user_menu
+#header a#logo
 {
-  float: right;
-  padding-top: 13px;
+  margin-right: 15px;
 }
 
-#header h1
+#header a#logo img
 {
-  float: left;
-  margin: 0 20px 0 0 !important;
-  padding-top: 10px;
+  margin: 10px 0 6px 0;
+  vertical-align: middle;
 }
 
 #header ul#main_menu
 {
+  display: inline;
   list-style: none;
   padding: 0;
-  padding-top: 13px;
 }
 
 #header ul#main_menu li
 {
   display: inline;
-  margin-right: 30px;
+  margin-left: 15px;
 }
 
 #content
 {
   margin-top: 20px;
+}
+
+/****************************
+ * current_user_information *
+ ****************************/
+
+#current_user
+{
+  float: right;
+  margin-top: 10px;
+}
+
+#current_user #avatar
+{
+  font-weight: bold;
+  display: inline;
+  margin-right: 6px;
+}
+
+#current_user #avatar img
+{
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+#current_user #avatar a
+{
+  color: #333;
+}
+
+#current_user ul#actions,
+#current_user ul#signed_out_actions
+{
+  list-style: none;
+  padding: 0;
+  display: inline;
+}
+
+#current_user ul#actions li,
+#current_user ul#signed_out_actions li
+{
+  display: inline;
+  padding: 0 6px 0 6px;
+  border-left: 1px solid #bbb;
+}
+
+#current_user ul#actions li:last-child,
+#current_user ul#signed_out_actions li:last-child
+{
+  padding-right: 0;
+}
+
+#current_user ul#signed_out_actions li:first-child
+{
+  border-left: none;
 }
 
 /************************
