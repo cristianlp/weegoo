@@ -1,0 +1,21 @@
+#search
+{
+  width: 70%;
+  margin: 0 auto;
+}
+
+#search form
+{
+  margin: 40px 0;
+}
+
+#search form input[type=text]
+{
+  font-size: 20px;
+  width: 565px;
+}
+
+#search form input[type=submit]
+{
+  font-size: 20px;
+}

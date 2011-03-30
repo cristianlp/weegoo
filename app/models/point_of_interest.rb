@@ -28,7 +28,7 @@ class PointOfInterest < ActiveRecord::Base
   
   def self.search(search, type)
     if search
-      if type != "All"
+      if type != "Everything"
         where("(name LIKE ? OR description LIKE ?) AND type = ?", "%#{search}%", "%#{search}%", type)
       else
         where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")

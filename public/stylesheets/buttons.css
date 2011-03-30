@@ -20,6 +20,7 @@ a.g-button:hover,
 input[type=submit].g-button:hover
 {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(248, 248, 248)), to(rgb(221, 221, 221)));
+  text-decoration: none;
 }
 
 button.g-button:active,

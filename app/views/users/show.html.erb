@@ -1,13 +1,17 @@
 <% title @user.full_name %>
 
-<div id="left_column">
-  
-  <h1>Recent activity</h1>
-  
-</div>
+<%= render :partial => "users/full_user_information", :locals => { :user => @user } %>
 
-<div id="right_column">
+<div class="columns">
+
+  <div class="left">
+    
+    <h1>Recent activity</h1>
+    
+  </div>
   
-  <%= render :partial => "sidebar", :locals => { :user => @user } %>
-  
+  <div class="right">
+    
+  </div>
+
 </div>

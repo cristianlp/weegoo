@@ -1,23 +1,25 @@
 <% title "#{@user.full_name}'s friends" %>
 
-<div id="left_column">
-  
-  <h1>Friends</h1>
-  
-  <ul id="users">
-    <% @accepted_friendships.each do |friendship| %>
-      <li class="user">
-        <%= render :partial => "user_desc_large", :locals => { :user => friendship.friend(@user) } %>
-      </li>
-    <% end %>
-  </ul>
-  
-  <%= paginate @accepted_friendships %>
-  
-</div>
+<%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<div id="right_column">
+<div class="columns">
+
+  <div class="left">
+    
+    <h1>Friends</h1>
+    
+    <ul id="users_list">
+      <% @accepted_friendships.each do |friendship| %>
+        <%= render :partial => "user_desc", :locals => { :user => friendship.friend(@user) } %>
+      <% end %>
+    </ul>
+    
+    <%= paginate @accepted_friendships %>
+    
+  </div>
   
-  <%= render :partial => "sidebar", :locals => { :user => @user } %>
-  
+  <div class="right">
+    
+  </div>
+
 </div>

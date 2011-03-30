@@ -1,20 +1,63 @@
+<!-- closing narrow -->
+</div>
+
 <div id="user_information">
   
-  <div id="avatar">
-    <%= link_to image_tag(gravatar_url(user.email)), user %>
-  </div>
+  <div class="narrow">
   
-  <div id="information">
-    <h1><%= link_to user.full_name, user %></h1>
-    <div id="location"><%= user.location %></div>
+    <h1 id="avatar">
+      <%= link_to image_tag(gravatar_url(user.email)), user %>
+      <%= user.username %> <em>(<%= user.full_name %>)</em>
+    </h1>
     
-    <ul id="stats">
-      <li><%= link_to raw("<span>#{user.accepted_friendships.size}</span> friends"), friends_path(user) %></li>
+    <% if defined?(include_details) and include_details %>
       
-      <li><%= link_to raw("<span>#{user.been_points_of_interest.size}</span> visited places"), visited_places_path(user) %></li>
+      <div class="ruler"></div>
       
-      <li style="border-right: none;"><%= link_to raw("<span>#{user.want_to_go_points_of_interest.size}</span> places to go"), places_to_go_path(user) %></li>
-    </ul>
+      <div class="columns">
+        <div id="information" class="left">
+          <dl>
+            <dt>Name</dt>
+            <dd><%= user.full_name %></dd>
+            <dt>Email</dt>
+            <dd><%= mail_to user.email, user.email %></dd>
+            <dt>Location</dt>
+            <dd><%= user.location %></dd>
+          </dl>
+        </div>
+        
+        <div class="right">
+          <ul id="stats">
+            <li><%= link_to raw("<strong>#{user.accepted_friendships.size}</strong><span>friends</span>"), friends_path(user) %></li>
+          
+            <li><%= link_to raw("<strong>#{user.been_points_of_interest.size}</strong><span>visited places</span>"), visited_places_path(user) %></li>
+          
+            <li><%= link_to raw("<strong>#{user.want_to_go_points_of_interest.size}</strong><span>places to go</span>"), places_to_go_path(user) %></li>
+            
+            <% if current_user == user and user.pending_friendships.size > 0 %>
+              <li><%= link_to raw("<strong>#{user.pending_friendships.size}</strong><span>pending friendships</span>"), friendship_requests_path(user) %></li>
+            <% end %>
+          </ul>
+          
+          <% if user_signed_in? and current_user != user and current_user.mutual_friends(user).size > 0 %>
+            <div id="mutual_friends">
+              <div>You and <%= user.full_name %> have <%= current_user.mutual_friends(user).size %> mutual friends</div>
+              
+              <ul id="avatars">
+                <% current_user.mutual_friends(user).each do |friend| %>
+                  <li><%= link_to image_tag(gravatar_url(friend.email, 24)), friend %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+    <% end %>
+  
   </div>
   
 </div>
+
+<!-- reopening narrow -->
+<div class="narrow">

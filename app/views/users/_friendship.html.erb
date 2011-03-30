@@ -1,0 +1,10 @@
+<li class="user" id="friendship_<%= friendship.id %>">
+  <%= link_to image_tag(gravatar_url(friend.email, 24)), friend %>
+  <%= link_to friend.username, friend %>
+  <em>(<%= friend.full_name %>)</em>
+  
+  <div class="actions">
+    <%= link_to "Accept", accept_friendship_path(:id => user.id, :friendship_id => friendship.id), :remote => true, :class => "g-button" %>
+    <%= link_to "Decline", decline_friendship_path(:id => user.id, :friendship_id => friendship.id), :remote => true, :class => "g-button" %>
+  </div>
+</li>

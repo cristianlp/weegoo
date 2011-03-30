@@ -1,3 +1,7 @@
+/*****************
+ * common styles *
+ *****************/
+
 body
 {
   margin: 0;
@@ -8,6 +12,40 @@ body
   width: 950px;
   margin: 0 auto;
 }
+
+.ruler
+{
+  border-bottom: 1px solid #ddd;
+  clear: both;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.columns
+{
+  overflow: hidden;
+}
+
+.left
+{
+  float: left;
+  width: 50%;
+}
+
+.right
+{
+  float: right;
+  width: 50%;
+}
+
+#content
+{
+  margin-top: 20px;
+}
+
+/**********
+ * header *
+ **********/
 
 #header
 {
@@ -36,11 +74,6 @@ body
 {
   display: inline;
   margin-left: 15px;
-}
-
-#content
-{
-  margin-top: 20px;
 }
 
 /****************************
@@ -98,38 +131,20 @@ body
   border-left: none;
 }
 
-/************************
- * stuff on left column *
- ************************/
+/***************
+ * left column *
+ ***************/
 
-#content #left_column
-{
-  float: left;
-  width: 550px;
-}
-
-#content #left_column h1
+.left h1
 {
   margin-top: 0;
 }
 
-#content #left_column #search input#search
-{
-  font-size: 18px;
-  width: 400px;
-}
+/****************
+ * right column *
+ ****************/
 
-#content #left_column #search input[type=submit]
+.right h1
 {
-  font-size: 18px;
-}
-
-/*************************
- * stuff on right column *
- *************************/
-
-#content #right_column
-{
-  float: right;
-  width: 350px;
+  margin-top: 0;
 }
