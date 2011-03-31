@@ -19,8 +19,10 @@
           <dl>
             <dt>Name</dt>
             <dd><%= point_of_interest.name %></dd>
-            <dt>Description</dt>
-            <dd><%= point_of_interest.description %></dd>
+            <% if not point_of_interest.description.blank? %>
+              <dt>Description</dt>
+              <dd><%= point_of_interest.description %></dd>
+            <% end %>
             <dt>Category</dt>
             <dd><%= point_of_interest.category.name %></dd>
             <dt>Sub category</dt>
@@ -37,20 +39,35 @@
         
         <div class="right">
           <ul id="stats">
-            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), root_path %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), point_of_interest_been_users_path(point_of_interest) %></li>
             
-            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), root_path %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), point_of_interest_want_to_go_users_path(point_of_interest) %></li>
             
             <% if user_signed_in? %>
-              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), root_path %></li>
-              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), root_path %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), point_of_interest_been_friends_path(point_of_interest) %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), point_of_interest_want_to_go_friends_path(point_of_interest) %></li>
             <% end %>
           </ul>
         </div>
       </div>
+
+      <div class="ruler"></div>
+      
+      <div class="columns">
+        <div class="left">
+          <% if point_of_interest.type == "Venue" %>
+            <%= link_to 'Edit', edit_venue_path(point_of_interest), :class => "g-button" %>
+          <% else %>
+            <%= link_to 'Edit', edit_event_path(point_of_interest), :class => "g-button" %>
+          <% end %>
+        </div>
+        
+        <div class="right">
+          <%= render :partial => "point_of_interest_actions", :locals => { :point_of_interest => point_of_interest } %>
+        </div>
+      </div>
       
     <% end %>
-  
   </div>
   
 </div>

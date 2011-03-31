@@ -1,5 +1,5 @@
 class PointsOfInterestController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show, :been_users, :want_to_go_users]
   
   def index
     if params[:search]
@@ -48,5 +48,30 @@ class PointsOfInterestController < ApplicationController
         render :response
       end
     end
+  end
+  
+  def been_users
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    @users = @point_of_interest.been_users.page(params[:page]).per(5)
+  end
+  
+  def want_to_go_users
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    @users = @point_of_interest.want_to_go_users.page(params[:page]).per(5)
+  end
+  
+  # arreglar estos dos metodos
+  def been_friends
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    @users = @point_of_interest.been_friends(current_user).page(params[:page]).per(5)
+  end
+  
+  def want_to_go_friends
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    @users = @point_of_interest.want_to_go_friends(current_user).page(params[:page]).per(5)
   end
 end

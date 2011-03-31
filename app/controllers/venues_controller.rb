@@ -1,15 +1,6 @@
 class VenuesController < ApplicationController
-  # GET /venues
-  # GET /venues.xml
-  def index
-    @venues = Venue.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @venues }
-    end
-  end
-
+  before_filter :authenticate_user!, :except => [:show]
+  
   # GET /venues/1
   # GET /venues/1.xml
   def show

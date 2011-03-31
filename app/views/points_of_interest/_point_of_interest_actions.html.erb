@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  
+  <% if not current_user.been_at(point_of_interest) %>
+    
+    <div class="actions">
+      <%= link_to "Been here", point_of_interest_been_path(point_of_interest), :remote => true, :class => "g-button" %>
+      
+      <% if not current_user.want_to_go_to(point_of_interest) %>
+        <%= link_to "Want to go", point_of_interest_want_to_go_path(point_of_interest), :remote => true, :class => "g-button" %>
+      <% end %>
+    </div>
+    
+  <% end %>
+  
+<% end %>

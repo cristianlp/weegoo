@@ -1,0 +1,9 @@
+<div id="map_canvas" style="width: 950px; height: 712.5px;"></div>
+<script>
+  var map = initializeGMap();
+  <% points_of_interest.each do |point_of_interest| %>
+    setPointOfInterestLocationMarker(map, "<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>", false);
+  <% end %>
+</script>
+
+<%= paginate points_of_interest %>

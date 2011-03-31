@@ -1,0 +1,7 @@
+<ul id="points_of_interest_list">
+  
+  <%= render :partial => "points_of_interest/point_of_interest", :collection => points_of_interest %>
+      
+</ul>
+
+<%= paginate points_of_interest %>

@@ -59,11 +59,3 @@
     <% end %>
   </div>
 </div>
-
-<% if @point_of_interest.type == "Venue" %>
-  <%= link_to 'Edit', edit_venue_path(@point_of_interest) %> |
-  <%= link_to 'Back', venues_path %>
-<% else %>
-  <%= link_to 'Edit', edit_event_path(@point_of_interest) %> |
-  <%= link_to 'Back', events_path %>
-<% end %>

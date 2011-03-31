@@ -3,20 +3,6 @@
   <%= link_to image_tag("blank_avatar.png", :style => "width: 24px;"), point_of_interest %>
   <%= link_to point_of_interest.name, point_of_interest %>
   
-  <% if user_signed_in? %>
-    
-    <% if not current_user.been_at(point_of_interest) %>
-      
-      <div class="actions">
-        <%= link_to "Been here", been_path(point_of_interest), :remote => true, :class => "g-button" %>
-        
-        <% if not current_user.want_to_go_to(point_of_interest) %>
-          <%= link_to "Want to go", want_to_go_path(point_of_interest), :remote => true, :class => "g-button" %>
-        <% end %>
-      </div>
-      
-    <% end %>
-    
-  <% end %>
+  <%= render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => point_of_interest } %>
   
 </li>

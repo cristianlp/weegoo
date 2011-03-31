@@ -53,7 +53,7 @@ class PointOfInterest < ActiveRecord::Base
     
     been_friends_ids = user_accepted_friendships_ids & been_users_ids
     
-    User.find(been_friends_ids)
+    User.where("id IN (?)", been_friends_ids)
   end
   
   def want_to_go_friends(user)
@@ -71,7 +71,7 @@ class PointOfInterest < ActiveRecord::Base
     
     want_to_go_friends_ids = user_accepted_friendships_ids & want_to_go_users_ids
     
-    User.find(want_to_go_friends_ids)
+    User.where("id IN (?)", want_to_go_friends_ids)
   end
   
   protected

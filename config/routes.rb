@@ -3,12 +3,17 @@ Weegoo::Application.routes.draw do
   
   get "points_of_interest", :to => "points_of_interest#index"
   get "points_of_interest/:permalink", :to => "points_of_interest#show", :as => "point_of_interest"
-  get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "been"
-  get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "want_to_go"
+  get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "point_of_interest_been"
+  get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "point_of_interest_want_to_go"
   
-  resources :events
+  get "points_of_interest/:permalink/been_users", :to => "points_of_interest#been_users", :as => "point_of_interest_been_users"
+  get "points_of_interest/:permalink/want_to_go_users", :to => "points_of_interest#want_to_go_users", :as => "point_of_interest_want_to_go_users"
+  get "points_of_interest/:permalink/been_friends", :to => "points_of_interest#been_friends", :as => "point_of_interest_been_friends"
+  get "points_of_interest/:permalink/want_to_go_friends", :to => "points_of_interest#want_to_go_friends", :as => "point_of_interest_want_to_go_friends"
   
-  resources :venues
+  resources :events, :except => [ :index ]
+  
+  resources :venues, :except => [ :index ]
   
   root :to => "main#index"
   
