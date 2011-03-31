@@ -2,28 +2,16 @@
 
 <%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<div class="columns">
+<h1>Friendship requests</h1>
 
-  <div class="left">
-    
-    <h1>Friendship requests</h1>
-    
-    <ul id="users_list">
-      
-      <% @pending_friendships.each do |friendship| %>
-        
-        <%= render :partial => "friendship", :locals => { :user => @user, :friendship => friendship, :friend => friendship.friend(@user) } %>
-        
-      <% end %>
-      
-    </ul>
-    
-    <%= paginate @pending_friendships %>
-    
-  </div>
+<ul id="users_list">
   
-  <div class="right">
+  <% @pending_friendships.each do |friendship| %>
     
-  </div>
+    <%= render :partial => "friendship", :locals => { :user => @user, :friendship => friendship, :friend => friendship.friend(@user) } %>
+    
+  <% end %>
+  
+</ul>
 
-</div>
+<%= paginate @pending_friendships %>

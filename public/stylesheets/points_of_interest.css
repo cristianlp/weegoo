@@ -44,6 +44,7 @@
 #point_of_interest_information #information dl dd
 {
   margin: 0px;
+  margin-left: 115px;
 }
 
 #point_of_interest_information ul#stats
