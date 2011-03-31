@@ -83,12 +83,24 @@ class UsersController < ApplicationController
   def visited_places
     @user = User.find_by_username(params[:username])
     
-    @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(5)
+    params[:type] ||= "Everything"
+    
+    if params[:type] != "Everything"
+      @been_points_of_interest = @user.been_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
+    else
+      @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(5)
+    end
   end
   
   def places_to_go
     @user = User.find_by_username(params[:username])
     
-    @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(5)
+    params[:type] ||= "Everything"
+    
+    if params[:type] != "Everything"
+      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
+    else
+      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(5)
+    end
   end
 end

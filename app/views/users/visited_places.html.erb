@@ -4,10 +4,6 @@
 
 <h1>Visited places</h1>
 
-<ul id="points_of_interest_list">
-  
-  <%= render :partial => "points_of_interest/point_of_interest", :collection => @been_points_of_interest %>
-  
-</ul>
+<%= render :partial => "users/filter_form", :locals => { :url => visited_places_path(@user) } %>
 
-<%= paginate @been_points_of_interest %>
+<%= render :partial => "points_of_interest/points_of_interest_#{params[:show_as] ? params[:show_as].underscore : "list" }", :locals => { :points_of_interest => @been_points_of_interest } %>
