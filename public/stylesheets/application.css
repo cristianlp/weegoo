@@ -29,14 +29,20 @@ body
 .left
 {
   float: left;
-  width: 50%;
+  width: 450px;
 }
 
 .right
 {
   float: right;
-  width: 50%;
+  width: 450px;
 }
+
+.left h2,
+.right h2
+{
+  margin-top: 0px;
+} 
 
 #content
 {

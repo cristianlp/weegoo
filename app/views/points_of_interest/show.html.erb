@@ -1,0 +1,69 @@
+<% title @point_of_interest.name %>
+
+<%= render :partial => "points_of_interest/full_point_of_interest_information", :locals => { :point_of_interest => @point_of_interest } %>
+
+<div class="columns">
+  
+  <div class="left">
+    <div id="map_canvas" style="width: 100%; height: 337.5px;"></div>
+    <script>
+      var map = initializeGMap();
+      setPointOfInterestLocationMarker(map, "<%= @point_of_interest.latitude %>", "<%= @point_of_interest.longitude %>", false);
+    </script>
+  </div>
+  
+  <div class="right">
+    
+    <% if @point_of_interest.been_users.size > 0 %>
+      
+      <h2>People that been here</h2>
+      
+      <ul class="users_list">
+        <%= render :partial => "users/user_desc", :collection => @point_of_interest.been_users, :as => :user %>
+      </ul>
+      
+    <% end %>
+    
+    <% if @point_of_interest.want_to_go_users.size > 0 %>
+      
+      <h2>People that want to be here</h2>
+      
+      <ul class="users_list">
+        <%= render :partial => "users/user_desc", :collection => @point_of_interest.want_to_go_users, :as => :user %>
+      </ul>
+      
+    <% end %>
+    
+    <% if user_signed_in? %>
+      
+      <% if @point_of_interest.been_friends(current_user).size > 0 %>
+        
+        <h2>Friends that been here</h2>
+        
+        <ul class="users_list">
+          <%= render :partial => "users/user_desc", :collection => @point_of_interest.been_friends(current_user), :as => :user %>
+        </ul>
+        
+      <% end %>
+      
+      <% if @point_of_interest.want_to_go_friends(current_user).size > 0 %>
+        
+        <h2>Friends that want to be here</h2>
+        
+        <ul class="users_list">
+          <%= render :partial => "users/user_desc", :collection => @point_of_interest.want_to_go_friends(current_user), :as => :user %>
+        </ul>
+        
+      <% end %>
+      
+    <% end %>
+  </div>
+</div>
+
+<% if @point_of_interest.type == "Venue" %>
+  <%= link_to 'Edit', edit_venue_path(@point_of_interest) %> |
+  <%= link_to 'Back', venues_path %>
+<% else %>
+  <%= link_to 'Edit', edit_event_path(@point_of_interest) %> |
+  <%= link_to 'Back', events_path %>
+<% end %>

@@ -1,0 +1,57 @@
+<!-- closing narrow -->
+</div>
+
+<div id="point_of_interest_information">
+  
+  <div class="narrow">
+  
+    <h1 id="avatar">
+      <%= link_to image_tag("blank_avatar.png"), point_of_interest %>
+      <%= point_of_interest.name %>
+    </h1>
+    
+    <% if defined?(include_details) and include_details %>
+      
+      <div class="ruler"></div>
+      
+      <div class="columns">
+        <div id="information" class="left">
+          <dl>
+            <dt>Name</dt>
+            <dd><%= point_of_interest.name %></dd>
+            <dt>Category</dt>
+            <dd><%= point_of_interest.category.name %></dd>
+            <dt>Sub category</dt>
+            <dd><%= point_of_interest.sub_category.name %></dd>
+            
+            <% if point_of_interest.type == "Event" %>
+              <dt>Date</dt>
+              <dd><%= point_of_interest.date %></dd>
+              <dt>Time</dt>
+              <dd><%= point_of_interest.time %></dd>
+            <% end %>
+          </dl>
+        </div>
+        
+        <div class="right">
+          <ul id="stats">
+            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), root_path %></li>
+            
+            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), root_path %></li>
+            
+            <% if user_signed_in? %>
+              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), root_path %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), root_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      
+    <% end %>
+  
+  </div>
+  
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">

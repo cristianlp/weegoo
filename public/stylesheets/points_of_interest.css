@@ -1,61 +1,127 @@
-ul#points_of_interest
-{
-  list-style: none;
-  padding: 0;
-}
+/*********************************
+ * point_of_interest_information *
+ *********************************/
 
-ul#points_of_interest li.point_of_interest
+#point_of_interest_information
 {
-  position: relative;
-  margin: 20px 0;
+  margin-bottom: 20px;
   overflow: hidden;
+  
+  background-color: #f5f5f5;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 10px 0;
 }
 
-ul#points_of_interest li.point_of_interest .avatar
+#point_of_interest_information h1#avatar
+{
+  color: #333;
+  margin: 0;
+}
+
+#point_of_interest_information h1#avatar img
+{
+  vertical-align: middle;
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+
+#point_of_interest_information h1#avatar em
+{
+  font-style: normal;
+  color: #aaa;
+  font-weight: normal;
+}
+
+#point_of_interest_information #information dl dt
+{
+  color: #999;
+  float: left;
+  margin: 0px;
+  width: 115px;
+}
+
+#point_of_interest_information #information dl dd
+{
+  margin: 0px;
+}
+
+#point_of_interest_information ul#stats
+{
+  padding: 0;
+  list-style: none;
+}
+
+#point_of_interest_information ul#stats li
 {
   float: left;
+  margin-right: 30px;
 }
 
-ul#points_of_interest li.point_of_interest .information
+#point_of_interest_information ul#stats li a:hover,
+#point_of_interest_information ul#stats li a:hover *
 {
-  margin-left: 74px;
+  text-decoration: none;
+  color: #4183C4;
 }
 
-ul#points_of_interest li.point_of_interest .information .name
+#point_of_interest_information ul#stats li a strong
 {
-  font-size: 18px;
-  margin: 0;
+  color: #000;
+  font-size: 36px;
   font-weight: bold;
 }
 
-ul#points_of_interest li.point_of_interest .information .description
+#point_of_interest_information ul#stats li a span
 {
-  font-size: 12px;
-  margin-top: 3px;
+  color: #999;
+  display: block;
+  font-size: 11px;
+  width: 80px;
 }
 
-ul#points_of_interest li.point_of_interest .information ul.stats
+/***************************
+ * points_of_interest_list *
+ ***************************/
+
+ul#points_of_interest_list
 {
-  padding: 0;
   list-style: none;
+  padding: 0;
 }
 
-ul#points_of_interest li.point_of_interest .information ul.stats li
+ul#points_of_interest_list li.point_of_interest
 {
-  display: inline;
-  float: left;
-  font-size: 10px;
-  margin-right: 20px;
+  padding: 5px 0;
+  border-top: 1px solid #ddd;
+  position: relative;
 }
 
-ul#points_of_interest li.point_of_interest .information ul.stats li span
+ul#points_of_interest_list li.point_of_interest:last-child
 {
+  border-bottom: 1px solid #ddd;
 }
 
-ul#points_of_interest li.point_of_interest .actions
+ul#points_of_interest_list li.point_of_interest a
 {
-  font-size: 10px;
+  font-weight: bold;
+}
+
+ul#points_of_interest_list li.point_of_interest a img
+{
+  padding: 1px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+ul#points_of_interest_list li.point_of_interest .actions
+{
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 7px;
+  right: 0;
+}
+
+ul#points_of_interest_list li.point_of_interest .actions .g-button
+{
+  font-size: 10px;
 }

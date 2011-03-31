@@ -14,11 +14,8 @@ class VenuesController < ApplicationController
   # GET /venues/1.xml
   def show
     @venue = Venue.find_by_permalink(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @venue }
-    end
+    
+    redirect_to point_of_interest_url(@venue)
   end
 
   # GET /venues/new

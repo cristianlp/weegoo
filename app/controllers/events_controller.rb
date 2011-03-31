@@ -15,10 +15,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_permalink(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @event }
-    end
+    redirect_to point_of_interest_url(@event)
   end
 
   # GET /events/new

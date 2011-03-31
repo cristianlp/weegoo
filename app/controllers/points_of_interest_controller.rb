@@ -17,6 +17,10 @@ class PointsOfInterestController < ApplicationController
     end
   end
   
+  def show
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+  end
+  
   def been
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     

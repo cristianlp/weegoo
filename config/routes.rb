@@ -2,6 +2,7 @@ Weegoo::Application.routes.draw do
   get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
   
   get "points_of_interest", :to => "points_of_interest#index"
+  get "points_of_interest/:permalink", :to => "points_of_interest#show", :as => "point_of_interest"
   get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "been"
   get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "want_to_go"
   

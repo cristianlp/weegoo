@@ -2,51 +2,59 @@
  * users_list *
  **************/
 
-ul#users_list
+ul#users_list,
+ul.users_list
 {
   list-style: none;
   padding: 0;
 }
 
-ul#users_list li.user
+ul#users_list li.user,
+ul.users_list li.user
 {
   padding: 5px 0;
   border-top: 1px solid #ddd;
   position: relative;
 }
 
-ul#users_list li.user:last-child
+ul#users_list li.user:last-child,
+ul.users_list li.user:last-child
 {
   border-bottom: 1px solid #ddd;
 }
 
-ul#users_list li.user a
+ul#users_list li.user a,
+ul.users_list li.user a
 {
   font-weight: bold;
 }
 
-ul#users_list li.user a img
+ul#users_list li.user a img,
+ul.users_list li.user a img
 {
   padding: 1px;
   border: 1px solid #ddd;
   vertical-align: middle;
 }
 
-ul#users_list li.user em
+ul#users_list li.user em,
+ul.users_list li.user em
 {
   font-style: normal;
   color: #aaa;
   font-weight: normal;
 }
 
-ul#users_list li.user .actions
+ul#users_list li.user .actions,
+ul.users_list li.user .actions
 {
   position: absolute;
   top: 7px;
   right: 0;
 }
 
-ul#users_list li.user .actions .g-button
+ul#users_list li.user .actions .g-button,
+ul.users_list li.user .actions .g-button
 {
   font-size: 10px;
 }
@@ -160,60 +168,4 @@ ul#users_list li.user .actions .g-button
 {
   padding: 1px;
   border: 1px solid #ddd;
-}
-
-/**
-#friendship_requests
-{
-  margin-top: 20px;
-}
-
-#friendship_requests h2
-{
-  font-size: 16px;
-  display: inline;
-}
-
-#friendship_requests .show_all
-{
-  float: right;
-}
-
-#friendship_requests ul
-{
-  list-style: none;
-  padding: 0;
-}
-
-#friendship_requests ul li.friendship_request
-{
-  position: relative;
-  margin: 20px 0;
-}
-**/
-
-div.user
-{
-  margin: 0 10px 10px 0;
-  width: 170px;
-  float: left;
-}
-
-#friendship_requests ul li.friendship_request .avatar,
-div.user .avatar
-{
-  float: left;
-}
-
-#friendship_requests ul li.friendship_request .user_full_name,
-div.user .user_full_name
-{
-  margin-left: 37px;
-}
-
-#friendship_requests ul li.friendship_request .actions
-{
-  position: absolute;
-  top: 0;
-  right: 0;
 }

@@ -2,24 +2,12 @@
 
 <%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<div class="columns">
+<h1>Visited places</h1>
 
-  <div class="left">
-    
-    <h1>Visited places</h1>
-    
-    <ul id="points_of_interest">
-      
-      <%= render :partial => "points_of_interest/point_of_interest", :collection => @been_points_of_interest %>
-      
-    </ul>
-    
-    <%= paginate @been_points_of_interest %>
-    
-  </div>
+<ul id="points_of_interest_list">
   
-  <div class="right">
-    
-  </div>
+  <%= render :partial => "points_of_interest/point_of_interest", :collection => @been_points_of_interest %>
+  
+</ul>
 
-</div>
+<%= paginate @been_points_of_interest %>
