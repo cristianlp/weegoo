@@ -57,6 +57,23 @@ $(".point_of_interest .actions a").live('click', function()
   return false;
 });
 
+$(".right .actions a").live('click', function()
+{
+  link = this;
+  $.ajax({
+    url: this.href,
+    type: 'get',
+    success: function(data)
+    {
+      parent = $(link).parents(".right");
+      parent.children(".actions").detach();
+      parent.append(data);
+    }
+  });
+  
+  return false;
+});
+
 /**
  * users
  **/
