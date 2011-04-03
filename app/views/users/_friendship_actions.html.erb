@@ -1,0 +1,21 @@
+<% if friendship.friend(user).waiting_for_confirmation?(user) %>
+  
+  <div class="actions">
+    
+    <%= link_to "Accept", accept_friendship_path(:id => user.id, :friendship_id => friendship.id), :class => "button icon approve" %>
+    
+    <%= link_to "Decline", decline_friendship_path(:id => user.id, :friendship_id => friendship.id), :class => "button icon remove danger" %>
+    
+  </div>
+  
+<% else %>
+  
+  <div class="actions_response">
+    <% if current_user.is_friend?(friendship.friend(user)) %>
+      You and <%= friendship.friend(user).full_name %> are friends.
+    <% else %>
+      You and <%= friendship.friend(user).full_name %> are not friends.
+    <% end %>
+  </div>
+  
+<% end %>

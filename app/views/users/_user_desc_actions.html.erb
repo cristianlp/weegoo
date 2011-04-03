@@ -4,11 +4,11 @@
     
     <% if not current_user.is_friend?(user) %> 
       
-      <% if not current_user.waiting_for_confirmation?(user) %>
+      <% if not current_user.waiting_for_confirmation?(user) and not user.waiting_for_confirmation?(current_user) %>
         
         <%= link_to "Add as friend", add_as_friend_path(:username => current_user.username, :another_user_username => user.username), :class => "button icon add" %>
         
-      <% else %>
+      <% elsif current_user.waiting_for_confirmation?(user) %>
         
         <%= link_to "Cancel friendship request", cancel_friendship_request_path(:username => current_user.username, :another_user_username => user.username), :class => "button icon trash danger" %>
         

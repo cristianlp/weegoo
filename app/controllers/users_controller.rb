@@ -59,9 +59,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.js do
-        # flash[:notice] is not used because it persists between requests
-        @message = "You and #{@friendship.user_a.full_name} are now friends."
-        render "friendship_response"
+        render :partial => "users/friendship_actions", :locals => { :user => @user, :friendship => @friendship }
       end
     end
   end
@@ -74,9 +72,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.js do
-        # flash[:notice] is not used because it persists between requests
-        @message = "You and #{@friendship.user_a.full_name} are not friends."
-        render "friendship_response"
+        render :partial => "users/friendship_actions", :locals => { :user => @user, :friendship => @friendship }
       end
     end
   end

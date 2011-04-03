@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :location, :username, :password, :password_confirmation, :remember_me
   
   # Associations
-  has_many :friendships, :foreign_key => :user_a_id
+  has_many :friendships, :foreign_key => :user_a_id, :dependent => :destroy
   
   has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
   #has_many :points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest
@@ -51,16 +51,8 @@ class User < ActiveRecord::Base
     Friendship.where(:user_b_id => id, :are_friends => false)
   end
   
-  def firsts_pending_friendships
-    Friendship.where(:user_b_id => id, :are_friends => false).limit(5)
-  end
-  
   def accepted_friendships
     Friendship.where("(user_a_id = ? OR user_b_id = ?) AND are_friends = ?", id, id, true)
-  end
-  
-  def lasts_friendships
-    accepted_friendships.order("created_at DESC").limit(5)
   end
   
   def mutual_friends(another_user)

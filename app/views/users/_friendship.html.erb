@@ -3,8 +3,5 @@
   <%= link_to friend.username, friend %>
   <em>(<%= friend.full_name %>)</em>
   
-  <div class="actions">
-    <%= link_to "Accept", accept_friendship_path(:id => user.id, :friendship_id => friendship.id), :remote => true, :class => "button icon approve" %>
-    <%= link_to "Decline", decline_friendship_path(:id => user.id, :friendship_id => friendship.id), :remote => true, :class => "button icon remove danger" %>
-  </div>
+  <%= render :partial => "users/friendship_actions", :locals => { :user => user, :friendship => friendship, :friend => friend } %>
 </li>
