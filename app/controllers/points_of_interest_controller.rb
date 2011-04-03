@@ -29,9 +29,20 @@ class PointsOfInterestController < ApplicationController
     
     respond_to do |format|
       format.js do
-        # flash[:notice] is not used because it persists between requests
-        @message = "You've been at #{@point_of_interest.name}."
-        render :response
+        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
+      end
+    end
+  end
+  
+  def not_been
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
+    point_of_interest_user.delete
+    
+    respond_to do |format|
+      format.js do
+        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
       end
     end
   end
@@ -43,9 +54,20 @@ class PointsOfInterestController < ApplicationController
     
     respond_to do |format|
       format.js do
-        # flash[:notice] is not used because it persists between requests
-        @message = "You want to go to #{@point_of_interest.name}."
-        render :response
+        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
+      end
+    end
+  end
+  
+  def dont_want_to_go
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    
+    point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
+    point_of_interest_user.delete
+    
+    respond_to do |format|
+      format.js do
+        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
       end
     end
   end

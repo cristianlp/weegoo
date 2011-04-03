@@ -4,7 +4,9 @@ Weegoo::Application.routes.draw do
   get "points_of_interest", :to => "points_of_interest#index"
   get "points_of_interest/:permalink", :to => "points_of_interest#show", :as => "point_of_interest"
   get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "point_of_interest_been"
+  get "points_of_interest/:permalink/not_been", :to => "points_of_interest#not_been", :as => "point_of_interest_not_been"
   get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "point_of_interest_want_to_go"
+  get "points_of_interest/:permalink/dont_want_to_go", :to => "points_of_interest#dont_want_to_go", :as => "point_of_interest_dont_want_to_go"
   
   get "points_of_interest/:permalink/been_users", :to => "points_of_interest#been_users", :as => "point_of_interest_been_users"
   get "points_of_interest/:permalink/want_to_go_users", :to => "points_of_interest#want_to_go_users", :as => "point_of_interest_want_to_go_users"
@@ -23,6 +25,7 @@ Weegoo::Application.routes.draw do
   get "users/:username", :to => "users#show", :as => "user"
   
   get "users/:username/add_as_friend/:another_user_username", :to => "users#add_as_friend", :as => "add_as_friend"
+  get "users/:username/cancel_friendship_request/:another_user_username", :to => "users#cancel_friendship_request", :as => "cancel_friendship_request"
   get "users/:username/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
   get "users/:username/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
   

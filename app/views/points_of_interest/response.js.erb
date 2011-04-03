@@ -6,3 +6,5 @@ $("#flash *").each(function()
 $("#flash").append("<div class=\"notice\"><%= @message %></div>");
 
 $("#point_of_interest_<%= @point_of_interest.id %> .actions").detach();
+
+$("#point_of_interest_<%= @point_of_interest.id %>").append('<%= @partial %>');

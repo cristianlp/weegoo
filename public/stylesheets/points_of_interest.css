@@ -121,8 +121,3 @@ ul#points_of_interest_list li.point_of_interest .actions
   top: 7px;
   right: 0;
 }
-
-ul#points_of_interest_list li.point_of_interest .actions .g-button
-{
-  font-size: 10px;
-}

@@ -53,12 +53,6 @@ ul.users_list li.user .actions
   right: 0;
 }
 
-ul#users_list li.user .actions .g-button,
-ul.users_list li.user .actions .g-button
-{
-  font-size: 10px;
-}
-
 /********************
  * user_information *
  ********************/

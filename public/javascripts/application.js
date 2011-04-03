@@ -37,6 +37,48 @@ $(window).load(function()
 });
 
 /**
+ * point of interest
+ **/
+
+$(".point_of_interest .actions a").live('click', function()
+{
+  link = this;
+  $.ajax({
+    url: this.href,
+    type: 'get',
+    success: function(data)
+    {
+      parent = $(link).parents("li.point_of_interest");
+      parent.children(".actions").detach();
+      parent.append(data);
+    }
+  });
+  
+  return false;
+});
+
+/**
+ * users
+ **/
+
+$(".user .actions a").live('click', function()
+{
+  link = this;
+  $.ajax({
+    url: this.href,
+    type: 'get',
+    success: function(data)
+    {
+      parent = $(link).parents("li.user");
+      parent.children(".actions").detach();
+      parent.append(data);
+    }
+  });
+  
+  return false;
+});
+
+/**
  * GMap
  **/
 

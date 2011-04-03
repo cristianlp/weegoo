@@ -32,8 +32,21 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.js do
-        # flash[:notice] is not used because it persists between requests
-        @message = "Friendship requested to #{@another_user.full_name} successfully."
+        render :partial => "users/user_desc_actions", :locals => { :user => @another_user }
+      end
+    end
+  end
+  
+  def cancel_friendship_request
+    @user = User.find_by_username(params[:username])
+    @another_user = User.find_by_username(params[:another_user_username])
+    
+    friendship = current_user.friendships.where("user_b_id = ?", @another_user.id)
+    current_user.friendships.delete(friendship)
+    
+    respond_to do |format|
+      format.js do
+        render :partial => "users/user_desc_actions", :locals => { :user => @another_user }
       end
     end
   end

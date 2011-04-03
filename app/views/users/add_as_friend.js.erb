@@ -1,8 +1,0 @@
-$("#flash *").each(function()
-{
-  $(this).detach();
-});
-
-$("#flash").append("<div class=\"notice\"><%= @message %></div>");
-
-$("#user_<%= @another_user.id %> .actions").detach();
