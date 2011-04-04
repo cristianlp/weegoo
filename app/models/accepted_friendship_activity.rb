@@ -1,0 +1,2 @@
+class AcceptedFriendshipActivity < Activity
+end

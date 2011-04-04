@@ -4,6 +4,8 @@ class Friendship < ActiveRecord::Base
   
   def accept
     update_attributes!(:are_friends => true)
+    
+    AcceptedFriendshipActivity.create!(:user_a_id => user_a.id, :user_b_id => user_b.id)
   end
   
   def friend(user)

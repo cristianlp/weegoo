@@ -1,0 +1,18 @@
+<li class="activity">
+  
+  <% if current_user == user %>
+  
+    <% subject = user == activity.user_a ? activity.user_b : activity.user_a %>
+  
+    You and <%= link_to subject.full_name, subject %> are now friends.
+  
+  <% else %>
+    
+    <%= link_to activity.user_a.full_name, activity.user_a %> and <%= link_to activity.user_b.full_name, activity.user_b %> are now friends.
+    
+  <% end %>
+  
+  <div class="information">
+    <%= activity.created_at.strftime("%d %B at %H:%M") %>
+  </div>
+</li>

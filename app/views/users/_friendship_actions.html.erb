@@ -12,7 +12,7 @@
   
   <div class="actions_response">
     <% if current_user.is_friend?(friendship.friend(user)) %>
-      You and <%= friendship.friend(user).full_name %> are friends.
+      You and <%= friendship.friend(user).full_name %> are now friends.
     <% else %>
       You and <%= friendship.friend(user).full_name %> are not friends.
     <% end %>

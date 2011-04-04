@@ -24,8 +24,7 @@ class PointsOfInterestController < ApplicationController
   def been
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
-    point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
-    point_of_interest_user.update_attributes(:been => true, :want_to_go => false)
+    PointOfInterestUser.been(@point_of_interest, current_user)
     
     respond_to do |format|
       format.js do
@@ -37,8 +36,7 @@ class PointsOfInterestController < ApplicationController
   def not_been
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
-    point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
-    point_of_interest_user.delete
+    PointOfInterestUser.not_been(@point_of_interest, current_user)
     
     respond_to do |format|
       format.js do
@@ -50,7 +48,7 @@ class PointsOfInterestController < ApplicationController
   def want_to_go
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
-    current_user.points_of_interest_users.create!(:point_of_interest_id => @point_of_interest.id, :want_to_go => true)
+    PointOfInterestUser.want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
       format.js do
@@ -62,8 +60,7 @@ class PointsOfInterestController < ApplicationController
   def dont_want_to_go
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
-    point_of_interest_user = current_user.points_of_interest_users.find_or_initialize_by_point_of_interest_id(@point_of_interest.id)
-    point_of_interest_user.delete
+    PointOfInterestUser.dont_want_to_go(point_of_interest, user)
     
     respond_to do |format|
       format.js do

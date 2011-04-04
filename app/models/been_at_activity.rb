@@ -1,0 +1,2 @@
+class BeenAtActivity < Activity
+end

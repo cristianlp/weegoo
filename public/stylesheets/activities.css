@@ -1,0 +1,23 @@
+ul#activities_list
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#activities_list li.activity
+{
+  padding: 5px 0;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+
+ul#activities_list li.activity:last-child
+{
+  border-bottom: 1px solid #ddd;
+}
+
+ul#activities_list li.activity .information
+{
+  font-size: 10px;
+  color: #888;
+}

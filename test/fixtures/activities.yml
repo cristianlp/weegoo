@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  user_a: 
+  user_b: 
+  point_of_interest: 
+
+two:
+  type: MyString
+  user_a: 
+  user_b: 
+  point_of_interest: 

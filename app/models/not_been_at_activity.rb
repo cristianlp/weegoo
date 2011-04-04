@@ -1,0 +1,2 @@
+class NotBeenAtActivity < Activity
+end

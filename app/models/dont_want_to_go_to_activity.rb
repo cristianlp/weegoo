@@ -1,0 +1,2 @@
+class DontWantToGoToActivity < Activity
+end

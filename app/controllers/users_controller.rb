@@ -17,6 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:username])
+    
+    @activities = @user.related_activities.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # show.html.erb

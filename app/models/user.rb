@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   has_many :friendships, :foreign_key => :user_a_id, :dependent => :destroy
   
   has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
-  #has_many :points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest
+  
+  has_many :activities, :foreign_key => :user_a_id
   
   # these are scopes. don't use them for .create!()
   has_many :been_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.been" => true }
@@ -79,5 +80,9 @@ class User < ActiveRecord::Base
   
   def want_to_go_to(point_of_interest)
     want_to_go_points_of_interest.include?(point_of_interest)
+  end
+  
+  def related_activities
+    Activity.where("user_a_id = ? OR user_b_id = ?", id, id).order("created_at DESC")
   end
 end

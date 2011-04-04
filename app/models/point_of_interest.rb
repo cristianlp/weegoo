@@ -3,7 +3,6 @@ class PointOfInterest < ActiveRecord::Base
   belongs_to :sub_category
   
   has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
-  #has_many :users, :through => :points_of_interest_users, :source => :user
   
   # these are scopes. don't use them for .create!()
   has_many :been_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.been" => true }
