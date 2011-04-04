@@ -1,0 +1,16 @@
+<div id="map_canvas" style="margin-left: 100px; width: 640px; height: 480px;"></div>
+<script>
+  var map = initialize_gmap();
+  <% if point_of_interest.new_record? %>
+    
+    marker = create_and_add_marker_to_map_at_address(map, "<%= current_user.location %>");
+    
+  <% else %>
+    
+    latlng = new google.maps.LatLng("<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>");
+    marker = create_marker(latlng);
+    add_marker_to_map(map, marker);
+    update_latlng_with_dragend(marker);
+    
+  <% end %>
+</script>

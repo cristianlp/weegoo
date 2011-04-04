@@ -126,3 +126,12 @@ ul#points_of_interest_list li.point_of_interest .actions a
 {
   font-weight: normal;
 }
+
+/***************
+ * info window *
+ ***************/
+
+.info_window h1
+{
+  font-size: 16px;
+}

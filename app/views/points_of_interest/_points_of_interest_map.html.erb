@@ -1,8 +1,15 @@
 <div id="map_canvas" style="width: 950px; height: 712.5px; margin-top: 10px"></div>
 <script>
-  var map = initializeGMap();
+  var map = initialize_gmap();
   <% points_of_interest.each do |point_of_interest| %>
-    setPointOfInterestLocationMarker(map, "<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>", false);
+    latlng = new google.maps.LatLng("<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>");
+    marker_<%= point_of_interest.id %> = create_marker(latlng, false);
+    add_marker_to_map(map, marker_<%= point_of_interest.id %>);
+    
+    info_window_<%= point_of_interest.id %> = create_info_window('<%= escape_javascript(render :partial => "points_of_interest/info_window", :locals => { :point_of_interest => point_of_interest }) %>');
+    
+    open_info_window_on_click(marker_<%= point_of_interest.id %>, info_window_<%= point_of_interest.id %>);
+    
   <% end %>
 </script>
 

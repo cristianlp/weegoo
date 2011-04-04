@@ -9,15 +9,7 @@
     <%= f.input :latitude, :as => :hidden %>
     <%= f.input :longitude, :as => :hidden %>
     
-    <div id="map_canvas" style="margin-left: 100px; width: 640px; height: 480px;"></div>
-    <script>
-    var map = initializeGMap();
-    <% if @venue.new_record? %>
-      setCurrentUserLocationMarker(map, "<%= current_user.location %>");
-    <% else %>
-      setPointOfInterestLocationMarker(map, "<%= @venue.latitude %>", "<%= @venue.longitude %>");
-    <% end %>
-    </script>
+    <%= render :partial => "points_of_interest/map_form", :locals => { :point_of_interest => @venue } %>
   </div>
 
   <div class="actions">
