@@ -1,17 +1,14 @@
+<%# todo: refactor %>
 <li class="activity">
   
-  <% if current_user == user %>
-  
-    <% subject = user == activity.user_a ? activity.user_b : activity.user_a %>
-  
-    You and <%= link_to subject.full_name, subject %> are now friends.
-  
+  <% if user == activity.user_a %>
+    <% first, second = activity.user_a, activity.user_b %>
   <% else %>
-    
-    <%= link_to activity.user_a.full_name, activity.user_a %> and <%= link_to activity.user_b.full_name, activity.user_b %> are now friends.
-    
+    <% first, second = activity.user_b, activity.user_a %>
   <% end %>
   
+  <%= link_to first.full_name, first %> and <%= link_to second.full_name, second %> are now friends.
+    
   <div class="information">
     <%= activity.created_at.strftime("%d %B at %H:%M") %>
   </div>

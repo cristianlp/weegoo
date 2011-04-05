@@ -82,7 +82,15 @@ class User < ActiveRecord::Base
     want_to_go_points_of_interest.include?(point_of_interest)
   end
   
+  # returns own and friends activities.
   def related_activities
-    Activity.where("user_a_id = ? OR user_b_id = ?", id, id).order("created_at DESC")
+    ids = [id]
+    
+    accepted_friendships.each do |friendship|
+      ids << friendship.friend(self).id
+    end
+    
+    # todo: test created_at condition.
+    Activity.where("(user_a_id IN (?) OR user_b_id IN (?)) AND created_at > ?", ids, ids, created_at).order("created_at DESC").group("id")
   end
 end
