@@ -1,0 +1,5 @@
+<% @pending_friendships.each do |friendship| %>
+  $('ul#users_list').append('<%= escape_javascript render(:partial => "friendship", :locals => { :user => @user, :friendship => friendship, :friend => friendship.friend(@user) }) %>');
+<% end %>
+
+$('#pagination').html('<%= escape_javascript paginate(@pending_friendships, :remote => true).to_s %>');

@@ -1,7 +1,11 @@
-<div id="map_canvas" style="width: 950px; height: 712.5px; margin-top: 10px"></div>
-<script>
-  var map = initialize_gmap();
+<% if params[:show_as] == "List" %>
+  
+  $('ul#points_of_interest_list').append('<%= escape_javascript render(:partial => "points_of_interest/point_of_interest", :collection => points_of_interest) %>');
+  
+<% else %>
+  
   <% points_of_interest.each do |point_of_interest| %>
+    
     latlng = new google.maps.LatLng("<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>");
     marker_<%= point_of_interest.id %> = create_marker(latlng, false);
     add_marker_to_map(map, marker_<%= point_of_interest.id %>);
@@ -11,6 +15,7 @@
     open_info_window_on_click(marker_<%= point_of_interest.id %>, info_window_<%= point_of_interest.id %>);
     
   <% end %>
-</script>
+  
+<% end %>
 
-<%= paginate points_of_interest, :remote => true %>
+$('#pagination').html('<%= escape_javascript paginate(points_of_interest, :remote => true).to_s %>');

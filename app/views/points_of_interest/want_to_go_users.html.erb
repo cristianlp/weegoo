@@ -8,4 +8,4 @@
   <%= render :partial => "users/user_desc", :collection => @users, :as => :user %>
 </ul>
 
-<%= paginate @users %>
+<%= paginate @users, :remote => true %>

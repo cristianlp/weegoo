@@ -14,6 +14,7 @@ class PointsOfInterestController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @points_of_interest }
+      format.js
     end
   end
   
@@ -73,12 +74,24 @@ class PointsOfInterestController < ApplicationController
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     @users = @point_of_interest.been_users.page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @users }
+      format.js  { render :partial => "points_of_interest/users_pagination", :locals => { :users => @users } }
+    end
   end
   
   def want_to_go_users
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     @users = @point_of_interest.want_to_go_users.page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @users }
+      format.js  { render :partial => "points_of_interest/users_pagination", :locals => { :users => @users } }
+    end
   end
   
   # arreglar estos dos metodos
@@ -86,11 +99,23 @@ class PointsOfInterestController < ApplicationController
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     @users = @point_of_interest.been_friends(current_user).page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @users }
+      format.js  { render :partial => "points_of_interest/users_pagination", :locals => { :users => @users } }
+    end
   end
   
   def want_to_go_friends
     @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
     
     @users = @point_of_interest.want_to_go_friends(current_user).page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @users }
+      format.js  { render :partial => "points_of_interest/users_pagination", :locals => { :users => @users } }
+    end
   end
 end

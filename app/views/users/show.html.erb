@@ -9,12 +9,10 @@
     <h1>Recent activity</h1>
     
     <ul id="activities_list">
-      <% @activities.each do |activity| %>
-        <%= render :partial => "activities/#{activity.type.to_s.underscore}", :locals => { :activity => activity, :user => @user } %>
-      <% end %>
+      <%= render :partial => "activities/activity", :collection => @activities %>
     </ul>
     
-    <%= paginate @activities %>
+    <%= paginate @activities, :remote => true %>
     
   </div>
   

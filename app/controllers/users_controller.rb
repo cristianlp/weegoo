@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
+      format.js
     end
   end
 
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
+      format.js
     end
   end
 
@@ -83,23 +85,42 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:username])
     
     @pending_friendships = @user.pending_friendships.page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @pending_friendships }
+      format.js
+    end
   end
   
   def friends
     @user = User.find_by_username(params[:username])
     
     @accepted_friendships = @user.accepted_friendships.page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @accepted_friendships }
+      format.js
+    end
   end
   
   def visited_places
     @user = User.find_by_username(params[:username])
     
     params[:type] ||= "Everything"
+    params[:show_as] ||= "List"
     
     if params[:type] != "Everything"
       @been_points_of_interest = @user.been_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
     else
       @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(5)
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @been_points_of_interest }
+      format.js  { render :partial => "users/points_of_interest_pagination", :locals => { :points_of_interest => @been_points_of_interest } }
     end
   end
   
@@ -107,11 +128,18 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:username])
     
     params[:type] ||= "Everything"
+    params[:show_as] ||= "List"
     
     if params[:type] != "Everything"
       @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
     else
       @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(5)
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @been_points_of_interest }
+      format.js  { render :partial => "users/points_of_interest_pagination", :locals => { :points_of_interest => @want_to_go_points_of_interest } }
     end
   end
 end

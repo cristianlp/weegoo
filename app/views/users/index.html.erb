@@ -14,7 +14,7 @@
         
   </ul>
   
-  <%= paginate @users %>
+  <%= paginate @users, :remote => true %>
   
 <% elsif params[:search] %>
   

@@ -1,0 +1,2 @@
+$('ul#users_list').append('<%= escape_javascript render(:partial => "users/user_desc", :collection => users, :as => :user) %>');
+$('#pagination').html('<%= escape_javascript paginate(users, :remote => true).to_s %>');
