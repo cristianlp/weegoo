@@ -39,13 +39,13 @@
         
         <div class="right">
           <ul id="stats">
-            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), point_of_interest_been_users_path(point_of_interest) %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), been_users_points_of_interest_path(point_of_interest) %></li>
             
-            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), point_of_interest_want_to_go_users_path(point_of_interest) %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), want_to_go_users_points_of_interest_path(point_of_interest) %></li>
             
             <% if user_signed_in? %>
-              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), point_of_interest_been_friends_path(point_of_interest) %></li>
-              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), point_of_interest_want_to_go_friends_path(point_of_interest) %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), been_friends_points_of_interest_path(point_of_interest) %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), want_to_go_friends_points_of_interest_path(point_of_interest) %></li>
             <% end %>
           </ul>
         </div>

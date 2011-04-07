@@ -4,6 +4,8 @@ class PointOfInterest < ActiveRecord::Base
   
   has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
   
+  has_many :media_files
+  
   # these are scopes. don't use them for .create!()
   has_many :been_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.been" => true }
   has_many :want_to_go_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.want_to_go" => true }

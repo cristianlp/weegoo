@@ -1,6 +1,6 @@
 <div id="search">
   
-  <%= form_tag points_of_interest_path, :method => "get" do %>
+  <%= form_tag points_of_interest_index_path, :method => "get" do %>
     <div>
       <%= label_tag "Search" %>:
       <%= select_tag :type, options_for_select({"Everything" => "Everything", "Venues" => "Venue", "Events" => "Event"}, params[:type] ? params[:type] : "Everything") %>

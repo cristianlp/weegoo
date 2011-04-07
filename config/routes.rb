@@ -1,17 +1,21 @@
 Weegoo::Application.routes.draw do
   get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
   
-  get "points_of_interest", :to => "points_of_interest#index"
-  get "points_of_interest/:permalink", :to => "points_of_interest#show", :as => "point_of_interest"
-  get "points_of_interest/:permalink/been", :to => "points_of_interest#been", :as => "point_of_interest_been"
-  get "points_of_interest/:permalink/not_been", :to => "points_of_interest#not_been", :as => "point_of_interest_not_been"
-  get "points_of_interest/:permalink/want_to_go", :to => "points_of_interest#want_to_go", :as => "point_of_interest_want_to_go"
-  get "points_of_interest/:permalink/dont_want_to_go", :to => "points_of_interest#dont_want_to_go", :as => "point_of_interest_dont_want_to_go"
-  
-  get "points_of_interest/:permalink/been_users", :to => "points_of_interest#been_users", :as => "point_of_interest_been_users"
-  get "points_of_interest/:permalink/want_to_go_users", :to => "points_of_interest#want_to_go_users", :as => "point_of_interest_want_to_go_users"
-  get "points_of_interest/:permalink/been_friends", :to => "points_of_interest#been_friends", :as => "point_of_interest_been_friends"
-  get "points_of_interest/:permalink/want_to_go_friends", :to => "points_of_interest#want_to_go_friends", :as => "point_of_interest_want_to_go_friends"
+  resources :points_of_interest do
+    member do
+      get "been"
+      get "not_been"
+      get "want_to_go"
+      get "dont_want_to_go"
+
+      get "been_users"
+      get "want_to_go_users"
+      get "been_friends"
+      get "want_to_go_friends"
+    end
+    
+    resources :media_files
+  end
   
   resources :events, :except => [ :index ]
   

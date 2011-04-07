@@ -6,7 +6,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find_by_permalink(params[:id])
     
-    redirect_to point_of_interest_url(@venue)
+    redirect_to points_of_interest_url(@venue)
   end
 
   # GET /venues/new

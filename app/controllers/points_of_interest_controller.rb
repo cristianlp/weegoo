@@ -19,11 +19,11 @@ class PointsOfInterestController < ApplicationController
   end
   
   def show
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
   end
   
   def been
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     PointOfInterestUser.been(@point_of_interest, current_user)
     
@@ -35,7 +35,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def not_been
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     PointOfInterestUser.not_been(@point_of_interest, current_user)
     
@@ -47,7 +47,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def want_to_go
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     PointOfInterestUser.want_to_go(@point_of_interest, current_user)
     
@@ -59,9 +59,9 @@ class PointsOfInterestController < ApplicationController
   end
   
   def dont_want_to_go
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
-    PointOfInterestUser.dont_want_to_go(point_of_interest, user)
+    PointOfInterestUser.dont_want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
       format.js do
@@ -71,7 +71,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def been_users
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     @users = @point_of_interest.been_users.page(params[:page]).per(5)
     
@@ -83,7 +83,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def want_to_go_users
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     @users = @point_of_interest.want_to_go_users.page(params[:page]).per(5)
     
@@ -96,7 +96,7 @@ class PointsOfInterestController < ApplicationController
   
   # arreglar estos dos metodos
   def been_friends
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     @users = @point_of_interest.been_friends(current_user).page(params[:page]).per(5)
     
@@ -108,7 +108,7 @@ class PointsOfInterestController < ApplicationController
   end
   
   def want_to_go_friends
-    @point_of_interest = PointOfInterest.find_by_permalink(params[:permalink])
+    @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
     @users = @point_of_interest.want_to_go_friends(current_user).page(params[:page]).per(5)
     

@@ -36,8 +36,15 @@ $(window).load(function()
   updateSubCategory("#event_category_id", "#event_sub_category_id", selected_sub_category);
 });
 
+
 /**
- * point of interest
+ * media files
+ **/
+
+
+
+/**
+ * points of interest
  **/
 
 $(".point_of_interest .actions a").live('click', function()
