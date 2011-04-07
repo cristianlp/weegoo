@@ -73,6 +73,22 @@ class PointOfInterest < ActiveRecord::Base
     User.where("id IN (?)", want_to_go_friends_ids)
   end
   
+  def latest_been_users
+    been_users.order("points_of_interest_users.created_at DESC").limit(5)
+  end
+  
+  def latest_want_to_go_users
+    want_to_go_users.order("points_of_interest_users.created_at DESC").limit(5)
+  end
+  
+  def latest_been_friends
+    been_friends.order("points_of_interest_users.created_at DESC").limit(5)
+  end
+  
+  def latest_want_to_go_friends
+    want_to_go_friends.order("points_of_interest_users.created_at DESC").limit(5)
+  end
+  
   protected
     
   def handle_permalink

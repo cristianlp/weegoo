@@ -15,7 +15,7 @@
       <h2>People that been here</h2>
       
       <ul class="users_list">
-        <%= render :partial => "users/user_desc", :collection => @point_of_interest.been_users, :as => :user %>
+        <%= render :partial => "users/user_desc", :collection => @point_of_interest.latest_been_users, :as => :user %>
       </ul>
       
     <% end %>
@@ -25,7 +25,7 @@
       <h2>People that want to be here</h2>
       
       <ul class="users_list">
-        <%= render :partial => "users/user_desc", :collection => @point_of_interest.want_to_go_users, :as => :user %>
+        <%= render :partial => "users/user_desc", :collection => @point_of_interest.latest_want_to_go_users, :as => :user %>
       </ul>
       
     <% end %>
