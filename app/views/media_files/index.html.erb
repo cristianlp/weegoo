@@ -1,0 +1,11 @@
+<% title "#{@point_of_interest.name} multimedia" %>
+
+<%= render :partial => "points_of_interest/point_of_interest_information", :locals => { :point_of_interest => @point_of_interest } %>
+
+<h1>Multimedia</h1>
+
+<ul id="media_files_list">
+  <%= render @media_files %>
+</ul>
+
+<%= link_to 'New media file', new_points_of_interest_media_file_path %>

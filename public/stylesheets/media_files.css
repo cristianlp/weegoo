@@ -1,0 +1,21 @@
+/********************
+ * media_files_list *
+ ********************/
+
+ul#media_files_list
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#media_files_list li.media_file
+{
+  display: inline;
+  margin-right: 20px;
+}
+
+ul#media_files_list li.media_file img
+{
+  border: 1px solid #ddd;
+  padding: 2px;
+}

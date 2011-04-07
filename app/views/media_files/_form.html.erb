@@ -1,0 +1,12 @@
+<%= simple_form_for([@point_of_interest, @media_file], :url => points_of_interest_media_files_path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+    <%= f.input :path, :as => :file, :label => "File" %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Create media file" %>
+  </div>
+<% end %>
