@@ -6,6 +6,17 @@
   
   <div class="left">
     <%= render :partial => "points_of_interest/map", :locals => { :point_of_interest => @point_of_interest } %>
+    
+    <h2>Latest multimedia</h2>
+    
+    <ul id="media_files_list">
+      <%= render :partial => "media_files/small_thumb_media_file", :collection => @point_of_interest.latest_media_files, :as => :media_file %>
+    </ul>
+    
+    <%= render :partial => "media_files/hidden_small_thumb_media_file", :collection => @point_of_interest.latest_media_files, :as => :media_file %>
+    
+    <%= link_to raw("Show all &rarr;"), points_of_interest_media_files_path(@point_of_interest) %>
+    
   </div>
   
   <div class="right">

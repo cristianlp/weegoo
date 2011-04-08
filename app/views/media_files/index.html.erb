@@ -8,4 +8,6 @@
   <%= render @media_files %>
 </ul>
 
-<%= link_to 'New media file', new_points_of_interest_media_file_path %>
+<%= render :partial => "media_files/hidden_media_file", :collection => @media_files, :as => :media_file %>
+
+<%= link_to 'Add a new media file', new_points_of_interest_media_file_path, :class => "button big icon add" %>

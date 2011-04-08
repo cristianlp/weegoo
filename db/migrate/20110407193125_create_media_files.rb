@@ -2,7 +2,7 @@ class CreateMediaFiles < ActiveRecord::Migration
   def self.up
     create_table :media_files do |t|
       t.string :title
-      t.string :path
+      t.string :file
       t.references :point_of_interest
 
       t.timestamps

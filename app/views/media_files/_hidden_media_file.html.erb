@@ -1,0 +1,16 @@
+<div id="<%= "media_file_#{media_file.id}" %>">
+  <%= image_tag media_file.file_url(:medium) %>
+  
+  <div id="<%= "media_file_#{media_file.id}_caption" %>">
+    
+    <%= media_file.title %>
+
+    <% if current_user == media_file.user %>
+      <div class="actions" style="float: right;">
+        <%= link_to "Edit", edit_points_of_interest_media_file_path(@point_of_interest, media_file), :class => "button icon edit" %>
+        <%= link_to "Delete", points_of_interest_media_file_path(@point_of_interest, media_file), :method => :delete, :class => "button icon trash danger" %>
+      </div>
+    <% end %>
+    
+  </div>
+</div>

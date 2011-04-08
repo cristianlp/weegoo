@@ -41,6 +41,10 @@ $(window).load(function()
  * media files
  **/
 
+$(document).ready(function()
+{
+  $("ul#media_files_list li.media_file a").fancyZoom({ directory : "/images/fancyzoom" });
+});
 
 
 /**

@@ -17,6 +17,10 @@ gem 'kaminari'
 
 gem 'permalink_fu'
 
+gem 'carrierwave'
+
+gem 'rmagick'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

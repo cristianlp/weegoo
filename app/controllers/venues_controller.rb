@@ -60,11 +60,11 @@ class VenuesController < ApplicationController
   # DELETE /venues/1
   # DELETE /venues/1.xml
   def destroy
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find_by_permalink(params[:id])
     @venue.destroy
 
     respond_to do |format|
-      format.html { redirect_to(venues_url) }
+      format.html { redirect_to(points_of_interest_index_url) }
       format.xml  { head :ok }
     end
   end

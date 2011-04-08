@@ -60,11 +60,11 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.xml
   def destroy
-    @event = Event.find(params[:id])
+    @event = Event.find_by_permalink(params[:id])
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to(events_url) }
+      format.html { redirect_to(points_of_interest_index_url) }
       format.xml  { head :ok }
     end
   end

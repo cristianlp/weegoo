@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20110407201426) do
 
   create_table "media_files", :force => true do |t|
     t.string   "title"
-    t.string   "path"
+    t.string   "file"
     t.integer  "point_of_interest_id"
     t.datetime "created_at"
     t.datetime "updated_at"

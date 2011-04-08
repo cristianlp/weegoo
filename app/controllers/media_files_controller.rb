@@ -12,17 +12,6 @@ class MediaFilesController < ApplicationController
     end
   end
 
-  # GET /media_files/1
-  # GET /media_files/1.xml
-  def show
-    @media_file = MediaFile.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @media_file }
-    end
-  end
-
   # GET /media_files/new
   # GET /media_files/new.xml
   def new
@@ -63,7 +52,7 @@ class MediaFilesController < ApplicationController
 
     respond_to do |format|
       if @media_file.update_attributes(params[:media_file])
-        format.html { redirect_to(@media_file, :notice => 'Media file was successfully updated.') }
+        format.html { redirect_to(points_of_interest_media_files_path(@point_of_interest), :notice => 'Media file was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -79,7 +68,7 @@ class MediaFilesController < ApplicationController
     @media_file.destroy
 
     respond_to do |format|
-      format.html { redirect_to(media_files_url) }
+      format.html { redirect_to(points_of_interest_media_files_url(@point_of_interest)) }
       format.xml  { head :ok }
     end
   end

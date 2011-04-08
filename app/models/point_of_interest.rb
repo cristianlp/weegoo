@@ -2,9 +2,11 @@ class PointOfInterest < ActiveRecord::Base
   belongs_to :category
   belongs_to :sub_category
   
-  has_many :points_of_interest_users, :class_name => "PointOfInterestUser"
+  has_many :points_of_interest_users, :class_name => "PointOfInterestUser", :dependent => :destroy
   
-  has_many :media_files
+  has_many :media_files, :dependent => :destroy
+  
+  has_many :activities, :dependent => :destroy
   
   # these are scopes. don't use them for .create!()
   has_many :been_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.been" => true }
@@ -89,6 +91,14 @@ class PointOfInterest < ActiveRecord::Base
   
   def latest_want_to_go_friends
     want_to_go_friends.order("points_of_interest_users.created_at DESC").limit(5)
+  end
+  
+  def latest_media_files
+    media_files.order("created_at DESC").limit(5)
+  end
+  
+  def can_delete?
+    been_users.size == 0 and want_to_go_users.size == 0
   end
   
   protected

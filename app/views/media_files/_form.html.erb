@@ -1,12 +1,20 @@
-<%= simple_form_for([@point_of_interest, @media_file], :url => points_of_interest_media_files_path) do |f| %>
+<% if @media_file.new_record? %>
+  <% url = points_of_interest_media_files_path %>
+  <% action = "Create" %>
+<% else %>
+  <% url = points_of_interest_media_file_path(@medua_file) %>
+  <% action = "Update" %>
+<% end %>
+
+<%= simple_form_for([@point_of_interest, @media_file], :url => url, :html => { :multipart => true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
     <%= f.input :title %>
-    <%= f.input :path, :as => :file, :label => "File" %>
+    <%= f.input :file, :as => :file %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Create media file" %>
+    <%= f.button :submit, "#{action} media file", :class => "big" %>
   </div>
 <% end %>
