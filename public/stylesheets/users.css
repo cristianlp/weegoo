@@ -45,6 +45,33 @@ ul.users_list li.user em
   font-weight: normal;
 }
 
+ul#users_list li.user .user_info,
+ul.users_list li.user .user_info
+{
+  display: none;
+  margin-left: 32px;
+}
+
+ul#users_list li.user .user_info ul.stats,
+ul.users_list li.user .user_info ul.stats
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#users_list li.user .user_info ul.stats li,
+ul.users_list li.user .user_info ul.stats li
+{
+  display: inline;
+  margin-right: 10px;
+}
+
+ul#users_list li.user .user_info ul.stats li a,
+ul.users_list li.user .user_info ul.stats li a
+{
+  font-weight: normal;
+}
+
 ul#users_list li.user .actions,
 ul.users_list li.user .actions
 {

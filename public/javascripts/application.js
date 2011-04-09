@@ -91,17 +91,20 @@ $(".right .actions a").live('click', function()
 
 $(".user .actions a").live('click', function()
 {
-  link = this;
-  $.ajax({
-    url: this.href,
-    type: 'get',
-    success: function(data)
-    {
-      parent = $(link).parents("li.user");
-      parent.children(".actions").detach();
-      parent.append(data);
-    }
-  });
+  if (this.href.substr(this.href.length - 1) != "#")
+  {
+    link = this;
+    $.ajax({
+      url: this.href,
+      type: 'get',
+      success: function(data)
+      {
+        parent = $(link).parents("li.user");
+        parent.children(".actions").detach();
+        parent.append(data);
+      }
+    });
+  }
   
   return false;
 });

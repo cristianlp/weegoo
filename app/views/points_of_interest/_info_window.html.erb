@@ -2,10 +2,12 @@
   
   <h1><%= link_to point_of_interest.name, point_of_interest %></h1>
   
-  <div>
-    <strong>Description</strong>
-    <%= point_of_interest.description %>
-  </div>
+  <% if not point_of_interest.description.blank? %>
+    <div>
+      <strong>Description</strong>
+      <%= point_of_interest.description %>
+    </div>
+  <% end %>
   
   <div>
     <strong>Category</strong>

@@ -2,6 +2,8 @@
   
   <div class="actions">
     
+    <%= link_to_function raw("More info &darr;"), "$('#user_#{user.id}_info').toggle()" %>
+    
     <% if not current_user.is_friend?(user) %> 
       
       <% if not current_user.waiting_for_confirmation?(user) and not user.waiting_for_confirmation?(current_user) %>
