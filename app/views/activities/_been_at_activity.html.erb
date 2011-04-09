@@ -1,6 +1,6 @@
 <li class="activity">
   
-  <% if current_user == activity.user_a %>
+  <% if current_user == activity.user_a and current_user == user %>
     You've been at <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
   <% else %>
     <%= link_to activity.user_a.full_name, activity.user_a %> have been at <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
