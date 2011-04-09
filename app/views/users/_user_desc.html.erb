@@ -3,6 +3,10 @@
   <%= link_to user.username, user %>
   <em>(<%= user.full_name %>)</em>
   
+  <% if user_signed_in? and current_user != user %>
+    <%= link_to_function raw("More info &darr;"), "$('#user_#{user.id}_info').toggle()", :class => "more_info" %>
+  <% end %>
+  
   <%= render :partial => "users/user_desc_actions", :locals => { :user => user } %>
   
   <div id="user_<%= user.id %>_info" class="user_info">

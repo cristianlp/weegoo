@@ -45,6 +45,12 @@ ul.users_list li.user em
   font-weight: normal;
 }
 
+ul#users_list li.user a.more_info,
+ul.users_list li.user a.more_info
+{
+  font-weight: normal;
+}
+
 ul#users_list li.user .user_info,
 ul.users_list li.user .user_info
 {
