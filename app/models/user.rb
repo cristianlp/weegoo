@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
     
     mutual_ids = accepted_friendships_ids & another_user_accepted_friendships_ids
     
-    User.find(mutual_ids)
+    User.where("id IN (?)", mutual_ids)
   end
   
   def been_at(point_of_interest)

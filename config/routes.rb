@@ -35,6 +35,7 @@ Weegoo::Application.routes.draw do
   
   get "users/:username/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
   get "users/:username/friends", :to => "users#friends", :as => "friends"
+  get "users/:username/mutual_friends", :to => "users#mutual_friends", :as => "mutual_friends"
   
   get "users/:username/visited_places", :to => "users#visited_places", :as => "visited_places"
   get "users/:username/places_to_go", :to => "users#places_to_go", :as => "places_to_go"

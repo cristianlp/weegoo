@@ -105,6 +105,18 @@ class UsersController < ApplicationController
     end
   end
   
+  def mutual_friends
+    @user = User.find_by_username(params[:username])
+    
+    @mutual_friends = @user.mutual_friends(current_user).page(params[:page]).per(5)
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @mutual_friends }
+      format.js
+    end
+  end
+  
   def visited_places
     @user = User.find_by_username(params[:username])
     

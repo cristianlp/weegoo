@@ -41,7 +41,7 @@
           
           <% if user_signed_in? and current_user != user and current_user.mutual_friends(user).size > 0 %>
             <div id="mutual_friends">
-              <div>You and <%= user.full_name %> have <%= current_user.mutual_friends(user).size %> mutual friends</div>
+              <div>You and <%= user.full_name %> have <%= current_user.mutual_friends(user).size %> mutual friends. <%= link_to raw("Show all &rarr;"), mutual_friends_path(user) %></div>
               
               <ul id="avatars">
                 <% current_user.mutual_friends(user).each do |friend| %>

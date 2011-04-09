@@ -1,0 +1,11 @@
+<% title "You and #{@user.full_name}'s mutual friends" %>
+
+<%= render :partial => "users/user_information", :locals => { :user => @user } %>
+
+<h1>Mutual friends</h1>
+
+<ul id="users_list">
+  <%= render :partial => "user_desc", :collection => @mutual_friends, :as => :user %>
+</ul>
+
+<%= paginate @mutual_friends, :remote => true %>
