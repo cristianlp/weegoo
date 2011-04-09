@@ -23,6 +23,14 @@
     <%= f.input :current_password, :hint => "We need your current password to confirm your changes" %>
   </div>
   
+  <div class="inputs">
+    <div class="avatar optional">
+      <label>Avatar</label>
+      <%= image_tag(gravatar_url(resource.email, 64)) %>
+      <span class="hint">Change your avatar at <%= link_to "gravatar.com", "http://gravatar.com" %>.</span>
+    </div>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Update account", :class => "button big"  %>
   </div>
