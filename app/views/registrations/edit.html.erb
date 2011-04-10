@@ -1,0 +1,43 @@
+<h1>Edit <%= resource_name.to_s.humanize %></h1>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="inputs">
+    <h2>Personal information</h2>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+  </div>
+  
+  <div class="inputs">
+    <h2>Location information</h2>
+    <%= f.input :location %>
+  </div>
+  
+  <div class="inputs">
+    <h2>Account information</h2>
+    <%= f.input :username %>
+    <%= f.input :password, :hint => "Leave blank if you don't want to change it" %>
+    <%= f.input :password_confirmation %>
+    <%= f.input :current_password, :hint => "We need your current password to confirm your changes" %>
+  </div>
+  
+  <div class="inputs">
+    <div class="avatar optional">
+      <label>Avatar</label>
+      <%= image_tag(gravatar_url(resource.email, 64)) %>
+      <span class="hint">Change your avatar at <%= link_to "gravatar.com", "http://gravatar.com" %>.</span>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Update account", :class => "button big"  %>
+  </div>
+<% end %>
+
+<h1>Cancel my account</h1>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+<%= link_to raw("&larr; Back"), :back %>
