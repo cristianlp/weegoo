@@ -1,4 +1,8 @@
 Weegoo::Application.routes.draw do
+  match "/auth/:provider/callback" => "authentications#create"
+  
+  resources :authentications
+
   get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
   
   resources :points_of_interest do
@@ -23,7 +27,7 @@ Weegoo::Application.routes.draw do
   
   root :to => "main#index"
   
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   
   get "users", :to => "users#index"
   get "users/:username", :to => "users#show", :as => "user"

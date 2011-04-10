@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   
   has_many :media_files
   
+  has_many :authentications
+  
   # these are scopes. don't use them for .create!()
   has_many :been_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.been" => true }
   has_many :want_to_go_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.want_to_go" => true }
@@ -94,5 +96,16 @@ class User < ActiveRecord::Base
     
     # todo: test created_at condition.
     Activity.where("(user_a_id IN (?) OR user_b_id IN (?)) AND created_at > ?", ids, ids, created_at).order("created_at DESC").group("id")
+  end
+  
+  def apply_omniauth(omniauth)
+    self.email = omniauth["user_info"]["email"] if email.blank?
+    authentications.build(:provider => omniauth["provider"], :uid => omniauth["uid"])
+    puts self.inspect
+    puts omniauth.to_yaml
+  end
+  
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
 end

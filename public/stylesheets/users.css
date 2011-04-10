@@ -211,3 +211,19 @@ ul.users_list li.user .actions_response
   padding: 1px;
   border: 1px solid #ddd;
 }
+
+/*******************
+ * authentications *
+ *******************/
+
+ul#authentications
+{
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+ul#authentications li img
+{
+  vertical-align: middle;
+}
