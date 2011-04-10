@@ -37,3 +37,14 @@
 {
   width: 350px;
 }
+
+h1#third_party_authentication
+{
+  margin: 30px 0;
+}
+
+#authentication_applications
+{
+  text-align: center;
+  margin-bottom: 30px;
+}
