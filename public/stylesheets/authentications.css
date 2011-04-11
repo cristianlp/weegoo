@@ -1,0 +1,40 @@
+/************************
+ * authentications list *
+ ************************/
+
+ul#authentications_list
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#authentications_list li.authentication
+{
+  padding: 5px 0;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+
+ul#authentications_list li.authentication:last-child
+{
+  border-bottom: 1px solid #ddd;
+}
+
+ul#authentications_list li.authentication img
+{
+  vertical-align: middle;
+}
+
+ul#authentications_list li.authentication .actions,
+ul.authentications_list li.authentication .actions
+{
+  position: absolute;
+  top: 9px;
+  right: 0;
+}
+
+ul#authentications_list li.authentication .actions a,
+ul.authentications_list li.authentication .actions a
+{
+  font-weight: normal;
+}

@@ -1,0 +1,9 @@
+<li class="authentication">
+  <%= image_tag "#{authentication.provider}_32.png" %>
+  <%= authentication.provider %>
+  
+  <div class="actions">
+    <%= link_to 'Destroy', [current_user, authentication], :confirm => 'Are you sure?', :method => :delete, :class => "button icon trash danger" %>
+  </div>
+    
+</li>
