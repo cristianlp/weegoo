@@ -25,27 +25,27 @@ Weegoo::Application.routes.draw do
   
   root :to => "main#index"
   
-  devise_for :users, :controllers => { :registrations => "registrations" } do
-    get "users", :to => "users#index"
-    get "users/:username", :to => "users#show", :as => "user"
-    
-    get "users/:username/add_as_friend/:another_user_username", :to => "users#add_as_friend", :as => "add_as_friend"
-    get "users/:username/cancel_friendship_request/:another_user_username", :to => "users#cancel_friendship_request", :as => "cancel_friendship_request"
-    get "users/:username/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
-    get "users/:username/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
-    
-    get "users/:username/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
-    get "users/:username/friends", :to => "users#friends", :as => "friends"
-    get "users/:username/mutual_friends", :to => "users#mutual_friends", :as => "mutual_friends"
-    
-    get "users/:username/visited_places", :to => "users#visited_places", :as => "visited_places"
-    get "users/:username/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
-    
-    #resources :authentications, :only => [ :index, :create, :destroy ]
-    get "users/:username/authentications", :to => "authentications#index", :as => "user_authentications"
-    post "users/:username/authentications", :to => "authentications#create", :as => "user_authentication"
-    delete "users/:username/authentications/:id", :to => "authentications#destroy"
-  end
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  
+  get "users", :to => "users#index"
+  get "users/:username", :to => "users#show", :as => "user"
+  
+  get "users/:username/add_as_friend/:another_user_username", :to => "users#add_as_friend", :as => "add_as_friend"
+  get "users/:username/cancel_friendship_request/:another_user_username", :to => "users#cancel_friendship_request", :as => "cancel_friendship_request"
+  get "users/:username/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
+  get "users/:username/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
+  
+  get "users/:username/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
+  get "users/:username/friends", :to => "users#friends", :as => "friends"
+  get "users/:username/mutual_friends", :to => "users#mutual_friends", :as => "mutual_friends"
+  
+  get "users/:username/visited_places", :to => "users#visited_places", :as => "visited_places"
+  get "users/:username/places_to_go", :to => "users#places_to_go", :as => "places_to_go"
+  
+  #resources :authentications, :only => [ :index, :create, :destroy ]
+  get "users/:username/authentications", :to => "authentications#index", :as => "user_authentications"
+  post "users/:username/authentications", :to => "authentications#create", :as => "user_authentication"
+  delete "users/:username/authentications/:id", :to => "authentications#destroy", :as => "delete_user_authentication"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -23,6 +23,8 @@ gem 'rmagick'
 
 gem 'omniauth'
 
+gem 'twitter'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

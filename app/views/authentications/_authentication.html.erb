@@ -3,7 +3,7 @@
   <%= authentication.provider %>
   
   <div class="actions">
-    <%= link_to 'Destroy', [current_user, authentication], :confirm => 'Are you sure?', :method => :delete, :class => "button icon trash danger" %>
+    <%= link_to 'Destroy', delete_user_authentication_path(current_user, authentication), :confirm => 'Are you sure?', :method => :delete, :class => "button icon trash danger" %>
   </div>
     
 </li>
