@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where("first_name LIKE ? OR last_name LIKE ?", "%#{search}%", "%#{search}%")
+      where("first_name LIKE ? OR last_name LIKE ?", "%#{search}%", "%#{search}%").order("last_name ASC")
     else
       scoped
     end
