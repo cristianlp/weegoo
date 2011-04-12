@@ -17,6 +17,8 @@ Weegoo::Application.routes.draw do
     end
     
     resources :media_files
+    
+    resources :point_of_interest_comments
   end
   
   resources :events, :except => [ :index ]

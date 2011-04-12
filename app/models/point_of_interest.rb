@@ -12,6 +12,8 @@ class PointOfInterest < ActiveRecord::Base
   has_many :been_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.been" => true }
   has_many :want_to_go_users, :through => :points_of_interest_users, :source => :user, :conditions => { "points_of_interest_users.want_to_go" => true }
   
+  has_many :point_of_interest_comments
+  
   set_table_name "points_of_interest"
   
   validates :name, :presence => true
@@ -95,6 +97,10 @@ class PointOfInterest < ActiveRecord::Base
   
   def latest_media_files
     media_files.order("created_at DESC").limit(5)
+  end
+  
+  def latest_point_of_interest_comments
+    point_of_interest_comments.order("created_at DESC").limit(5)
   end
   
   def can_delete?

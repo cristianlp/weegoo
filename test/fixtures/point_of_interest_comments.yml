@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  point_of_interest: 
+  comment: MyString
+
+two:
+  user: 
+  point_of_interest: 
+  comment: MyString

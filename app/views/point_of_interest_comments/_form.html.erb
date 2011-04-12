@@ -1,0 +1,13 @@
+<%= simple_form_for([@point_of_interest, @point_of_interest_comments.build], :url => points_of_interest_point_of_interest_comments_path(@point_of_interest)) do |f| %>
+  <%= f.error_notification %>
+  
+  <%= link_to image_tag(gravatar_url(current_user.email, 24)), current_user, :class => "current_user_img" %>
+  
+  <div class="inputs">
+    <%= f.input :comment, :label => false %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Create comment" %>
+  </div>
+<% end %>

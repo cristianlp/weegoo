@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   
   has_many :authentications
   
+  has_many :point_of_interest_comments
+  
   # these are scopes. don't use them for .create!()
   has_many :been_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.been" => true }
   has_many :want_to_go_points_of_interest, :through => :points_of_interest_users, :source => :point_of_interest, :conditions => { "points_of_interest_users.want_to_go" => true }

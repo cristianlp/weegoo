@@ -1,0 +1,80 @@
+/***********************************
+ * point_of_interest_comments_list *
+ ***********************************/
+
+ul#point_of_interest_comments_list
+{
+  list-style: none;
+  padding: 0;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment
+{
+  padding: 5px 0;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment:last-child
+{
+  border-bottom: 1px solid #ddd;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment a
+{
+  font-weight: bold;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment a img
+{
+  padding: 1px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment em
+{
+  font-style: normal;
+  color: #aaa;
+  font-weight: normal;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .comment
+{
+  margin-left: 32px;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .information
+{
+  position: absolute;
+  top: 9px;
+  right: 0;
+  font-size: 10px;
+  color: #888;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .current_user_img
+{
+  float: left;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .inputs
+{
+  margin-left: 32px;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .inputs textarea
+{
+  width: 900px;
+  height: 50px;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .actions
+{
+  margin: 0;
+}
+
+ul#point_of_interest_comments_list li.point_of_interest_comment .actions input[type=submit]
+{
+  margin-left: 32px;
+}

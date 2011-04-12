@@ -17,6 +17,14 @@
     
     <%= link_to raw("Show all &rarr;"), points_of_interest_media_files_path(@point_of_interest) %>
     
+    <h2 style="margin-top: 20px">Latest comments</h2>
+    
+    <ul id="point_of_interest_comments_list">
+      <%= render @point_of_interest.latest_point_of_interest_comments %>
+    </ul>
+    
+    <%= link_to raw("Show all &rarr;"), points_of_interest_point_of_interest_comments_path(@point_of_interest) %>
+    
   </div>
   
   <div class="right">
