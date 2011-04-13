@@ -1,0 +1,2 @@
+class EventCreatedActivity < Activity
+end

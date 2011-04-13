@@ -1,0 +1,13 @@
+<li class="activity">
+  
+  <% if current_user == activity.user_a and current_user == user %>
+    You've created the venue <%= link_to activity.point_of_interest.name, activity.point_of_interest %>
+  <% else %>
+    <%= link_to activity.user_a.full_name, activity.user_a %> created the venue <%= link_to activity.point_of_interest.name, activity.point_of_interest %>
+  <% end %>
+  (<%= activity.point_of_interest.category.name %>, <%= activity.point_of_interest.sub_category.name %>).
+  
+  <div class="information">
+    <%= activity.created_at.strftime("%d %B at %H:%M") %>
+  </div>
+</li>

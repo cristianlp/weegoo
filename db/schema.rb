@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110412200902) do
     t.date     "date"
     t.time     "time"
     t.string   "type"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "permalink"

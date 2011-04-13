@@ -10,6 +10,7 @@ class CreatePointsOfInterest < ActiveRecord::Migration
       t.date :date
       t.time :time
       t.string :type
+      t.references :user
 
       t.timestamps
     end

@@ -1,0 +1,2 @@
+class VenueCreatedActivity < Activity
+end

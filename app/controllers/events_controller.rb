@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_permalink(params[:id])
 
-    redirect_to point_of_interest_url(@event)
+    redirect_to points_of_interest_url(@event)
   end
 
   # GET /events/new
@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save

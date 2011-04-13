@@ -29,6 +29,7 @@ class VenuesController < ApplicationController
   # POST /venues.xml
   def create
     @venue = Venue.new(params[:venue])
+    @venue.user = current_user
 
     respond_to do |format|
       if @venue.save

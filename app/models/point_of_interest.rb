@@ -1,6 +1,7 @@
 class PointOfInterest < ActiveRecord::Base
   belongs_to :category
   belongs_to :sub_category
+  belongs_to :user
   
   has_many :points_of_interest_users, :class_name => "PointOfInterestUser", :dependent => :destroy
   

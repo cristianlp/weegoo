@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   
   has_many :authentications
   
+  has_many :points_of_interest
+  
   has_many :point_of_interest_comments
   
   # these are scopes. don't use them for .create!()
