@@ -1,0 +1,2 @@
+class PointOfInterestCommentCreatedActivity < Activity
+end

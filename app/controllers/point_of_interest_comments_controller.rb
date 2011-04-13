@@ -15,8 +15,9 @@ class PointOfInterestCommentsController < ApplicationController
   # POST /point_of_interest_comments
   # POST /point_of_interest_comments.xml
   def create
+    # set the user_id in the params, so when the comment is created, the user it's already created
+    params[:point_of_interest_comment][:user_id] = current_user.id
     @point_of_interest_comment = @point_of_interest.point_of_interest_comments.create(params[:point_of_interest_comment])
-    @point_of_interest_comment.user = current_user
 
     respond_to do |format|
       if @point_of_interest_comment.save
