@@ -1,0 +1,2 @@
+class MediaFileCreatedActivity < Activity
+end

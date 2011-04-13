@@ -31,8 +31,9 @@ class MediaFilesController < ApplicationController
   # POST /media_files
   # POST /media_files.xml
   def create
+    # set the user_id in the params, so when the media file is created, the user it's already created
+    params[:media_file][:user_id] = current_user.id
     @media_file = @point_of_interest.media_files.create(params[:media_file])
-    @media_file.user = current_user
 
     respond_to do |format|
       if @media_file.save
