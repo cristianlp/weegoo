@@ -104,8 +104,8 @@ class PointOfInterest < ActiveRecord::Base
     point_of_interest_comments.order("created_at DESC").limit(5)
   end
   
-  def can_delete?
-    been_users.size == 0 and want_to_go_users.size == 0
+  def can_delete?(user)
+    been_users.size == 0 and want_to_go_users.size == 0 and self.user == user
   end
   
   protected

@@ -61,7 +61,7 @@
             <%= link_to "Edit", edit_event_path(point_of_interest), :class => "button icon edit" %>
           <% end %>
           
-          <% if point_of_interest.can_delete? %>
+          <% if point_of_interest.can_delete?(current_user) %>
             <% if point_of_interest.type == "Venue" %>
               <%= link_to "Delete", point_of_interest, :method => :delete, :class => "button icon trash danger" %>
             <% else %>
