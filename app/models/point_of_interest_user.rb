@@ -10,11 +10,6 @@ class PointOfInterestUser < ActiveRecord::Base
     point_of_interest_user.update_attributes!(:been => true, :want_to_go => false)
     
     BeenAtActivity.create!(:user_a_id => user.id, :point_of_interest_id => point_of_interest.id)
-    
-    #if authentication = user.authentications.where("provider = ?", "twitter").first
-    #  Twitter.user(authentication.uid.to_i)
-    #  Twitter.update("Prueba desde weegoo. ¿Funcionará?")
-    #end
   end
   
   def self.not_been(point_of_interest, user)

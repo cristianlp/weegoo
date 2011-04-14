@@ -110,4 +110,12 @@ class User < ActiveRecord::Base
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
+  
+  def authenticates_to?(provider)
+    authentications.exists?(:provider => provider)
+  end
+  
+  def twitter_authentication
+    authentications.where("provider = ?", "twitter").first
+  end
 end
