@@ -4,11 +4,12 @@ class MediaFilesController < ApplicationController
   # GET /media_files
   # GET /media_files.xml
   def index
-    @media_files = @point_of_interest.media_files.all
+    @media_files = @point_of_interest.media_files.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @media_files }
+      format.js
     end
   end
 
