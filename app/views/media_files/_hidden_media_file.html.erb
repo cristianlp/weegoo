@@ -1,12 +1,20 @@
 <div id="<%= "media_file_#{media_file.id}" %>">
   <%= image_tag media_file.file_url(:medium) %>
   
-  <div id="<%= "media_file_#{media_file.id}_caption" %>">
+  <div class="media_file" id="<%= "media_file_#{media_file.id}_caption" %>">
     
-    <%= media_file.title %>
-
+    <div class="user_info">
+      <%= link_to image_tag(gravatar_url(media_file.user.email, 24)), media_file.user %>
+      <%= link_to media_file.user.username, media_file.user %>
+      <em>(<%= media_file.user.full_name %>)</em>
+    </div>
+    
+    <div class="media_file_title">
+      <%= media_file.title %>
+    </div>
+    
     <% if current_user == media_file.user %>
-      <div class="actions" style="float: right;">
+      <div class="actions">
         <%= link_to "Edit", edit_points_of_interest_media_file_path(@point_of_interest, media_file), :class => "button icon edit" %>
         <%= link_to "Delete", points_of_interest_media_file_path(@point_of_interest, media_file), :method => :delete, :class => "button icon trash danger" %>
       </div>

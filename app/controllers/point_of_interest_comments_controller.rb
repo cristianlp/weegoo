@@ -9,6 +9,7 @@ class PointOfInterestCommentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @point_of_interest_comments }
+      format.js
     end
   end
 

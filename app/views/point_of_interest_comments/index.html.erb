@@ -5,9 +5,11 @@
 <h1>Comments for <%= @point_of_interest.name %></h1>
 
 <ul id="point_of_interest_comments_list">
-  <%= render @point_of_interest.point_of_interest_comments %>
+  <%= render @point_of_interest_comments %>
   
-  <li class="point_of_interest_comment">
-    <%= render 'form' %>
-  </li>
+  <% if user_signed_in? %>
+    <li class="point_of_interest_comment">
+      <%= render 'form' %>
+    </li>
+  <% end %>
 </ul>
