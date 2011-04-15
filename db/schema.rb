@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415193210) do
+ActiveRecord::Schema.define(:version => 20110415195913) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(:version => 20110415193210) do
     t.integer  "user_a_id"
     t.integer  "user_b_id"
     t.boolean  "are_friends", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_file_comments", :force => true do |t|
+    t.integer  "media_file_id"
+    t.integer  "user_id"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

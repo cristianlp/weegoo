@@ -13,6 +13,14 @@
       <%= media_file.title %>
     </div>
     
+    <h2 style="margin-top: 20px">Latest comments</h2>
+    
+    <ul id="media_file_comments_list">
+      <%= render media_file.latest_media_file_comments %>
+    </ul>
+    
+    <%= link_to raw("Show all &rarr;"), points_of_interest_media_file_media_file_comments_path(media_file.point_of_interest, media_file) %>
+    
     <% if current_user == media_file.user %>
       <div class="actions">
         <%= link_to "Edit", edit_points_of_interest_media_file_path(media_file.point_of_interest, media_file), :class => "button icon edit" %>

@@ -16,7 +16,9 @@ Weegoo::Application.routes.draw do
       get "want_to_go_friends"
     end
     
-    resources :media_files
+    resources :media_files do
+      resources :media_file_comments
+    end
     
     resources :point_of_interest_comments
   end

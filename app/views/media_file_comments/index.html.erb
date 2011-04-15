@@ -1,0 +1,19 @@
+<% title "#{@point_of_interest.name} multimedia comments" %>
+
+<%= render :partial => "points_of_interest/point_of_interest_information", :locals => { :point_of_interest => @point_of_interest } %>
+
+<h1>Multimedia</h1>
+
+<div id="media_file">
+  <%= image_tag @media_file.file_url(:medium) %>
+</div>
+
+<ul id="media_file_comments_list">
+  <%= render @media_file_comments %>
+  
+  <% if user_signed_in? %>
+    <li class="media_file_comment">
+      <%= render 'form' %>
+    </li>
+  <% end %>
+</ul>

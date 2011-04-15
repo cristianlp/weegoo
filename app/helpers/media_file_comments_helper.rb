@@ -1,0 +1,2 @@
+module MediaFileCommentsHelper
+end
