@@ -8,7 +8,7 @@
   (<%= activity.point_of_interest.category.name %>, <%= activity.point_of_interest.sub_category.name %>).
   
   <div class="information">
-    <%= activity.created_at.strftime("%d %B at %H:%M") %>
+    <%=l activity.created_at, :format => :activity %>
   </div>
   
 </li>

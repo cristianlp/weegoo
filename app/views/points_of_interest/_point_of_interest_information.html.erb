@@ -30,9 +30,9 @@
             
             <% if point_of_interest.type == "Event" %>
               <dt>Date</dt>
-              <dd><%= point_of_interest.date %></dd>
+              <dd><%=l point_of_interest.date %></dd>
               <dt>Time</dt>
-              <dd><%= point_of_interest.time %></dd>
+              <dd><%=l point_of_interest.time, :format => :short %></dd>
             <% end %>
           </dl>
         </div>

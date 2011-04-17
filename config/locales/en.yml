@@ -4,6 +4,10 @@
 en:
   hello: "Hello world"
   
+  time:
+    formats:
+      activity: "%d %B at %H:%M"
+  
   views:
     pagination:
       next: Show more
