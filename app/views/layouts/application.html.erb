@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "weegoo" %></title>
     <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag :defaults, "weegoo_gmaps.js", "fancyzoom.min.js" %>
+    <%= javascript_include_tag :defaults, "weegoo_gmaps.js", "fancyzoom.min.js", "jquery.notification.js" %>
     <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true" %>
     <%= csrf_meta_tag %>
   </head>
@@ -14,11 +14,12 @@
     <div id="content">
       <div class="narrow">
         
-        <div id="flash">
-          <% flash.each do |name, message| %>
-            <div class="<%= name %>"><%= message %></div>
-          <% end %>
-        </div>
+        <% flash.each do |name, message| %>
+          <div id="<%= name %>"><%= message %></div>
+          <script>
+            $("#<%= name %>").notification({ "class": "notification <%= name %>" });
+          </script>
+        <% end %>
         
         <%= yield %>
       </div>
