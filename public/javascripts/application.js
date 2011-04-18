@@ -44,8 +44,6 @@ $(window).load(function()
 $(document).ready(function()
 {
   $("ul#media_files_list li.media_file a").fancyZoom({ directory : "/images/fancyzoom" });
-  
-  $(".media_file_activity a.zoomable").fancyZoom({ directory : "/images/fancyzoom" });
 });
 
 
