@@ -1,0 +1,28 @@
+es:
+  views:
+    users:
+      accept: Aceptar
+      add_as_friend: Agregar como amigo
+      are_not_friends: no son amigos.
+      are_now_friends: son amigos ahora
+      cancel_friendship_request: Cancelar solicitud de amistad
+      connect_with_other_applications: Conectar con otras aplicaciones
+      decline: Rechazar
+      friends: amigos
+      friendship_requests: Solicitudes de amistad
+      more_info: Más información &darr;
+      mutual_friends: amigos en común
+      no_results_found_for: No se encontraron resultados para
+      pending_friendships: solicitudes de amistad
+      places_to_go: lugares para visitar
+      recent_activity: Actividad reciente
+      results_for: Resultados para
+      search_people: Buscar gente
+      users_friends: Amigos de %{user}
+      users_friendship_requests: Solicitudes de amistad de %{user}
+      users_mutual_friends: Amigos en común con %{user}
+      users_places_to_go: Lugares por visitar por %{user}
+      users_visited_places: Lugares visitados por %{user}
+      view_all_connections: Ver todas las conexiones &rarr;
+      visited_places: lugares visitados
+      you_and: Vos y

@@ -1,9 +1,11 @@
-<% title "#{@user.full_name}'s places to go" %>
+<% title t('views.users.users_places_to_go', :user => @user.full_name) %>
 
 <%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<h1>Places to go</h1>
+<h1><%= t('views.users.places_to_go').capitalize %></h1>
 
 <%= render :partial => "users/filter_form", :locals => { :url => places_to_go_path(@user) } %>
 
 <%= render :partial => "points_of_interest/points_of_interest_#{params[:show_as] ? params[:show_as].underscore : "list" }", :locals => { :points_of_interest => @want_to_go_points_of_interest } %>
+
+<%= link_to raw(t('views.scaffold.back')), @user %>

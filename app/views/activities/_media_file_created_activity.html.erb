@@ -1,9 +1,9 @@
 <li class="media_file_created activity">
   
   <% if current_user == activity.user_a and current_user == user %>
-    You've created a <%= link_to "media file", "#activity_#{activity.id}_media_file_#{activity.media_file_id}", :class => "zoomable" %> on the <%= activity.point_of_interest.type.downcase %> <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
+    <%= raw t('views.activities.youve_created_media_file', { :media_file => link_to(t('views.activities.media_file'), "#activity_#{activity.id}_media_file_#{activity.media_file_id}", :class => "zoomable"), :type => t("views.activities.#{activity.point_of_interest.type.downcase}"), :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest) }) %>
   <% else %>
-    <%= link_to activity.user_a.full_name, activity.user_a %> created a <%= link_to "media file", "#activity_#{activity.id}_media_file_#{activity.media_file_id}", :class => "zoomable" %> on the <%= activity.point_of_interest.type.downcase %> <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
+    <%= raw t('views.activities.created_media_file', { :subject => link_to(activity.user_a.full_name, activity.user_a), :media_file => link_to(t('views.activities.media_file'), "#activity_#{activity.id}_media_file_#{activity.media_file_id}", :class => "zoomable"), :type => t("views.activities.#{activity.point_of_interest.type.downcase}"), :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest) }) %>
   <% end %>
   
   <div class="information">

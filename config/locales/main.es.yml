@@ -1,0 +1,10 @@
+es:
+  views:
+    main:
+      find_friends: "Encontrá amigos"
+      or: "o"
+      or_sign_in_with: "o iniciá sesión con"
+      share_venues_and_events: "Compartí lugares y eventos"
+      sign_up_now: "¡Registrate ahora!"
+      slogan: "Una buena razón para salir"
+      start_finding_friends_and_sharing_venues_and_events: "¡Empezá a encontrar amigos y compartir lugares y eventos!"

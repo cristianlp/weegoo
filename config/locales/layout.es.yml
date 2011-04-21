@@ -1,0 +1,11 @@
+es:
+  views:
+    current_user:
+      edit_account: "Editar perfil"
+      sign_in: "Iniciar sesión"
+      sign_out: "Cerrar sesión"
+      sign_up: "Registrarse"
+    
+    layout:
+      people: "Gente"
+      venues_and_events: "Lugares y eventos"

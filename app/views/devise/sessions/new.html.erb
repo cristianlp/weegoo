@@ -1,6 +1,6 @@
 <div id="sign_in_form">
   
-  <h1>Sign in</h1>
+  <h1><%=t 'views.sessions.sign_in' %></h1>
   
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     
@@ -13,11 +13,11 @@
     </div>
     
     <div class="actions">
-      <%= f.submit "Sign in", :class => "button big icon" %>
+      <%= f.submit t("views.sessions.sign_in"), :class => "button big icon" %>
     </div>
   <% end %>
   
-  <h1 id="third_party_authentication">Or sign with other application:</h1>
+  <h1 id="third_party_authentication"><%=t 'views.sessions.third_party_sign_in' %></h1>
   
   <div id="authentication_applications">
     <%= link_to image_tag("facebook_64.png"), "/auth/facebook" %>

@@ -1,8 +1,8 @@
-<% title "#{@user.full_name}'s friendship requests" %>
+<% title t('views.users.users_friendship_requests', :user => @user.full_name) %>
 
 <%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<h1>Friendship requests</h1>
+<h1><%= t('views.users.friendship_requests') %></h1>
 
 <ul id="users_list">
   
@@ -15,3 +15,5 @@
 </ul>
 
 <%= paginate @pending_friendships, :remote => true %>
+
+<%= link_to raw(t('views.scaffold.back')), @user %>

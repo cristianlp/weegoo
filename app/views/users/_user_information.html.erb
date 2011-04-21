@@ -17,25 +17,25 @@
       <div class="columns">
         <div id="information" class="left">
           <dl>
-            <dt>Name</dt>
+            <dt><%=t 'simple_form.labels.name' %></dt>
             <dd><%= user.full_name %></dd>
-            <dt>Email</dt>
+            <dt><%=t 'simple_form.labels.email' %></dt>
             <dd><%= mail_to user.email, user.email %></dd>
-            <dt>Location</dt>
+            <dt><%=t 'simple_form.labels.user.location' %></dt>
             <dd><%= user.location %></dd>
           </dl>
         </div>
         
         <div class="right">
           <ul id="stats">
-            <li><%= link_to raw("<strong>#{user.accepted_friendships.size}</strong><span>friends</span>"), friends_path(user) %></li>
+            <li><%= link_to raw("<strong>#{user.accepted_friendships.size}</strong><span>#{t('views.users.friends')}</span>"), friends_path(user) %></li>
           
-            <li><%= link_to raw("<strong>#{user.been_points_of_interest.size}</strong><span>visited places</span>"), visited_places_path(user) %></li>
+            <li><%= link_to raw("<strong>#{user.been_points_of_interest.size}</strong><span>#{t('views.users.visited_places')}</span>"), visited_places_path(user) %></li>
           
-            <li><%= link_to raw("<strong>#{user.want_to_go_points_of_interest.size}</strong><span>places to go</span>"), places_to_go_path(user) %></li>
+            <li><%= link_to raw("<strong>#{user.want_to_go_points_of_interest.size}</strong><span>#{t('views.users.places_to_go')}</span>"), places_to_go_path(user) %></li>
             
             <% if current_user == user and user.pending_friendships.size > 0 %>
-              <li><%= link_to raw("<strong>#{user.pending_friendships.size}</strong><span>pending friendships</span>"), friendship_requests_path(user) %></li>
+              <li><%= link_to raw("<strong>#{user.pending_friendships.size}</strong><span>#{t('views.users.pending_friendships')}</span>"), friendship_requests_path(user) %></li>
             <% end %>
           </ul>
           

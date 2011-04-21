@@ -2,11 +2,11 @@
   
   <%= form_tag url, :method => "get" do %>
     <div>
-      <%= label_tag "Filter" %>:
-      <%= select_tag :type, options_for_select({"Everything" => "Everything", "Venues" => "Venue", "Events" => "Event"}, params[:type] ? params[:type] : "Everything"), :onchange => "$('#filter form').submit()" %>
+      <%= label_tag t('views.filter.filter') %>:
+      <%= select_tag :type, options_for_select({t('views.search.everything') => "Everything", t('views.search.venues') => "Venue", t('views.search.events') => "Event"}, params[:type] ? params[:type] : "Everything"), :onchange => "$('#filter form').submit()" %>
       
-      <%= label_tag "show as" %>:
-      <%= select_tag :show_as, options_for_select({"List" => "List", "Map" => "Map"}, params[:show_as] ? params[:show_as] : "List"), :onchange => "$('#filter form').submit()" %>
+      <%= label_tag t('views.search.show_as') %>:
+      <%= select_tag :show_as, options_for_select({t('views.search.list') => "List", t('views.search.map') => "Map"}, params[:show_as] ? params[:show_as] : "List"), :onchange => "$('#filter form').submit()" %>
     </div>
   <% end %>
   

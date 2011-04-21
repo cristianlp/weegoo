@@ -1,9 +1,9 @@
 <% if @media_file.new_record? %>
   <% url = points_of_interest_media_files_path %>
-  <% action = "Create" %>
+  <% action = "helpers.submit.media_file.create" %>
 <% else %>
   <% url = points_of_interest_media_file_path(@medua_file) %>
-  <% action = "Update" %>
+  <% action = "helpers.submit.media_file.update" %>
 <% end %>
 
 <%= simple_form_for([@point_of_interest, @media_file], :url => url, :html => { :multipart => true }) do |f| %>
@@ -15,6 +15,6 @@
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "#{action} media file", :class => "big" %>
+    <%= f.button :submit, t(action), :class => "big" %>
   </div>
 <% end %>

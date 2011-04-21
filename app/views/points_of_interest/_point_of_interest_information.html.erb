@@ -17,21 +17,21 @@
       <div class="columns">
         <div id="information" class="left">
           <dl>
-            <dt>Name</dt>
+            <dt><%=t 'simple_form.labels.name' %></dt>
             <dd><%= point_of_interest.name %></dd>
             <% if not point_of_interest.description.blank? %>
-              <dt>Description</dt>
+              <dt><%=t 'simple_form.labels.description' %></dt>
               <dd><%= point_of_interest.description %></dd>
             <% end %>
-            <dt>Category</dt>
+            <dt><%=t 'simple_form.labels.category' %></dt>
             <dd><%= point_of_interest.category.name %></dd>
-            <dt>Sub category</dt>
+            <dt><%=t 'simple_form.labels.sub_category' %></dt>
             <dd><%= point_of_interest.sub_category.name %></dd>
             
             <% if point_of_interest.type == "Event" %>
-              <dt>Date</dt>
+              <dt><%=t 'simple_form.labels.date' %></dt>
               <dd><%=l point_of_interest.date %></dd>
-              <dt>Time</dt>
+              <dt><%=t 'simple_form.labels.time' %></dt>
               <dd><%=l point_of_interest.time, :format => :short %></dd>
             <% end %>
           </dl>
@@ -39,13 +39,13 @@
         
         <div class="right">
           <ul id="stats">
-            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>people been here</span>"), been_users_points_of_interest_path(point_of_interest) %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.been_users.size}</strong><span>#{t("views.points_of_interest.people_been_here")}</span>"), been_users_points_of_interest_path(point_of_interest) %></li>
             
-            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>people want to be here</span>"), want_to_go_users_points_of_interest_path(point_of_interest) %></li>
+            <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_users.size}</strong><span>#{t("views.points_of_interest.people_want_to_be_here")}</span>"), want_to_go_users_points_of_interest_path(point_of_interest) %></li>
             
             <% if user_signed_in? %>
-              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>friends been here</span>"), been_friends_points_of_interest_path(point_of_interest) %></li>
-              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>friends want to be here</span>"), want_to_go_friends_points_of_interest_path(point_of_interest) %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.been_friends(current_user).size}</strong><span>#{t("views.points_of_interest.friends_been_here")}</span>"), been_friends_points_of_interest_path(point_of_interest) %></li>
+              <li><%= link_to raw("<strong>#{point_of_interest.want_to_go_friends(current_user).size}</strong><span>#{t("views.points_of_interest.friends_want_to_be_here")}</span>"), want_to_go_friends_points_of_interest_path(point_of_interest) %></li>
             <% end %>
           </ul>
         </div>
@@ -56,16 +56,16 @@
       <div class="columns">
         <div class="left">
           <% if point_of_interest.type == "Venue" %>
-            <%= link_to "Edit", edit_venue_path(point_of_interest), :class => "button icon edit" %>
+            <%= link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest), :class => "button icon edit" %>
           <% else %>
-            <%= link_to "Edit", edit_event_path(point_of_interest), :class => "button icon edit" %>
+            <%= link_to t('views.scaffold.edit'), edit_event_path(point_of_interest), :class => "button icon edit" %>
           <% end %>
           
           <% if point_of_interest.can_delete?(current_user) %>
             <% if point_of_interest.type == "Venue" %>
-              <%= link_to "Delete", point_of_interest, :method => :delete, :class => "button icon trash danger" %>
+              <%= link_to t('views.scaffold.delete'), point_of_interest, :method => :delete, :class => "button icon trash danger" %>
             <% else %>
-              <%= link_to "Delete", point_of_interest, :method => :delete, :class => "button icon trash danger" %>
+              <%= link_to t('views.scaffold.delete'), point_of_interest, :method => :delete, :class => "button icon trash danger" %>
             <% end %>
           <% end %>
         </div>

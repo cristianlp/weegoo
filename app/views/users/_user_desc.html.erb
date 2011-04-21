@@ -4,22 +4,22 @@
   <em>(<%= user.full_name %>)</em>
   
   <% if user_signed_in? and current_user != user %>
-    <%= link_to_function raw("More info &darr;"), "$('#user_#{user.id}_info').toggle()", :class => "more_info" %>
+    <%= link_to_function raw(t('views.users.more_info')), "$('#user_#{user.id}_info').toggle()", :class => "more_info" %>
   <% end %>
   
   <%= render :partial => "users/user_desc_actions", :locals => { :user => user } %>
   
   <div id="user_<%= user.id %>_info" class="user_info">
     <ul class="stats">
-      <li><%= link_to "#{user.accepted_friendships.size} friends", friends_path(user) %></li>
+      <li><%= link_to "#{user.accepted_friendships.size} #{t('views.users.friends')}", friends_path(user) %></li>
       
       <% if user_signed_in? %>
-        <li><%= link_to "#{user.mutual_friends(current_user).size} mutual friends", mutual_friends_path(user) %></li>
+        <li><%= link_to "#{user.mutual_friends(current_user).size} #{t('views.users.mutual_friends')}", mutual_friends_path(user) %></li>
       <% end %>
     
-      <li><%= link_to "#{user.been_points_of_interest.size} visited places", visited_places_path(user) %></li>
+      <li><%= link_to "#{user.been_points_of_interest.size} #{t('views.users.visited_places')}", visited_places_path(user) %></li>
     
-      <li><%= link_to "#{user.want_to_go_points_of_interest.size} places to go", places_to_go_path(user) %></li>
+      <li><%= link_to "#{user.want_to_go_points_of_interest.size} #{t('views.users.places_to_go')}", places_to_go_path(user) %></li>
     </ul>
   </div>
   

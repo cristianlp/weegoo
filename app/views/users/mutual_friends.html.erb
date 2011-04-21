@@ -1,8 +1,8 @@
-<% title "You and #{@user.full_name}'s mutual friends" %>
+<% title t('views.users.users_mutual_friends', :user => @user.full_name) %>
 
 <%= render :partial => "users/user_information", :locals => { :user => @user } %>
 
-<h1>Mutual friends</h1>
+<h1><%= t('views.users.mutual_friends').capitalize %></h1>
 
 <ul id="users_list">
   <%= render :partial => "user_desc", :collection => @mutual_friends, :as => :user %>

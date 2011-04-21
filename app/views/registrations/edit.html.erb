@@ -1,33 +1,33 @@
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
+<h1><%=t 'views.registrations.edit_account' %></h1>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="inputs">
-    <h2>Personal information</h2>
+    <h2><%=t 'views.registrations.personal_information' %></h2>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email %>
   </div>
   
   <div class="inputs">
-    <h2>Location information</h2>
+    <h2><%=t 'views.registrations.location_information' %></h2>
     <%= f.input :location %>
   </div>
   
   <div class="inputs">
-    <h2>Account information</h2>
+    <h2><%=t 'views.registrations.account_information' %></h2>
     <%= f.input :username %>
-    <%= f.input :password, :hint => "Leave blank if you don't want to change it" %>
+    <%= f.input :password, :hint => t("views.registrations.hints.password") %>
     <%= f.input :password_confirmation %>
-    <%= f.input :current_password, :hint => "We need your current password to confirm your changes" %>
+    <%= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
   </div>
   
   <div class="inputs">
     <div class="avatar optional">
       <label>Avatar</label>
       <%= image_tag(gravatar_url(resource.email, 64)) %>
-      <span class="hint">Change your avatar at <%= link_to "gravatar.com", "http://gravatar.com" %>.</span>
+      <span class="hint"><%=t 'views.registrations.change_your_avatar_at' %> <%= link_to "gravatar.com", "http://gravatar.com" %>.</span>
     </div>
   </div>
   
@@ -36,8 +36,8 @@
   </div>
 <% end %>
 
-<h1>Cancel my account</h1>
+<h1><%=t 'views.registrations.cancel_account' %></h1>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p><%=t 'views.registrations.unhappy' %> <%= link_to t('views.registrations.cancel_account'), registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
-<%= link_to raw("&larr; Back"), :back %>
+<%= link_to raw(t('views.scaffold.back')), :back %>

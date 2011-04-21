@@ -10,3 +10,21 @@ es:
     formats:
       activity: "%d %B a las %H:%M"
       short: "%H:%M hs."
+  
+  views:
+    filter:
+      filter: Filtrar
+    pagination:
+      next: Ver más
+    scaffold:
+      back: "&larr; Volver"
+      delete: Eliminar
+      edit: Editar
+    search:
+      events: Eventos
+      everything: Todo
+      list: Lista
+      map: Mapa
+      search: Buscar
+      show_as: ver como
+      venues: Lugares

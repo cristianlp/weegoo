@@ -6,7 +6,7 @@
 
   <div class="left">
     
-    <h1>Recent activity</h1>
+    <h1><%=t 'views.users.recent_activity' %></h1>
     
     <ul id="activities_list">
       <%= render :partial => "activities/activity", :collection => @activities %>
@@ -19,7 +19,7 @@
   <div class="right">
     
     <% if user_signed_in? and current_user == @user %>
-      <h1>Connect with other applications</h1>
+      <h1><%=t 'views.users.connect_with_other_applications' %></h1>
       
       <ul id="authentications">
         <li><%= link_to image_tag("facebook_32.png"), "/auth/facebook" %> <%= link_to "facebook", "/auth/facebook" %></li>
@@ -27,7 +27,7 @@
       </ul>
       
       <div>
-        <%= link_to raw("View all connections &rarr;"), user_authentications_path %>
+        <%= link_to raw(t('views.users.view_all_connections')), user_authentications_path %>
       </div>
     <% end %>
     

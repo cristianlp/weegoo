@@ -1,9 +1,9 @@
 <li class="want_to_go_to activity">
   
   <% if current_user == activity.user_a and current_user == user %>
-    You want to go to <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
+    <%= raw t('views.activities.you_want_to_go', { :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest) }) %>
   <% else %>
-    <%= link_to activity.user_a.full_name, activity.user_a %> wants to go to <%= link_to activity.point_of_interest.name, activity.point_of_interest %>.
+    <%= raw t('views.activities.want_to_go', { :subject => link_to(activity.user_a.full_name, activity.user_a), :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest) }) %>
   <% end %>
   
   <div class="information">

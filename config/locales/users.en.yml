@@ -1,0 +1,28 @@
+en:
+  views:
+    users:
+      accept: Accept
+      add_as_friend: Add as friend
+      are_not_friends: are not friends
+      are_now_friends: are now friends
+      cancel_friendship_request: Cancel friendship request
+      connect_with_other_applications: Connect with other applications
+      decline: Decline
+      friends: friends
+      friendship_requests: Friendship requests
+      more_info: More info &darr;
+      mutual_friends: mutual friends
+      no_results_found_for: No results found for
+      pending_friendships: pending friendships
+      places_to_go: places to go
+      recent_activity: Recent activity
+      results_for: Results for
+      search_people: Search people
+      users_friends: "%{user}'s friends"
+      users_friendship_requests: "%{user}'s friendship requests"
+      users_mutual_friend: "You and %{user} mutual friends"
+      users_places_to_go: "%{user}'s places to go"
+      users_visited_places: "%{user}'s visited places"
+      view_all_connections: View all connections &rarr;
+      visited_places: visited places
+      you_and: You and

@@ -4,8 +4,8 @@
     <%= link_to image_tag("logo.png"), root_path, :id => "logo" %>
     
     <ul id="main_menu">
-      <li><%= link_to "Venues and events", points_of_interest_index_path %></li>
-      <li><%= link_to "People", users_path %></li>
+      <li><%= link_to t("views.layout.venues_and_events"), points_of_interest_index_path %></li>
+      <li><%= link_to t("views.layout.people"), users_path %></li>
     </ul>
     
     <% if user_signed_in? %>

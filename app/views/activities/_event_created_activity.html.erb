@@ -1,9 +1,9 @@
 <li class="event_created activity">
   
   <% if current_user == activity.user_a and current_user == user %>
-    You've created the event <%= link_to activity.point_of_interest.name, activity.point_of_interest %>
+    <%= raw t('views.activities.you_created_event', :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest)) %>
   <% else %>
-    <%= link_to activity.user_a.full_name, activity.user_a %> created the event <%= link_to activity.point_of_interest.name, activity.point_of_interest %>
+    <%= raw t('views.activities.created_event', { :subject => link_to(activity.user_a.full_name, activity.user_a), :point_of_interest => link_to(activity.point_of_interest.name, activity.point_of_interest) }) %>
   <% end %>
   (<%= activity.point_of_interest.category.name %>, <%= activity.point_of_interest.sub_category.name %>).
   

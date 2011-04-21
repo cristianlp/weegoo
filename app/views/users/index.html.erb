@@ -1,12 +1,12 @@
 <% title "Search people" %>
 
-<h1>Search people</h1>
+<h1><%=t 'views.users.search_people' %></h1>
 
 <%= render :partial => "users/search_form" %>
 
 <% if not @users.empty? %>
 
-  <h2>Results for: "<%= params[:search] %>"</h2>
+  <h2><%=t 'views.users.results_for' %>: "<%= params[:search] %>"</h2>
   
   <ul id="users_list">
     
@@ -18,6 +18,6 @@
   
 <% elsif params[:search] %>
   
-  <h2>No results found for: "<%= params[:search] %>"</h2>
+  <h2><%=t 'views.users.no_results_found_for' %>: "<%= params[:search] %>"</h2>
   
 <% end %>

@@ -8,6 +8,6 @@
   </div>
   
   <div class="information">
-    <%= media_file_comment.created_at.strftime("%d %B at %H:%M") %>
+    <%=l media_file_comment.created_at, :format => :short %>
   </div>
 </li>

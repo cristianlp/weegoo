@@ -1,5 +1,5 @@
-<h1>Editing event</h1>
+<h1><%=t 'views.points_of_interest.editing_event' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', @event %>
+<%= link_to raw(t('views.scaffold.back')), @event %>

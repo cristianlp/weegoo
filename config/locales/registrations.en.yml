@@ -1,0 +1,15 @@
+en:
+  views:
+    registrations:
+      account_information: "Account information"
+      cancel_account: "Cancel my account"
+      change_your_avatar_at: "Change your avatar at"
+      edit_account: "Edit account"
+      location_information: "Location information"
+      personal_information: "Personal information"
+      sign_up: "Sign up"
+      unhappy: "Unhappy?"
+      
+      hints:
+        current_password: "We need your current password to confirm your changes"
+        password: "Leave blank if you don't want to change it"

@@ -6,7 +6,7 @@
     <% first, second = activity.user_b, activity.user_a %>
   <% end %>
   
-  <%= link_to first.full_name, first %> and <%= link_to second.full_name, second %> are now friends.
+  <%= raw t('views.activities.accepted_friendship', { :first => link_to(first.full_name, first), :second => link_to(second.full_name, second) }) %>
     
   <div class="information">
     <%= activity.created_at.strftime("%d %B at %H:%M") %>

@@ -1,0 +1,26 @@
+en:
+  views:
+    activities:
+      accepted_friendship: %{first} and %{second} are now friends.
+      been_at: %{subject} been at %{point_of_interest}.
+      commented_media_file: "%{subject} commented the %{media_file} on the %{type} %{point_of_interest}."
+      commented_point_of_interest: "%{subject} commented the %{type} %{point_of_interest}."
+      created_event: %{subject} created the event %{point_of_interest}.
+      created_media_file: "%{subject} created a %{media_file} on the %{type} %{point_of_interest}."
+      created_venue: %{subject} created the venue %{point_of_interest}.
+      dont_want_to_go: "%{subject} don't wants to go to %{point_of_interest}."
+      event: event
+      havent_been_at: "%{subject} haven't been at %{point_of_interest}."
+      media_file: media file
+      show_all: "Show all &rarr;"
+      venue: venue
+      want_to_go: %{subject} wants to go to %{point_of_interest}.
+      you_created_event: "You've created the event %{point_of_interest}."
+      you_created_venue: "You've created the venue %{point_of_interest}."
+      you_dont_want_to_go: "You don't want to go to %{point_of_interest}."
+      you_havent_been_at: "You haven't been at %{point_of_interest}."
+      you_want_to_go: "You want to go to %{point_of_interest}."
+      youve_been_at: "You've been at %{point_of_interest}."
+      youve_commented_media_file: "You've commented the %{media_file} on the %{type} %{point_of_interest}."
+      youve_commented_point_of_interest: "You've commented the %{type} %{point_of_interest}."
+      youve_created_media_file: "You've created a %{media_file} on the %{type} %{point_of_interest}."

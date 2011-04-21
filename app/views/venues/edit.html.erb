@@ -1,5 +1,5 @@
-<h1>Editing venue</h1>
+<h1><%=t 'views.points_of_interest.editing_venue' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', @venue %>
+<%= link_to raw(t('views.scaffold.back')), @venue %>

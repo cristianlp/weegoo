@@ -2,15 +2,15 @@
   
   <%= form_tag points_of_interest_index_path, :method => "get" do %>
     <div>
-      <%= label_tag "Search" %>:
-      <%= select_tag :type, options_for_select({"Everything" => "Everything", "Venues" => "Venue", "Events" => "Event"}, params[:type] ? params[:type] : "Everything") %>
+      <%= label_tag t('views.search.search') %>:
+      <%= select_tag :type, options_for_select({t('views.search.everything') => "Everything", t('views.search.venues') => "Venue", t('views.search.events') => "Event"}, params[:type] ? params[:type] : "Everything") %>
       
-      <%= label_tag "show as" %>:
-      <%= select_tag :show_as, options_for_select({"List" => "List", "Map" => "Map"}, params[:show_as] ? params[:show_as] : "List") %>
+      <%= label_tag t('views.search.show_as') %>:
+      <%= select_tag :show_as, options_for_select({t('views.search.list') => "List", t('views.search.map') => "Map"}, params[:show_as] ? params[:show_as] : "List") %>
     </div>
     <div>
       <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil, :class => "button big" %>
+      <%= submit_tag t('views.search.search'), :name => nil, :class => "button big" %>
     </div>
   <% end %>
   

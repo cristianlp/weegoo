@@ -1,0 +1,26 @@
+es:
+  views:
+    activities:
+      accepted_friendship: %{first} y %{second} son ahora amigos.
+      been_at: %{subject} estuvo en %{point_of_interest}.
+      commented_media_file: "%{subject} comentó el %{media_file} en el %{type} %{point_of_interest}."
+      commented_point_of_interest: "%{subject} comentó el %{type} %{point_of_interest}."
+      created_event: %{subject} creó el evento %{point_of_interest}.
+      created_media_file: "%{subject} creó un %{media_file} en el %{type} %{point_of_interest}."
+      created_venue: %{subject} creó el lugar %{point_of_interest}.
+      dont_want_to_go: %{subject} no quiere ir a %{point_of_interest}.
+      event: evento
+      havent_been_at: "%{subject} no estuvo en %{point_of_interest}."
+      media_file: multimedia
+      show_all: "Ver todos &rarr;"
+      venue: lugar
+      want_to_go: %{subject} quiere ir a %{point_of_interest}.
+      you_created_event: Creaste el evento %{point_of_interest}.
+      you_created_venue: Creaste el lugar %{point_of_interest}.
+      you_dont_want_to_go: No querés ir a %{point_of_interest}.
+      you_havent_been_at: "No estuviste en %{point_of_interest}."
+      you_want_to_go: "Querés ir a %{point_of_interest}."
+      youve_been_at: Estuviste en %{point_of_interest}.
+      youve_commented_media_file: "Comentaste el %{media_file} en el %{type} %{point_of_interest}."
+      youve_commented_point_of_interest: "Comentaste el %{type} %{point_of_interest}."
+      youve_created_media_file: "Creaste un %{media_file} en el %{type} %{point_of_interest}."

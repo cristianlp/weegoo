@@ -4,29 +4,29 @@
   
   <% if not point_of_interest.description.blank? %>
     <div>
-      <strong>Description</strong>
+      <strong><%=t 'simple_form.labels.point_of_interest.description' %></strong>
       <%= point_of_interest.description %>
     </div>
   <% end %>
   
   <div>
-    <strong>Category</strong>
+    <strong><%=t 'simple_form.labels.point_of_interest.category' %></strong>
     <%= point_of_interest.category.name %>
   </div>
   
   <div>
-    <strong>Sub category</strong>
+    <strong><%=t 'simple_form.labels.point_of_interest.sub_category' %></strong>
     <%= point_of_interest.sub_category.name %>
   </div>
   
   <% if point_of_interest.type == "Event" %>
     <div>
-      <strong>Date</strong>
+      <strong><%=t 'simple_form.labels.point_of_interest.date' %></strong>
       <%= point_of_interest.date %>
     </div>
   
     <div>
-      <strong>Time</strong>
+      <strong><%=t 'simple_form.labels.point_of_interest.time' %></strong>
       <%= point_of_interest.time %>
     </div>
   <% end %>

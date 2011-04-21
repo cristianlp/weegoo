@@ -1,0 +1,46 @@
+es:
+  helpers:
+    submit:
+      event:
+        create: "Crear evento"
+        update: "Actualizar evento"
+      media_file:
+        create: "Crear multimedia"
+        update: "Actualizar multimedia"
+      venue:
+        create: "Crear lugar"
+        update: "Actualizar lugar"
+
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      #mark: '*'
+      mark: ''
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Ocurrieron algunos errores, por favor echá un vistazo:"
+    # Labels and hints examples
+    labels:
+      category: Categoría
+      date: Fecha
+      description: Descripción
+      name: Nombre
+      password: Contraseña
+      remember_me: Recordarme
+      sub_category: Sub categoría
+      username: Nombre de usuario
+      time: Hora
+      media_file:
+        title: Título
+        file: Archivo
+      user:
+        first_name: Nombre
+        last_name: Apellido
+        location: Ubicación
+        password_confirmation: Repetir contraseña
+        current_password: Contraseña actual
+    #hints:

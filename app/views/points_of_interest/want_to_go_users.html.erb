@@ -1,8 +1,8 @@
-<% title "People that want to be at #{@point_of_interest.name}" %>
+<% title "#{t('views.points_of_interest.people_that_want_to_be_at')} #{@point_of_interest.name}" %>
 
 <%= render :partial => "points_of_interest/point_of_interest_information", :locals => { :point_of_interest => @point_of_interest } %>
 
-<h1>People that want to be here</h1>
+<h1><%=t 'views.points_of_interest.people_that_want_to_be_here' %></h1>
 
 <ul id="users_list">
   <%= render :partial => "users/user_desc", :collection => @users, :as => :user %>

@@ -1,0 +1,11 @@
+en:
+  views:
+    current_user:
+      edit_account: "Edit account"
+      sign_in: "Sign in"
+      sign_out: "Sign out"
+      sign_up: "Sign up"
+    
+    layout:
+      people: "People"
+      venues_and_events: "Venues and events"

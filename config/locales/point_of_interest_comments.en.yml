@@ -1,0 +1,5 @@
+en:
+  views:
+    point_of_interest_comments:
+      comments_for: Comments for
+      create_comment: Create comment

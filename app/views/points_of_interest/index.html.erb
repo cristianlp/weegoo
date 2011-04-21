@@ -1,26 +1,26 @@
-<% title "Search venues and events" %>
+<% title t('views.points_of_interest.search_venues_and_events') %>
 
-<h1>Search venues and events</h1>
+<h1><%=t 'views.points_of_interest.search_venues_and_events' %></h1>
 
 <%= render :partial => "search_form" %>
 
 <% if not @points_of_interest.empty? %>
   
-  <h2>Results for: "<%= params[:search] %>"</h2>
+  <h2><%=t 'views.points_of_interest.results_for' %>: "<%= params[:search] %>"</h2>
   
   <%= render :partial => "points_of_interest/points_of_interest_#{params[:show_as].underscore}", :locals => { :points_of_interest => @points_of_interest } %>
   
 <% elsif params[:search] %>
   
-  <h2>No results found for: "<%= params[:search] %>"</h2>
+  <h2><%=t 'views.points_of_interest.no_results_found_for' %>: "<%= params[:search] %>"</h2>
   
 <% end %>
 
 <% if user_signed_in? and params[:search] %>
   
-  <h2>Can't find the point of interest you're looking for?</h2>
+  <h2><%=t 'views.points_of_interest.cant_find_point_of_interest' %></h2>
   
-  <%= link_to "Create a new venue", new_venue_path, :class => "button icon add" %>
-  <%= link_to "Create a new event", new_event_path, :class => "button icon add" %>
+  <%= link_to t('views.points_of_interest.create_venue'), new_venue_path, :class => "button icon add" %>
+  <%= link_to t('views.points_of_interest.create_event'), new_event_path, :class => "button icon add" %>
   
 <% end %>

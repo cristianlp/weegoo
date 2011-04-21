@@ -8,6 +8,6 @@
   </div>
   
   <div class="information">
-    <%= point_of_interest_comment.created_at.strftime("%d %B at %H:%M") %>
+    <%=l point_of_interest_comment.created_at, :format => :short %>
   </div>
 </li>
