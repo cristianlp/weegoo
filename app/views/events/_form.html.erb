@@ -11,7 +11,7 @@
     
     <%= render :partial => "points_of_interest/map_form", :locals => { :point_of_interest => @event } %>
     
-    <%= f.input :date %>
+    <%= f.input :date, :as => :date, :order => [:day, :month, :year] %>
     <%= f.input :time %>
   </div>
 
