@@ -2,6 +2,7 @@ es:
   views:
     current_user:
       edit_account: "Editar perfil"
+      forgot_your_password: ¿Olvidaste tu contraseña?
       sign_in: "Iniciar sesión"
       sign_out: "Cerrar sesión"
       sign_up: "Registrarse"

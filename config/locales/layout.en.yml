@@ -2,6 +2,7 @@ en:
   views:
     current_user:
       edit_account: "Edit account"
+      forgot_your_password: "Forgot your password?"
       sign_in: "Sign in"
       sign_out: "Sign out"
       sign_up: "Sign up"
