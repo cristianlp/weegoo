@@ -3,7 +3,7 @@
   <%= authentication.provider %>
   
   <div class="actions">
-    <%= link_to t('views.scaffold.delete'), delete_user_authentication_path(current_user, authentication), :confirm => 'Are you sure?', :method => :delete, :class => "button icon trash danger" %>
+    <%= negative_trash_button_link_to t('views.scaffold.delete'), delete_user_authentication_path(current_user, authentication), :confirm => 'Are you sure?', :method => :delete %>
   </div>
     
 </li>

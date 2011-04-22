@@ -23,8 +23,8 @@
     
     <% if current_user == media_file.user %>
       <div class="actions">
-        <%= link_to t('views.scaffold.edit'), edit_points_of_interest_media_file_path(media_file.point_of_interest, media_file), :class => "button icon edit" %>
-        <%= link_to t('views.scaffold.delete'), points_of_interest_media_file_path(media_file.point_of_interest, media_file), :method => :delete, :class => "button icon trash danger" %>
+        <%= edit_button_link_to t('views.scaffold.edit'), edit_points_of_interest_media_file_path(media_file.point_of_interest, media_file) %>
+        <%= negative_trash_button_link_to t('views.scaffold.delete'), points_of_interest_media_file_path(media_file.point_of_interest, media_file), :method => :delete %>
       </div>
     <% end %>
     

@@ -2,9 +2,9 @@
   
   <div class="actions">
     
-    <%= link_to t('views.users.accept'), accept_friendship_path(:id => user.id, :friendship_id => friendship.id), :class => "button icon approve" %>
+    <%= approve_button_link_to t('views.users.accept'), accept_friendship_path(:id => user.id, :friendship_id => friendship.id) %>
     
-    <%= link_to t('views.users.decline'), decline_friendship_path(:id => user.id, :friendship_id => friendship.id), :class => "button icon remove danger" %>
+    <%= negative_remove_button_link_to t('views.users.decline'), decline_friendship_path(:id => user.id, :friendship_id => friendship.id) %>
     
   </div>
   

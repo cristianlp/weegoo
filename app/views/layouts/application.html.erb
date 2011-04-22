@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "weegoo" %></title>
     <%= stylesheet_link_tag :all %>
+    <%= css3buttons_stylesheets :include_reset => false %>
     <%= javascript_include_tag :defaults, "weegoo_gmaps.js", "fancyzoom.min.js", "jquery.notification.js" %>
     <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true" %>
     <%= csrf_meta_tag %>

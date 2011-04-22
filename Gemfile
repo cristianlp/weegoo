@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,6 +24,8 @@ gem 'rmagick'
 gem 'omniauth'
 
 gem 'twitter'
+
+gem 'css3buttons'
 
 # Use unicorn as the web server
 # gem 'unicorn'

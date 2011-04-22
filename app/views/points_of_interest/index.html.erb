@@ -20,7 +20,7 @@
   
   <h2><%=t 'views.points_of_interest.cant_find_point_of_interest' %></h2>
   
-  <%= link_to t('views.points_of_interest.create_venue'), new_venue_path, :class => "button icon add" %>
-  <%= link_to t('views.points_of_interest.create_event'), new_event_path, :class => "button icon add" %>
+  <%= add_button_link_to t('views.points_of_interest.create_venue'), new_venue_path %>
+  <%= add_button_link_to t('views.points_of_interest.create_event'), new_event_path %>
   
 <% end %>
