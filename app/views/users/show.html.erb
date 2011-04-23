@@ -22,8 +22,15 @@
       <h1><%=t 'views.users.connect_with_other_applications' %></h1>
       
       <ul id="authentications">
-        <li><%= link_to image_tag("facebook_32.png"), "/auth/facebook" %> <%= link_to "facebook", "/auth/facebook" %></li>
-        <li><%= link_to image_tag("twitter_32.png"), "/auth/twitter" %> <%= link_to "twitter", "/auth/twitter" %></li>
+        <% ["facebook", "twitter"].each do |provider| %>
+          <li>
+            <%= link_to_unless current_user.authenticates_to?(provider), image_tag("#{provider}_32.png"), "/auth/#{provider}" %>
+            <%= link_to_unless current_user.authenticates_to?(provider), provider, "/auth/#{provider}" %>
+            <% if current_user.authenticates_to?(provider) %>
+              (<%=t 'views.users.connected' %>)
+            <% end %>
+          </li>
+        <% end %>
       </ul>
       
       <div>

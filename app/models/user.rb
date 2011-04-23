@@ -116,6 +116,10 @@ class User < ActiveRecord::Base
     authentications.exists?(:provider => provider)
   end
   
+  def facebook_authentication
+    authentications.where("provider = ?", "facebook").first
+  end
+  
   def twitter_authentication
     authentications.where("provider = ?", "twitter").first
   end
