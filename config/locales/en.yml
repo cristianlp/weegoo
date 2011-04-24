@@ -2,6 +2,25 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  controllers:
+    authentications:
+      authentication_created: Authentication created successfully.
+      destroy: Authentication deleted successfully.
+      signed_in: Signed in successfully.
+    events:
+      created: Event was successfully created.
+      updated: Event was successfully updated.
+    media_file_comments:
+      created: Comment was successfully created.
+    media_file:
+      created: Media file was successfully created.
+      updated: Media file was successfully updated.
+    point_of_interest_comments:
+      created: Comment was successfully created.
+    venues:
+      created: Venue was successfully created.
+      updated: Venue was successfully updated.
+  
   time:
     formats:
       activity: "%d %B at %H:%M"

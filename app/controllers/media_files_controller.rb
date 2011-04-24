@@ -38,7 +38,7 @@ class MediaFilesController < ApplicationController
 
     respond_to do |format|
       if @media_file.save
-        format.html { redirect_to(points_of_interest_media_files_path(@point_of_interest), :notice => 'Media file was successfully created.') }
+        format.html { redirect_to(points_of_interest_media_files_path(@point_of_interest), :notice => t('controllers.media_file.created')) }
         format.xml  { render :xml => @media_file, :status => :created, :location => @media_file }
       else
         format.html { render :action => "new" }
@@ -54,7 +54,7 @@ class MediaFilesController < ApplicationController
 
     respond_to do |format|
       if @media_file.update_attributes(params[:media_file])
-        format.html { redirect_to(points_of_interest_media_files_path(@point_of_interest), :notice => 'Media file was successfully updated.') }
+        format.html { redirect_to(points_of_interest_media_files_path(@point_of_interest), :notice => t('controllers.media_file.updated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

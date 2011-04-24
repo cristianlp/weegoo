@@ -1,4 +1,62 @@
 es:
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            name:
+              blank: El nombre no puede ser vacío.
+            category:
+              blank: La categoría no puede ser vacía.
+            sub_category:
+              blank: La subcategoría no puede ser vacía.
+        user:
+          attributes:
+            current_password:
+              blank: La contraseña actual no puede ser vacía.
+            first_name:
+              blank: El nombre no puede ser vacío.
+            last_name:
+              blank: El apellido no puede ser vacío.
+            email:
+              blank: El email no puede ser vacío.
+            location:
+              blank: La ubicación no puede ser vacía.
+            username:
+              invalid: El nombre de usuario es inválido.
+              taken: El nombre de usuario ya existe.
+            password: 
+              blank: La contraseña no puede ser vacía.
+              confirmation: La contraseñas no concuerdan.
+              too_short: La contraseña es demasiado corta.
+        venue:
+          attributes:
+            name:
+              blank: El nombre no puede ser vacío.
+            category:
+              blank: La categoría no puede ser vacía.
+            sub_category:
+              blank: La subcategoría no puede ser vacía.
+  
+  controllers:
+    authentications:
+      authentication_created: Conexión creada exitosamente.
+      destroy: Conexión eliminada exitosamente.
+      signed_in: Sesión iniciada exitosamente.
+    events:
+      created: El evento fue creado exitosamente.
+      updated: El evento fue actualizado exitosamente.
+    media_file_comments:
+      created: El comentario fue creado exitosamente.
+    media_file:
+      created: El multimedia fue creado exitosamente.
+      updated: El multimedia fue actualizado exitosamente.
+    point_of_interest_comments:
+      created: El comentario fue creado exitosamente.
+    venues:
+      created: El lugar fue creado exitosamente.
+      updated: El lugar fue actualizado exitosamente.
+  
   date:
     formats:
       default: "%d/%m/%Y"

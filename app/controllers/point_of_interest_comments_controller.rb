@@ -22,7 +22,7 @@ class PointOfInterestCommentsController < ApplicationController
 
     respond_to do |format|
       if @point_of_interest_comment.save
-        format.html { redirect_to(points_of_interest_point_of_interest_comments_path(@point_of_interest), :notice => 'Point of interest comment was successfully created.') }
+        format.html { redirect_to(points_of_interest_point_of_interest_comments_path(@point_of_interest), :notice => t('controllers.point_of_interest_comments.created')) }
         format.xml  { render :xml => @point_of_interest_comment, :status => :created, :location => @point_of_interest_comment }
       else
         format.html { render :action => "new" }

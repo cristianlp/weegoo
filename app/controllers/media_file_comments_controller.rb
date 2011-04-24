@@ -21,7 +21,7 @@ class MediaFileCommentsController < ApplicationController
 
     respond_to do |format|
       if @media_file_comment.save
-        format.html { redirect_to(points_of_interest_media_file_media_file_comments_path(@point_of_interest, @media_file), :notice => 'Media file comment was successfully created.') }
+        format.html { redirect_to(points_of_interest_media_file_media_file_comments_path(@point_of_interest, @media_file), :notice => t('controllers.media_file_comments.created')) }
         format.xml  { render :xml => @media_file_comment, :status => :created, :location => @media_file_comment }
       else
         format.html { render :action => "new" }
