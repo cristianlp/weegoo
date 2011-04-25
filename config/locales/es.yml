@@ -25,6 +25,7 @@ es:
             username:
               invalid: El nombre de usuario es inválido.
               taken: El nombre de usuario ya existe.
+              blank: El nombre de usuario es obligatorio.
             password: 
               blank: La contraseña no puede ser vacía.
               confirmation: La contraseñas no concuerdan.

@@ -18,9 +18,11 @@
   <div class="inputs">
     <h2><%=t 'views.registrations.account_information' %></h2>
     <%= f.input :username %>
-    <%= f.input :password, :hint => t("views.registrations.hints.password") %>
-    <%= f.input :password_confirmation %>
-    <%= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
+    <% if not @user.encrypted_password.blank? %>
+      <%= f.input :password, :hint => t("views.registrations.hints.password") %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
+    <% end %>
   </div>
   
   <div class="inputs">

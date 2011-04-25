@@ -112,6 +112,10 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
   
+  def valid_password?(password)
+    not password_required? && super(password)
+  end
+  
   def authenticates_to?(provider)
     authentications.exists?(:provider => provider)
   end
