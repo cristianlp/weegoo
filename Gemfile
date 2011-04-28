@@ -27,6 +27,8 @@ gem 'twitter'
 
 gem 'css3buttons'
 
+gem 'fb_graph'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

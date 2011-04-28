@@ -1,12 +1,11 @@
 class NotBeenAtActivity < Activity
-  #after_create :tweet
+  after_create :broadcast
   
   private
   
-  def tweet
-    if self.user_a.authenticates_to?(:twitter)
-      Twitter.user(self.user_a.twitter_authentication.uid.to_i)
-      Twitter.update("I've not been at #{self.point_of_interest.name}: #{points_of_interest_url(self.point_of_interest)}")
-    end
+  def broadcast
+    message = "I've not been at #{self.point_of_interest.name}: #{points_of_interest_url(self.point_of_interest)}"
+    tweet(message)
+    post(message)
   end
 end
