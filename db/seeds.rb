@@ -6,55 +6,56 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-lodging = Category.create!(:name => "Alojamiento")
-architecture = Category.create!(:name => "Arquitectura y construcciones")
-art = Category.create!(:name => "Arte y cultura")
-shopping = Category.create!(:name => "Compras")
-education = Category.create!(:name => "Educación")
+lodging       = Category.create!(:name => "Alojamiento")
+architecture  = Category.create!(:name => "Arquitectura y construcciones")
+art           = Category.create!(:name => "Arte y cultura")
+shopping      = Category.create!(:name => "Compras")
+sports        = Category.create!(:name => "Deportes")
+education     = Category.create!(:name => "Educación")
 entertainment = Category.create!(:name => "Entretenimiento")
-food = Category.create!(:name => "Gastronomía")
-nature = Category.create!(:name => "Naturaleza")
-services = Category.create!(:name => "Servicios")
-transport = Category.create!(:name => "Transporte")
-nightlife = Category.create!(:name => "Vida nocturna")
+food          = Category.create!(:name => "Gastronomía")
+nature        = Category.create!(:name => "Naturaleza")
+services      = Category.create!(:name => "Servicios")
+transport     = Category.create!(:name => "Transporte")
+nightlife     = Category.create!(:name => "Vida nocturna")
 
-["Hostel", "Hotel", "Motel", "Resort"].each do |name|
+["Apart hotel", "Bungalows", "Cabañas", "Camping", "Hostel", "Hostería", "Hotel", "Motel", "Resort"].each do |name|
   lodging.sub_categories.create!(:name => name)
 end
 
-["Castillo", "Centro de convenciones", "Faro", "Fuente", "Monumento histórico", "Plaza", "Puente", "Torre"].each do |name|
+["Castillo", "Catedral", "Faro", "Fuente", "Iglesia", "Monumento histórico", "Plaza", "Puente", "Torre"].each do |name|
   architecture.sub_categories.create!(:name => name)
 end
 
-["Biblioteca", "Escultura", "Galería de arte", "Monumento", "Museo", "Planetario"].each do |name|
+["Acuario", "Biblioteca", "Galería de arte", "Museo", "Parque temático", "Planetario", "Zoologico"].each do |name|
   art.sub_categories.create!(:name => name)
 end
 
-["Antigüedades", "Belleza y cosméticos", "Bombonería", "Centro comercial", "Comida y bebida", "Deportes", "Estación de servicio", "Farmacia", "Feria", "Ferretería", "Florería", "Hobbies", "Joyería", "Lavandería", "Librería", "Mascotas", "Mueblería", "Música e instrumentos", "Regalería", "Ropa", "Peluquería", "SPA y masajes", "Tatuajes", "Tecnología"].each do |name|
+["Antigüedades", "Belleza y cosméticos", "Comida y bebida", "Deportes", "Farmacia", "Feria", "Ferretería", "Florería", "Hobbies", "Joyería", "Librería", "Mascotas", "Mueblería", "Música", "Regalos", "Ropa", "Peluquería", "Shopping", "SPA y masajes", "Tatuajes", "Tecnología", "Zapatos"].each do |name|
   shopping.sub_categories.create!(:name => name)
 end
 
-["Auditorio", "Aula", "Biblioteca", "Cafetería", "Colegio secundario", "Edificio académico", "Edificio administrativo", "Laboratorio", "Universidad"].each do |name|
+["Biblioteca", "Escuela", "Facultad", "Laboratorio", "Universidad"].each do |name|
   education.sub_categories.create!(:name => name)
 end
 
-["Acuario", "Carrera", "Casino", "Cine", "Estadio", "Música en vivo", "Parque temático", "Piscina", "Teatro", "Videojuegos", "Zoologico"].each do |name|
+["Bingo", "Carreras", "Casino", "Cine", "Concierto", "Música", "Piscina", "Recital", "Teatro", "Videojuegos"].each do |name|
   entertainment.sub_categories.create!(:name => name)
 end
 
-["Cafetería", "Cena", "Cervecería", "Desayuno", "Exótica", "Hamburguesas", "Heladería", "Panadería", "Pizzería", "Postres", "Sushi", "Vegetariana", "Vinería"].each do |name|
+["Cafetería", "Cervecería", "Comidas rápidas", "Heladería", "Pizzería", "Postres", "Restaurant", "Restaurant de comida exótica", "Restaurant gourmet", "Vinería"].each do |name|
   food.sub_categories.create!(:name => name)
 end
 
-["Arroyo", "Campo", "Cueva", "Escultura", "Faro", "Granja", "Jardín", "Lago", "Mirador", "Monumento histórico", "Parque", "Parque nacional", "Playa", "Reserva natural", "Río", "Ski - Snowboard", "Viñedo"].each do |name|
+["Arroyo", "Cascada", "Cerro", "Campo", "Granja", "Jardín", "Lago", "Mirador", "Montaña", "Parque", "Parque nacional", "Playa", "Quebrada", "Reserva natural", "Río", "Ski - Snowboard", "Viñedo"].each do |name|
   nature.sub_categories.create!(:name => name)
 end
 
-["Banco", "Estación de bomberos", "Estación de policía", "Estación de servicio", "Hospital", "Rent-a-car"].each do |name|
+["Banco", "Cajero automático", "Estación de bomberos", "Estación de policía", "Estación de servicio", "Hospital", "Rent-a-car"].each do |name|
   services.sub_categories.create!(:name => name)
 end
 
-["Aeropuerto", "Estación de tren", "Terminal de ómnibus", "Ferry", "Subterráneo", "Taxi"].each do |name|
+["Aeropuerto", "Estación de trenes", "Ferry", "Puerto", "Subterráneo", "Taxi", "Terminal de ómnibus"].each do |name|
   transport.sub_categories.create!(:name => name)
 end
 
