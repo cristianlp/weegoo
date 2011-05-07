@@ -154,4 +154,24 @@ class UsersController < ApplicationController
       format.js  { render :partial => "users/points_of_interest_pagination", :locals => { :points_of_interest => @want_to_go_points_of_interest } }
     end
   end
+  
+  def other_applications_friends
+    @user = User.find_by_username(params[:username])
+    
+    if params[:provider] == "facebook"
+      @friends = @user.facebook_friends
+    elsif params[:provider] == "twitter"
+      @friends = @user.twitter_friends
+    end
+    
+    if @friends.size > 0
+      @friends = @friends.page(params[:page]).per(5)
+    end
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @friends }
+      format.js
+    end
+  end
 end

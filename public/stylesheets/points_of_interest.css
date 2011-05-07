@@ -56,7 +56,7 @@
 #point_of_interest_information ul#stats li
 {
   float: left;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 #point_of_interest_information ul#stats li a:hover,
@@ -69,7 +69,7 @@
 #point_of_interest_information ul#stats li a strong
 {
   color: #000;
-  font-size: 36px;
+  font-size: 26px;
   font-weight: bold;
 }
 

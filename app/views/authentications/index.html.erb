@@ -4,20 +4,23 @@
 
 <h1><%=t 'views.authentications.authentications' %></h1>
 
-<% if @authentications.size > 0 %>
+<ul id="authentications_list">
+<% ["facebook", "twitter"].each do |provider| %>
   
-  <ul id="authentications_list">
-    
-    <%= render @authentications %>
-    
-  </ul>
-  
-<% else %>
-  
-  <div>
-  <%=t 'views.authentications.no_authentications' %>
-  </div>
-  
+  <% if current_user.authenticates_to?(provider) %>
+    <%= render @authentications.where("provider = ?", provider) %>
+  <% else %>
+    <li class="authentication">
+      <%= image_tag "#{provider}_32.png" %>
+      <%= provider %>
+
+      <div class="actions">
+        <%= add_button_link_to t('views.authentications.connect'), "/auth/#{provider}" %>
+      </div>
+
+    </li>
+  <% end %>
 <% end %>
+</ul>
 
 <%= link_to raw(t('views.scaffold.back')), current_user %>

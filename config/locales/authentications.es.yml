@@ -2,4 +2,4 @@ es:
   views:
     authentications:
       authentications: "Tus conexiones"
-      no_authentications: "¡No tenés conexiones!"
+      connect: Conectar

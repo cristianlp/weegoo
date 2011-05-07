@@ -1,7 +1,7 @@
 class ActiveRecord::Base
   include ActionController::UrlWriter
 
-  host = case ENV['RAILS_ENV']
+  host = case Rails.env
     when "production"
       "weegoo.com.ar"
     when "development"

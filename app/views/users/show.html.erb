@@ -19,23 +19,7 @@
   <div class="right">
     
     <% if user_signed_in? and current_user == @user %>
-      <h1><%=t 'views.users.connect_with_other_applications' %></h1>
-      
-      <ul id="authentications">
-        <% ["facebook", "twitter"].each do |provider| %>
-          <li>
-            <%= link_to_unless current_user.authenticates_to?(provider), image_tag("#{provider}_32.png"), "/auth/#{provider}" %>
-            <%= link_to_unless current_user.authenticates_to?(provider), provider, "/auth/#{provider}" %>
-            <% if current_user.authenticates_to?(provider) %>
-              (<%=t 'views.users.connected' %>)
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-      
-      <div>
-        <%= link_to raw(t('views.users.view_all_connections')), user_authentications_path %>
-      </div>
+      <%= render "users/other_applications" %>
     <% end %>
     
   </div>

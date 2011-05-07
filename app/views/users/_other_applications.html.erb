@@ -1,0 +1,30 @@
+<h1><%=t 'views.users.find_friends' %></h1>
+
+<% if current_user.authentications.empty? %>
+  <div>
+    <%=t 'views.users.you_dont_have_connections' %>
+  </div>
+<% else %>
+  <% if current_user.authenticates_to?(:facebook) %>
+    
+    <p>
+      <%=t 'views.users.connected_to_provider', :provider => "facebook" %>
+      <%= link_to raw(t 'views.users.find_friends_in_provider', :provider => "facebook"), other_applications_friends_path(current_user, "facebook") %>
+    </p>
+    
+  <% end %>
+  
+  <% if current_user.authenticates_to?(:twitter) %>    
+    
+    <p>
+      <%=t 'views.users.connected_to_provider', :provider => "twitter" %>
+      <%= link_to raw(t 'views.users.find_friends_in_provider', :provider => "twitter"), other_applications_friends_path(current_user, "twitter") %>
+    </p>
+    
+  <% end %>
+  
+<% end %>
+
+<div style="margin-top: 10px">
+  <%= link_to raw(t('views.users.manage_connections')), user_authentications_path %>
+</div>

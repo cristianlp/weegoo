@@ -6,13 +6,15 @@ en:
       are_not_friends: are not friends
       are_now_friends: are now friends
       cancel_friendship_request: Cancel friendship request
-      connect_with_other_applications: Connect with other applications
       connected: connected
       decline: Decline
+      find_friends: Find friends in other applications
       friends: friends
       friendship_requests: Friendship requests
-      more_info: More info &darr;
+      manage_connections: Manage connections &arr;
+      more_info: +info &darr;
       mutual_friends: mutual friends
+      no_friends_from_provider: "There are no friends using weegoo and %{provider}"
       no_results_found_for: No results found for
       pending_friendships: pending friendships
       places_to_go: places to go
@@ -27,3 +29,4 @@ en:
       view_all_connections: View all connections &rarr;
       visited_places: visited places
       you_and: You and
+      you_dont_have_connections: Currently you don't have any connection. Create a connection with other application to start finding friends.

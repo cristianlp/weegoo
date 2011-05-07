@@ -121,10 +121,45 @@ class User < ActiveRecord::Base
   end
   
   def facebook_authentication
-    authentications.where("provider = ?", "facebook").first
+    @facebook_authentication ||= authentications.where("provider = ?", "facebook").first
   end
   
   def twitter_authentication
-    authentications.where("provider = ?", "twitter").first
+    @twitter_authentication ||= authentications.where("provider = ?", "twitter").first
+  end
+  
+  def facebook_friends
+    users_ids = []
+    
+    facebook_user = FbGraph::User.me(facebook_authentication.token)
+    
+    facebook_user.friends.each do |facebook_friend|
+      authentication = Authentication.where("uid = ?", facebook_friend.identifier).first
+      if authentication
+        users_ids << authentication.user_id
+      end
+    end
+    
+    if users_ids.size > 0
+      @facebook_friends ||= User.where("id IN (?)", users_ids)
+    else
+      @facebook_friends ||= []
+    end
+  end
+  
+  def twitter_friends
+    users_ids = []
+    Twitter.friends(twitter_authentication.uid.to_i).users.each do |twitter_user|
+      authentication = Authentication.where("uid = ?", twitter_user.id).first
+      if authentication
+        users_ids << authentication.user_id
+      end
+    end
+    
+    if users_ids.size > 0
+      @twitter_friends ||= User.where("id IN (?)", users_ids)
+    else
+      @twitter_friends ||= []
+    end
   end
 end
