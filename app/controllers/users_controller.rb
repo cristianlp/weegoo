@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [ :index, :show, :friends, :visited_places, :places_to_go ]
+  
   def index
     if params[:search]
       @users = User.search(params[:search]).page(params[:page]).per(5)
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:username])
     @another_user = User.find_by_username(params[:another_user_username])
     
-    current_user.friendships.create!(:user_b_id => @another_user.id)
+    @user.friendships.create!(:user_b_id => @another_user.id)
     
     respond_to do |format|
       format.js do
@@ -45,8 +47,8 @@ class UsersController < ApplicationController
     @user = User.find_by_username(params[:username])
     @another_user = User.find_by_username(params[:another_user_username])
     
-    friendship = current_user.friendships.where("user_b_id = ?", @another_user.id)
-    current_user.friendships.delete(friendship)
+    friendship = @user.friendships.where("user_b_id = ?", @another_user.id)
+    @user.friendships.delete(friendship)
     
     respond_to do |format|
       format.js do

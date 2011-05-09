@@ -50,30 +50,34 @@
           </ul>
         </div>
       </div>
-
-      <div class="ruler"></div>
       
-      <div class="columns">
-        <div class="left">
-          <% if point_of_interest.type == "Venue" %>
-            <%= edit_button_link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest) %>
-          <% else %>
-            <%= edit_button_link_to t('views.scaffold.edit'), edit_event_path(point_of_interest) %>
-          <% end %>
-          
-          <% if point_of_interest.can_delete?(current_user) %>
+      <% if user_signed_in? %>
+        
+        <div class="ruler"></div>
+        
+        <div class="columns">
+          <div class="left">
             <% if point_of_interest.type == "Venue" %>
-              <%= negative_trash_button_link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %>
+              <%= edit_button_link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest) %>
             <% else %>
-              <%= negative_trash_button_link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %>
+              <%= edit_button_link_to t('views.scaffold.edit'), edit_event_path(point_of_interest) %>
             <% end %>
-          <% end %>
+            
+            <% if point_of_interest.can_delete?(current_user) %>
+              <% if point_of_interest.type == "Venue" %>
+                <%= negative_trash_button_link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %>
+              <% else %>
+                <%= negative_trash_button_link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %>
+              <% end %>
+            <% end %>
+          </div>
+          
+          <div class="right">
+            <%= render :partial => "point_of_interest_actions", :locals => { :point_of_interest => point_of_interest } %>
+          </div>
         </div>
         
-        <div class="right">
-          <%= render :partial => "point_of_interest_actions", :locals => { :point_of_interest => point_of_interest } %>
-        </div>
-      </div>
+      <% end %>
       
     <% end %>
   </div>

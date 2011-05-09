@@ -1,4 +1,5 @@
 class MediaFileCommentsController < ApplicationController
+  before_filter :authenticate_user!, :except => [ :index ]
   before_filter :find_objects
   
   # GET /media_file_comments

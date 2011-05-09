@@ -12,4 +12,6 @@
 
 <%= render :partial => "media_files/hidden_media_file", :collection => @media_files, :as => :media_file %>
 
-<%= add_button_link_to t('views.media_files.add_a_new_media_file'), new_points_of_interest_media_file_path %>
+<% if user_signed_in? %>
+  <%= add_button_link_to t('views.media_files.add_a_new_media_file'), new_points_of_interest_media_file_path %>
+<% end %>

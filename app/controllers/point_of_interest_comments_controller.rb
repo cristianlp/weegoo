@@ -1,4 +1,5 @@
 class PointOfInterestCommentsController < ApplicationController
+  before_filter :authenticate_user!, :except => [ :index ]
   before_filter :find_point_of_interest
   
   # GET /point_of_interest_comments
