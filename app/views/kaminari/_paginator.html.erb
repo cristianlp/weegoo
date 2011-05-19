@@ -1,5 +1,9 @@
-<div id="pagination">
-  <%= paginator.render do -%>
-    <%= num_pages > current_page ? next_link_tag : next_span_tag %>
-  <% end -%>
-</div>
+<% if num_pages > current_page %>
+  
+  <div id="pagination">
+    <%= paginator.render do -%>
+      <%= num_pages > current_page ? next_link_tag : next_span_tag %>
+    <% end -%>
+  </div>
+  
+<% end %>

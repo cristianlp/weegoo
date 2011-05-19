@@ -38,6 +38,26 @@ $(window).load(function()
 
 
 /**
+ * pagination
+ **/
+
+$(document).ready(function()
+{
+  $('#loading').ajaxStart(function()
+  {
+    $(this).show();
+    $('#pagination').hide();
+  });
+  
+  $('#loading').ajaxStop(function()
+  {
+    $(this).hide();
+    $('#pagination').show();
+  });
+});
+
+
+/**
  * media files
  **/
 

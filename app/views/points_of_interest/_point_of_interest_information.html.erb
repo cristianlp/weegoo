@@ -34,6 +34,9 @@
               <dt><%=t 'simple_form.labels.time' %></dt>
               <dd><%=l point_of_interest.time, :format => :short %></dd>
             <% end %>
+            
+            <dt><%=t 'views.points_of_interest.user' %></dt>
+            <dd><%= link_to point_of_interest.user.full_name, point_of_interest.user %></dd>
           </dl>
         </div>
         
@@ -57,10 +60,12 @@
         
         <div class="columns">
           <div class="left">
-            <% if point_of_interest.type == "Venue" %>
-              <%= edit_button_link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest) %>
-            <% else %>
-              <%= edit_button_link_to t('views.scaffold.edit'), edit_event_path(point_of_interest) %>
+            <% if point_of_interest.can_edit?(current_user) %>
+              <% if point_of_interest.type == "Venue" %>
+                <%= edit_button_link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest) %>
+              <% else %>
+                <%= edit_button_link_to t('views.scaffold.edit'), edit_event_path(point_of_interest) %>
+              <% end %>
             <% end %>
             
             <% if point_of_interest.can_delete?(current_user) %>

@@ -9,6 +9,7 @@ es:
       connected: conectado
       connected_to_provider: "Estás conectado con %{provider}."
       decline: Rechazar
+      delete_friendship: Eliminar amigo/a
       find_friends: Buscar amigos de otras aplicaciones
       find_friends_in_provider: "Buscar amigos de %{provider} &rarr;"
       friends: amigos
@@ -16,6 +17,7 @@ es:
       manage_connections: Administrar conexiones &rarr;
       more_info: Más información &darr;
       mutual_friends: amigos en común
+      mutual_friends_with: "Vos y %{user} tienen %{count} amigos en común."
       no_friends_from_provider: "No tenés amigos que usen %{provider} y weegoo."
       no_results_found_for: No se encontraron resultados para
       other_applications_friends: Amigos que usan weegoo y otra aplicación
@@ -24,11 +26,13 @@ es:
       recent_activity: Actividad reciente
       results_for: Resultados para
       search_people: Buscar gente
+      show_all: "Ver todos &rarr;"
       users_friends: Amigos de %{user}
       users_friendship_requests: Solicitudes de amistad de %{user}
       users_mutual_friends: Amigos en común con %{user}
       users_places_to_go: Lugares por visitar por %{user}
       users_visited_places: Lugares visitados por %{user}
       visited_places: lugares visitados
+      you: ¡Éste sos vos!
       you_and: Vos y
       you_dont_have_connections: Actualmente no tenés ninguna conexión. Creá una conexión con otra aplicación para empezar a buscar amigos.

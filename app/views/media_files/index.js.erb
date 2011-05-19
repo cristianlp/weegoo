@@ -1,3 +1,3 @@
 $('ul#media_files_list').append('<%= escape_javascript render(@media_files) %>');
 
-$('#pagination').html('<%= escape_javascript paginate(@media_files, :remote => true).to_s %>');
+$('#pagination').replaceWith('<%= escape_javascript paginate(@media_files, :remote => true).to_s %>');

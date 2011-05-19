@@ -2,10 +2,11 @@
 
 <%= render :partial => "points_of_interest/full_point_of_interest_information", :locals => { :point_of_interest => @point_of_interest } %>
 
+<%= render :partial => "points_of_interest/map", :locals => { :point_of_interest => @point_of_interest } %>
+
 <div class="columns">
   
   <div class="left">
-    <%= render :partial => "points_of_interest/map", :locals => { :point_of_interest => @point_of_interest } %>
     
     <h2><%=t 'views.points_of_interest.latest_multimedia' %></h2>
     
@@ -37,6 +38,12 @@
         <%= render :partial => "users/user_desc", :collection => @point_of_interest.latest_been_users, :as => :user %>
       </ul>
       
+      <% if @point_of_interest.latest_been_users.size > 5 %>
+        <div class="show_all">
+          <%= link_to raw(t 'views.points_of_interest.show_all'), been_users_points_of_interest_path(@point_of_interest) %>
+        </div>
+      <% end %>
+      
     <% end %>
     
     <% if @point_of_interest.want_to_go_users.size > 0 %>
@@ -46,6 +53,12 @@
       <ul class="users_list">
         <%= render :partial => "users/user_desc", :collection => @point_of_interest.latest_want_to_go_users, :as => :user %>
       </ul>
+      
+      <% if @point_of_interest.latest_want_to_go_users.size > 5 %>
+        <div class="show_all">
+          <%= link_to raw(t 'views.points_of_interest.show_all'), want_to_go_users_points_of_interest_path(@point_of_interest) %>
+        </div>
+      <% end %>
       
     <% end %>
     
@@ -59,6 +72,12 @@
           <%= render :partial => "users/user_desc", :collection => @point_of_interest.been_friends(current_user), :as => :user %>
         </ul>
         
+        <% if @point_of_interest.been_friends(current_user).size > 5 %>
+          <div class="show_all">
+            <%= link_to raw(t 'views.points_of_interest.show_all'), been_friends_points_of_interest_path(@point_of_interest) %>
+          </div>
+        <% end %>
+        
       <% end %>
       
       <% if @point_of_interest.want_to_go_friends(current_user).size > 0 %>
@@ -68,6 +87,12 @@
         <ul class="users_list">
           <%= render :partial => "users/user_desc", :collection => @point_of_interest.want_to_go_friends(current_user), :as => :user %>
         </ul>
+        
+        <% if @point_of_interest.want_to_go_friends(current_user).size > 5 %>
+          <div class="show_all">
+            <%= link_to raw(t 'views.points_of_interest.show_all'), want_to_go_friends_points_of_interest_path(@point_of_interest) %>
+          </div>
+        <% end %>
         
       <% end %>
       

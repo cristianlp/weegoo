@@ -3,11 +3,15 @@
   <%= link_to user.username, user %>
   <em>(<%= user.full_name %>)</em>
   
-  <% if user_signed_in? and current_user != user %>
-    <%= link_to_function raw(t('views.users.more_info')), "$('#user_#{user.id}_info').toggle()", :class => "more_info" %>
+  <% if user_signed_in? %>
+    <% if current_user != user %>
+      <%= link_to_function raw(t('views.users.more_info')), "$('#user_#{user.id}_info').toggle()", :class => "more_info" %>
+    <% else %>
+      <%=t 'views.users.you' %>
+    <% end %>
   <% end %>
   
-  <%= render :partial => "users/user_desc_actions", :locals => { :user => user } %>
+  <%= render :partial => "users/user_desc_actions", :locals => { :user => user, :show_delete_link => (defined? show_delete_link) ? show_delete_link : false } %>
   
   <div id="user_<%= user.id %>_info" class="user_info">
     <ul class="stats">

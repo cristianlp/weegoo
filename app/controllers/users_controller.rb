@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def index
     if params[:search]
-      @users = User.search(params[:search]).page(params[:page]).per(5)
+      @users = User.search(params[:search]).page(params[:page]).per(User::PER_PAGE)
     else
       @users = []
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_username(params[:username])
     
-    @activities = @user.related_activities.page(params[:page]).per(5)
+    @activities = @user.related_activities.page(params[:page]).per(Activity::PER_PAGE)
     
     respond_to do |format|
       format.html # show.html.erb
@@ -83,10 +83,30 @@ class UsersController < ApplicationController
     end
   end
   
+  def delete_friendship
+    @user = User.find_by_username(params[:username])
+    @another_user = User.find_by_username(params[:another_user_username])
+    
+    friendship = @user.friendships.where("user_b_id = ?", @another_user.id).first
+    if not friendship.nil?
+      @user.friendships.delete(friendship)
+    else
+      friendship = @another_user.friendships.where("user_b_id = ?", @user.id).first
+      @another_user.friendships.delete(friendship)
+    end
+    
+    respond_to do |format|
+      format.js do
+        msg = t('views.users.you_and') + " #{@another_user.full_name} " + t('views.users.are_not_friends')
+        render :text => "<div class=\"actions_response\">#{msg}</div>"
+      end
+    end
+  end
+  
   def friendship_requests
     @user = User.find_by_username(params[:username])
     
-    @pending_friendships = @user.pending_friendships.page(params[:page]).per(5)
+    @pending_friendships = @user.pending_friendships.page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -98,7 +118,7 @@ class UsersController < ApplicationController
   def friends
     @user = User.find_by_username(params[:username])
     
-    @accepted_friendships = @user.accepted_friendships.page(params[:page]).per(5)
+    @accepted_friendships = @user.accepted_friendships.page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -110,7 +130,7 @@ class UsersController < ApplicationController
   def mutual_friends
     @user = User.find_by_username(params[:username])
     
-    @mutual_friends = @user.mutual_friends(current_user).page(params[:page]).per(5)
+    @mutual_friends = @user.mutual_friends(current_user).page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -126,9 +146,9 @@ class UsersController < ApplicationController
     params[:show_as] ||= "List"
     
     if params[:type] != "Everything"
-      @been_points_of_interest = @user.been_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
+      @been_points_of_interest = @user.been_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(PointOfInterest::PER_PAGE)
     else
-      @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(5)
+      @been_points_of_interest = @user.been_points_of_interest.page(params[:page]).per(PointOfInterest::PER_PAGE)
     end
     
     respond_to do |format|
@@ -145,9 +165,9 @@ class UsersController < ApplicationController
     params[:show_as] ||= "List"
     
     if params[:type] != "Everything"
-      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(5)
+      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.where("type = ?", params[:type]).page(params[:page]).per(PointOfInterest::PER_PAGE)
     else
-      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(5)
+      @want_to_go_points_of_interest = @user.want_to_go_points_of_interest.page(params[:page]).per(PointOfInterest::PER_PAGE)
     end
     
     respond_to do |format|
@@ -167,7 +187,7 @@ class UsersController < ApplicationController
     end
     
     if @friends.size > 0
-      @friends = @friends.page(params[:page]).per(5)
+      @friends = @friends.page(params[:page]).per(User::PER_PAGE)
     end
     
     respond_to do |format|

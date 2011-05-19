@@ -1,4 +1,4 @@
-<div id="map_canvas" style="width: 950px; height: 712.5px; margin-top: 10px"></div>
+<div id="map_canvas" style="width: 950px; height: 712.5px; margin: 10px 0;"></div>
 <script>
   var map = initialize_gmap();
   <% points_of_interest.each do |point_of_interest| %>
@@ -14,3 +14,4 @@
 </script>
 
 <%= paginate points_of_interest, :remote => true %>
+<%= render "shared/loading" %>

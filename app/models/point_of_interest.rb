@@ -17,7 +17,7 @@ class PointOfInterest < ActiveRecord::Base
   
   set_table_name "points_of_interest"
   
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   validates :category, :presence => true
   validates :sub_category, :presence => true
   validates :latitude, :presence => true
@@ -27,6 +27,9 @@ class PointOfInterest < ActiveRecord::Base
   
   # because permalink_fu does not escape the name automatically:
   before_save :handle_permalink
+  
+  PER_PAGE = 20
+  LATEST_PER_PAGE = 5
   
   def to_param
     permalink
@@ -81,31 +84,35 @@ class PointOfInterest < ActiveRecord::Base
   end
   
   def latest_been_users
-    been_users.order("points_of_interest_users.created_at DESC").limit(5)
+    been_users.order("points_of_interest_users.created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def latest_want_to_go_users
-    want_to_go_users.order("points_of_interest_users.created_at DESC").limit(5)
+    want_to_go_users.order("points_of_interest_users.created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def latest_been_friends
-    been_friends.order("points_of_interest_users.created_at DESC").limit(5)
+    been_friends.order("points_of_interest_users.created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def latest_want_to_go_friends
-    want_to_go_friends.order("points_of_interest_users.created_at DESC").limit(5)
+    want_to_go_friends.order("points_of_interest_users.created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def latest_media_files
-    media_files.order("created_at DESC").limit(5)
+    media_files.order("created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def latest_point_of_interest_comments
-    point_of_interest_comments.order("created_at DESC").limit(5)
+    point_of_interest_comments.order("created_at DESC").limit(LATEST_PER_PAGE)
   end
   
   def can_delete?(user)
     been_users.size == 0 and want_to_go_users.size == 0 and self.user == user
+  end
+  
+  def can_edit?(user)
+    self.user == user
   end
   
   protected

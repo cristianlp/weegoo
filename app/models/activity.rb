@@ -4,6 +4,8 @@ class Activity < ActiveRecord::Base
   belongs_to :point_of_interest
   belongs_to :media_file
   
+  PER_PAGE = 20
+  
   protected
   
   def tweet(message)

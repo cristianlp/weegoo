@@ -9,6 +9,7 @@
 </ul>
 
 <%= paginate @media_files, :remote => true %>
+<%= render "shared/loading" %>
 
 <%= render :partial => "media_files/hidden_media_file", :collection => @media_files, :as => :media_file %>
 

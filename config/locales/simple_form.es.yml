@@ -43,4 +43,6 @@ es:
         location: Ubicación
         password_confirmation: Repetir contraseña
         current_password: Contraseña actual
-    #hints:
+    hints:
+      user:
+        location: ¿Donde estás ahora?

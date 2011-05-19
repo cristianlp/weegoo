@@ -1,26 +1,30 @@
 <% title t('views.points_of_interest.search_venues_and_events') %>
 
-<h1><%=t 'views.points_of_interest.search_venues_and_events' %></h1>
+<div class="search">
 
-<%= render :partial => "search_form" %>
-
-<% if not @points_of_interest.empty? %>
+  <h1><%=t 'views.points_of_interest.search_venues_and_events' %></h1>
   
-  <h2><%=t 'views.points_of_interest.results_for' %>: "<%= params[:search] %>"</h2>
+  <%= render :partial => "search_form" %>
   
-  <%= render :partial => "points_of_interest/points_of_interest_#{params[:show_as].underscore}", :locals => { :points_of_interest => @points_of_interest } %>
+  <% if not @points_of_interest.empty? %>
+    
+    <h2><%=t 'views.points_of_interest.results_for' %>: "<%= params[:search] %>"</h2>
+    
+    <%= render :partial => "points_of_interest/points_of_interest_#{params[:show_as].underscore}", :locals => { :points_of_interest => @points_of_interest } %>
+    
+  <% elsif params[:search] %>
+    
+    <h2><%=t 'views.points_of_interest.no_results_found_for' %>: "<%= params[:search] %>"</h2>
+    
+  <% end %>
   
-<% elsif params[:search] %>
+  <% if user_signed_in? and params[:search] %>
+    
+    <h2><%=t 'views.points_of_interest.cant_find_point_of_interest' %></h2>
+    
+    <%= add_button_link_to t('views.points_of_interest.create_venue'), new_venue_path %>
+    <%= add_button_link_to t('views.points_of_interest.create_event'), new_event_path %>
+    
+  <% end %>
   
-  <h2><%=t 'views.points_of_interest.no_results_found_for' %>: "<%= params[:search] %>"</h2>
-  
-<% end %>
-
-<% if user_signed_in? and params[:search] %>
-  
-  <h2><%=t 'views.points_of_interest.cant_find_point_of_interest' %></h2>
-  
-  <%= add_button_link_to t('views.points_of_interest.create_venue'), new_venue_path %>
-  <%= add_button_link_to t('views.points_of_interest.create_event'), new_event_path %>
-  
-<% end %>
+</div>

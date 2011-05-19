@@ -4,13 +4,13 @@
 
 <div id="features">
   <div id="find_friends">
-    <%= image_tag "blank_image.png" %>
+    <%= image_tag "find_friends.jpg", :style => "width: 450px" %>
     
     <h2><%=t 'views.main.find_friends' %></h2>
   </div>
 
   <div id="share_venues_and_events">
-    <%= image_tag "blank_image.png" %>
+    <%= image_tag "share_venues_and_events.jpg", :style => "width: 450px; height: 300px" %>
     
     <h2><%=t 'views.main.share_venues_and_events' %></h2>
   </div>
@@ -21,5 +21,5 @@
 <h1 class="title"><%=t 'views.main.start_finding_friends_and_sharing_venues_and_events' %></h1>
 
 <div id="sign_up">
-    <%= big_button_link_to t("views.main.sign_up_now"), new_user_registration_path %> <%=t 'views.main.or_sign_in_with' %> <%= link_to image_tag("facebook_64.png"), "/auth/facebook" %> <%=t 'views.main.or' %> <%= link_to image_tag("twitter_64.png"), "/auth/twitter" %>
+    <%= big_pill_button_link_to t("views.main.sign_up_now"), new_user_registration_path %> <%=t 'views.main.or_sign_in_with' %> <%= link_to image_tag("facebook_64.png"), "/auth/facebook" %> <%=t 'views.main.or' %> <%= link_to image_tag("twitter_64.png"), "/auth/twitter" %>
 </div>

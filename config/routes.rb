@@ -29,6 +29,8 @@ Weegoo::Application.routes.draw do
   
   root :to => "main#index"
   
+  get "about", :to => "main#about"
+  
   devise_for :users, :controllers => { :registrations => "registrations" }
   
   get "users", :to => "users#index"
@@ -38,6 +40,7 @@ Weegoo::Application.routes.draw do
   get "users/:username/cancel_friendship_request/:another_user_username", :to => "users#cancel_friendship_request", :as => "cancel_friendship_request"
   get "users/:username/accept_friendship/:friendship_id", :to => "users#accept_friendship", :as => "accept_friendship"
   get "users/:username/decline_friendship/:friendship_id", :to => "users#decline_friendship", :as => "decline_friendship"
+  get "users/:username/delete_friendship/:another_user_username", :to => "users#delete_friendship", :as => "delete_friendship"
   
   get "users/:username/friendship_requests", :to => "users#friendship_requests", :as => "friendship_requests"
   get "users/:username/friends", :to => "users#friends", :as => "friends"

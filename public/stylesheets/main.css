@@ -2,12 +2,25 @@
 {
   text-align: center;
   margin: 50px 0;
-  font-size: 2em;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+#content h1.left_title
+{
+  margin: 50px 0;
+  font-size: 36px;
+  font-weight: 300;
 }
 
 #content #features
 {
   margin: 50px 0;
+}
+
+#content #features h2
+{
+  font-weight: 300;
 }
 
 #content #features #find_friends
@@ -33,4 +46,9 @@
 #content #sign_up img
 {
   vertical-align: middle;
+}
+
+#content p.about_text
+{
+  font-size: 14px;
 }

@@ -3,7 +3,7 @@ class PointsOfInterestController < ApplicationController
   
   def index
     if params[:search]
-      @points_of_interest = PointOfInterest.search(params[:search], params[:type]).page(params[:page]).per(5)
+      @points_of_interest = PointOfInterest.search(params[:search], params[:type]).page(params[:page]).per(PointOfInterest::PER_PAGE)
     else
       @points_of_interest = []
     end
@@ -28,9 +28,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.been(@point_of_interest, current_user)
     
     respond_to do |format|
-      format.js do
-        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
-      end
+      format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.been', :point_of_interest => @point_of_interest)) }
     end
   end
   
@@ -40,9 +38,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.not_been(@point_of_interest, current_user)
     
     respond_to do |format|
-      format.js do
-        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
-      end
+      format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.not_been', :point_of_interest => @point_of_interest)) }
     end
   end
   
@@ -52,9 +48,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
-      format.js do
-        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
-      end
+      format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.want_to_go', :point_of_interest => @point_of_interest)) }
     end
   end
   
@@ -64,16 +58,14 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.dont_want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
-      format.js do
-        render :partial => "points_of_interest/point_of_interest_actions", :locals => { :point_of_interest => @point_of_interest }
-      end
+      format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.dont_want_to_go', :point_of_interest => @point_of_interest)) }
     end
   end
   
   def been_users
     @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
-    @users = @point_of_interest.been_users.page(params[:page]).per(5)
+    @users = @point_of_interest.been_users.page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -85,7 +77,7 @@ class PointsOfInterestController < ApplicationController
   def want_to_go_users
     @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
-    @users = @point_of_interest.want_to_go_users.page(params[:page]).per(5)
+    @users = @point_of_interest.want_to_go_users.page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -98,7 +90,7 @@ class PointsOfInterestController < ApplicationController
   def been_friends
     @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
-    @users = @point_of_interest.been_friends(current_user).page(params[:page]).per(5)
+    @users = @point_of_interest.been_friends(current_user).page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html
@@ -110,7 +102,7 @@ class PointsOfInterestController < ApplicationController
   def want_to_go_friends
     @point_of_interest = PointOfInterest.find_by_permalink(params[:id])
     
-    @users = @point_of_interest.want_to_go_friends(current_user).page(params[:page]).per(5)
+    @users = @point_of_interest.want_to_go_friends(current_user).page(params[:page]).per(User::PER_PAGE)
     
     respond_to do |format|
       format.html

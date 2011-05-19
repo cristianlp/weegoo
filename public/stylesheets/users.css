@@ -109,8 +109,7 @@ ul.users_list li.user .actions_response
 {
   margin-bottom: 20px;
   overflow: hidden;
-  
-  background-color: #f5f5f5;
+  background-color: #f3f3f3;
   border-top: 1px solid #dfdfdf;
   border-bottom: 1px solid #dfdfdf;
   padding: 10px 0;
@@ -165,7 +164,7 @@ ul.users_list li.user .actions_response
 #user_information ul#stats li a:hover *
 {
   text-decoration: none;
-  color: #4183C4;
+  color: #2d76b9;
 }
 
 #user_information ul#stats li a strong

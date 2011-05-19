@@ -19,6 +19,12 @@
   margin-bottom: 10px;
 }
 
+.simple_form input,
+.simple_form textarea
+{
+  border: 1px solid #bbb;
+}
+
 .simple_form div.boolean,
 .simple_form input[type='submit']
 {

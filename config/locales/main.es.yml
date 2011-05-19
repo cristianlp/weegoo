@@ -1,7 +1,12 @@
 es:
   views:
     main:
+      about: Acerca
+      about_weegoo: Acerca de weegoo
+      about_weegoo_text: "Weegoo es una aplicación web location aware resultado de la tesina de grado de <a href='mailto:patricio@macadden.com.ar'>Patricio Mac Adden</a>."
       find_friends: "Encontrá amigos"
+      open_source: weegoo es open source
+      open_source_text: "weegoo es open source, lo que significa que cualquiera puede obtener el código fuente, modificarlo y distribuirlo como se hace en éste sitio. El código fuente está disponible en <a href='https://github.com/patriciomacadden/weegoo'>GitHub</a>."
       or: "o"
       or_sign_in_with: "o iniciá sesión con"
       share_venues_and_events: "Compartí lugares y eventos"

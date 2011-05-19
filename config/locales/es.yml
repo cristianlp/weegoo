@@ -34,6 +34,7 @@ es:
           attributes:
             name:
               blank: El nombre no puede ser vacío.
+              taken: El nombre ya fue tomado.
             category:
               blank: La categoría no puede ser vacía.
             sub_category:
@@ -74,7 +75,7 @@ es:
     filter:
       filter: Filtrar
     pagination:
-      next: Ver más
+      next: Ver más &darr;
     scaffold:
       back: "&larr; Volver"
       delete: Eliminar

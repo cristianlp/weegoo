@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :location, :presence => true
   
+  PER_PAGE = 20
+  
   def to_param
     username
   end
