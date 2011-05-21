@@ -35,6 +35,10 @@ end
   shopping.sub_categories.create!(:name => name)
 end
 
+["Atletismo", "Automovilismo", "Campo de deportes", "Club", "Estadio", "Fútbol", "Hockey", "Paddle", "Polo", "Rugby", "Tenis"].each do |name|
+  sports.sub_categories.create!(:name => name)
+end
+
 ["Biblioteca", "Escuela", "Facultad", "Laboratorio", "Universidad"].each do |name|
   education.sub_categories.create!(:name => name)
 end
