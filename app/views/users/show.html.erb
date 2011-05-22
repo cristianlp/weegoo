@@ -8,12 +8,26 @@
     
     <h1><%=t 'views.users.recent_activity' %></h1>
     
-    <ul id="activities_list">
-      <%= render :partial => "activities/activity", :collection => @activities %>
-    </ul>
-    
-    <%= paginate @activities, :remote => true %>
-    <%= render "shared/loading" %>
+    <% if @activities.all.size > 0 %>
+      
+      <ul id="activities_list">
+        <%= render :partial => "activities/activity", :collection => @activities %>
+      </ul>
+      
+      <%= paginate @activities, :remote => true %>
+      <%= render "shared/loading" %>
+      
+    <% else %>
+      
+      <div class="empty">
+        <% if @user == current_user %>
+          <%=t 'views.users.you_have_no_activity' %>
+        <% else %>
+          <%=t 'views.users.no_activity', :user => @user.full_name %>
+        <% end %>
+      </div>
+      
+    <% end %>
     
   </div>
   

@@ -18,8 +18,12 @@ es:
       more_info: Más información &darr;
       mutual_friends: amigos en común
       mutual_friends_with: "Vos y %{user} tienen %{count} amigos en común."
+      no_activity: %{user} no tiene actividad reciente.
+      no_friends: %{user} no tiene amigos.
       no_friends_from_provider: "No tenés amigos que usen %{provider} y weegoo."
       no_results_found_for: No se encontraron resultados para
+      no_visited_places: %{user} no visitó ningún lugar.
+      no_want_to_go_places: %{user} no tiene ningún lugar por visitar.
       other_applications_friends: Amigos que usan weegoo y otra aplicación
       pending_friendships: solicitudes de amistad
       places_to_go: lugares para visitar
@@ -36,3 +40,7 @@ es:
       you: ¡Éste sos vos!
       you_and: Vos y
       you_dont_have_connections: Actualmente no tenés ninguna conexión. Creá una conexión con otra aplicación para empezar a buscar amigos.
+      you_have_no_activity: No tenés actividad reciente.
+      you_have_no_friends: No tenés amigos.
+      you_have_no_visited_places: No visitaste ningún lugar.
+      you_have_no_want_to_go_places: No tenés ningún lugar por visitar.

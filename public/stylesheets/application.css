@@ -17,13 +17,6 @@ img
   border: none;
 }
 
-#beta_ribbon
-{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .narrow
 {
   width: 950px;
@@ -68,6 +61,16 @@ img
 .button:hover
 {
   color: #fff !important;
+}
+
+.back
+{
+  margin-top: 10px;
+}
+
+.empty
+{
+  margin: 10px 0;
 }
 
 /**********

@@ -4,13 +4,29 @@
 
 <h1><%= t('views.users.friends').capitalize %></h1>
 
-<ul id="users_list">
-  <% @accepted_friendships.each do |friendship| %>
-    <%= render :partial => "user_desc", :locals => { :user => friendship.friend(@user), :show_delete_link => true } %>
-  <% end %>
-</ul>
+<% if @accepted_friendships.size > 0 %>
+  
+  <ul id="users_list">
+    <% @accepted_friendships.each do |friendship| %>
+      <%= render :partial => "user_desc", :locals => { :user => friendship.friend(@user), :show_delete_link => true } %>
+    <% end %>
+  </ul>
+  
+  <%= paginate @accepted_friendships, :remote => true %>
+  <%= render "shared/loading" %>
+  
+<% else %>
+  
+  <div class="empty">
+    <% if @user == current_user %>
+      <%=t 'views.users.you_have_no_friends' %>
+    <% else %>
+      <%= raw(t 'views.users.no_friends', :user => link_to(@user.full_name, @user)) %>
+    <% end %>
+  </div>
+  
+<% end %>
 
-<%= paginate @accepted_friendships, :remote => true %>
-<%= render "shared/loading" %>
-
-<%= link_to raw(t('views.scaffold.back')), @user %>
+<div class="back">
+  <%= link_to raw(t 'views.scaffold.back'), @user %>
+</div>

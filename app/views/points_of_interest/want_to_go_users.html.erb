@@ -4,11 +4,17 @@
 
 <h1><%=t 'views.points_of_interest.people_that_want_to_be_here' %></h1>
 
-<ul id="users_list">
-  <%= render :partial => "users/user_desc", :collection => @users, :as => :user %>
-</ul>
+<% if @users.size > 0 %>
+  <ul id="users_list">
+    <%= render :partial => "users/user_desc", :collection => @users, :as => :user %>
+  </ul>
+  
+  <%= paginate @users, :remote => true %>
+  <%= render "shared/loading" %>
+<% else %>
+  <div class="empty"><%=t 'views.points_of_interest.no_want_to_go_users' %></div>
+<% end %>
 
-<%= paginate @users, :remote => true %>
-<%= render "shared/loading" %>
-
-<%= link_to raw(t 'views.scaffold.back'), @point_of_interest %>
+<div class="back">
+  <%= link_to raw(t 'views.scaffold.back'), @point_of_interest %>
+</div>

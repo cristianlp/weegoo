@@ -7,6 +7,8 @@ es:
       media_file:
         create: "Crear multimedia"
         update: "Actualizar multimedia"
+      user:
+        update: "Actualizar perfil"
       venue:
         create: "Crear lugar"
         update: "Actualizar lugar"
