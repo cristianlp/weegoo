@@ -10,15 +10,13 @@
 #edit_profile_form h1
 {
   margin: 40px 0;
-  font-size: 36px;
-  font-weight: 300;
+  font-size: 30px;
 }
 
 #sign_in_form h2,
 #sign_up_form h2,
 #edit_profile_form h2
 {
-  font-weight: 300;
   margin-top: 40px;
 }
 
@@ -44,12 +42,12 @@
   font-size: 18px;
 }
 
-h1#third_party_authentication
+#sign_in_form div.boolean
 {
-  margin: 30px 0;
+  margin-left: 0px;
 }
 
-#authentication_applications
+#sign_in_form input[type=submit]
 {
-  margin-bottom: 30px;
+  margin-left: 120px;
 }

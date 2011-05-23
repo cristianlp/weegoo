@@ -35,6 +35,16 @@
     
     <% if user_signed_in? and current_user == @user %>
       <%= render "users/other_applications" %>
+      
+      <div class="section">
+        <h1><%=t 'views.main.most_visited_places' %></h1>
+        <ul id="points_of_interest_list">
+          <% @most_visited_points_of_interest.each do |point_of_interest| %>
+            <%= render :partial => "points_of_interest/most_visited_point_of_interest", :locals => { :point_of_interest => point_of_interest } %>
+          <% end %>
+        </ul>
+      </div>
+      
     <% end %>
     
   </div>

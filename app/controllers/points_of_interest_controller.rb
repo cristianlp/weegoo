@@ -28,6 +28,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.been(@point_of_interest, current_user)
     
     respond_to do |format|
+      format.js { render :partial => 'points_of_interest/point_of_interest_actions', :locals => { :point_of_interest => @point_of_interest } }
       format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.been', :point_of_interest => @point_of_interest)) }
     end
   end
@@ -38,6 +39,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.not_been(@point_of_interest, current_user)
     
     respond_to do |format|
+      format.js { render :partial => 'points_of_interest/point_of_interest_actions', :locals => { :point_of_interest => @point_of_interest } }
       format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.not_been', :point_of_interest => @point_of_interest)) }
     end
   end
@@ -48,6 +50,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
+      format.js { render :partial => 'points_of_interest/point_of_interest_actions', :locals => { :point_of_interest => @point_of_interest } }
       format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.want_to_go', :point_of_interest => @point_of_interest)) }
     end
   end
@@ -58,6 +61,7 @@ class PointsOfInterestController < ApplicationController
     PointOfInterestUser.dont_want_to_go(@point_of_interest, current_user)
     
     respond_to do |format|
+      format.js { render :partial => 'points_of_interest/point_of_interest_actions', :locals => { :point_of_interest => @point_of_interest } }
       format.html { redirect_to(@point_of_interest, :notice => t('controllers.points_of_interest.dont_want_to_go', :point_of_interest => @point_of_interest)) }
     end
   end

@@ -23,3 +23,13 @@
 <div id="sign_up">
   <%= big_pill_button_link_to t("views.main.sign_up_now"), new_user_registration_path %> <%=t 'views.main.or_sign_in_with' %> <%= link_to image_tag("facebook_64.png"), "/auth/facebook" %> <%=t 'views.main.or' %> <%= link_to image_tag("twitter_64.png"), "/auth/twitter" %>
 </div>
+
+<div style="margin-top: 30px">
+  <h1><%=t 'views.main.most_visited_places' %></h1>
+  
+  <ul id="points_of_interest_list">
+    <% @most_visited_points_of_interest.each do |point_of_interest| %>
+      <%= render :partial => "points_of_interest/most_visited_point_of_interest", :locals => { :point_of_interest => point_of_interest } %>
+    <% end %>
+  </ul>
+</div>

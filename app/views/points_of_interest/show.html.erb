@@ -19,7 +19,11 @@
     <% if @point_of_interest.latest_media_files.size > 0 %>
       <%= link_to raw(t('views.points_of_interest.show_all')), points_of_interest_media_files_path(@point_of_interest) %>
     <% else %>
-      <%= link_to raw(t('views.points_of_interest.no_media_files')), points_of_interest_media_files_path(@point_of_interest) %>
+      <% if user_signed_in? %>
+        <%= link_to raw(t('views.points_of_interest.no_media_files')), points_of_interest_media_files_path(@point_of_interest) %>
+      <% else %>
+        <%=t 'views.points_of_interest.signed_out_no_point_of_interest_media_files' %>
+      <% end %>
     <% end %>
     
     <h2 style="margin-top: 20px"><%=t 'views.points_of_interest.latest_comments' %></h2>
@@ -31,7 +35,11 @@
     <% if @point_of_interest.latest_point_of_interest_comments.size > 0 %>
       <%= link_to raw(t('views.points_of_interest.show_all')), points_of_interest_point_of_interest_comments_path(@point_of_interest) %>
     <% else %>
-      <%= link_to raw(t('views.points_of_interest.no_point_of_interest_comments')), points_of_interest_media_files_path(@point_of_interest) %>
+      <% if user_signed_in? %>
+        <%= link_to raw(t('views.points_of_interest.no_point_of_interest_comments')), points_of_interest_media_files_path(@point_of_interest) %>
+      <% else %>
+        <%=t 'views.points_of_interest.signed_out_no_point_of_interest_comments' %>
+      <% end %>
     <% end %>
     
   </div>

@@ -2,15 +2,14 @@
 {
   text-align: center;
   margin: 50px 0;
-  font-size: 36px;
-  font-weight: 300;
+  font-size: 30px;
+  line-height: 36px;
 }
 
 #content h1.left_title
 {
   margin: 50px 0;
-  font-size: 36px;
-  font-weight: 300;
+  font-size: 30px;
 }
 
 #content #features
@@ -20,7 +19,6 @@
 
 #content #features h2
 {
-  font-weight: 300;
 }
 
 #content #features #find_friends

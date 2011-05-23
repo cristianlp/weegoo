@@ -41,5 +41,7 @@ es:
       results_for: "Resultados para"
       search_venues_and_events: "Buscar lugares y eventos"
       show_all: "Ver todos &rarr;"
+      signed_out_no_point_of_interest_comments: "Aún no hay comentarios."
+      signed_out_no_point_of_interest_media_files: "Aún no hay multimedia."
       want_to_go: "Quiero ir"
       user: "Creado por"

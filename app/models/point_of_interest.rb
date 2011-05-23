@@ -47,6 +47,16 @@ class PointOfInterest < ActiveRecord::Base
     end
   end
   
+  def self.most_visited
+    points_of_interest = []
+    
+    BeenAtActivity.group("point_of_interest_id").order("count(*) DESC").limit(10).each do |activity|
+      points_of_interest << activity.point_of_interest
+    end
+    
+    points_of_interest
+  end
+  
   def been_friends(user)
     user_accepted_friendships_ids = []
     

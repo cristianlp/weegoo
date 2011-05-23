@@ -2,4 +2,4 @@ es:
   views:
     sessions:
       sign_in: "Iniciar sesión"
-      third_party_sign_in: "O iniciar sesión con otra aplicación:"
+      third_party_sign_in: "O iniciar sesión con:"
