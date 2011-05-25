@@ -136,6 +136,16 @@ ul#points_of_interest_list li.point_of_interest .actions a
   font-weight: normal;
 }
 
+ul#points_of_interest_list li.point_of_interest .visits_count
+{
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  font-size: 14px;
+  color: #2d76b9;
+  font-weight: bold;
+}
+
 /***************
  * info window *
  ***************/

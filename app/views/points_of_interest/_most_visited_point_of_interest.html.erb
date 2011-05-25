@@ -3,4 +3,6 @@
   <%= link_to image_tag("blank_avatar.png", :style => "width: 24px;"), point_of_interest %>
   <%= link_to point_of_interest.name, point_of_interest %>
   
+  <div class="visits_count"><%= point_of_interest.been_users.count %></div>
+  
 </li>
