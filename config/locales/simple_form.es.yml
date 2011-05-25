@@ -45,6 +45,11 @@ es:
         location: Ubicación
         password_confirmation: Repetir contraseña
         current_password: Contraseña actual
+        share_email: Compartir email
+        share_location: Compartir ubicación
+        share_activity: Compartir actividad
+        post_activity: Publicar actividad en facebook
+        tweet_activity: Tweetear actividad
     hints:
       user:
         location: ¿Donde estás ahora?

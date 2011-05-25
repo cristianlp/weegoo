@@ -35,12 +35,21 @@
       </div>
     </div>
     
+    <div class="inputs">
+      <h2><%=t 'views.registrations.privacy_settings' %></h2>
+      <%= f.input :share_email %>
+      <%= f.input :share_location %>
+      <%= f.input :share_activity %>
+      <%= f.input :post_activity %>
+      <%= f.input :tweet_activity %>
+    </div>
+    
     <div class="actions">
       <%= big_button_submit_tag t('helpers.submit.user.update') %>
     </div>
   <% end %>
   
-  <h1><%=t 'views.registrations.cancel_account' %></h1>
+  <h2><%=t 'views.registrations.cancel_account' %></h2>
   
   <p><%=t 'views.registrations.unhappy' %> <%= link_to t('views.registrations.cancel_account'), registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
   

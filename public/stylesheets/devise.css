@@ -9,15 +9,21 @@
 #sign_up_form h1,
 #edit_profile_form h1
 {
-  margin: 40px 0;
-  font-size: 30px;
+  margin: 40px 0 20px 0;
 }
 
 #sign_in_form h2,
 #sign_up_form h2,
 #edit_profile_form h2
 {
-  margin-top: 40px;
+
+}
+
+#sign_in_form .inputs,
+#sign_up_form .inputs,
+#edit_profile_form .inputs
+{
+  margin-top: 30px;
 }
 
 #sign_in_form .inputs label,

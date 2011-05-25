@@ -31,6 +31,7 @@ es:
       results_for: Resultados para
       search_people: Buscar gente
       show_all: "Ver todos &rarr;"
+      user_does_not_share_activity: "%{user} no comparte su actividad."
       users_friends: Amigos de %{user}
       users_friendship_requests: Solicitudes de amistad de %{user}
       users_mutual_friends: Amigos en común con %{user}
