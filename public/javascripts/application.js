@@ -23,8 +23,11 @@ $("#venue_category_id").live("change", function() { updateSubCategory("#venue_ca
 
 $(window).load(function()
 {
-  selected_sub_category = $("#venue_sub_category_id").val();
-  updateSubCategory("#venue_category_id", "#venue_sub_category_id", selected_sub_category);
+  if ($("#venue_sub_category_id").val() != undefined)
+  {
+    selected_sub_category = $("#venue_sub_category_id").val();
+    updateSubCategory("#venue_category_id", "#venue_sub_category_id", selected_sub_category);
+  }
 });
 
 // change event for event form
@@ -32,8 +35,11 @@ $("#event_category_id").live("change", function() { updateSubCategory("#event_ca
 
 $(window).load(function()
 {
-  selected_sub_category = $("#event_sub_category_id").val();
-  updateSubCategory("#event_category_id", "#event_sub_category_id", selected_sub_category);
+  if ($("#event_sub_category_id").val() != undefined)
+  {
+    selected_sub_category = $("#event_sub_category_id").val();
+    updateSubCategory("#event_category_id", "#event_sub_category_id", selected_sub_category);
+  }
 });
 
 
