@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     
     @activities = @user.related_activities.page(params[:page]).per(Activity::PER_PAGE)
     @most_visited_points_of_interest = PointOfInterest.most_visited
+    @most_active_users = User.most_active
     
     respond_to do |format|
       format.html # show.html.erb

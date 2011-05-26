@@ -101,6 +101,16 @@ ul.users_list li.user .actions_response
   font-size: 10px;
 }
 
+ul#users_list li.user .activities_count
+{
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  font-size: 14px;
+  color: #2d76b9;
+  font-weight: bold;
+}
+
 /********************
  * user_information *
  ********************/

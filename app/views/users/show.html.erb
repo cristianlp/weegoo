@@ -51,6 +51,15 @@
         </ul>
       </div>
       
+      <div class="section">
+        <h1><%=t 'views.main.most_active_users' %></h1>
+        <ul id="users_list">
+          <% @most_active_users.each do |user| %>
+            <%= render :partial => "users/most_active", :locals => { :user => user } %>
+          <% end %>
+        </ul>
+      </div>
+      
     <% end %>
     
   </div>

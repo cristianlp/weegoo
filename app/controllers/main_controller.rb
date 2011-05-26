@@ -5,6 +5,7 @@ class MainController < ApplicationController
     end
     
     @most_visited_points_of_interest = PointOfInterest.most_visited
+    @most_active_users = User.most_active
   end
   
   def about

@@ -51,6 +51,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  def self.most_active
+    users = []
+    
+    Activity.group("user_a_id").order("count(*) DESC").limit(10).each do |activity|
+      users << activity.user_a
+    end
+    
+    users
+  end
+  
   def is_friend?(another_user)
     accepted_friendships.exists?(["user_a_id = ? OR user_b_id = ?", another_user.id, another_user.id])
   end
@@ -101,7 +111,6 @@ class User < ActiveRecord::Base
       ids << friendship.friend(self).id
     end
     
-    # todo: test created_at condition.
     Activity.where("(user_a_id IN (?) OR user_b_id IN (?)) AND created_at > ?", ids, ids, created_at).order("created_at DESC").group("id")
   end
   
