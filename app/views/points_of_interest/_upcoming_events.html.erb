@@ -1,0 +1,8 @@
+<li class="point_of_interest event" id="event_<%= event.id %>">
+  
+  <%= link_to image_tag("blank_avatar.png", :style => "width: 24px;"), event %>
+  <%= link_to event.name, event %>
+  
+  <div class="date"><%=l event.date %></div>
+  
+</li>

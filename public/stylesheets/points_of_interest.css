@@ -136,7 +136,8 @@ ul#points_of_interest_list li.point_of_interest .actions a
   font-weight: normal;
 }
 
-ul#points_of_interest_list li.point_of_interest .visits_count
+ul#points_of_interest_list li.point_of_interest .visits_count,
+ul#points_of_interest_list li.point_of_interest .date
 {
   position: absolute;
   top: 8px;

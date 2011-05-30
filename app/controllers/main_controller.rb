@@ -6,6 +6,7 @@ class MainController < ApplicationController
     
     @most_visited_points_of_interest = PointOfInterest.most_visited
     @most_active_users = User.most_active
+    @upcoming_events = Event.upcoming
   end
   
   def about

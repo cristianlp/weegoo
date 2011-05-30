@@ -60,6 +60,16 @@
         </ul>
       </div>
       
+      <div class="section">
+        <h1><%=t 'views.main.upcoming_events' %></h1>
+        
+        <ul id="points_of_interest_list">
+          <% @upcoming_events.each do |event| %>
+            <%= render :partial => "points_of_interest/upcoming_events", :locals => { :event =>  event } %>
+          <% end %>
+        </ul>
+      </div>
+      
     <% end %>
     
   </div>
