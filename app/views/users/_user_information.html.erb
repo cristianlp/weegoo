@@ -20,12 +20,12 @@
             <dt><%=t 'simple_form.labels.name' %></dt>
             <dd><%= user.full_name %></dd>
             
-            <% if current_user == user or user.is_friend?(current_user) or user.share_email? %>
+            <% if current_user == user or (user_signed_in? and user.is_friend?(current_user)) or user.share_email? %>
               <dt><%=t 'simple_form.labels.email' %></dt>
               <dd><%= mail_to user.email, user.email %></dd>
             <% end %>
             
-            <% if current_user == user or user.is_friend?(current_user) or user.share_location? %>
+            <% if current_user == user or (user_signed_in? and user.is_friend?(current_user)) or user.share_location? %>
               <dt><%=t 'simple_form.labels.user.location' %></dt>
               <dd><%= user.location %></dd>
             <% end %>

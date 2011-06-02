@@ -31,8 +31,6 @@
 #point_of_interest_information h1#avatar img
 {
   vertical-align: middle;
-  padding: 2px;
-  border: 1px solid #ddd;
 }
 
 #point_of_interest_information h1#avatar em
@@ -119,8 +117,6 @@ ul#points_of_interest_list li.point_of_interest a
 
 ul#points_of_interest_list li.point_of_interest a img
 {
-  padding: 1px;
-  border: 1px solid #ddd;
   vertical-align: middle;
 }
 
