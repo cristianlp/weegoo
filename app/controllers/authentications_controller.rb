@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [ :create ]
   
   def index
     @authentications = current_user.authentications if current_user

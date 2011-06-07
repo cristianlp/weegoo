@@ -30,6 +30,7 @@ Weegoo::Application.routes.draw do
   root :to => "main#index"
   
   get "about", :to => "main#about"
+  get "contribute", :to => "main#contribute"
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   

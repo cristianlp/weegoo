@@ -133,6 +133,19 @@ img
   border-bottom: 1px solid #ddd;
 }
 
+#footer .left ul
+{
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+}
+
+#footer .left ul li
+{
+  display: inline;
+  margin-right: 15px;
+}
+
 #footer .right
 {
   text-align: right;

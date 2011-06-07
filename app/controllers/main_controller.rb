@@ -11,4 +11,7 @@ class MainController < ApplicationController
   
   def about
   end
+  
+  def contribute
+  end
 end

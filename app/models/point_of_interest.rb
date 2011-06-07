@@ -50,8 +50,8 @@ class PointOfInterest < ActiveRecord::Base
   def self.most_visited
     points_of_interest = []
     
-    BeenAtActivity.group("point_of_interest_id").order("count(*) DESC").limit(10).each do |activity|
-      points_of_interest << activity.point_of_interest
+    PointOfInterestUser.group("point_of_interest_id").order("count(*) DESC").limit(10).each do |point_of_interest_user|
+      points_of_interest << point_of_interest_user.point_of_interest
     end
     
     points_of_interest
