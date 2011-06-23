@@ -50,8 +50,12 @@ class PointOfInterest < ActiveRecord::Base
   def self.most_visited
     points_of_interest = []
     
-    PointOfInterestUser.group("point_of_interest_id").order("count(*) DESC").limit(10).each do |point_of_interest_user|
-      points_of_interest << point_of_interest_user.point_of_interest
+    sql = "SELECT * FROM (SELECT * FROM activities WHERE type='BeenAtActivity' GROUP BY point_of_interest_id, user_a_id) AS activities GROUP BY point_of_interest_id ORDER BY COUNT(*) DESC LIMIT 10"
+    
+    activities = Activity.find_by_sql(sql)
+    
+    activities.each do |activity|
+      points_of_interest << activity.point_of_interest
     end
     
     points_of_interest

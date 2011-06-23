@@ -5,7 +5,7 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '0.2.7'
 
 gem 'devise'
 
@@ -13,7 +13,7 @@ gem 'simple_form'
 
 gem 'jquery-rails'
 
-gem 'kaminari'
+gem 'kaminari', '0.10.4'
 
 gem 'permalink_fu'
 
@@ -28,6 +28,8 @@ gem 'twitter'
 gem 'css3buttons'
 
 gem 'fb_graph'
+
+gem 'mobile-fu'
 
 # Use unicorn as the web server
 # gem 'unicorn'

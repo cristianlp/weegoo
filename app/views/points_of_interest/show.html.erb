@@ -36,7 +36,7 @@
       <%= link_to raw(t('views.points_of_interest.show_all')), points_of_interest_point_of_interest_comments_path(@point_of_interest) %>
     <% else %>
       <% if user_signed_in? %>
-        <%= link_to raw(t('views.points_of_interest.no_point_of_interest_comments')), points_of_interest_media_files_path(@point_of_interest) %>
+        <%= link_to raw(t('views.points_of_interest.no_point_of_interest_comments')), points_of_interest_point_of_interest_comments_path(@point_of_interest) %>
       <% else %>
         <%=t 'views.points_of_interest.signed_out_no_point_of_interest_comments' %>
       <% end %>
