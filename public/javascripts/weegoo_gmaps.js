@@ -78,3 +78,18 @@ function open_info_window_on_click(marker, info_window)
     info_window.open(map, marker);
   });
 }
+
+function create_marker_image(latlng, draggable, image)
+{
+  draggable = (draggable == undefined) ? true : draggable;
+  
+  var marker = new google.maps.Marker(
+  {
+    position: latlng,
+    draggable: draggable,
+    animation: google.maps.Animation.DROP,
+    icon: image
+  });
+  
+  return marker;
+}
