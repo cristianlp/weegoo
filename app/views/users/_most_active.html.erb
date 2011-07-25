@@ -1,9 +1,0 @@
-<li class="user" id="user_<%= user.id %>">
-  
-  <%= link_to image_tag(gravatar_url(user.email, 24)), user %>
-  <%= link_to user.username, user %>
-  <em>(<%= user.full_name %>)</em>
-  
-  <div class="activities_count"><%= user.activities.count %> <%=t 'views.main.activities' %></div>
-  
-</li>

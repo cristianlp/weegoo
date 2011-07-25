@@ -1,7 +1,0 @@
-<li class="user" id="friendship_<%= friendship.id %>">
-  <%= link_to image_tag(gravatar_url(friend.email, 24)), friend %>
-  <%= link_to friend.username, friend %>
-  <em>(<%= friend.full_name %>)</em>
-  
-  <%= render :partial => "users/friendship_actions", :locals => { :user => user, :friendship => friendship, :friend => friend } %>
-</li>

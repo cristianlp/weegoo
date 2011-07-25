@@ -1,5 +1,0 @@
-<% @friends.each do |friend| %>
-  $('ul#users_list').append('<%= escape_javascript render(:partial => "user_desc", :locals => { :user => friend }) %>');
-<% end %>
-
-$('#pagination').replaceWith('<%= escape_javascript paginate(@friends, :remote => true).to_s %>');

@@ -1,5 +1,0 @@
-en:
-  views:
-    sessions:
-      sign_in: "Sign in"
-      third_party_sign_in: "Or sign with other application:"

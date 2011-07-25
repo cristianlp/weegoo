@@ -1,9 +1,0 @@
-es:
-  views:
-    media_files:
-      add_a_new_media_file: Agregar una nueva multimedia
-      editing: Editar multimedia
-      latest_comments: Últimos comentarios
-      no_media_files: %{point_of_interest} no tiene multimedia.
-      new: Nueva multimedia
-      show_all: Ver todos &rarr;

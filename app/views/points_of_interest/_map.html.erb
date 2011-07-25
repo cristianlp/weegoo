@@ -1,7 +1,0 @@
-<div id="map_canvas" style="width: 100%; height: 400px; margin-bottom: 20px;"></div>
-<script>
-  var map = initialize_gmap();
-  latlng = new google.maps.LatLng("<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>");
-  marker = create_marker_image(latlng, false, '<%= request.protocol+request.host_with_port+image_path("category_#{point_of_interest.category_id}.png") %>');
-  add_marker_to_map(map, marker);
-</script>
