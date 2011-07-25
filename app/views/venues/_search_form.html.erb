@@ -1,0 +1,14 @@
+<div id="search">
+  
+  <%= form_tag venues_path, :method => :get do %>
+    <div>
+      <%= label_tag t('views.common.show_as') %>:
+      <%= select_tag :show_as, options_for_select({ t('views.common.list') => 'List', t('views.common.map') => 'Map' }, params[:show_as] ? params[:show_as] : 'List') %>
+    </div>
+    <div>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag t('views.common.search') %>
+    </div>
+  <% end %>
+  
+</div>

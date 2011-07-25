@@ -1,0 +1,33 @@
+<li class="event">
+  <%= link_to event.name, [event.venue, event] %>
+  
+  <% if user_signed_in? %>
+    
+    <% if not current_user.events_users.visited.exists?(:event_id => event.id) %>
+      
+      <div class="actions button-group">
+        
+        <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_event_path(event.venue, event), :class => 'button icon approve' %>
+        
+        <% if not current_user.events_users.to_go.exists?(:event_id => event.id) %>
+          
+          <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_event_path(event.venue, event), :class => 'button icon clock' %>
+          
+        <% else %>
+          
+          <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_event_path(event.venue, event), :class => 'button icon clock' %>
+          
+        <% end %>
+        
+      </div>
+      
+    <% else %>
+      
+      <div class="actions">
+        <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_event_path(event.venue, event), :class => 'button icon remove' %>
+      </div>
+      
+    <% end %>
+    
+  <% end %>
+</li>

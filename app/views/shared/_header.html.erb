@@ -1,0 +1,16 @@
+<div id="header">
+  <div class="narrow">
+    
+    <%= link_to image_tag('logo.png'), root_path, :id => 'logo' %>
+    
+    <%= form_tag search_path, :method => :get, :id => "search_form" do %>
+      <%= text_field_tag :query, params[:query], :placeholder => t('views.main.search_venues_events_or_people') %>
+    <% end %>
+    
+    <% if user_signed_in? %>
+      <%= render "shared/current_user_information" %>
+    <% else %>
+      <%= render "shared/signed_out_user_actions" %>
+    <% end %>
+  </div>
+</div>

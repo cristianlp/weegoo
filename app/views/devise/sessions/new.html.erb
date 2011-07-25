@@ -1,0 +1,35 @@
+<div id="sign_in_form" class="columns">
+  
+  <div class="left">
+    <h1><%=t 'views.users.sign_in' %></h1>
+    
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      
+      <div class="inputs">
+        <%= f.input :username %>
+        <%= f.input :password %>
+        <% if devise_mapping.rememberable? -%>
+          <%= f.input :remember_me, :as => :boolean %>
+        <% end -%>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit t('views.users.sign_in'), :class => 'button big' %>
+      </div>
+      
+    <% end %>
+    
+  </div>
+  
+  <div class="right">
+    <h1><%=t 'views.users.sign_in_with_other_application' %></h1>
+    
+    <div id="authentication_applications">
+      <%= link_to image_tag('facebook_64.png'), '/auth/facebook' %>
+      <%= link_to image_tag('twitter_64.png'), '/auth/twitter' %>
+    </div>
+  </div>
+  
+</div>
+
+<%= render :partial => 'devise/shared/links' %>

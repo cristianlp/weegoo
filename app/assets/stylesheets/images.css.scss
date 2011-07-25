@@ -1,0 +1,33 @@
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.images {
+  // Add the images class to your body tag
+  // Then, place scoped styles here.
+}
+
+ul.images_list
+{
+  li
+  {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+    img
+    {
+      margin-top: 20px;
+      vertical-align: middle;
+      border: 1px solid #ddd;
+      padding: 2px;
+    }
+    
+    &:last-child { border: 0px }
+  }
+}
+
+div.image
+{
+  text-align: center;
+}

@@ -1,0 +1,8 @@
+latlng = new google.maps.LatLng("<%= venue.latitude %>", "<%= venue.longitude %>");
+
+marker_<%= venue.id %> = create_marker_image(latlng, false, '<%= request.protocol+request.host_with_port+image_path("category_#{venue.category_id}.png") %>');
+add_marker_to_map(map, marker_<%= venue.id %>);
+
+info_window_<%= venue.id %> = create_info_window('<%= escape_javascript(render :partial => 'maps/info_window', :locals => { :venue => venue }) %>');
+
+open_info_window_on_click(marker_<%= venue.id %>, info_window_<%= venue.id %>);

@@ -1,0 +1,26 @@
+<% title t('views.users.find_people') %>
+
+<div class="search">
+  
+  <h1><%=t 'views.users.find_people' %></h1>
+  
+  <%= render 'search_form' %>
+  
+  <% if not @users.empty? %>
+    
+    <h2 class="left_title"><%=t 'views.common.results_for_query', :query => params[:query] %>
+    
+    <ul class="list">
+      <%= render :partial => 'user', :collection => @users %>
+    </ul>
+    
+    <%= paginate @users, :remote => true %>
+    <%= render 'shared/loading' %>
+    
+  <% elsif params[:query] %>
+    
+    <h2 class="left_title"><%=t 'views.common.no_results_found_for_query', :query => params[:query] %></h2>
+    
+  <% end %>
+  
+</div>

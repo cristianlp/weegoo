@@ -1,0 +1,16 @@
+<%= simple_form_for([@venue, @event]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :start_date, :order => [:day, :month, :year], :include_blank => true %>
+    <%= f.input :start_time, :include_blank => true %>
+    <%= f.input :end_date, :order => [:day, :month, :year], :include_blank => true %>
+    <%= f.input :end_time, :include_blank => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

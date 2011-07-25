@@ -1,0 +1,59 @@
+es:
+  helpers:
+    submit:
+      event:
+        create: Crear evento
+        update: Actualizar evento
+      image:
+        create: Crear imagen
+        update: Actualizar imagen
+      user:
+        update: Actualizar perfil
+      venue:
+        create: Crear lugar
+        update: Actualizar lugar
+  
+  simple_form:
+    "yes": Sí
+    "no": No
+    required:
+      text: 'obligatorio'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: 'Se encontraron los siguientes errores:'
+    # Labels and hints examples
+    labels:
+    #   password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail para efetuar o sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+      category: Categoría
+      current_password: Contraseña actual
+      description: Descripción
+      end_date: Fecha de fin
+      end_time: Hora de fin
+      first_name: Nombre
+      last_name: Apellido
+      location: Ubicación
+      name: Nombre
+      password: Contraseña
+      password_confirmation: Repetir contraseña
+      post_activity: ¿Postear actividad en facebook?
+      remember_me: Recordarme
+      share_activity: ¿Compartir actividad?
+      share_email: ¿Compartir email?
+      share_location: ¿Compartir ubicación?
+      start_date: Fecha de inicio
+      start_time: Hora de inicio
+      sub_category: Sub categoría
+      tweet_activity: ¿Tweetear actividad?
+      username: Nombre de usuario
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+

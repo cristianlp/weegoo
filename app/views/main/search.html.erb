@@ -1,0 +1,30 @@
+<% title t('views.common.search') %>
+
+<h1><%=t 'views.main.users' %></h1>
+
+<ul class="list">
+  <%= render :partial => 'users/user', :collection => @users %>
+</ul>
+<div class="right_actions"><%= link_to raw(t 'views.main.advanced_users_search'), users_path %></div>
+
+<div class="columns">
+  
+  <div class="left">
+    <h1><%=t 'views.main.venues' %></h1>
+    
+    <ul class="list venues_list">
+      <%= render :partial => 'venues/venue', :collection => @venues %>
+    </ul>
+    
+    <div class="right_actions"><%= link_to raw(t 'views.main.advanced_venues_search'), venues_path %></div>
+  </div>
+  
+  <div class="right">
+    <h1><%=t 'views.main.events' %></h1>
+    
+    <ul class="list">
+      <%= render :partial => 'events/event', :collection => @events %>
+    </ul>
+  </div>
+  
+</div>

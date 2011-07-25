@@ -1,0 +1,48 @@
+<li class="user" id="user_<%= user.id %>">
+  
+  <%= link_to image_tag(gravatar_url(user.email, 24)), user %>
+  <%= link_to user.username, user %>
+  <em>(<%= user.full_name %>)</em>
+  
+  <% if user_signed_in? and current_user == user %>
+    <%=t 'views.users.this_is_you' %>
+  <% end %>
+  
+  <% if user_signed_in? and current_user != user %>
+    
+    <% if not current_user.is_friend?(user) %> 
+      
+      <% if not current_user.waiting_for_confirmation?(user) and not user.waiting_for_confirmation?(current_user) %>
+        
+        <div class="actions">
+          <%= link_to t('views.users.add_as_friend'), add_as_friend_user_path(:id => current_user.username, :another_user_id => user.username), :class => 'button icon user' %>
+        </div>
+        
+      <% elsif current_user.waiting_for_confirmation?(user) %>
+        
+        <div class="actions">
+          <%= link_to t('views.users.cancel_friendship_request'), cancel_friendship_request_user_path(:id => current_user.username, :another_user_id => user.username), :class => 'button danger icon remove' %>
+        </div>
+        
+      <% else %>
+        
+        <div class="actions button-group">
+          
+          <%= link_to t('views.users.accept_friendship_request'), accept_friendship_user_path(current_user, current_user.friendship_with_user(user).id), :class => 'button icon approve' %>
+          <%= link_to t('views.users.reject_friendship_request'), decline_friendship_user_path(user, current_user.friendship_with_user(user).id), :class => 'button icon danger remove', :class => 'button danger icon remove' %>
+          
+        </div>
+        
+      <% end %>
+      
+    <% else %>
+      
+      <div class="actions">
+        <%= link_to t('views.users.delete_friendship'), delete_friendship_user_path(:id => current_user.username, :another_user_id => user.username), :class => 'button danger icon remove' %>
+      </div>
+      
+    <% end%>
+    
+  <% end %>
+  
+</li>

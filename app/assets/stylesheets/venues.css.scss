@@ -1,0 +1,24 @@
+// Place all the styles related to the Venues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.venues {
+  // Add the venues class to your body tag
+  // Then, place scoped styles here.
+}
+
+ul.venues_list
+{
+  li
+  {
+    a
+    {
+      img { border: 0px !important; }
+    }
+    
+    .actions
+    {
+      margin-top: 4px;
+    }
+  }
+}

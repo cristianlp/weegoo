@@ -1,0 +1,193 @@
+<% title @venue.name %>
+
+<!-- closing narrow -->
+</div>
+
+<div class="information">
+  
+  <div class="narrow">
+  
+    <h1 id="avatar">
+      <%= link_to image_tag("category_#{@venue.category_id}.png"), @venue %>
+      <%= @venue.name %>
+    </h1>
+    
+    <div class="ruler"></div>
+      
+    <div class="columns">
+      <div id="information" class="left">
+        <dl>
+          <dt><%=t 'simple_form.labels.name' %></dt>
+          <dd><%= @venue.name %></dd>
+          
+          <% if not @venue.description.blank? %>
+            <dt><%=t 'simple_form.labels.description' %></dt>
+            <dd><%= @venue.description %></dd>
+          <% end %>
+          
+          <dt><%=t 'simple_form.labels.category' %></dt>
+          <dd><%= @venue.category.name %></dd>
+          
+          <dt><%=t 'simple_form.labels.sub_category' %></dt>
+          <dd><%= @venue.sub_category.name %></dd>
+          
+          <dt><%=t 'views.venue.user' %></dt>
+          <dd><%= link_to @venue.user.full_name, @venue.user %></dd>
+        </dl>
+      </div>
+        
+      <div class="right">
+        <ul id="stats">
+          <li><%= link_to raw("<strong>#{@venue.visitors.size}</strong><span>#{t("views.common.visitors")}</span>"), visitors_venue_path(@venue) %></li>
+            
+          <li><%= link_to raw("<strong>#{@venue.possible_visitors.size}</strong><span>#{t("views.common.possible_visitors")}</span>"), possible_visitors_venue_path(@venue) %></li>            
+        </ul>
+      </div>
+    </div>
+      
+    <% if user_signed_in? %>
+      
+      <div class="ruler"></div>
+      
+      <div class="columns">
+        <div class="left">
+          <% if @venue.can_edit?(current_user) %>
+            <%= link_to t('views.scaffold.edit'), edit_venue_path(@venue) %>
+          <% end %>
+          
+          <% if @venue.can_delete?(current_user) %>
+              <%= link_to t('views.scaffold.destroy'), @venue, :method => :delete %>
+          <% end %>
+        </div>
+        
+        <div class="right">
+          <% if user_signed_in? %>
+            
+            <div class="actions">
+              
+              <% if not current_user.users_venues.visited.exists?(:venue_id => @venue.id) %>
+                
+                <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_path(@venue) %>
+                
+                <% if not current_user.users_venues.to_go.exists?(:venue_id => @venue.id) %>
+                  
+                  <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_path(@venue) %>
+                  
+                <% else %>
+                  
+                  <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_path(@venue) %>
+                  
+                <% end %>
+                
+              <% else %>
+                
+                <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_path(@venue) %>
+                
+              <% end %>
+              
+            </div>
+            
+          <% end %>
+          
+        </div>
+        
+      </div>
+      
+    <% end %>
+    
+  </div>
+  
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">
+  
+  <div id="map_canvas" style="width: 100%; height: 400px; margin-bottom: 20px;"></div>
+  <script>
+    var map = initialize_gmap();
+    <%= render :partial => 'maps/venue', :locals => { :venue => @venue } %>
+  </script>
+  
+  <div class="columns">
+    
+    <div class="left">
+      
+      <% if not @venue.visitors.empty? %>
+        <h2><%=t 'views.common.visitors' %></h2>
+        
+        <ul class="list">
+          <%= render :partial => 'users/user', :collection => @venue.visitors.limit(User::LATEST) %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), visitors_venue_path(@venue) %></div>
+      <% end %>
+      
+      <% if not @venue.possible_visitors.empty? %>
+        <h2><%=t 'views.common.possible_visitors' %></h2>
+        
+        <ul class="list">
+          <%= render :partial => 'users/user', :collection => @venue.possible_visitors.limit(User::LATEST) %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), possible_visitors_venue_path(@venue) %></div>
+      <% end %>
+      
+    </div>
+    
+    <div class="right">
+      <h2><%=t 'views.venues.events' %></h2>
+      
+      <% if not @venue.events.empty? %>
+        
+        <ul class="list">
+          <%= render :partial => 'events/event', :collection => @venue.events.limit(Event::LATEST) %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), venue_events_path(@venue) %></div>
+        
+      <% else %>
+        
+        <div class="empty">
+          <%= t 'views.venues.this_venue_has_no_events' %> <%= link_to t('views.events.new'), new_venue_event_path(@venue) %>
+        </div>
+        
+      <% end %>
+      
+      <h2><%=t 'views.common.latest_comments' %></h2>
+      
+      <% if not @venue.comments.empty? %>
+        
+        <ul class="list">
+          <%= render :partial => 'comments/comment_for_venue', :collection => @venue.comments.latest %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), venue_comments_path(@venue) %></div>
+        
+      <% else %>
+        
+        <div class="empty">
+          <%= t 'views.venues.this_venue_has_no_comments' %> <%= link_to t('views.comments.new'), venue_comments_path(@venue) %>
+        </div>
+        
+      <% end %>
+      
+      <h2><%=t 'views.common.latest_images' %></h2>
+      
+      <% if not @venue.images.empty? %>
+        
+        <ul class="list images_list">
+          <%= render :partial => 'images/image_for_venue', :collection => @venue.images.latest, :locals => { :thumb_size => :small_thumb } %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), venue_images_path(@venue) %></div>
+        
+      <% else %>
+        
+        <div class="empty">
+          <%= t 'views.venues.this_venue_has_no_images' %> <%= link_to t('views.images.new'), venue_images_path(@venue) %>
+        </div>
+        
+      <% end %>
+    </div>
+    
+  </div>

@@ -1,0 +1,36 @@
+<li class="venue" id="venue_<%= venue.id %>">
+  
+  <%= link_to image_tag("category_#{venue.category_id}.png", :style => "width: 24px;"), venue %>
+  <%= link_to venue.name, venue %>
+  
+  <% if user_signed_in? %>
+    
+    <% if not current_user.users_venues.visited.exists?(:venue_id => venue.id) %>
+      
+      <div class="actions button-group">
+        
+        <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_path(venue), :class => 'button icon add' %>
+        
+        <% if not current_user.users_venues.to_go.exists?(:venue_id => venue.id) %>
+          
+          <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_path(venue), :class => 'button icon clock' %>
+          
+        <% else %>
+          
+          <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_path(venue), :class => 'button icon clock' %>
+          
+        <% end %>
+        
+      </div>
+      
+    <% else %>
+      
+      <div class="actions">
+        <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_path(venue), :class => 'button icon remove' %>
+      </div>
+        
+    <% end %>
+    
+  <% end %>
+  
+</li>

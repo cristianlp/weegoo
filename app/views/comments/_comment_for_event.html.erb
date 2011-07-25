@@ -1,0 +1,15 @@
+<li class="comment">
+  
+  <%= link_to image_tag(gravatar_url(comment_for_event.user.email, 24)), comment_for_event.user %>
+  <%= link_to comment_for_event.user.username, comment_for_event.user %>
+  <em>(<%= comment_for_event.user.full_name %>)</em>
+  
+  <div class="comment">
+    <%= comment_for_event.content %>
+  </div>
+  
+  <div class="comment_information">
+    <%=l comment_for_event.created_at, :format => :activity %>
+    <%= link_to t('views.scaffold.destroy'), [comment_for_event.commentable.venue, comment_for_event.commentable, comment_for_event], :method => :delete, :class => 'button danger' %>
+  </div>
+</li>

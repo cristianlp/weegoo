@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  venues: 
+  visited: false
+  to_go: false
+
+two:
+  user: 
+  venues: 
+  visited: false
+  to_go: false

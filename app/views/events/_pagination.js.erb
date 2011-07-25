@@ -1,0 +1,3 @@
+$("ul.list").append("<%= escape_javascript(render :partial => 'events/event', :collection => @events) %>");
+  
+$("#pagination").replaceWith("<%= escape_javascript(paginate @events, :remote => true) %>");

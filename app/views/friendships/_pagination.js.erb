@@ -1,0 +1,5 @@
+<% friendships.each do |friendship| %>
+  $("ul.list").append("<%= escape_javascript(render :partial => 'users/user', :locals => { :user => friendship.friend(user) }) %>");
+<% end %>
+
+$("#pagination").replaceWith("<%= escape_javascript(paginate friendships, :remote => true) %>");

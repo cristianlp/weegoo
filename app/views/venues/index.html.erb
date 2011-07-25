@@ -1,0 +1,43 @@
+<% title t('views.venues.find_venues') %>
+
+<div class="search">
+
+  <h1><%=t 'views.venues.find_venues' %></h1>
+  
+  <%= render 'search_form' %>
+  
+  <% if not @venues.empty? %>
+    
+    <h2><%=t 'views.common.results_for_query', :query => params[:query] %></h2>
+    
+    <% if params[:show_as] == 'List' %>
+      <ul class="list venues_list">
+        <%= render @venues %>
+      </ul>
+    <% else %>
+      <div id="map_canvas" style="width: 950px; height: 712.5px; margin: 10px 0;"></div>
+      <script>
+        var map = initialize_gmap();
+        <%= render :partial => 'maps/venue', :collection => @venues %>
+      </script>
+      
+    <% end %>
+    
+    <%= paginate @venues, :remote => true %>
+    <%= render :partial => 'shared/loading' %>
+    
+  <% elsif params[:query] %>
+    
+    <h2><%=t 'views.common.no_results_found_for_query', :query => params[:query] %></h2>
+    
+  <% end %>
+  
+  <% if user_signed_in? and params[:query] %>
+    
+    <h2><%=t 'views.venues.can_not_find_the_venue_you_are_looking_for' %></h2>
+    
+    <%= link_to t('views.venues.new'), new_venue_path, :class => 'button icon add' %>
+    
+  <% end %>
+  
+</div>

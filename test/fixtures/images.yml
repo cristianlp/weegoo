@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  image: MyString
+  caption: MyString
+  imageable_id: 1
+  imageable_type: MyString
+  user: 
+
+two:
+  image: MyString
+  caption: MyString
+  imageable_id: 1
+  imageable_type: MyString
+  user: 

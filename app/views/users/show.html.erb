@@ -1,0 +1,143 @@
+<% title @user.full_name %>
+
+<!-- closing narrow -->
+</div>
+
+<div id="user_information">
+  
+  <div class="narrow">
+  
+    <h1 id="avatar">
+      <%= link_to image_tag(gravatar_url(@user.email)), @user %>
+      <%= @user.username %> <em>(<%= @user.full_name %>)</em>
+    </h1>
+    
+    <div class="ruler"></div>
+    
+    <div class="columns">
+      <div id="information" class="left">
+        <dl>
+          <dt><%=t 'simple_form.labels.name' %></dt>
+          <dd><%= @user.full_name %></dd>
+          
+          <% if current_user == @user or (user_signed_in? and @user.is_friend?(current_user)) or @user.share_email? %>
+            <dt><%=t 'simple_form.labels.email' %></dt>
+            <dd><%= mail_to @user.email, @user.email %></dd>
+          <% end %>
+          
+          <% if current_user == @user or (user_signed_in? and @user.is_friend?(current_user)) or @user.share_location? %>
+            <dt><%=t 'simple_form.labels.user.location' %></dt>
+            <dd><%= @user.location %></dd>
+          <% end %>
+        </dl>
+      </div>
+      
+      <div class="right">
+        <ul id="stats">
+          <li><%= link_to raw("<strong>#{@user.accepted_friendships.size}</strong><span>#{t('views.users.friends')}</span>"), friends_user_path(@user) %></li>
+          
+          <li><%= link_to raw("<strong>#{@user.visited_venues.size}</strong><span>#{t('views.users.visited_venues')}</span>"), visited_venues_user_path(@user) %></li>
+          
+          <li><%= link_to raw("<strong>#{@user.venues_to_go.size}</strong><span>#{t('views.users.venues_to_go')}</span>"), venues_to_go_user_path(@user) %></li>
+          
+          <li><%= link_to raw("<strong>#{@user.visited_events.size}</strong><span>#{t('views.users.visited_events')}</span>"), visited_events_user_path(@user) %></li>
+          
+          <li><%= link_to raw("<strong>#{@user.events_to_go.size}</strong><span>#{t('views.users.events_to_go')}</span>"), events_to_go_user_path(@user) %></li>
+        </ul>
+        
+        <% if user_signed_in? and current_user != @user and current_user.mutual_friends(@user).size > 0 %>
+          <div id="mutual_friends">
+            <div>
+              <%=t 'views.users.count_mutual_friends_with_user', :count => current_user.mutual_friends(@user).size, :user => @user.full_name %> <%= link_to raw(t 'views.common.show_all'), mutual_friends_user_path(@user) %>
+            </div>
+            
+            <ul id="avatars">
+              <% current_user.mutual_friends(@user).each do |friend| %>
+                <li><%= link_to image_tag(gravatar_url(friend.email, 24)), friend %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">
+  
+  <div class="columns">
+    
+    <div class="left">
+      
+      <h1><%=t 'views.users.recent_activity' %></h1>
+      
+      <% if current_user == @user or (user_signed_in? and @user.is_friend?(current_user)) or @user.share_activity? %>
+        
+        <% if not @activities.empty? %>
+          
+          <ul class="list activities_list">
+            <%= render :partial => 'activities/activity', :collection => @activities, :locals => { :user => @user } %>
+          </ul>
+          
+          <%= paginate @activities, :remote => true %>
+          <%= render 'shared/loading' %>
+          
+        <% else %>
+          
+          <div class="empty">
+            <% if @user == current_user %>
+              <%=t 'views.users.you_do_not_have_activity' %>
+            <% else %>
+              <%=t 'views.users.user_has_no_activity', :user => @user.full_name %>
+            <% end %>
+          </div>
+          
+        <% end %>
+        
+      <% else %>
+        <%=t 'views.users.user_does_not_share_activity', :user => @user.full_name %>
+      <% end %>
+      
+    </div>
+    
+    <div class="right">
+      <% if user_signed_in? and current_user == @user %>
+        
+        <div class="section">
+          <h1><%=t 'views.users.search_for_friends_on_other_social_networks_already_using_weegoo' %></h1>
+          
+          <ul class="list">
+            <% User::THIRD_PARTY_APPS.each do |provider| %>
+              <%= render :partial => 'authentications/authentication', :locals => { :provider => provider } %>
+            <% end %>
+          </ul>
+  
+        </div>
+        
+        <div class="section">
+          <h1><%=t 'views.main.most_visited_venues' %></h1>
+          <ul class="list venues_list">
+            <%= render :partial => 'venues/venue', :collection => @most_visited_venues %>
+          </ul>
+        </div>
+      
+        <div class="section">
+          <h1><%=t 'views.main.most_active_users' %></h1>
+          <ul class="list">
+            <%= render :partial => 'users/user', :collection => @most_active_users %>
+          </ul>
+        </div>
+      
+        <div class="section">
+          <h1><%=t 'views.main.upcoming_events' %></h1>
+          <ul class="list">
+            <%= render :partial => 'events/event', :collection => @upcoming_events %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>

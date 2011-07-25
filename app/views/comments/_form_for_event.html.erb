@@ -1,0 +1,17 @@
+<div class="comment_form">
+  
+  <%= link_to image_tag(gravatar_url(current_user.email, 24)), current_user %>
+  
+  <%= simple_form_for([@commentable.venue, @commentable, @comment]) do |f| %>
+    <%= f.error_notification %>
+    
+    <div class="inputs">
+      <%= f.input :content, :label => false %>
+    </div>
+    
+    <div class="actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+  
+</div>

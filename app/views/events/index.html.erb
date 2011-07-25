@@ -1,0 +1,39 @@
+<% title t('views.venues.venue_events', :venue => @venue.name) %>
+
+<!-- closing narrow -->
+</div>
+
+<div class="information">
+  
+  <div class="narrow">
+    
+    <h1 id="avatar">
+      <%= link_to image_tag("category_#{@venue.category_id}.png"), @venue %>
+      <%= @venue.name %>
+    </h1>
+    
+  </div>
+  
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">
+  
+  <h1><%=t 'views.venues.venue_events', :venue => @venue.name %></h1>
+  
+  <% if not @events.empty? %>
+    <ul class="list">
+      <%= render :partial => 'events/event', :collection => @events %>
+    </ul>
+    
+    <%= paginate @events, :remote => true %>
+    <%= render 'shared/loading' %>
+  <% else %>
+    <div class="empty">
+      <%=t 'views.venues.venue_has_no_events' %>
+    </div>
+  <% end %>
+  
+  <div class="back">
+    <%= link_to raw(t 'views.scaffold.back'), @venue %> <%= link_to t('views.events.new'), new_venue_event_path(@venue), :class => 'button icon add' %>
+  </div>

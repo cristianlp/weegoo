@@ -1,0 +1,13 @@
+<li class="venue_marked_as_to_go_activity">
+
+  <% if current_user == activity.user_a and current_user == user %>
+    <%= raw t('views.activities.you_marked_the_venue_as_to_go', { :venue => link_to(activity.venue.name, activity.venue) }) %>
+  <% else %>
+    <%= raw t('views.activities.user_a_marked_the_venue_as_to_go', { :user_a => link_to(activity.user_a.full_name, activity.user_a), :venue => link_to(activity.venue.name, activity.venue) }) %>
+  <% end %>
+  
+  <div class="activity_information">
+    <%=l activity.created_at, :format => :activity %>
+  </div>
+  
+</li>

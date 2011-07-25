@@ -1,0 +1,15 @@
+<li class="accepted_friendship_activity">
+  
+  <% if user == activity.user_a %>
+    <% first, second = activity.user_a, activity.user_b %>
+  <% else %>
+    <% first, second = activity.user_b, activity.user_a %>
+  <% end %>
+  
+  <%= raw t('views.activities.user_a_and_user_b_are_now_friends', { :user_a => link_to(first.full_name, first), :user_b => link_to(second.full_name, second) }) %>
+  
+  <div class="activity_information">
+    <%=l activity.created_at, :format => :activity %>
+  </div>
+  
+</li>

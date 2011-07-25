@@ -1,0 +1,35 @@
+<% title t('views.users.pending_friendship_requests') %>
+
+<!-- closing narrow -->
+</div>
+
+<div id="user_information">
+  
+  <div class="narrow">
+  
+    <h1 id="avatar">
+      <%= link_to image_tag(gravatar_url(@user.email)), @user %>
+      <%= @user.username %> <em>(<%= @user.full_name %>)</em>
+    </h1>
+    
+  </div>
+
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">
+  
+  <h1><%=t 'views.users.pending_friendship_requests', :user => @user.full_name %></h1>
+  
+    <ul class="list">
+      <% @pending_friendships.each do |friendship| %>
+        <%= render :partial => 'users/user', :locals => { :user => friendship.friend(@user) } %>
+      <% end %>
+    </ul>
+    
+    <%= paginate @pending_friendships, :remote => true %>
+    <%= render 'shared/loading' %>
+    
+  <div class="back">
+    <%= link_to raw(t 'views.scaffold.back'), @user %>
+  </div>

@@ -1,0 +1,30 @@
+<%= simple_form_for(@venue) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.association :category %>
+    <%= f.association :sub_category %>
+    <%= f.input :latitude, :as => :hidden %>
+    <%= f.input :longitude, :as => :hidden %>
+    
+    <div id="map_canvas" style="margin: 0 0 10px 150px; width: 640px; height: 480px;"></div>
+    
+    <script>
+      var map = initialize_gmap();
+    <% if @venue.new_record? %>
+      marker = create_and_add_marker_to_map_at_address(map, "<%= current_user.location %>");
+    <% else %>
+      latlng = new google.maps.LatLng("<%= @venue.latitude %>", "<%= @venue.longitude %>");
+      marker = create_marker(latlng);
+      add_marker_to_map(map, marker);
+      update_latlng_with_dragend(marker);
+    <% end %>
+    </script>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

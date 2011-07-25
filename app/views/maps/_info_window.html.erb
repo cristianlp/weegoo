@@ -1,0 +1,22 @@
+<div class="info_window">
+  
+  <h1><%= link_to venue.name, venue %></h1>
+  
+  <% if not venue.description.blank? %>
+    <div>
+      <strong><%=t 'simple_form.labels.description' %></strong>
+      <%= venue.description %>
+    </div>
+  <% end %>
+  
+  <div>
+    <strong><%=t 'simple_form.labels.category' %></strong>
+    <%= venue.category.name %>
+  </div>
+  
+  <div>
+    <strong><%=t 'simple_form.labels.sub_category' %></strong>
+    <%= venue.sub_category.name %>
+  </div>
+  
+</div>

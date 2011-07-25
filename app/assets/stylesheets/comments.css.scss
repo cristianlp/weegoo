@@ -1,0 +1,51 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.comments {
+  // Add the comments class to your body tag
+  // Then, place scoped styles here.
+}
+
+li.comment
+{
+  .comment
+  {
+    margin-left: 32px;
+  }
+  
+  .comment_information
+  {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    font-size: 10px;
+    color: #888;
+  }
+}
+
+.comment_form
+{
+  img { float: left; }
+  
+  .inputs
+  {
+    margin-left: 32px;
+    
+    textarea
+    {
+      width: 900px;
+      height: 50px;
+    }
+  }
+  
+  .actions
+  {
+    margin: 0 !important;
+    
+    input[type=submit]
+    {
+      margin-left: 32px;
+    }
+  }
+}

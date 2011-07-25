@@ -1,0 +1,11 @@
+<% title t('views.events.new') %>
+
+<div class="form">
+  
+  <h1><%=t 'views.events.new' %></h1>
+  
+  <%= render 'form' %>
+  
+  <%= link_to raw(t 'views.scaffold.back'), venue_events_path(@venue) %>
+  
+</div>

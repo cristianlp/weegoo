@@ -1,0 +1,140 @@
+// Place all the styles related to the Venues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.users {
+  // Add the users class to your body tag
+  // Then, place scoped styles here.
+}
+
+#user_information
+{
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 10px 0;
+  
+  h1#avatar
+  {
+    color: #333;
+    margin: 0;
+    
+    em
+    {
+      font-style: normal;
+      color: #aaa;
+      font-weight: normal;
+    }
+    
+    img
+    {
+      vertical-align: middle;
+      padding: 2px;
+      border: 1px solid #ddd;
+    }
+  }
+  
+  #information
+  {
+    dl
+    {
+      dd { margin: 0px; }
+
+      dt
+      {
+        color: #999;
+        float: left;
+        margin: 0px;
+        width: 115px;
+      }
+    }
+  }
+  
+  ul#stats
+  {
+    padding: 0;
+    list-style: none;
+    
+    li
+    {
+      float: left;
+      margin-right: 20px;
+      
+      a
+      {
+        span
+        {
+          color: #999;
+          display: block;
+          font-size: 11px;
+        }
+        
+        strong
+        {
+          color: #000;
+          font-size: 26px;
+          font-weight: bold;
+        }
+        
+        &:hover, &:hover *
+        {
+          text-decoration: none;
+          color: #2d76b9;
+        }
+      }
+    }
+  }
+  
+  #mutual_friends
+  {
+    clear: both;
+    margin-top: 80px;
+    
+    div { font-weight: bold; }
+    
+    ul#avatars
+    {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin-top: 6px;
+      
+      li
+      {
+        display: inline;
+        
+        a
+        {
+          img
+          {
+            padding: 1px;
+            border: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.list
+{
+  li.user
+  {
+    .actions
+    {
+      margin-top: 4px;
+    }
+    
+    .activities_count
+    {
+      position: absolute;
+      top: 8px;
+      right: 5px;
+      font-size: 14px;
+      color: #2d76b9;
+      font-weight: bold;
+    }
+  }
+}

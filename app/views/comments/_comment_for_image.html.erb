@@ -1,0 +1,20 @@
+<li class="comment">
+  
+  <%= link_to image_tag(gravatar_url(comment_for_image.user.email, 24)), comment_for_image.user %>
+  <%= link_to comment_for_image.user.username, comment_for_image.user %>
+  <em>(<%= comment_for_image.user.full_name %>)</em>
+  
+  <div class="comment">
+    <%= comment_for_image.content %>
+  </div>
+  
+  <div class="comment_information">
+    <%=l comment_for_image.created_at, :format => :activity %>
+    <% if comment_for_image.commentable.imageable.respond_to?(:venue) %>
+      <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable.venue, comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
+    <% else %>
+      <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
+    <% end %>
+  </div>
+  
+</li>

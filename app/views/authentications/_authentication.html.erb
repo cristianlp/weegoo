@@ -1,0 +1,24 @@
+<li class="authentication">
+  <%= image_tag "#{provider}_32.png" %>
+  
+  <%= provider %>
+  
+  <% if current_user.authenticates_to?(provider) %>
+    
+    <div class="actions button-group">
+      
+      <%= link_to t('views.scaffold.destroy'), user_authentication_path(current_user, current_user.authentications.where('provider = ?', provider).first), :confirm => 'Are you sure?', :method => :delete, :class => 'button danger' %>
+      
+      <%= link_to t('views.users.find_friends'), find_friends_user_path(current_user, provider), :class => 'button' %>
+      
+    </div>
+      
+  <% else %>
+    
+    <div class="actions">  
+      <%= link_to t('views.authentications.connect'), "/auth/#{provider}", :class => 'button' %>
+    </div>
+      
+  <% end %>
+  
+</li>

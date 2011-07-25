@@ -1,0 +1,187 @@
+<% title @event.name %>
+
+<!-- closing narrow -->
+</div>
+
+<div class="information">
+  
+  <div class="narrow">
+  
+    <h1 id="avatar">
+      <%= @event.name %>
+    </h1>
+    
+    <div class="ruler"></div>
+      
+    <div class="columns">
+      <div id="information" class="left">
+        <dl>
+          <dt><%=t 'simple_form.labels.name' %></dt>
+          <dd><%= @event.name %></dd>
+          
+          <dt><%=t 'simple_form.labels.venue' %></dt>
+          <dd><%= link_to @event.venue.name, @event.venue %></dd>
+          
+          <% if not @event.description.blank? %>
+            <dt><%=t 'simple_form.labels.description' %></dt>
+            <dd><%= @event.description %></dd>
+          <% end %>
+          
+          <% if not @event.start_date.blank? %>
+            <dt><%=t 'simple_form.labels.start_date' %></dt>
+            <dd><%=l @event.start_date %></dd>
+          <% end %>
+          
+          <% if not @event.start_time.blank? %>
+            <dt><%=t 'simple_form.labels.start_time' %></dt>
+            <dd><%= @event.start_time %></dd>
+          <% end %>
+          
+          <% if not @event.end_date.blank? %>
+            <dt><%=t 'simple_form.labels.end_date' %></dt>
+            <dd><%=l @event.end_date %></dd>
+          <% end %>
+          
+          <% if not @event.end_time.blank? %>
+            <dt><%=t 'simple_form.labels.end_time' %></dt>
+            <dd><%= @event.end_time %></dd>
+          <% end %>
+                    
+          <dt><%=t 'views.events.user' %></dt>
+          <dd><%= link_to @event.user.full_name, @event.user %></dd>
+        </dl>
+      </div>
+        
+      <div class="right">
+        <ul id="stats">
+          <li><%= link_to raw("<strong>#{@event.visitors.size}</strong><span>#{t("views.common.visitors")}</span>"), visitors_venue_event_path(@venue, @event) %></li>
+            
+          <li><%= link_to raw("<strong>#{@event.possible_visitors.size}</strong><span>#{t("views.common.possible_visitors")}</span>"), possible_visitors_venue_event_path(@venue, @event) %></li>            
+        </ul>
+      </div>
+    </div>
+      
+    <% if user_signed_in? %>
+      
+      <div class="ruler"></div>
+      
+      <div class="columns">
+        <div class="left button-group">
+          <% if @event.can_edit?(current_user) %>
+            <%= link_to t('views.scaffold.edit'), edit_venue_event_path(@venue, @event), :class => 'button icon edit' %>
+          <% end %>
+          
+          <% if @event.can_delete?(current_user) %>
+              <%= link_to t('views.scaffold.destroy'), [@venue, @event], :method => :delete, :class => 'button icon danger trash' %>
+          <% end %>
+        </div>
+        
+        <div class="right">
+          <% if user_signed_in? %>
+            
+            <% if not current_user.events_users.visited.exists?(:event_id => @event.id) %>
+              
+              <div class="actions button-group">
+                
+                <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_event_path(@event.venue, @event), :class => 'button icon approve' %>
+                
+                <% if not current_user.events_users.to_go.exists?(:event_id => @event.id) %>
+                  
+                  <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_event_path(@event.venue, @event), :class => 'button icon clock' %>
+                  
+                <% else %>
+                  
+                  <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_event_path(@event.venue, @event), :class => 'button icon clock' %>
+                  
+                <% end %>
+                
+              </div>
+              
+            <% else %>
+              
+              <div class="actions">
+                <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_event_path(@event.venue, @event), :class => 'button icon remove' %>
+              </div>
+              
+            <% end %>
+              
+          <% end %>
+          
+        </div>
+        
+      </div>
+      
+    <% end %>
+    
+  </div>
+  
+</div>
+
+<!-- reopening narrow -->
+<div class="narrow">
+  
+  <div class="columns">
+    
+    <div class="left">
+      
+      <% if not @event.visitors.empty? %>
+        <h2><%=t 'views.common.visitors' %></h2>
+        
+        <ul class="list">
+          <%= render :partial => 'users/user', :collection => @event.visitors.limit(User::LATEST) %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), visitors_venue_event_path(@venue, @event) %></div>
+      <% end %>
+      
+      <% if not @event.possible_visitors.empty? %>
+        <h2><%=t 'views.common.possible_visitors' %></h2>
+        
+        <ul class="list">
+          <%= render :partial => 'users/user', :collection => @event.possible_visitors.limit(User::LATEST) %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), possible_visitors_venue_event_path(@venue, @event) %></div>
+      <% end %>
+      
+    </div>
+    
+    <div class="right">
+      <h2><%=t 'views.common.latest_comments' %></h2>
+      
+      <% if not @event.comments.empty? %>
+        
+        <ul class="list">
+          <%= render :partial => 'comments/comment_for_event', :collection => @event.comments.latest %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), venue_event_comments_path(@venue, @event) %></div>
+      
+      <% else %>
+        
+        <div class="empty">
+          <%= t 'views.events.this_event_has_no_comments' %> <%= link_to t('views.comments.new'), venue_event_comments_path(@venue, @event) %>
+        </div>
+        
+      <% end %>
+      
+      <h2><%=t 'views.common.latest_images' %></h2>
+      
+      <% if not @event.images.empty? %>
+        
+        <ul class="list images_list">
+          <%= render :partial => 'images/image_for_event', :collection => @event.images.latest, :locals => { :thumb_size => :small_thumb } %>
+        </ul>
+        
+        <div class="right_actions"><%= link_to raw(t 'views.common.show_all'), venue_event_images_path(@event.venue, @event) %></div>
+        
+      <% else %>
+        
+        <div class="empty">
+          <%= t 'views.events.this_event_has_no_images' %> <%= link_to t('views.images.new'), venue_event_images_path(@event.venue, @event) %>
+        </div>
+        
+      <% end %>
+    </div>
+    
+  </div>

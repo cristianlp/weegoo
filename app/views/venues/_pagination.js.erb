@@ -1,0 +1,11 @@
+<% if params[:show_as] == 'List' %>
+  
+  $("ul.venues_list").append("<%= escape_javascript(render :partial => 'venues/venue', :collection => @venues) %>");
+  
+<% else %>
+  
+  <%= render :partial => 'maps/venue', :collection => @venues %>
+  
+<% end %>
+
+$("#pagination").replaceWith("<%= escape_javascript(paginate @venues, :remote => true) %>");

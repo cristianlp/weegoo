@@ -1,0 +1,45 @@
+<% title 'weegoo' %>
+
+<div id="features">
+  
+  <%= image_tag 'home_image.png', :style => "margin-left: -20px;" %>
+  
+</div>
+
+<h1 class="title"><%=t 'views.main.start_finding_friends_and_sharing_venues_and_events' %></h1>
+
+<div id="sign_up">
+  <%= link_to t('views.main.sign_up_now'), new_user_registration_path, :class => 'big button pill' %> <%= raw(t 'views.main.or_sign_in_with_facebook_or_twitter', { :facebook => link_to(image_tag('facebook_64.png'), '/auth/facebook'), :twitter => link_to(image_tag('twitter_64.png'), '/auth/twitter') }) %>
+</div>
+
+<div class="columns" style="margin-top: 30px">
+  
+  <div class="left">
+    <h1><%=t 'views.main.most_visited_venues' %></h1>
+    
+    <ul class="list venues_list">
+      <%= render :partial => 'venues/venue', :collection => @most_visited_venues %>
+    </ul>
+  </div>
+  
+  <div class="right">
+    <h1><%=t 'views.main.most_active_users' %></h1>
+    
+    <ul class="list">
+      <%= render :partial => 'users/user', :collection => @most_active_users %>
+    </ul>
+  </div>
+  
+</div>
+
+<div class="columns" style="margin-top: 30px">
+  
+  <div class="left">
+    <h1><%=t 'views.main.upcoming_events' %></h1>
+    
+    <ul class="list">
+      <%= render :partial => 'events/event', :collection => @upcoming_events %>
+    </ul>
+  </div>
+  
+</div>
