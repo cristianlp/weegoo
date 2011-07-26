@@ -1,0 +1,7 @@
+<% title @title %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <%= render :partial => 'users/user', :collection => @users %>
+  </ul>
+</div>

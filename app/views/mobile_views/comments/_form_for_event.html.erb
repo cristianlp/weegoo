@@ -1,0 +1,11 @@
+<%= simple_form_for([@commentable.venue, @commentable, @comment]) do |f| %>
+  <%= f.error_notification %>
+  
+  <div data-role="fieldcontain">
+    <%= f.input :content, :label => false %>
+  </div>
+  
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

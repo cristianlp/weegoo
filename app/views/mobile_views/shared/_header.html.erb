@@ -1,0 +1,14 @@
+<div data-role="header">
+  <h1><%= content_for?(:title) ? yield(:title) : 'weegoo' %></h1>
+  
+  <% if user_signed_in? %>
+    <%= link_to t('views.users.sign_out'), destroy_user_session_path, :method => :delete, :class => 'ui-btn-right', 'data-ajax' => false %>
+    
+    <div data-role="navbar">
+      <ul>
+        <li><%= link_to t('views.main.home'), root_path, 'data-ajax' => false %></li>
+        <li><%= link_to t('views.main.search'), venues_path %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

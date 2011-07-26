@@ -1,0 +1,72 @@
+<%= title @venue.name %>
+
+<div data-role="content">
+  <% if not @venue.description.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.description' %></strong> <em><%= @venue.description %></em>
+    </div>
+  <% end %>
+  
+  <div data-role="fieldcontain">
+    <strong><%=t 'simple_form.labels.category' %></strong> <em><%= @venue.category.name %></em>
+  </div>
+  <div data-role="fieldcontain">
+    <strong><%=t 'simple_form.labels.sub_category' %></strong> <em><%= @venue.sub_category.name %></em>
+  </div>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to_if @venue.visitors.count > 0, t('views.common.visitors'), visitors_venue_path(@venue) %>
+      <span class="ui-li-count"><%= @venue.visitors.count %></span>
+    </li>
+    <li>
+      <%= link_to_if @venue.possible_visitors.count > 0, t('views.common.possible_visitors'), possible_visitors_venue_path(@venue) %>
+      <span class="ui-li-count"><%= @venue.possible_visitors.count %></span>
+    </li>
+  </ul>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to t('views.common.events'), venue_events_path(@venue) %>
+      <span class="ui-li-count"><%= @venue.events.size %></span>
+    </li>
+    <li>
+      <%= link_to t('views.common.comments'), venue_comments_path(@venue) %>
+      <span class="ui-li-count"><%= @venue.comments.size %></span>
+    </li>
+  </ul>
+</div>
+
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <% if @venue.can_edit?(current_user) %>
+        <li><%= link_to t('views.scaffold.edit'), edit_venue_path(@venue), 'data-rel' => 'dialog' %></li>
+      <% end %>
+      
+      <% if @venue.can_delete?(current_user) %>
+        <li><%= link_to t('views.scaffold.destroy'), @venue, :method => :delete %></li>
+      <% end %>
+      
+      <% if not current_user.users_venues.visited.exists?(:venue_id => @venue.id) %>
+        
+        <li><%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_path(@venue), 'data-ajax' => false %></li>
+        
+        <% if not current_user.users_venues.to_go.exists?(:venue_id => @venue.id) %>
+          
+          <li><%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_path(@venue), 'data-ajax' => false %></li>
+          
+        <% else %>
+          
+          <li><%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_path(@venue), 'data-ajax' => false %></li>
+          
+        <% end %>
+        
+      <% else %>
+        
+        <li><%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_path(@venue), 'data-ajax' => false %></li>
+        
+      <% end %>
+    </ul>
+  </div>
+</div>

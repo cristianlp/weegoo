@@ -1,0 +1,15 @@
+<% title t('views.venues.venue_events', :venue => @venue.name) %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <%= render :partial => 'events/event', :collection => @events %>
+  </ul>
+</div>
+
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to t('views.events.new'), new_venue_event_path(@venue, @event) %></li>
+    </ul>
+  </div>
+</div>

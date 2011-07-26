@@ -1,0 +1,90 @@
+<%= title @event.name %>
+
+<div data-role="content">
+  <% if not @event.description.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.description' %></strong> <em><%= @event.description %></em>
+    </div>
+  <% end %>
+  
+  <div data-role="fieldcontain">
+    <strong><%=t 'simple_form.labels.venue' %></strong> <em><%= link_to @venue.name, @venue, 'data-ajax' => false %></em>
+  </div>
+  
+  <% if not @event.start_date.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.start_date' %></strong> <em><%=l @event.start_date %></em>
+    </div>
+  <% end %>
+  
+  <% if not @event.start_time.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.start_time' %></strong> <em><%= @event.start_time %></em>
+    </div>
+  <% end %>
+  
+  <% if not @event.end_date.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.end_date' %></strong> <em><%=l @event.end_date %></em>
+    </div>
+  <% end %>
+  
+  <% if not @event.end_time.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.end_time' %></strong> <em><%= @event.end_time %></em>
+    </div>
+  <% end %>
+  
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to_if @event.visitors.count > 0, t('views.common.visitors'), visitors_venue_event_path(@venue, @event) %>
+      <span class="ui-li-count"><%= @event.visitors.count %></span>
+    </li>
+    <li>
+      <%= link_to_if @event.possible_visitors.count > 0, t('views.common.possible_visitors'), possible_visitors_venue_event_path(@venue, @event) %>
+      <span class="ui-li-count"><%= @event.possible_visitors.count %></span>
+    </li>
+  </ul>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to t('views.common.comments'), venue_event_comments_path(@venue, @event) %>
+      <span class="ui-li-count"><%= @event.comments.size %></span>
+    </li>
+  </ul>
+</div>
+
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <% if @event.can_edit?(current_user) %>
+        <li><%= link_to t('views.scaffold.edit'), edit_venue_event_path(@venue, @event), 'data-rel' => 'dialog' %></li>
+      <% end %>
+      
+      <% if @event.can_delete?(current_user) %>
+        <li><%= link_to t('views.scaffold.destroy'), [@venue, @event], :method => :delete %></li>
+      <% end %>
+      
+      <% if not current_user.events_users.visited.exists?(:event_id => @event.id) %>
+        
+        <li><%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_event_path(@venue, @event), 'data-ajax' => false %></li>
+        
+        <% if not current_user.events_users.to_go.exists?(:event_id => @event.id) %>
+          
+          <li><%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_event_path(@venue, @event), 'data-ajax' => false %></li>
+          
+        <% else %>
+          
+          <li><%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_event_path(@venue, @event), 'data-ajax' => false %></li>
+          
+        <% end %>
+        
+      <% else %>
+        
+        <li><%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_event_path(@venue, @event), 'data-ajax' => false %></li>
+        
+      <% end %>
+    </ul>
+  </div>
+</div>

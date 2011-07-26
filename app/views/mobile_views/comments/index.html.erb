@@ -1,0 +1,19 @@
+<%= title t('views.comments.commentable_comments', :commentable => @commentable.name) %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <% if @commentable.class.to_s == 'Venue' %>
+      <%= render :partial => 'comments/comment_for_venue', :collection => @comments %>
+    <% else %>
+      <%= render :partial => 'comments/comment_for_event', :collection => @comments %>
+    <% end %>
+  </ul>
+  
+  <h2 style="padding-top: 20px"><%=t 'views.comments.new' %></h2>
+  
+  <% if @commentable.class.to_s == 'Venue' %>
+    <%= render 'form_for_venue' %>
+  <% else %>
+    <%= render 'form_for_event' %>
+  <% end %>
+</div>

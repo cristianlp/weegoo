@@ -53,6 +53,7 @@ es:
     
     common:
       comments: Comentarios
+      events: Eventos
       latest_comments: Últimos comentarios
       latest_images: Últimas imagenes
       list: Lista
@@ -91,7 +92,6 @@ es:
       advanced_venues_search: 'Búsqueda avanzada de lugares &rarr;'
       advanced_users_search: 'Búsqueda avanzada de usuarios &rarr;'
       contribute: Contribuí
-      events: Eventos
       most_active_users: Usuarios más activos
       most_visited_venues: Lugares más visitados
       or_sign_in_with_facebook_or_twitter: o iniciá sesión con %{facebook} o %{twitter}
@@ -180,7 +180,6 @@ es:
     venues:
       can_not_find_the_venue_you_are_looking_for: ¿No encontrás el lugar que estás buscando?
       edit: Editar lugar
-      events: Eventos
       find_venues: Buscar lugares
       new: Nuevo lugar
       this_venue_has_no_comments: Este lugar no tiene comentarios
@@ -190,6 +189,7 @@ es:
       venue_has_no_events: El lugar %{venue} no tiene eventos
       venue_has_no_visitors: El lugar %{venue} no tiene visitantes
       venue_has_no_possible_visitors: El lugar %{venue} no tiene posibles visitantes
+      venue_possible_visitors: Posibles visitantes del lugar %{venue}
       venue_visitors: Visitantes del lugar %{venue}
       venue_was_successfully_created: El lugar fue creado exitosamente.
       venue_was_successfully_updated: El lugar fue actualizado exitosamente.

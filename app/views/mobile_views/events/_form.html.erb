@@ -1,0 +1,30 @@
+<div data-role="content">
+  <%= simple_form_for [@venue, @event], :html => { 'data-ajax' => false } do |f| %>
+    <%= f.error_notification %>
+    
+    <div class="inputs">
+      <div data-role="fieldcontain">
+        <%= f.input :name %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= f.input :description %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= f.input :start_date, :order => [:day, :month, :year], :include_blank => true %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= f.input :start_time, :include_blank => true %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= f.input :end_date, :order => [:day, :month, :year], :include_blank => true %>
+      </div>
+      <div data-role="fieldcontain">
+        <%= f.input :end_time, :include_blank => true %>
+      </div>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

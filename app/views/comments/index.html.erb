@@ -30,7 +30,7 @@
       <% else %>
         <%= render :partial => 'comments/comment_for_event', :collection => @comments %>
       <% end %>
-    </ul>    
+    </ul>
   <% else %>
     <div class="empty">
       <%=t 'views.comments.commentable_has_no_comments', :commentable => @commentable.name %>

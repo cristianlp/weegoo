@@ -1,7 +1,11 @@
 class MainController < ApplicationController
   def index
     if user_signed_in?
-      redirect_to current_user
+      redirect_to current_user and return
+    end
+    
+    if mobile_request?
+      redirect_to new_user_session_url and return
     end
     
     @most_visited_venues = Venue.most_visited

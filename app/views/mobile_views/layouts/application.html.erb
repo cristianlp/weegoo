@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : 'weegoo' %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true" %>
+    <%= javascript_include_tag "http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js" %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+    
+    <div data-role="page">
+      <%= render :partial => 'shared/header' %>
+      
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>
