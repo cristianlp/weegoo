@@ -2,7 +2,7 @@
   <%= form_tag users_path, :method => :get do %>
     <div>
       <%= text_field_tag :query, params[:query] %>
-      <%= submit_tag t('views.common.search'), :name => nil %>
+      <%= submit_tag t('views.common.search'), :name => nil, :class => 'button big' %>
     </div>
   <% end %>
 </div>

@@ -371,3 +371,22 @@ ul.list
     margin-left: 120px !important;
   }
 }
+
+
+#search
+{
+  width: 70%;
+  margin: auto;
+  
+  form
+  {
+    margin: 30px 0;
+    
+    input[type=text]
+    {
+      width: 565px;
+      font-size: 20px;
+      vertical-align: -3px;
+    }
+  }
+}
