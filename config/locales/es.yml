@@ -1,54 +1,54 @@
 es:
   date:
     formats:
-      default: %d/%m/%Y
+      default: '%d/%m/%Y'
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
   
   time:
     formats:
-      activity: %d de %B a las %H:%M
+      activity: '%d de %B a las %H:%M'
   
   views:
     activities:
-      user_a_and_user_b_are_now_friends: %{user_a} y %{user_b} son ahora amigos
-      user_a_commented_the_event: %{user_a} comentó el evento %{event}
-      user_a_commented_the_image: %{user_a} comentó la imagen %{image}
-      user_a_commented_the_venue: %{user_a} comentó el lugar %{venue}
-      user_a_created_the_event: %{user_a} creó el evento %{event}
-      user_a_created_the_image_at_the_event: %{user_a} creó la imagen %{image} en el evento %{event}
-      user_a_created_the_image_at_the_venue: %{user_a} creó la imagen %{image} en el lugar %{venue}
-      user_a_created_the_venue: %{user_a} creó el lugar %{venue}
-      user_a_marked_the_event_as_to_go: %{user_a} marcó el evento %{event} como para ir
-      user_a_marked_the_event_as_visited: %{user_a} marcó el evento %{event} como visitado
-      user_a_unmarked_the_event_as_to_go: %{user_a} desmarcó el evento %{event} como para ir
-      user_a_unmarked_the_event_as_visited: %{user_a} desmarcó el evento %{event} como visitado
-      user_a_marked_the_venue_as_to_go: %{user_a} marcó el lugar %{venue} como para ir
-      user_a_marked_the_venue_as_visited: %{user_a} marcó el lugar %{venue} como visitado
-      user_a_unmarked_the_venue_as_to_go: %{user_a} desmarcó el lugar %{venue} como para ir
-      user_a_unmarked_the_venue_as_visited: %{user_a} desmarcó el lugar %{venue} como visitado
-      you_commented_the_event: Comentaste el evento %{event}
-      you_commented_the_image: Comentaste la imagen %{image}
-      you_commented_the_venue: Comentaste el lugar %{venue}
-      you_created_the_event: Creaste el evento %{event}
-      you_created_the_image_at_the_event: Creaste la imagen %{image} en el evento %{event}
-      you_created_the_image_at_the_venue: Creaste la imagen %{image} en el lugar %{venue}
-      you_created_the_venue: Creaste el lugar %{venue}
-      you_marked_the_event_as_to_go: Marcaste el evento %{event} como para ir
-      you_marked_the_event_as_visited: Marcaste el evento %{event} como vistado
-      you_unmarked_the_event_as_to_go: Desmarcaste el evento %{event} como para ir
-      you_unmarked_the_event_as_visited: Desmarcaste el evento %{event} como vistado
-      you_marked_the_venue_as_to_go: Marcaste el lugar %{venue} como para ir
-      you_marked_the_venue_as_visited: Marcaste el lugar %{venue} como vistado
-      you_unmarked_the_venue_as_to_go: Desmarcaste el lugar %{venue} como para ir
-      you_unmarked_the_venue_as_visited: Desmarcaste el lugar %{venue} como vistado
+      user_a_and_user_b_are_now_friends: '%{user_a} y %{user_b} son ahora amigos'
+      user_a_commented_the_event: '%{user_a} comentó el evento %{event}'
+      user_a_commented_the_image: '%{user_a} comentó la imagen %{image}'
+      user_a_commented_the_venue: '%{user_a} comentó el lugar %{venue}'
+      user_a_created_the_event: '%{user_a} creó el evento %{event}'
+      user_a_created_the_image_at_the_event: '%{user_a} creó la imagen %{image} en el evento %{event}'
+      user_a_created_the_image_at_the_venue: '%{user_a} creó la imagen %{image} en el lugar %{venue}'
+      user_a_created_the_venue: '%{user_a} creó el lugar %{venue}'
+      user_a_marked_the_event_as_to_go: '%{user_a} marcó el evento %{event} como para ir'
+      user_a_marked_the_event_as_visited: '%{user_a} marcó el evento %{event} como visitado'
+      user_a_unmarked_the_event_as_to_go: '%{user_a} desmarcó el evento %{event} como para ir'
+      user_a_unmarked_the_event_as_visited: '%{user_a} desmarcó el evento %{event} como visitado'
+      user_a_marked_the_venue_as_to_go: '%{user_a} marcó el lugar %{venue} como para ir'
+      user_a_marked_the_venue_as_visited: '%{user_a} marcó el lugar %{venue} como visitado'
+      user_a_unmarked_the_venue_as_to_go: '%{user_a} desmarcó el lugar %{venue} como para ir'
+      user_a_unmarked_the_venue_as_visited: '%{user_a} desmarcó el lugar %{venue} como visitado'
+      you_commented_the_event: 'Comentaste el evento %{event}'
+      you_commented_the_image: 'Comentaste la imagen %{image}'
+      you_commented_the_venue: 'Comentaste el lugar %{venue}'
+      you_created_the_event: 'Creaste el evento %{event}'
+      you_created_the_image_at_the_event: 'Creaste la imagen %{image} en el evento %{event}'
+      you_created_the_image_at_the_venue: 'Creaste la imagen %{image} en el lugar %{venue}'
+      you_created_the_venue: 'Creaste el lugar %{venue}'
+      you_marked_the_event_as_to_go: 'Marcaste el evento %{event} como para ir'
+      you_marked_the_event_as_visited: 'Marcaste el evento %{event} como vistado'
+      you_unmarked_the_event_as_to_go: 'Desmarcaste el evento %{event} como para ir'
+      you_unmarked_the_event_as_visited: 'Desmarcaste el evento %{event} como vistado'
+      you_marked_the_venue_as_to_go: 'Marcaste el lugar %{venue} como para ir'
+      you_marked_the_venue_as_visited: 'Marcaste el lugar %{venue} como vistado'
+      you_unmarked_the_venue_as_to_go: 'Desmarcaste el lugar %{venue} como para ir'
+      you_unmarked_the_venue_as_visited: 'Desmarcaste el lugar %{venue} como vistado'
     
     authentications:
       connect: Conectarse
     
     comments:
-      commentable_comments: Comentarios de %{commentable}
-      commentable_has_no_comments: %{commentable} no tiene comentarios
+      commentable_comments: 'Comentarios de %{commentable}'
+      commentable_has_no_comments: '%{commentable} no tiene comentarios'
       new: Nuevo comentario
     
     common:
@@ -60,9 +60,9 @@ es:
       map: Mapa
       mark_as_to_go: Marcar como para ir
       mark_as_visited: Marcar como visitado
-      no_results_found_for_query: No se encontraron resultados para "%{query}"
+      no_results_found_for_query: 'No se encontraron resultados para "%{query}"'
       possible_visitors: Posibles visitantes
-      results_for_query: Resultados para "%{query}"
+      results_for_query: 'Resultados para "%{query}"'
       search: Buscar
       show_all: 'Ver todos &rarr;'
       show_as: Ver como
@@ -72,10 +72,10 @@ es:
     
     events:
       edit: Editar evento
-      event_has_no_possible_visitors: El evento %{event} no tiene posibles visitantes
-      event_has_no_visitors: El evento %{event} no tiene visitantes
-      event_possible_visitors: Posibles visitantes del evento %{event}
-      event_visitors: Visitantes del evento %{event}
+      event_has_no_possible_visitors: 'El evento %{event} no tiene posibles visitantes'
+      event_has_no_visitors: 'El evento %{event} no tiene visitantes'
+      event_possible_visitors: 'Posibles visitantes del evento %{event}'
+      event_visitors: 'Visitantes del evento %{event}'
       event_was_successfully_created: El evento fue creado exitosamente.
       event_was_successfully_updated: El evento fue actualizado exitosamente.
       new: Nuevo evento
@@ -83,8 +83,8 @@ es:
       this_event_has_no_images: Este evento no tiene imagenes
     
     images:
-      imageable_images: Imagenes de %{imageable}
-      imageable_has_no_images: %{imageable} no tiene imagenes
+      imageable_images: 'Imagenes de %{imageable}'
+      imageable_has_no_images: '%{imageable} no tiene imagenes'
       new: Nueva imagen
     
     main:
@@ -94,7 +94,7 @@ es:
       contribute: Contribuí
       most_active_users: Usuarios más activos
       most_visited_venues: Lugares más visitados
-      or_sign_in_with_facebook_or_twitter: o iniciá sesión con %{facebook} o %{twitter}
+      or_sign_in_with_facebook_or_twitter: 'o iniciá sesión con %{facebook} o %{twitter}'
       search_venues_events_or_people: Buscá lugares, eventos o gente
       sign_up_now: ¡Registrate ahora!
       start_finding_friends_and_sharing_venues_and_events: ¡Empezá a encontrar amigos y compartir lugares y eventos!
@@ -129,7 +129,7 @@ es:
       accept_friendship_request: Aceptar solicitud de amistad
       add_as_friend: Agregar como amigo
       cancel_friendship_request: Cancelar solicitud de amistad
-      count_mutual_friends_with_user: %{count} amigos en común con %{user}
+      count_mutual_friends_with_user: '%{count} amigos en común con %{user}'
       delete_friendship: Eliminar amistad
       didnt_receive_confirmation_instructions: ¿No recibiste las instrucciones de confirmación?
       didnt_receive_unlock_instructions: ¿No recibiste instrucciones de desbloqueo?
@@ -139,39 +139,39 @@ es:
       find_people: Buscar gente
       forgot_your_password: ¿Olvidaste tu contraseña?
       friends: Amigos
-      friends_using_other_social_network_and_weegoo: Amigos usando %{other_social_network} y weegoo
+      friends_using_other_social_network_and_weegoo: 'Amigos usando %{other_social_network} y weegoo'
       friendship_requests: Solicitudes de amistad
-      mutual_friends_with_user: Amigos en común con %{user}
+      mutual_friends_with_user: 'Amigos en común con %{user}'
       pending_friendship_requests: Solicitudes de amistad pendientes
       recent_activity: Actividad reciente
       reject_friendship_request: Rechazar solicitud de amistad
-      search_for_friends_on_other_social_network_already_using_weegoo: Buscar amigos en %{other_social_network} que ya estén usando weegoo
+      search_for_friends_on_other_social_network_already_using_weegoo: 'Buscar amigos en %{other_social_network} que ya estén usando weegoo'
       search_for_friends_on_other_social_networks_already_using_weegoo: Buscar amigos en otras redes sociales que ya estén usando weegoo
       sign_in: Iniciar sesión
-      sign_in_with_provider: Iniciar sesión con %{provider}
+      sign_in_with_provider: 'Iniciar sesión con %{provider}'
       sign_in_with_other_application: Iniciar sesión con otra aplicación
       sign_out: Cerrar sesión
       sign_up: Registrate
       this_is_you: ¡Éste sos vos!
-      user_does_not_share_activity: %{user} no comparte su actividad
-      user_friends: Amigos de %{user}
-      user_has_no_activity: %{user} no tiene actividad
-      user_has_no_friends: %{user} no tiene amigos
-      user_has_no_event_to_go: %{user} no tiene ningún evento por ir
-      user_has_no_venue_to_go: %{user} no tiene ningún lugar por ir
-      user_has_not_visited_any_venue: %{user} no ha visitado ningún lugar
-      user_has_not_visited_any_event: %{user} no ha visitado ningún evento
-      user_events_to_go: Eventos por ir por %{user}
-      user_venues_to_go: Lugares por ir por %{user}
-      user_visited_events: Eventos visitados por %{user}
-      user_visited_venues: Lugares visitados por %{user}
+      user_does_not_share_activity: '%{user} no comparte su actividad'
+      user_friends: 'Amigos de %{user}'
+      user_has_no_activity: '%{user} no tiene actividad'
+      user_has_no_friends: '%{user} no tiene amigos'
+      user_has_no_event_to_go: '%{user} no tiene ningún evento por ir'
+      user_has_no_venue_to_go: '%{user} no tiene ningún lugar por ir'
+      user_has_not_visited_any_venue: '%{user} no ha visitado ningún lugar'
+      user_has_not_visited_any_event: '%{user} no ha visitado ningún evento'
+      user_events_to_go: 'Eventos por ir por %{user}'
+      user_venues_to_go: 'Lugares por ir por %{user}'
+      user_visited_events: 'Eventos visitados por %{user}'
+      user_visited_venues: 'Lugares visitados por %{user}'
       venues_to_go: Lugares por visitar
       visited_events: Eventos concurridos
       visited_venues: Lugares visitados
       you_do_not_have_activity: No tenés actividad
-      you_do_not_have_friends_using_other_social_network_and_weegoo: No tenés amigos que usen %{other_social_network} y weegoo
+      you_do_not_have_friends_using_other_social_network_and_weegoo: 'No tenés amigos que usen %{other_social_network} y weegoo'
       you_have_no_friends: No tenés amigos
-      you_have_no_mutual_friends_with_user: No tenés amigos en común con %{user}
+      you_have_no_mutual_friends_with_user: 'No tenés amigos en común con %{user}'
       you_have_no_event_to_go: No tenés ningún evento por ir
       you_have_no_venue_to_go: No tenés ningún lugar por ir
       you_have_not_visited_any_event: No visitaste ningún evento
@@ -185,11 +185,11 @@ es:
       this_venue_has_no_comments: Este lugar no tiene comentarios
       this_venue_has_no_events: Este lugar no tiene eventos
       this_venue_has_no_images: Este lugar no tiene imagenes
-      venue_events: Eventos del lugar %{venue}
-      venue_has_no_events: El lugar %{venue} no tiene eventos
-      venue_has_no_visitors: El lugar %{venue} no tiene visitantes
-      venue_has_no_possible_visitors: El lugar %{venue} no tiene posibles visitantes
-      venue_possible_visitors: Posibles visitantes del lugar %{venue}
-      venue_visitors: Visitantes del lugar %{venue}
+      venue_events: 'Eventos del lugar %{venue}'
+      venue_has_no_events: 'El lugar %{venue} no tiene eventos'
+      venue_has_no_visitors: 'El lugar %{venue} no tiene visitantes'
+      venue_has_no_possible_visitors: 'El lugar %{venue} no tiene posibles visitantes'
+      venue_possible_visitors: 'Posibles visitantes del lugar %{venue}'
+      venue_visitors: 'Visitantes del lugar %{venue}'
       venue_was_successfully_created: El lugar fue creado exitosamente.
       venue_was_successfully_updated: El lugar fue actualizado exitosamente.
