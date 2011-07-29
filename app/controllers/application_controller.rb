@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       cookies.delete(:prefer_full_version)
     elsif params[:full_version]
       cookies.permanent[:prefer_full_version] = 1
-      redirect_to_full_version if mobile_request?
+      redirect_to_full_version if is_mobile_request?
     end
   end
   
@@ -21,22 +21,22 @@ class ApplicationController < ActionController::Base
   end
   
   def redirect_to_mobile_version_if_applicable
-    unless mobile_request? || cookies[:prefer_full_version] || !mobile_browser?
+    unless is_mobile_request? || cookies[:prefer_full_version] || !is_mobile_browser?
       redirect_to request.protocol + 'm.' + request.host_with_port.gsub(/^www\./, '') + request.env['REQUEST_URI'] and return
     end
   end
   
   def prepend_mobile_view_path
-    prepend_view_path 'app/views/mobile_views' if mobile_request?
+    prepend_view_path 'app/views/mobile_views' if is_mobile_request?
   end
   
-  def mobile_request?
+  def is_mobile_request?
     request.subdomains.first == 'm'
   end
-  helper_method :mobile_request?
+  helper_method :is_mobile_request?
   
-  def mobile_browser?
+  def is_mobile_browser?
     request.env['HTTP_USER_AGENT'] && request.env["HTTP_USER_AGENT"][/(iPhone|iPod|iPad|Android)/]
   end
-  helper_method :mobile_browser?
+  helper_method :is_mobile_browser?
 end

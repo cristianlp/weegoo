@@ -15,7 +15,7 @@ function initialize_gmap(map_id)
   return map;
 }
 
-function create_and_add_marker_to_map_at_address(map, address)
+function create_and_add_marker_to_map_at_address(map, address, draggable)
 {
   var geocoder = new google.maps.Geocoder();
   var marker;
@@ -24,7 +24,7 @@ function create_and_add_marker_to_map_at_address(map, address)
   {
     if (status == google.maps.GeocoderStatus.OK)
     {
-      marker = create_marker(results[0].geometry.location);
+      marker = create_marker(results[0].geometry.location, draggable);
       add_marker_to_map(map, marker);
       update_latlng_with_dragend(marker);
     }

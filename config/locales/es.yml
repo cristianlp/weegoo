@@ -55,6 +55,7 @@ es:
     common:
       comments: Comentarios
       events: Eventos
+      home: Inicio
       latest_comments: Últimos comentarios
       latest_images: Últimas imagenes
       list: Lista

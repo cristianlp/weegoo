@@ -5,7 +5,11 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     if params[:query]
-      @venues = Venue.search(params[:query]).page(params[:page]).per(Venue::PER_PAGE)
+      if is_mobile_request?
+        @venues = Venue.search(params[:query])
+      else
+        @venues = Venue.search(params[:query]).page(params[:page]).per(Venue::PER_PAGE)
+      end
     else
       @venues = []
     end

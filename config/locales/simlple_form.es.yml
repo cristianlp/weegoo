@@ -1,6 +1,8 @@
 es:
   helpers:
     submit:
+      comment:
+        create: Crear comentario
       event:
         create: Crear evento
         update: Actualizar evento
