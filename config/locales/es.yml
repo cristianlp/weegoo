@@ -81,6 +81,7 @@ es:
       event_was_successfully_updated: El evento fue actualizado exitosamente.
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{comments} comentarios - %{images} imagenes'
       new: Nuevo evento
+      no_events_found_for_query: 'No se encontraron eventos para "%{query}"'
       this_event_has_no_comments: Este evento no tiene comentarios
       this_event_has_no_images: Este evento no tiene imagenes
     
@@ -145,6 +146,7 @@ es:
       friendship_requests: Solicitudes de amistad
       information: '%{friends} amigos - %{visited_venues} lugares visitados - %{venues_to_go} lugares por visitar - %{visited_events} eventos visitados - %{events_to_go} eventos por visitar'
       mutual_friends_with_user: 'Amigos en común con %{user}'
+      no_users_found_for_query: 'No se encontraron usuarios para "%{query}"'
       pending_friendship_requests: Solicitudes de amistad pendientes
       recent_activity: Actividad reciente
       reject_friendship_request: Rechazar solicitud de amistad
@@ -186,6 +188,7 @@ es:
       find_venues: Buscar lugares
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{events} eventos - %{comments} comentarios - %{images} imagenes'
       new: Nuevo lugar
+      no_venues_found_for_query: 'No se encontraron lugares para "%{query}"'
       this_venue_has_no_comments: Este lugar no tiene comentarios
       this_venue_has_no_events: Este lugar no tiene eventos
       this_venue_has_no_images: Este lugar no tiene imagenes

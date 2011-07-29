@@ -2,29 +2,48 @@
 
 <h1><%=t 'views.main.users' %></h1>
 
-<ul class="list">
-  <%= render :partial => 'users/user', :collection => @users %>
-</ul>
-<div class="right_actions"><%= link_to raw(t 'views.main.advanced_users_search'), users_path %></div>
+<% if @users.size > 0 %>
+  <ul class="list">
+    <%= render :partial => 'users/user', :collection => @users %>
+  </ul>
+<% else %>
+  <div class="empty">
+    <%=t 'views.users.no_users_found_for_query', :query => params[:query] %>
+  </div>
+<% end %>
+
+<div class="right_actions"><%= link_to raw(t 'views.main.advanced_users_search'), users_path(:query => params[:query]) %></div>
 
 <div class="columns">
   
   <div class="left">
     <h1><%=t 'views.main.venues' %></h1>
     
-    <ul class="list venues_list">
-      <%= render :partial => 'venues/venue', :collection => @venues %>
-    </ul>
+    <% if @venues.size > 0 %>
+      <ul class="list venues_list">
+        <%= render :partial => 'venues/venue', :collection => @venues %>
+      </ul>
+    <% else %>
+      <div class="empty">
+        <%=t 'views.venues.no_venues_found_for_query', :query => params[:query] %>
+      </div>
+    <% end %>
     
-    <div class="right_actions"><%= link_to raw(t 'views.main.advanced_venues_search'), venues_path %></div>
+    <div class="right_actions"><%= link_to raw(t 'views.main.advanced_venues_search'), venues_path(:query => params[:query]) %></div>
   </div>
   
   <div class="right">
     <h1><%=t 'views.common.events' %></h1>
     
-    <ul class="list">
-      <%= render :partial => 'events/event', :collection => @events %>
-    </ul>
+    <% if @events.size > 0 %>
+      <ul class="list">
+        <%= render :partial => 'events/event', :collection => @events %>
+      </ul>
+    <% else %>
+      <div class="empty">
+        <%=t 'views.events.no_events_found_for_query', :query => params[:query] %>
+      </div>
+    <% end %>
   </div>
   
 </div>
