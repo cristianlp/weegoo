@@ -29,3 +29,14 @@ $(".venue .actions a").live 'click', ->
       $(link).parents("li.venue").replaceWith(data)
   }
   false
+
+$(document).ready ->
+	$(".venue .tooltip").qtip {
+    #position: {
+    #  my: 'left center',
+    #  at: 'right center'
+    #},
+    style: {
+      classes: 'ui-tooltip-shadow ui-tooltip-youtube'
+    }
+  }

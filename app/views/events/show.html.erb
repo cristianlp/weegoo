@@ -34,7 +34,7 @@
           
           <% if not @event.start_time.blank? %>
             <dt><%=t 'simple_form.labels.start_time' %></dt>
-            <dd><%= @event.start_time %></dd>
+            <dd><%=l @event.start_time, :format => :event %></dd>
           <% end %>
           
           <% if not @event.end_date.blank? %>
@@ -44,7 +44,7 @@
           
           <% if not @event.end_time.blank? %>
             <dt><%=t 'simple_form.labels.end_time' %></dt>
-            <dd><%= @event.end_time %></dd>
+            <dd><%=l @event.end_time, :format => :event %></dd>
           <% end %>
                     
           <dt><%=t 'views.events.user' %></dt>
@@ -160,7 +160,10 @@
       <% else %>
         
         <div class="empty">
-          <%= t 'views.events.this_event_has_no_comments' %> <%= link_to t('views.comments.new'), venue_event_comments_path(@venue, @event) %>
+          <%= t 'views.events.this_event_has_no_comments' %>
+          <% if user_signed_in? %>
+            <%= link_to t('views.comments.new'), venue_event_comments_path(@venue, @event) %>
+          <% end %>
         </div>
         
       <% end %>
@@ -178,7 +181,10 @@
       <% else %>
         
         <div class="empty">
-          <%= t 'views.events.this_event_has_no_images' %> <%= link_to t('views.images.new'), venue_event_images_path(@event.venue, @event) %>
+          <%= t 'views.events.this_event_has_no_images' %>
+          <% if user_signed_in? %>
+            <%= link_to t('views.images.new'), venue_event_images_path(@event.venue, @event) %>
+          <% end %>
         </div>
         
       <% end %>

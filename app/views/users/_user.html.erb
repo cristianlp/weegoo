@@ -1,7 +1,9 @@
+<% information = t 'views.users.information', :friends => user.accepted_friendships.size, :visited_venues => user.visited_venues.size, :venues_to_go => user.venues_to_go.size, :visited_events => user.visited_events.size, :events_to_go => user.events_to_go.size %>
+
 <li class="user">
   
   <%= link_to image_tag(gravatar_url(user.email, 24)), user %>
-  <%= link_to user.username, user %>
+  <%= link_to user.username, user, :class => 'tooltip', :title => information %>
   <em>(<%= user.full_name %>)</em>
   
   <% if user_signed_in? and current_user == user %>

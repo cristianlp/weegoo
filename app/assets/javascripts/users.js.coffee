@@ -11,3 +11,14 @@ $(".user .actions a").live 'click', ->
       success: (data) ->
         $(link).parents("li.user").replaceWith(data)
   false
+
+$(document).ready ->
+	$(".user .tooltip").qtip {
+    #position: {
+    #  my: 'left center',
+    #  at: 'right center'
+    #},
+    style: {
+      classes: 'ui-tooltip-shadow ui-tooltip-youtube'
+    }
+  }

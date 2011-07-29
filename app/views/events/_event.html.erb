@@ -1,5 +1,7 @@
+<% information = t 'views.events.information', :visitors => event.visitors.size, :possible_visitors => event.possible_visitors.size, :comments => event.comments.size, :images => event.images.size %>
+
 <li class="event">
-  <%= link_to event.name, [event.venue, event] %>
+  <%= link_to event.name, [event.venue, event], :class => 'tooltip', :title => information %>
   
   <% if user_signed_in? %>
     

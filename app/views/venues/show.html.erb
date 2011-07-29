@@ -148,7 +148,10 @@
       <% else %>
         
         <div class="empty">
-          <%= t 'views.venues.this_venue_has_no_events' %> <%= link_to t('views.events.new'), new_venue_event_path(@venue) %>
+          <%= t 'views.venues.this_venue_has_no_events' %>
+          <% if user_signed_in? %>
+            <%= link_to t('views.events.new'), new_venue_event_path(@venue) %>
+          <% end %>
         </div>
         
       <% end %>
@@ -166,7 +169,10 @@
       <% else %>
         
         <div class="empty">
-          <%= t 'views.venues.this_venue_has_no_comments' %> <%= link_to t('views.comments.new'), venue_comments_path(@venue) %>
+          <%= t 'views.venues.this_venue_has_no_comments' %>
+          <% if user_signed_in? %>
+            <%= link_to t('views.comments.new'), venue_comments_path(@venue) %>
+          <% end %>
         </div>
         
       <% end %>
@@ -184,7 +190,10 @@
       <% else %>
         
         <div class="empty">
-          <%= t 'views.venues.this_venue_has_no_images' %> <%= link_to t('views.images.new'), venue_images_path(@venue) %>
+          <%= t 'views.venues.this_venue_has_no_images' %>
+          <% if user_signed_in? %>
+            <%= link_to t('views.images.new'), venue_images_path(@venue) %>
+          <% end %>
         </div>
         
       <% end %>

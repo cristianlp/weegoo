@@ -11,3 +11,14 @@ $(".event .actions a").live 'click', ->
       $(link).parents("li.event").replaceWith(data)
   }
   false
+
+$(document).ready ->
+	$(".event .tooltip").qtip {
+    #position: {
+    #  my: 'left center',
+    #  at: 'right center'
+    #},
+    style: {
+      classes: 'ui-tooltip-shadow ui-tooltip-youtube'
+    }
+  }

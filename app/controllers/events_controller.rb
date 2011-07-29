@@ -168,8 +168,8 @@ class EventsController < ApplicationController
     @event = @venue.events.find_by_permalink(params[:id])
     @users = @event.possible_visitors.page(params[:page]).per(User::PER_PAGE)
     
-    @title = t 'views.events.event_possible_visitors', :venue => @venue.name
-    @no_users_message = t 'views.events.event_has_no_possible_visitors', :venue => @venue.name
+    @title = t 'views.events.event_possible_visitors', :event => @event.name
+    @no_users_message = t 'views.events.event_has_no_possible_visitors', :event => @event.name
     
     respond_to do |format|
       format.html { render 'users' }
