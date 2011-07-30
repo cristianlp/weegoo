@@ -1,0 +1,4 @@
+<li>
+  <%= link_to sub_category.name, sub_category_map_venues_path(sub_category), 'data-ajax' => false %>
+  <span class="ui-li-count"><%= sub_category.venues.size %></span>
+</li>

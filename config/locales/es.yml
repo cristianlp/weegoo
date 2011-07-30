@@ -184,6 +184,10 @@ es:
       you_have_not_visited_any_venue: No visitaste ningún lugar
     
     venues:
+      all_categories: Todas las categorías
+      all_sub_categories: Todas las sub categorías
+      browse_categories: Navegar categorías
+      browse_sub_categories: Navegar sub categorías
       can_not_find_the_venue_you_are_looking_for: ¿No encontrás el lugar que estás buscando?
       edit: Editar lugar
       find_venues: Buscar lugares

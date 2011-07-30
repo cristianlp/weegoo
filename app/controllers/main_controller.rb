@@ -4,7 +4,7 @@ class MainController < ApplicationController
       redirect_to current_user and return
     end
     
-    if mobile_request?
+    if is_mobile_request?
       redirect_to new_user_session_url and return
     end
     

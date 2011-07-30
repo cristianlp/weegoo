@@ -1,0 +1,12 @@
+<% title t('views.venues.browse_sub_categories') %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <%= render :partial => 'sub_categories/sub_category', :collection => @sub_categories %>
+    
+    <li>
+      <%= link_to t('views.venues.all_sub_categories'), category_map_venues_path(@category), 'data-ajax' => false %>
+      <span class="ui-li-count"><%= @sub_categories.inject(0) { |sum, s| sum + s.venues.size } %></span>
+    </li>
+  </ul>
+</div>

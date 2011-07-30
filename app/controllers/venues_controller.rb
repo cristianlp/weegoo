@@ -186,4 +186,54 @@ class VenuesController < ApplicationController
       format.js { render :partial => 'users/pagination', :locals => { :users => @users } }
     end
   end
+  
+  def browse_categories
+    @categories = Category.all
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @categories }
+    end
+  end
+  
+  def browse_sub_categories
+    @category = Category.find(params[:category_id])
+    @sub_categories = @category.sub_categories
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @sub_categories }
+    end
+  end
+  
+  def map
+    @venues = Venue.all
+    
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @venues }
+    end
+  end
+  
+  def category_map
+    @category = Category.find(params[:category_id])
+  
+    @venues = @category.venues
+    
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @venues }
+    end
+  end
+  
+  def sub_category_map
+    @sub_category = SubCategory.find(params[:sub_category_id])
+  
+    @venues = @sub_category.venues
+    
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @venues }
+    end
+  end
 end

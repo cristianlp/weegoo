@@ -33,6 +33,15 @@ Neweegoo::Application.routes.draw do
       get 'visitors'
       get 'possible_visitors'
     end
+    
+    collection do
+      get 'browse_categories'
+      get 'browse_categories/:category_id/browse_sub_categories', :as => 'browse_sub_categories', :to => 'venues#browse_sub_categories'
+      
+      get 'map'
+      get 'category_map/:category_id', :as => 'category_map', :to => 'venues#category_map'
+      get 'sub_category_map/:sub_category_id', :as => 'sub_category_map', :to => 'venues#sub_category_map'
+    end
   end
 
   devise_for :users, :controllers => { :registrations => 'registrations' }
