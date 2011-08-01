@@ -1,4 +1,4 @@
-<%= simple_form_for([@commentable, @comment]) do |f| %>
+<%= simple_form_for([@commentable, @comment], :html => { :class => 'mobile_simple_form' }) do |f| %>
   <%= f.error_notification %>
   
   <div data-role="fieldcontain">

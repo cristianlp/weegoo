@@ -1,27 +1,22 @@
 <div data-role="content">
-  <%= simple_form_for @venue, :html => { 'data-ajax' => false } do |f| %>
+  <%= simple_form_for @venue, :html => { 'data-ajax' => false, :class => 'mobile_simple_form' } do |f| %>
     <%= f.error_notification %>
     
-    <div class="inputs">
-      <div data-role="fieldcontain">
-        <%= f.input :name %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= f.input :description %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= f.association :category %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= f.association :sub_category %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= f.input :latitude, :as => :hidden %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= f.input :longitude, :as => :hidden %>
-      </div>
+    <div data-role="fieldcontain">
+      <%= f.input :name %>
     </div>
+    <div data-role="fieldcontain">
+      <%= f.input :description %>
+    </div>
+    <div data-role="fieldcontain">
+      <%= f.association :category %>
+    </div>
+    <div data-role="fieldcontain">
+      <%= f.association :sub_category %>
+    </div>
+    
+    <%= f.input :latitude, :as => :hidden %>
+    <%= f.input :longitude, :as => :hidden %>
     
     <div data-role="fieldcontain">
       <%= f.button :submit %>

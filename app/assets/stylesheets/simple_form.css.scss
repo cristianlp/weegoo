@@ -60,3 +60,42 @@
   
   input[type=text], input[type=password] { width: 270px }
 }
+
+.mobile_simple_form
+{
+  label
+  {
+    float: inherit !important;
+    width: inherit !important;
+    margin: inherit !important;
+    
+    &.required { font-weight: bold; }
+  }
+  
+  .actions
+  {
+    margin: inherit !important;
+  }
+  
+  input[type=submit] { margin: inherit !important; }
+  
+  .error
+  {
+    margin: inherit !important;
+    font-size: inherit !important;
+    color: #D00;
+    display: inherit !important;
+  }
+  
+  .hint
+  {
+    clear: inherit !important;
+    margin-left: inherit !important;
+    font-size: inherit !important;
+    color: #555;
+    display: inherit !important;
+    font-style: inherit !important;
+  }
+  
+  input[type=text], input[type=password] { width: 95% !important; }
+}

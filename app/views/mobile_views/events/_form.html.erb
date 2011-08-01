@@ -1,5 +1,5 @@
 <div data-role="content">
-  <%= simple_form_for [@venue, @event], :html => { 'data-ajax' => false } do |f| %>
+  <%= simple_form_for [@venue, @event], :html => { 'data-ajax' => false, :class => 'mobile_simple_form' } do |f| %>
     <%= f.error_notification %>
     
     <div class="inputs">
