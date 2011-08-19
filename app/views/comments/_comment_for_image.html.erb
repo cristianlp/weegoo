@@ -10,10 +10,12 @@
   
   <div class="comment_information">
     <%=l comment_for_image.created_at, :format => :activity %>
-    <% if comment_for_image.commentable.imageable.respond_to?(:venue) %>
-      <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable.venue, comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
-    <% else %>
-      <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
+    <% if comment_for_image.user == current_user %>
+      <% if comment_for_image.commentable.imageable.respond_to?(:venue) %>
+        <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable.venue, comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
+      <% else %>
+        <%= link_to t('views.scaffold.destroy'), [comment_for_image.commentable.imageable, comment_for_image.commentable, comment_for_image], :method => :delete, :class => 'button danger' %>
+      <% end %>
     <% end %>
   </div>
   

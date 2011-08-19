@@ -88,6 +88,7 @@ es:
     
     images:
       imageable_images: 'Imagenes de %{imageable}'
+      imageable_has_no_comments: '%{imageable} no tiene comentarios'
       imageable_has_no_images: '%{imageable} no tiene imagenes'
       new: Nueva imagen
     

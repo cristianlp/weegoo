@@ -10,6 +10,8 @@
   
   <div class="comment_information">
     <%=l comment_for_event.created_at, :format => :activity %>
-    <%= link_to t('views.scaffold.destroy'), [comment_for_event.commentable.venue, comment_for_event.commentable, comment_for_event], :method => :delete, :class => 'button danger' %>
+    <% if comment_for_event.user == current_user %>
+      <%= link_to t('views.scaffold.destroy'), [comment_for_event.commentable.venue, comment_for_event.commentable, comment_for_event], :method => :delete, :class => 'button danger' %>
+    <% end %>
   </div>
 </li>
