@@ -63,7 +63,7 @@
         <div class="right">
           <% if user_signed_in? %>
             
-            <div class="actions">
+            <div class="actions button-group">
               
               <% if not current_user.users_venues.visited.exists?(:venue_id => @venue.id) %>
                 
