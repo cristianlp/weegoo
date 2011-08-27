@@ -50,7 +50,7 @@
       <div class="ruler"></div>
       
       <div class="columns">
-        <div class="left">
+        <div class="left button-group">
           <% if @venue.can_edit?(current_user) %>
             <%= link_to t('views.scaffold.edit'), edit_venue_path(@venue), :class => 'button icon edit' %>
           <% end %>
