@@ -6,7 +6,7 @@
   
   <ul id="actions">
     <% if current_user.pending_friendships.size > 0 %>
-      <li class="notification"><%= link_to t('views.users.friendship_requests'), pending_friendships_user_path(current_user) %></li>
+      <li class="friendship_requests"><%= link_to t('views.users.friendship_requests'), pending_friendships_user_path(current_user) %></li>
     <% end %>
     <li><%= link_to t('views.users.edit_account'), edit_user_registration_path %></li>
     <li><%= link_to t('views.users.sign_out'), destroy_user_session_path, :method => :delete %></li>

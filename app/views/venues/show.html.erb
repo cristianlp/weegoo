@@ -52,11 +52,11 @@
       <div class="columns">
         <div class="left">
           <% if @venue.can_edit?(current_user) %>
-            <%= link_to t('views.scaffold.edit'), edit_venue_path(@venue) %>
+            <%= link_to t('views.scaffold.edit'), edit_venue_path(@venue), :class => 'button icon edit' %>
           <% end %>
           
           <% if @venue.can_delete?(current_user) %>
-              <%= link_to t('views.scaffold.destroy'), @venue, :method => :delete %>
+              <%= link_to t('views.scaffold.destroy'), @venue, :method => :delete, :class => 'button icon danger trash' %>
           <% end %>
         </div>
         
@@ -67,21 +67,21 @@
               
               <% if not current_user.users_venues.visited.exists?(:venue_id => @venue.id) %>
                 
-                <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_path(@venue) %>
+                <%= link_to t('views.common.mark_as_visited'), mark_as_visited_venue_path(@venue), :class => 'button icon approve' %>
                 
                 <% if not current_user.users_venues.to_go.exists?(:venue_id => @venue.id) %>
                   
-                  <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_path(@venue) %>
+                  <%= link_to t('views.common.mark_as_to_go'), mark_as_to_go_venue_path(@venue), :class => 'button icon clock' %>
                   
                 <% else %>
                   
-                  <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_path(@venue) %>
+                  <%= link_to t('views.common.unmark_as_to_go'), unmark_as_to_go_venue_path(@venue), :class => 'button icon clock' %>
                   
                 <% end %>
                 
               <% else %>
                 
-                <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_path(@venue) %>
+                <%= link_to t('views.common.unmark_as_visited'), unmark_as_visited_venue_path(@venue), :class => 'button icon remove' %>
                 
               <% end %>
               

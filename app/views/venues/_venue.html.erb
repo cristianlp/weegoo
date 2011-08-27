@@ -1,6 +1,6 @@
 <% information = t 'views.venues.information', :visitors => venue.visitors.size, :possible_visitors => venue.possible_visitors.size, :events => venue.events.size, :comments => venue.comments.size, :images => venue.images.size %>
 
-<li class="venue" id="venue_<%= venue.id %>">
+<li class="venue">
   
   <%= link_to image_tag("category_#{venue.category_id}.png", :style => "width: 24px;"), venue %>
   <%= link_to venue.name, venue, :class => 'tooltip', :title => information %>

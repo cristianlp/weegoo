@@ -13,7 +13,7 @@ $(".user .actions a").live 'click', ->
   false
 
 $(document).ready ->
-	$(".user .tooltip").qtip {
+  $(".user .tooltip").qtip {
     #position: {
     #  my: 'left center',
     #  at: 'right center'
