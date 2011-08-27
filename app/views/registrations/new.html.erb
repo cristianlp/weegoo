@@ -1,36 +1,53 @@
-<div id="sign_up_form">
+<div id="sign_up_form" class="columns">
   
-  <h1><%=t 'views.registrations.sign_up' %></h1>
+  <div class="left">
     
-  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <h1><%=t 'views.registrations.sign_up' %></h1>
     
-    <div class="inputs">
-      <h2><%=t 'views.registrations.personal_information' %></h2>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email %>
-    </div>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <div class="inputs">
+        <h2><%=t 'views.registrations.personal_information' %></h2>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+      </div>
+      
+      <div class="inputs">
+        <h2><%=t 'views.registrations.location_information' %></h2>
+        <%= f.input :location %>
+      </div>
+      
+      <div class="inputs">
+        <h2><%=t 'views.registrations.account_information' %></h2>
+        <%= f.input :username %>
+        <% if @user.password_required? %>
+          <%= f.input :password %>
+          <%= f.input :password_confirmation %>
+        <% end %>
+      </div>
+      
+      <div class="actions">
+        <%= f.button :submit, t('views.registrations.sign_up') %>
+      </div>
+    <% end %>
     
-    <div class="inputs">
-      <h2><%=t 'views.registrations.location_information' %></h2>
-      <%= f.input :location %>
-    </div>
+    <%= render :partial => 'devise/shared/links' %>
     
-    <div class="inputs">
-      <h2><%=t 'views.registrations.account_information' %></h2>
-      <%= f.input :username %>
-      <% if @user.password_required? %>
-        <%= f.input :password %>
-        <%= f.input :password_confirmation %>
-      <% end %>
-    </div>
-    
-    <div class="actions">
-      <%= f.button :submit, t('views.registrations.sign_up') %>
-    </div>
-  <% end %>
+  </div>
   
-  <%= render :partial => 'devise/shared/links' %>
+  <div class="right">
+    <h1><%=t 'views.users.sign_up_with_other_application' %></h1>
+    
+    <div id="authentication_applications">
+      <%= link_to image_tag('facebook_64.png'), '/auth/facebook' %>
+      <%= link_to image_tag('twitter_64.png'), '/auth/twitter' %>
+    </div>
+    
+    <div>
+      <%=t 'views.registrations.connect_to_other_application_and_fill_some_information_in_order_to_complete_registration' %>
+    </div>
+  </div>
   
 </div>

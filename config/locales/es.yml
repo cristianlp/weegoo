@@ -156,6 +156,7 @@ es:
       account_information: Información de la cuenta
       cancel_account: Cancelar cuenta
       change_your_avatar_at_gravatar: Cambiá tu avatar en %{gravatar}
+      connect_to_other_application_and_fill_some_information_in_order_to_complete_registration: Conectate con otra aplicación y completá la información para terminar el registro
       edit_account: Editar perfil
       hints:
         current_password: Necesitamos tu contraseña actual para confirmar los cambios
@@ -199,6 +200,7 @@ es:
       sign_in: Iniciar sesión
       sign_in_with_provider: 'Iniciar sesión con %{provider}'
       sign_in_with_other_application: Iniciar sesión con otra aplicación
+      sign_up_with_other_application: Registrarse con otra aplicación
       sign_out: Cerrar sesión
       sign_up: Registrate
       this_is_you: ¡Éste sos vos!
