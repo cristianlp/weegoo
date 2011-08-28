@@ -1,51 +1,69 @@
 es:
   activerecord:
-      errors:
-        models:
-          event:
-            attributes:
-              name:
-                blank: El nombre no puede ser vacío.
-              category:
-                blank: La categoría no puede ser vacía.
-              sub_category:
-                blank: La subcategoría no puede ser vacía.
-          user:
-            attributes:
-              current_password:
-                blank: La contraseña actual no puede ser vacía.
-              first_name:
-                blank: El nombre no puede ser vacío.
-              last_name:
-                blank: El apellido no puede ser vacío.
-              email:
-                blank: El email no puede ser vacío.
-                invalid: El email ingresado no es válido.
-              location:
-                blank: La ubicación no puede ser vacía.
-              username:
-                invalid: El nombre de usuario es inválido.
-                taken: El nombre de usuario ya existe.
-                blank: El nombre de usuario es obligatorio.
-              password: 
-                blank: La contraseña no puede ser vacía.
-                confirmation: La contraseñas no concuerdan.
-                too_short: La contraseña es demasiado corta.
-          venue:
-            attributes:
-              name:
-                blank: El nombre no puede ser vacío.
-                taken: El nombre ya fue tomado.
-              category:
-                blank: La categoría no puede ser vacía.
-              sub_category:
-                blank: La subcategoría no puede ser vacía.
+    models:
+      event: evento
+      user: usuario
+      venue: lugar
+    errors:
+      models:
+        event:
+          attributes:
+            name:
+              blank: El nombre no puede ser vacío.
+            category:
+              blank: La categoría no puede ser vacía.
+            sub_category:
+              blank: La subcategoría no puede ser vacía.
+        user:
+          attributes:
+            current_password:
+              blank: La contraseña actual no puede ser vacía.
+            first_name:
+              blank: El nombre no puede ser vacío.
+            last_name:
+              blank: El apellido no puede ser vacío.
+            email:
+              blank: El email no puede ser vacío.
+              invalid: El email ingresado no es válido.
+            location:
+              blank: La ubicación no puede ser vacía.
+            username:
+              invalid: El nombre de usuario es inválido.
+              taken: El nombre de usuario ya existe.
+              blank: El nombre de usuario es obligatorio.
+            password: 
+              blank: La contraseña no puede ser vacía.
+              confirmation: La contraseñas no concuerdan.
+              too_short: La contraseña es demasiado corta.
+        venue:
+          attributes:
+            name:
+              blank: El nombre no puede ser vacío.
+              taken: El nombre ya fue tomado.
+            category:
+              blank: La categoría no puede ser vacía.
+            sub_category:
+              blank: La subcategoría no puede ser vacía.
   
   date:
     formats:
       default: '%d/%m/%Y'
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+  
+  models:
+    activities:
+      i_created_the_event: 'Creé el evento %{event}: %{url}'
+      i_created_the_venue: 'Creé el lugar %{venue}: %{url}'
+      i_marked_the_event_as_to_go: 'Marqué el evento %{event} como para ir: %{url}'
+      i_marked_the_event_as_visited: 'Marqué el evento %{event} como visitado: %{url}'
+      i_unmarked_the_event_as_to_go: 'Desmarqué el evento %{event} como para ir: %{url}'
+      i_unmarked_the_event_as_visited: 'Desmarqué el evento %{event} como visitado: %{url}'
+      i_marked_the_venue_as_to_go: 'Marqué el lugar %{venue} como para ir: %{url}'
+      i_marked_the_venue_as_visited: 'Marqué el lugar %{venue} como visitado: %{url}'
+      i_unmarked_the_venue_as_to_go: 'Desmarqué el lugar %{venue} como para ir: %{url}'
+      i_unmarked_the_venue_as_visited: 'Desmarqué el lugar %{venue} como visitado: %{url}'
+      user_and_i_are_now_friends_url: '%{user} y yo somos ahora amigos: %{url}'
   
   time:
     formats:

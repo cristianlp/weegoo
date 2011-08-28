@@ -12,18 +12,18 @@ class Activity < ActiveRecord::Base
   protected
   
   def tweet(message)
-    return unless Rails.env == 'production' # only tweet the message if the rails environment is production
+    #return unless Rails.env == 'production' # only tweet the message if the rails environment is production
     
     return unless self.user_a.tweet_activity?
     
     if self.user_a.authenticates_to?(:twitter)
-      Twitter.user(self.user_a.twitter_authentication.uid.to_i)
+      #user = Twitter.user(self.user_a.twitter_authentication.uid.to_i)
       Twitter.update(message)
     end
   end
   
   def post(message)
-    return unless Rails.env == 'production' # only post the message if the rails environment is production
+    #return unless Rails.env == 'production' # only post the message if the rails environment is production
     
     return unless self.user_a.post_activity?
     

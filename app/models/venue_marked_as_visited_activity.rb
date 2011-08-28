@@ -2,8 +2,9 @@ class VenueMarkedAsVisitedActivity < Activity
   protected
   
   def broadcast
-    #message = "I've visited #{self.venue.name}: #{venue_url(self.venue)}"
-    #tweet(message)
-    #post(message)
+    url = Rails.application.routes.url_helpers.venue_url(self.venue, :host => 'weegoo.com.ar')
+    message = I18n.t('models.activities.i_marked_the_venue_as_visited', :venue => self.venue.name, :url => url)
+    tweet message
+    post message
   end
 end

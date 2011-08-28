@@ -2,8 +2,9 @@ class AcceptedFriendshipActivity < Activity
   protected
   
   def broadcast
-    #message = "#{self.user_a.full_name} and I are now friends: #{user_url(self.user_a)}"
-    #tweet message
-    #post message
+    url = Rails.application.routes.url_helpers.user_url(self.user_a, :host => 'weegoo.com.ar')
+    message = I18n.t('models.activities.user_and_i_are_now_friends_url', :user => self.user_a.full_name, :url => url)
+    tweet message
+    post message
   end
 end
