@@ -88,8 +88,20 @@ class User < ActiveRecord::Base
   end
   
   def apply_omniauth(omniauth)
-    self.email = omniauth["user_info"]["email"] if email.blank?
-    authentications.build(:provider => omniauth["provider"], :uid => omniauth["uid"], :token => (omniauth['credentials']['token'] rescue nil))
+    case omniauth['provider']
+      when 'facebook'
+        apply_facebook(omniauth)
+      when 'twitter'
+        apply_twitter(omniauth)
+    end
+    authentications.build(hash_from_omniauth(omniauth))
+  end
+  
+  def update_omniauth(omniauth)
+    if omniauth['provider'] == 'twitter'
+      apply_twitter(omniauth)
+      twitter_authentication.update_attributes!(hash_from_omniauth(omniauth))
+    end
   end
   
   def password_required?
@@ -165,5 +177,29 @@ class User < ActiveRecord::Base
     end
     
     users
+  end
+  
+  protected
+  
+  def apply_facebook(omniauth)
+    if (extra = omniauth['extra']['user_hash'] rescue false)
+      self.email = (extra['email'] rescue '')
+    end
+  end
+
+  def apply_twitter(omniauth)
+    if (extra = omniauth['extra']['user_hash'] rescue false)
+      # Example fetching extra data. Needs migration to User model:
+      # self.firstname = (extra['name'] rescue '')
+    end
+  end
+
+  def hash_from_omniauth(omniauth)
+    {
+      :provider => omniauth['provider'], 
+      :uid => omniauth['uid'], 
+      :token => (omniauth['credentials']['token'] rescue nil),
+      :secret => (omniauth['credentials']['secret'] rescue nil)
+    }
   end
 end

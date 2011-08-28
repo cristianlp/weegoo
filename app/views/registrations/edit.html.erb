@@ -20,7 +20,7 @@
     <div class="inputs">
       <h2><%=t 'views.registrations.account_information' %></h2>
       <%= f.input :username %>
-      <% if not @user.encrypted_password.blank? %>
+      <% if @user.password_required? and not @user.encrypted_password.blank? %>
         <%= f.input :password, :hint => t("views.registrations.hints.password") %>
         <%= f.input :password_confirmation %>
         <%= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
@@ -45,7 +45,7 @@
     </div>
     
     <div class="actions">
-      <%= big_button_submit_tag t('helpers.submit.user.update') %>
+      <%= submit_tag t('helpers.submit.user.update'), :class => 'button big' %>
     </div>
   <% end %>
   

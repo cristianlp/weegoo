@@ -9,9 +9,10 @@ class AuthenticationsController < ApplicationController
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = t('controllers.authentications.signed_in')
+      authentication.user.update_omniauth(omniauth)
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :token => (omniauth['credentials']['token'] rescue nil))
+      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :token => (omniauth['credentials']['token'] rescue nil), :secret => (omniauth['credentials']['secret'] rescue nil))
       flash[:notice] = t('controllers.authentications.authentication_created')
       redirect_to user_url(current_user)
     else
