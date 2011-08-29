@@ -1,4 +1,6 @@
 <li class="venue_marked_as_visited_activity">
+  
+  <%= image_tag 'map--plus.png' %>
 
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_marked_the_venue_as_visited', { :venue => link_to(activity.venue.name, activity.venue) }) %>

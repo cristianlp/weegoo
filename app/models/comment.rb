@@ -13,6 +13,13 @@ class Comment < ActiveRecord::Base
   private
   
   def create_comment_created_activity
-    #CommentCreatedActivity.create!(:user_a_id => self.user.id, :"#{self.commentable.class.to_s.underscore}_id" => self.commentable.id)
+    case self.commentable_type
+      when 'Venue'
+        CommentCreatedActivity.create!(:user_a_id => self.user.id, :venue_id => self.commentable.id)
+      when 'Event'
+        CommentCreatedActivity.create!(:user_a_id => self.user.id, :event_id => self.commentable.id)
+      when 'Image'
+        CommentCreatedActivity.create!(:user_a_id => self.user.id, :image_id => self.commentable.id)
+    end
   end
 end

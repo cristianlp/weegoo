@@ -2,7 +2,7 @@ class CommentCreatedActivity < Activity
   protected
   
   def broadcast
-    #message = "I've commented"
+    #message = "..."
     #tweet message
     #post mesasge
   end

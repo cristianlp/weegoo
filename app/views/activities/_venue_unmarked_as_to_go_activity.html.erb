@@ -1,4 +1,6 @@
 <li class="venue_unmarked_as_to_go_activity">
+  
+  <%= image_tag 'map--minus.png' %>
 
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_unmarked_the_venue_as_to_go', { :venue => link_to(activity.venue.name, activity.venue) }) %>

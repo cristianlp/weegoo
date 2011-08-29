@@ -1,30 +1,32 @@
 <li class="comment_created_activity">
   
+  <%= image_tag 'balloon-ellipsis.png' %>
+  
   <% if current_user == activity.user_a and current_user == user %>
     
     <% if not activity.venue.nil? %>
-      <%= raw t('views.activities.you_commented_the_venue', :venue => link_to(activity.venue.name, activity.venue)) %>
+      <%= raw t('views.activities.you_commented_the_venue', :venue => link_to(activity.venue.name, venue_comments_path(activity.venue))) %>
     <% elsif not activity.event.nil? %>
-      <%= raw t('views.activities.you_commented_the_event', :event => link_to(activity.event.name, [activity.event.venue, activity.event])) %>
+      <%= raw t('views.activities.you_commented_the_event', :event => link_to(activity.event.name, venue_event_comments_path(activity.event.venue, activity.event))) %>
     <% elsif not activity.image.nil? %>
       <% if activity.image.imageable.respond_to?(:venue) %>
-        <%= raw t('views.activities.you_commented_the_image', :image => link_to(activity.image.caption, [activity.image.imageable.venue, activity.image.imageable, activity.image])) %>
+        <%= raw t('views.activities.you_commented_the_image', :image => link_to(activity.image.caption, venue_event_image_path(activity.image.imageable.venue, activity.image.imageable, activity.image))) %>
       <% else %>
-        <%= raw t('views.activities.you_commented_the_image', :image => link_to(activity.image.caption, [activity.image.imageable, activity.image])) %>
+        <%= raw t('views.activities.you_commented_the_image', :image => link_to(activity.image.caption, venue_image_path(activity.image.imageable, activity.image))) %>
       <% end %>
     <% end %>
     
   <% else %>
     
     <% if not activity.venue.nil? %>
-      <%= raw t('views.activities.user_a_commented_the_venue', :user_a => link_to(activity.user_a.full_name, activity.user_a), :venue => link_to(activity.venue.name, activity.venue)) %>
+      <%= raw t('views.activities.user_a_commented_the_venue', :user_a => link_to(activity.user_a.full_name, activity.user_a), :venue => link_to(activity.venue.name, venue_comments_path(activity.venue))) %>
     <% elsif not activity.event.nil? %>
-      <%= raw t('views.activities.user_a_commented_the_event', :user_a => link_to(activity.user_a.full_name, activity.user_a), :event => link_to(activity.event.name, [activity.event.venue, activity.event])) %>
+      <%= raw t('views.activities.user_a_commented_the_event', :user_a => link_to(activity.user_a.full_name, activity.user_a), :event => link_to(activity.event.name, venue_event_comments_path(activity.event.venue, activity.event))) %>
     <% elsif not activity.image.nil? %>
       <% if activity.image.imageable.respond_to?(:venue) %>
-        <%= raw t('views.activities.user_a_commented_the_image', :user_a => link_to(activity.user_a.full_name, activity.user_a), :image => link_to(activity.image.caption, [activity.image.imageable.venue, activity.image.imageable, activity.image])) %>
+        <%= raw t('views.activities.user_a_commented_the_image', :user_a => link_to(activity.user_a.full_name, activity.user_a), :image => link_to(activity.image.caption, venue_event_image_path(activity.image.imageable.venue, activity.image.imageable, activity.image))) %>
       <% else %>
-        <%= raw t('views.activities.user_a_commented_the_image', :user_a => link_to(activity.user_a.full_name, activity.user_a), :image => link_to(activity.image.caption, [activity.image.imageable, activity.image])) %>
+        <%= raw t('views.activities.user_a_commented_the_image', :user_a => link_to(activity.user_a.full_name, activity.user_a), :image => link_to(activity.image.caption, venue_image_path(activity.image.imageable, activity.image))) %>
       <% end %>
     <% end %>
     

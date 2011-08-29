@@ -1,4 +1,6 @@
 <li class="event_unmarked_as_visited_activity">
+  
+  <%= image_tag 'calendar--minus.png' %>
 
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_unmarked_the_event_as_visited', { :event => link_to(activity.event.name, [activity.event.venue, activity.event]) }) %>

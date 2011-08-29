@@ -1,4 +1,6 @@
 <li class="event_marked_as_to_go_activity">
+  
+  <%= image_tag 'calendar--plus.png' %>
 
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_marked_the_event_as_to_go', { :event => link_to(activity.event.name, [activity.event.venue, activity.event]) }) %>

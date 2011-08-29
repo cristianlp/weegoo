@@ -1,5 +1,7 @@
 <li class="venue_created_activity">
   
+  <%= image_tag 'map.png' %>
+  
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_created_the_venue', :venue => link_to(activity.venue.name, activity.venue)) %>
   <% else %>

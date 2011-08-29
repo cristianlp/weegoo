@@ -1,5 +1,7 @@
 <li class="event_created_activity">
   
+  <%= image_tag 'calendar.png' %>
+  
   <% if current_user == activity.user_a and current_user == user %>
     <%= raw t('views.activities.you_created_the_event', :event => link_to(activity.event.name, [activity.event.venue, activity.event])) %>
   <% else %>
