@@ -143,6 +143,7 @@ es:
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{comments} comentarios - %{images} imagenes'
       new: Nuevo evento
       no_events_found_for_query: 'No se encontraron eventos para "%{query}"'
+      there_are_no_upcoming_events: No hay eventos próximos.
       this_event_has_no_comments: Este evento no tiene comentarios
       this_event_has_no_images: Este evento no tiene imagenes
     

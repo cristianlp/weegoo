@@ -37,9 +37,13 @@
   <div class="left">
     <h1><%=t 'views.main.upcoming_events' %></h1>
     
-    <ul class="list">
-      <%= render :partial => 'events/event', :collection => @upcoming_events %>
-    </ul>
+    <% if !@upcoming_events.empty? %>
+      <ul class="list">
+        <%= render :partial => 'events/event', :collection => @upcoming_events %>
+      </ul>
+    <% else %>
+      <div class="empty"><%= t('views.events.there_are_no_upcoming_events') %></div>
+    <% end %>
   </div>
   
 </div>
