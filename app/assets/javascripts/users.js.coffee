@@ -22,3 +22,13 @@ $(document).ready ->
       classes: 'ui-tooltip-shadow ui-tooltip-youtube'
     }
   }
+  
+  $(".button.tooltip").qtip {
+    position: {
+      my: 'right center',
+      at: 'left center'
+    },
+    style: {
+      classes: 'ui-tooltip-shadow ui-tooltip-youtube'
+    }
+  }

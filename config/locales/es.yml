@@ -255,6 +255,7 @@ es:
       edit: Editar lugar
       find_venues: Buscar lugares
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{events} eventos - %{comments} comentarios - %{images} imagenes'
+      make_sure_that_the_venue_does_not_exists: "¡Asegurate que el lugar no exista!"
       new: Nuevo lugar
       no_venues_found_for_query: 'No se encontraron lugares para "%{query}"'
       this_venue_has_no_comments: Este lugar no tiene comentarios
