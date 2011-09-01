@@ -105,7 +105,8 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    (authentications.empty? || !password.blank?) && super
+    #authentications.empty? || !password.blank?
+    password.blank?
   end
   
   def valid_password?(password)
