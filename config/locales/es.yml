@@ -253,6 +253,7 @@ es:
       browse_categories: Navegar categorías
       browse_sub_categories: Navegar sub categorías
       can_not_find_the_venue_you_are_looking_for: ¿No encontrás el lugar que estás buscando?
+      created_by: Creado por
       edit: Editar lugar
       find_venues: Buscar lugares
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{events} eventos - %{comments} comentarios - %{images} imagenes'
