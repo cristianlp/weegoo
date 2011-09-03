@@ -109,9 +109,9 @@ class User < ActiveRecord::Base
     password.blank?
   end
   
-  def valid_password?(password)
-    not password_required? && super(password)
-  end
+  #def valid_password?(password)
+  #  !password_required? && super(password)
+  #end
   
   def authenticates_to?(provider)
     authentications.exists?(:provider => provider)
