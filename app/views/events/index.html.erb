@@ -29,7 +29,7 @@
     <%= paginate @events, :remote => true %>
     <%= render 'shared/loading' %>
   <% else %>
-    <div class="empty">
+    <div class="block-message alert-message warning">
       <%=t 'views.venues.venue_has_no_events' %>
     </div>
   <% end %>

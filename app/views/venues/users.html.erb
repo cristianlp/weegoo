@@ -29,7 +29,7 @@
     <%= paginate @users, :remote => true %>
     <%= render 'shared/loading' %>
   <% else %>
-    <div class="empty">
+    <div class="block-message alert-message warning">
       <%= @no_users_message %>
     </div>
   <% end %>

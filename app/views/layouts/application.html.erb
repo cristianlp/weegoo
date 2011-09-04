@@ -15,10 +15,8 @@
       <div class="narrow">
         
         <% flash.each do |name, message| %>
-          <div id="<%= name %>"><%= message %></div>
-          <script>
-            $("#<%= name %>").notification({ "class": "notification <%= name %>" });
-          </script>
+          <% name = 'success' if name == :notice %>
+          <div class="alert-message block-message <%= name %>" style="margin-top: 5px"><%= message %></div>
         <% end %>
         
         <%= yield %>

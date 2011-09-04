@@ -34,7 +34,7 @@
     
   <% else %>
     
-    <div class="empty">
+    <div class="block-message alert-message warning">
       <%= raw(t 'views.users.you_have_no_mutual_friends_with_user', :user => link_to(@user.full_name, @user)) %>
     </div>
   

@@ -42,7 +42,7 @@
         <%= render :partial => 'events/event', :collection => @upcoming_events %>
       </ul>
     <% else %>
-      <div class="empty"><%= t('views.events.there_are_no_upcoming_events') %></div>
+      <div class="alert-message block-message notice"><%= t('views.events.there_are_no_upcoming_events') %></div>
     <% end %>
   </div>
   

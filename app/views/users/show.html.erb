@@ -98,7 +98,7 @@
           
         <% else %>
           
-          <div class="empty">
+          <div class="alert-message block-message warning">
             <% if @user == current_user %>
               <%=t 'views.users.you_do_not_have_activity' %>
             <% else %>
@@ -134,7 +134,7 @@
             <%= render :partial => 'venues/venue', :collection => @most_visited_venues %>
           </ul>
         </div>
-      
+        
         <div class="section">
           <h1><%=t 'views.main.most_active_users' %></h1>
           <ul class="list">
@@ -149,7 +149,7 @@
               <%= render :partial => 'events/event', :collection => @upcoming_events %>
             </ul>
           <% else %>
-            <div class="empty"><%= t('views.events.there_are_no_upcoming_events') %></div>
+            <div class="alert-message block-message warning"><%= t('views.events.there_are_no_upcoming_events') %></div>
           <% end %>
         </div>
       <% end %>

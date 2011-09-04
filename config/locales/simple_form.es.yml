@@ -34,12 +34,14 @@ es:
     #       email: 'E-mail para efetuar o sign in.'
     #     edit:
     #       email: 'E-mail.'
+      caption: Descripción
       category: Categoría
       current_password: Contraseña actual
       description: Descripción
       end_date: Fecha de fin
       end_time: Hora de fin
       first_name: Nombre
+      image: Imagen
       last_name: Apellido
       location: Ubicación
       name: Nombre

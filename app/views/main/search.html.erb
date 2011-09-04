@@ -7,7 +7,7 @@
     <%= render :partial => 'users/user', :collection => @users %>
   </ul>
 <% else %>
-  <div class="empty">
+  <div class="block-message alert-message warning">
     <%=t 'views.users.no_users_found_for_query', :query => params[:query] %>
   </div>
 <% end %>
@@ -24,7 +24,7 @@
         <%= render :partial => 'venues/venue', :collection => @venues %>
       </ul>
     <% else %>
-      <div class="empty">
+      <div class="block-message alert-message warning">
         <%=t 'views.venues.no_venues_found_for_query', :query => params[:query] %>
       </div>
     <% end %>
@@ -40,7 +40,7 @@
         <%= render :partial => 'events/event', :collection => @events %>
       </ul>
     <% else %>
-      <div class="empty">
+      <div class="block-message alert-message warning">
         <%=t 'views.events.no_events_found_for_query', :query => params[:query] %>
       </div>
     <% end %>

@@ -29,8 +29,8 @@
       <%= render :partial => 'comments/comment_for_image', :collection => @comments %>
     </ul>    
   <% else %>
-    <div class="empty">
-      <%=t 'views.images.imageable_has_no_comments', :imageable => @imageable.name %>
+    <div class="alert-message block-message warning">
+      <%=t 'views.images.imageable_has_no_comments', :imageable => @image.caption %>
     </div>
   <% end %>
   

@@ -147,10 +147,12 @@
         
       <% else %>
         
-        <div class="empty">
+        <div class="block-message alert-message warning">
           <%= t 'views.venues.this_venue_has_no_events' %>
           <% if user_signed_in? %>
-            <%= link_to t('views.events.new'), new_venue_event_path(@venue) %>
+            <div class="alert-actions">
+              <%= link_to t('views.events.new'), new_venue_event_path(@venue), :class => 'btn small' %>
+            </div>
           <% end %>
         </div>
         
@@ -168,10 +170,12 @@
         
       <% else %>
         
-        <div class="empty">
+        <div class="block-message alert-message warning">
           <%= t 'views.venues.this_venue_has_no_comments' %>
           <% if user_signed_in? %>
-            <%= link_to t('views.comments.new'), venue_comments_path(@venue) %>
+            <div class="alert-actions">
+              <%= link_to t('views.comments.new'), venue_comments_path(@venue), :class => 'btn small' %>
+            </div>
           <% end %>
         </div>
         
@@ -189,10 +193,12 @@
         
       <% else %>
         
-        <div class="empty">
+        <div class="block-message alert-message warning">
           <%= t 'views.venues.this_venue_has_no_images' %>
           <% if user_signed_in? %>
-            <%= link_to t('views.images.new'), venue_images_path(@venue) %>
+            <div class="alert-actions">
+              <%= link_to t('views.images.new'), venue_images_path(@venue), :class => 'btn small' %>
+            </div>
           <% end %>
         </div>
         

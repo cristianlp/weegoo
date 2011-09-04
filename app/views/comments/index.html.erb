@@ -32,7 +32,7 @@
       <% end %>
     </ul>
   <% else %>
-    <div class="empty">
+    <div class="alert-message block-message warning">
       <%=t 'views.comments.commentable_has_no_comments', :commentable => @commentable.name %>
     </div>
   <% end %>

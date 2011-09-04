@@ -57,6 +57,7 @@
   .input { margin-bottom: 10px; }
   
   input, textarea { border: 1px solid #bbb; }
+  input[type=file] { border: 0 }
   
   input[type=text], input[type=password] { width: 270px }
 }

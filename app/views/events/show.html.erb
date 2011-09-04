@@ -159,7 +159,7 @@
       
       <% else %>
         
-        <div class="empty">
+        <div class="block-message alert-message warning">
           <%= t 'views.events.this_event_has_no_comments' %>
           <% if user_signed_in? %>
             <%= link_to t('views.comments.new'), venue_event_comments_path(@venue, @event) %>
@@ -180,7 +180,7 @@
         
       <% else %>
         
-        <div class="empty">
+        <div class="block-message alert-message warning">
           <%= t 'views.events.this_event_has_no_images' %>
           <% if user_signed_in? %>
             <%= link_to t('views.images.new'), venue_event_images_path(@event.venue, @event) %>
