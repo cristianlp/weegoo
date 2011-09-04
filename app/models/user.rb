@@ -105,12 +105,12 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    #authentications.empty? || !password.blank?
-    password.blank?
+    #(authentications.empty? || !password.blank?) && super
+    !encrypted_password.blank?
   end
   
   #def valid_password?(password)
-  #  !password_required? && super(password)
+  #  password_required? && super(password)
   #end
   
   def authenticates_to?(provider)
