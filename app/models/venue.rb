@@ -63,6 +63,10 @@ class Venue < ActiveRecord::Base
     venues
   end
   
+  def to_s
+    name
+  end
+  
   protected
   
   def handle_permalink
