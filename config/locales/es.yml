@@ -35,6 +35,8 @@ es:
               blank: La contraseña no puede ser vacía.
               confirmation: La contraseñas no concuerdan.
               too_short: La contraseña es demasiado corta.
+            current_password:
+              invalid: La contraseña actual es inválida.
         venue:
           attributes:
             name:
@@ -132,6 +134,9 @@ es:
       unmark_as_visited: Desmarcar como visitado
       visitors: Visitantes
     
+    errors:
+      the_page_you_are_looking_for_does_not_exists: La página que estás buscando no existe.
+    
     events:
       edit: Editar evento
       event_has_no_possible_visitors: 'El evento %{event} no tiene posibles visitantes'
@@ -216,6 +221,7 @@ es:
       reject_friendship_request: Rechazar solicitud de amistad
       search_for_friends_on_other_social_network_already_using_weegoo: 'Buscar amigos en %{other_social_network} que ya estén usando weegoo'
       search_for_friends_on_other_social_networks_already_using_weegoo: Buscar amigos en otras redes sociales que ya estén usando weegoo
+      send_me_reset_password_instructions: Enviarme instrucciones para recuperar mi contraseña.
       sign_in: Iniciar sesión
       sign_in_with_provider: 'Iniciar sesión con %{provider}'
       sign_in_with_other_application: Iniciar sesión con otra aplicación
@@ -257,7 +263,7 @@ es:
       edit: Editar lugar
       find_venues: Buscar lugares
       information: '%{visitors} vistantes - %{possible_visitors} posibles visitantes - %{events} eventos - %{comments} comentarios - %{images} imagenes'
-      make_sure_that_the_venue_does_not_exists: "¡Asegurate que el lugar no exista!"
+      make_sure_that_the_venue_does_not_exists: "¡Asegurate que el lugar no exista en weegoo!"
       new: Nuevo lugar
       no_venues_found_for_query: 'No se encontraron lugares para "%{query}"'
       this_venue_has_no_comments: Este lugar no tiene comentarios

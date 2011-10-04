@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   before_filter :redirect_to_mobile_version_if_applicable
   before_filter :prepend_mobile_view_path
   
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  
   private
+  
+  def record_not_found(exception)
+    render :template => 'shared/404.html.erb', :status => 404
+  end
   
   def set_mobile_preferences
     if params[:mobile_version]

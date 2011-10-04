@@ -21,9 +21,9 @@
       <h2><%=t 'views.registrations.account_information' %></h2>
       <%= f.input :username %>
       <% if @user.password_required? %>
-        <%= f.input :password, :hint => t("views.registrations.hints.password"), :required => false %>
+        <%= f.input :password, :hint => t("views.registrations.hints.current_password"), :required => false %>
         <%= f.input :password_confirmation %>
-        <%= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
+        <%#= f.input :current_password, :hint => t("views.registrations.hints.current_password") %>
       <% end %>
     </div>
     

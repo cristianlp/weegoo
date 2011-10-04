@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_username!(params[:id])
     @activities = @user.related_activities.page(params[:page]).per(Activity::PER_PAGE)
     
     @most_visited_venues = Venue.most_visited

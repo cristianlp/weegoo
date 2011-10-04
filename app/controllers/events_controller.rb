@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = @venue.events.find_by_permalink(params[:id])
+    @event = @venue.events.find_by_permalink!(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

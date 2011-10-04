@@ -22,7 +22,7 @@
       <div class="inputs">
         <h2><%=t 'views.registrations.account_information' %></h2>
         <%= f.input :username %>
-        <% if @user.password_required? %>
+        <% if resource.password_required? %>
           <%= f.input :password %>
           <%= f.input :password_confirmation %>
         <% end %>

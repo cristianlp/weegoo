@@ -107,56 +107,6 @@ ActiveRecord::Schema.define(:version => 20110828214200) do
 
   add_index "images", ["user_id"], :name => "index_images_on_user_id"
 
-  create_table "media_file_comments", :force => true do |t|
-    t.integer  "media_file_id"
-    t.integer  "user_id"
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "media_files", :force => true do |t|
-    t.string   "title"
-    t.string   "file"
-    t.integer  "point_of_interest_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "point_of_interest_comments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "point_of_interest_id"
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "points_of_interest", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "category_id"
-    t.integer  "sub_category_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.date     "date"
-    t.time     "time"
-    t.string   "type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "permalink"
-  end
-
-  create_table "points_of_interest_users", :force => true do |t|
-    t.integer  "point_of_interest_id"
-    t.integer  "user_id"
-    t.boolean  "been"
-    t.boolean  "want_to_go"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sub_categories", :force => true do |t|
     t.string   "name"
     t.integer  "category_id"
