@@ -1,0 +1,11 @@
+<% title t('views.main.upcoming_events') %>
+
+<div data-role="content">
+  <% if @upcoming_events.size > 0 %>
+    <ul data-role="listview">
+      <%= render :partial => 'events/event', :collection => @upcoming_events %>
+    </ul>
+  <% else %>
+    <%=t 'views.events.there_are_no_upcoming_events' %>
+  <% end %>
+</div>

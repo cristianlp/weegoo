@@ -77,6 +77,7 @@ Neweegoo::Application.routes.draw do
   get 'about', :to => 'main#about'
   get 'contribute', :to => 'main#contribute'
   get 'search', :to => 'main#search'
+  get 'upcoming_events', :to => 'main#upcoming_events'
   
   root :to => 'main#index'
 

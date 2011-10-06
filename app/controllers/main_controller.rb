@@ -24,4 +24,8 @@ class MainController < ApplicationController
     @venues = Venue.search(params[:query]).page(1).per(Venue::PER_PAGE)
     @events = Event.search(params[:query]).page(1).per(Event::PER_PAGE)
   end
+  
+  def upcoming_events
+    @upcoming_events = Event.upcoming
+  end
 end
