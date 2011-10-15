@@ -5,7 +5,7 @@
     <h1><%=t 'views.registrations.sign_up' %></h1>
     
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <%= f.error_notification %>
       
       <div class="inputs">
         <h2><%=t 'views.registrations.personal_information' %></h2>

@@ -25,6 +25,7 @@ es:
             email:
               blank: El email no puede ser vacío.
               invalid: El email ingresado no es válido.
+              taken: El email ingresado ya está registrado.
             location:
               blank: La ubicación no puede ser vacía.
             username:
