@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = @venue.events.page(params[:page]).per(Event::PER_PAGE)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @events }

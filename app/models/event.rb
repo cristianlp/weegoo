@@ -17,6 +17,14 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   validates :start_date, :presence => true
   
+  acts_as_ferret :fields => [
+    :name,
+    :description
+  ], :additional_fields => [
+    :category,
+    :sub_category
+  ]
+  
   # Callbacks
   # because permalink_fu does not escape the name automatically:
   before_save :handle_permalink

@@ -6,9 +6,10 @@ class VenuesController < ApplicationController
   def index
     if params[:query]
       if is_mobile_request?
-        @venues = Venue.search(params[:query])
+        @venues = Venue.find_with_ferret(params[:query])
       else
-        @venues = Venue.search(params[:query]).page(params[:page]).per(Venue::PER_PAGE)
+        # this is because find_with_ferret is not a scope and we use kaminari to display the results
+        @venues = Kaminari.paginate_array(Venue.find_with_ferret(params[:query], { :page => 1, :per_page => 999 })).page(params[:page]).per(Venue::PER_PAGE)
       end
     else
       @venues = []

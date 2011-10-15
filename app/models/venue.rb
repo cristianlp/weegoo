@@ -20,6 +20,14 @@ class Venue < ActiveRecord::Base
   validates :latitude, :presence => true
   validates :longitude, :presence => true
   
+  acts_as_ferret :fields => [
+    :name,
+    :description
+  ], :additional_fields => [
+    :category,
+    :sub_category
+  ]
+  
   # Callbacks
   # because permalink_fu does not escape the name automatically:
   before_save :handle_permalink

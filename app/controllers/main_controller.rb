@@ -21,8 +21,8 @@ class MainController < ApplicationController
   
   def search
     @users = User.search(params[:query]).page(1).per(User::PER_PAGE)
-    @venues = Venue.search(params[:query]).page(1).per(Venue::PER_PAGE)
-    @events = Event.search(params[:query]).page(1).per(Event::PER_PAGE)
+    @venues = Venue.find_with_ferret params[:query], { :page => 1, :per_page => Venue::PER_PAGE }
+    @events = Event.find_with_ferret params[:query], { :page => 1, :per_page  =>Event::PER_PAGE }
   end
   
   def upcoming_events

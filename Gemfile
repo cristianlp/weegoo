@@ -34,6 +34,8 @@ gem 'carrierwave'
 
 gem 'fancybox-rails'
 
+gem 'acts_as_ferret', '>= 0.5'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
