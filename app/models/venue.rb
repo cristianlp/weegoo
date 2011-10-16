@@ -60,12 +60,12 @@ class Venue < ActiveRecord::Base
   def self.most_visited
     venues = []
     
-    sql = 'SELECT * FROM (SELECT * FROM activities WHERE type="VenueMarkedAsVisitedActivity" GROUP BY venue_id, user_a_id) AS activities GROUP BY venue_id ORDER BY COUNT(*) DESC LIMIT 10'
+    sql = 'SELECT users_venues.*, venues.name, COUNT(*) FROM users_venues JOIN venues ON venues.id = users_venues.venue_id WHERE visited = 1 GROUP BY venue_id ORDER BY COUNT(*) DESC LIMIT 10'
     
-    activities = Activity.find_by_sql(sql)
+    users_venues = UserVenue.find_by_sql(sql)
     
-    activities.each do |activity|
-      venues << activity.venue
+    users_venues.each do |user_venue|
+      venues << user_venue.venue
     end
     
     venues
