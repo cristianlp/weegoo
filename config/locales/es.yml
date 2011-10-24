@@ -48,6 +48,10 @@ es:
             sub_category:
               blank: La subcategoría no puede ser vacía.
   
+  controllers:
+    authentications:
+      created: Conexión realizada exitosamente.
+  
   date:
     formats:
       default: '%d/%m/%Y'

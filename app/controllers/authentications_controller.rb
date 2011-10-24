@@ -8,7 +8,7 @@ class AuthenticationsController < ApplicationController
         
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
-      flash[:notice] = t('controllers.authentications.signed_in')
+      flash[:notice] = t('devise.sessions.signed_in')
       authentication.user.update_omniauth(omniauth)
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
@@ -19,7 +19,7 @@ class AuthenticationsController < ApplicationController
       user = User.new
       user.apply_omniauth(omniauth)
       if user.save
-        flash[:notice] = t('controllers.authentications.signed_in')
+        flash[:notice] = t('devise.sessions.signed_in')
         sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
