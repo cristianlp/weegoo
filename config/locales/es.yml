@@ -167,7 +167,21 @@ es:
       about: Acerca
       advanced_venues_search: 'Búsqueda avanzada de lugares &rarr;'
       advanced_users_search: 'Búsqueda avanzada de usuarios &rarr;'
+      because: |
+        Porque weegoo es una red social turística open source. Esto significa que si encontrás un error podés reportarlo o si querés una nueva funcionalidad podés solicitarla.
+        Por otro lado, si sos desarrollador además de reportar errores o solicitar nueva funcionalidad podés enviar tu modificación y en caso de ser aprobada puede ser incluida en weegoo.
+      benefits: |
+        Esto te beneficia en muchos sentidos. En primer lugar, si solicitas nueva funcionalidad (o reportás un error, o mejor aún, envias un pull request con nueva funcionalidad) y esa funcionalidad
+        es útil para vos, lo será también para todos los usuarios de weegoo. En segundo lugar, weegoo es una red social turística open source. Esto significa que tenés la posibilidad de solicitar
+        funcionalidad, reportar errores y corregir/agregar funcionalidad: ¡esto es un gran beneficio!
       contribute: Contribuí
+      contribute_to_weegoo: Contribuí con weegoo
+      how: ¿Cómo?
+      how_do_i_benefit: ¿Como me beneficia?
+      like_this: |
+        Es muy sencillo. Lo único que necesitás es registrarte en <a href="http://github.com">Github</a> (si es que no lo has hecho). Una vez que hayas iniciado sesión, podés ver el
+        <a href="https://github.com/patriciomacadden/weegoo">código de weegoo</a>. Allí mismo podés crear issues indicando el error o solicitando la nueva funcionalidad. Si sos desarrollador,
+        podés hacer un fork del proyecto y modificarlo a tu gusto. Luego, cuando agregues la funcionalidad deseada, podés enviar un pull request.
       most_active_users: Usuarios más activos
       most_visited_venues: Lugares más visitados
       or_sign_in_with_facebook_or_twitter: 'o iniciá sesión con %{facebook} o %{twitter}'
@@ -177,6 +191,7 @@ es:
       upcoming_events: Eventos próximos
       users: Usuarios
       venues: Lugares
+      why: ¿Por qué?
     
     pagination:
       next: 'Ver más &darr;'
