@@ -156,6 +156,7 @@ es:
       there_are_no_upcoming_events: No hay eventos próximos.
       this_event_has_no_comments: Este evento no tiene comentarios
       this_event_has_no_images: Este evento no tiene imagenes
+      user: Creado por
     
     images:
       imageable_images: 'Imagenes de %{imageable}'
