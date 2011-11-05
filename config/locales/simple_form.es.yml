@@ -57,6 +57,8 @@ es:
       sub_category: Sub categoría
       tweet_activity: ¿Tweetear actividad?
       username: Nombre de usuario
+      user: Creado por
+      venue: Lugar
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
