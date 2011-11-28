@@ -50,6 +50,7 @@ es:
   
   controllers:
     authentications:
+      authentication_created: Conexión realizada exitosamente.
       created: Conexión realizada exitosamente.
   
   date:
