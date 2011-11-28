@@ -145,8 +145,8 @@ class User < ActiveRecord::Base
   
   def twitter_friends
     users_ids = []
-    Twitter.friends(twitter_authentication.uid.to_i).users.each do |twitter_user|
-      authentication = Authentication.where("uid = ?", twitter_user.id).first
+    Twitter.friend_ids(twitter_authentication.uid.to_i).ids.each do |twitter_user_id|
+      authentication = Authentication.where("uid = ?", twitter_user_id).first
       if authentication
         users_ids << authentication.user_id
       end
